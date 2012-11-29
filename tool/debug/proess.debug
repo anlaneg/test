@@ -1,1 +1,4 @@
-HELLO_MODULE:hello debug
+HELLO_MODULE:hello:控制hello模块
+WORLD_MODULE:world:控制world模块
+LOG_MODULE:log:控制world模块
+TEST_MODULE:test:控制world模块
