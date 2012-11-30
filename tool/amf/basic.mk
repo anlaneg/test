@@ -1,10 +1,12 @@
-#保证all为第一个目录
-#此目标移至rule.mk中
-#all: __module_before__ __all__ __module_after__
-#	@echo "do $@:$^"
 
-__all__:
-	@echo "do $@:$^"
+#获得SRCS_OBJECT文件
+SRCS_OBJECT=$(SRCS:%.c=$(OUT_DIR)/%.o)
+
+#获得CPLUS_SRCS_OBJECT文件
+CPLUS_SRCS_OBJECT=$(addprefix $(OUT_DIR)/,$(addsuffix .oo,$(basename $(CPLUS_SRCS))))
+
+#获得.d文件
+DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename $(CPLUS_SRCS_OBJECT)))
 
 
 #检查是否有MODULE_BEFORE
@@ -32,3 +34,51 @@ __module_after__: $(MODULE_AFTER)
 	@echo "do $@:$^"
 
 endif
+
+
+__all__:__mk_out_dir__ __mk_submod__ __mk_object__
+	@echo "do $@:$^"
+
+
+#生成输出目录
+__mk_out_dir__:
+	@echo "mkdir $(OUT_DIR)"
+
+#构建子模块
+__mk_submod__:
+	@for i in $(SUB_MODULE);do $(MAKE) -C $$i all ; done;
+
+#清理生成
+clean:
+	@echo "-rm -rf $(OUT_DIR)"
+
+#c文件生成.o文件
+$(OUT_DIR)/%.o:%.c
+	@echo "$@:$^"
+
+#c++文件生成.oo文件
+$(OUT_DIR)/%.oo:%.cpp
+	@echo "$@:$^"
+
+$(OUT_DIR)/%.oo:%.cc
+	@echo "$@:$^"
+
+$(OUT_DIR)/%.oo:%.C
+	@echo "$@:$^"
+
+#构造当前目录
+__mk_object__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)
+
+#用于amf框架测试
+debug_amf:
+	@echo "SRCS=$(SRCS)"
+	@echo "CPLUS_SRCS=$(CPLUS_SRCS)"
+	@echo "OUT_DIR=$(OUT_DIR)"
+	@echo "SRCS_OBJECT=$(SRCS_OBJECT)"
+	@echo "CPLUS_SRCS_OBJECT=$(CPLUS_SRCS_OBJECT)"
+	@echo "DEPEND_FILE=$(DEPEND_FILE)"
+	@echo "SUB_MODULE=$(SUB_MODULE)"
+
+
+#尝试着包含.d文件
+-include $(DEPEND_FILE)

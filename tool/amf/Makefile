@@ -1,4 +1,4 @@
-include rule.mk
+include $(AMF_PROJECT_MK_ROOT)/rule.mk
 
 MODULE_BEFORE=
 MODULE_AFTER=end
@@ -8,5 +8,7 @@ before:
 
 end:
 	@echo "do $@:$^"
-include basic.mk
+
+SUB_MODULE= submod
+include $(AMF_PROJECT_MK_ROOT)/basic.mk
 
