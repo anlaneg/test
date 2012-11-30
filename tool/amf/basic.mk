@@ -1,6 +1,7 @@
 #保证all为第一个目录
-all: __module_before__ __all__ __module_after__
-	@echo "do $@:$^"
+#此目标移至rule.mk中
+#all: __module_before__ __all__ __module_after__
+#	@echo "do $@:$^"
 
 __all__:
 	@echo "do $@:$^"
