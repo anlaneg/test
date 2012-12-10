@@ -6,6 +6,12 @@ VERSION_SOFT_NAME=
 #记录代码版本
 VERSION=
 
+#记录当前执行脚本的用户名
+USERNAME="`whoami`"
+
+#记录执行脚本时的时间
+DATE="`date +'%Y/%m/%d %T'`"
+
 #错误处理函数
 #$1错误信息
 #此函数将退出执行
@@ -47,9 +53,55 @@ function get_version()
 	VERSION="`get_${VERSION_SOFT_NAME}_workspace_version `" 
 }	
 
+#解析version脚本
+#$1 脚本代码
+#输出生成的文件
+function parser_version_script()
+{
+	script_path=$1;
+	cat $script_path | awk -v date_inner="$DATE" -v user_inner="$USERNAME" -v src_ver_inner="$VERSION" -v split_char="-version=" '
+		BEGIN {
+			along_match=0;
+			pro_name="";
+		} 
+
+		/^\s?[^#]+.+version/{
+			#获取pro_name			
+			pro_name=substr($0,0,index($0,split_char)-1);
+
+			#获取格式串
+			line=substr($0,length(pro_name) + length(split_char) + 1 )
+			
+			#printf("length(pro_name)= %d length(split_char)=%d ,%s\n",length(pro_name),length(split_char),line);
+			#替换内部变量
+			gsub(/\$\(DATE\)/,date_inner,line) ; 
+			gsub(/\$\(SRC_VER\)/,src_ver_inner,line) ; 
+			gsub(/\$\(USER\)/,user_inner,line);
+			along_match=along_match + 1 ;
+		} 
+	
+		END{ 
+			if(along_match > 1)
+			{
+				printf("file error,exsit more than one format line\n");
+				exit 1
+			}
+			#printf("line match %d\n",match(line,/^".*"$/));
+			if(match(line,/^".*"$/) ==0 )
+			{
+				printf("format line miss \"");
+				exit 1;
+			}
+
+			printf("const char* %s_get_version_info()\n{\nstatic const char* pro_name=%s;\nreturn pro_name;\n}\n",pro_name,line);
+		}'
+
+}
+
 #测试代码
 load_version_file
 get_version_soft_name
 get_version
-echo "soft_name:${VERSION_SOFT_NAME}";
-echo "version:${VERSION}"
+#echo "soft_name:${VERSION_SOFT_NAME}";
+#echo "version:${VERSION}"
+parser_version_script VERSION 

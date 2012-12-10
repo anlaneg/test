@@ -1,0 +1,8 @@
+#此文件用于定义版本号规则
+#提供内置变量如下
+#$(DATE) $(SRC_VER)
+#$(SRC_VER)
+#$(USER)
+#
+#xxx-version 中xxx表示函数前缀,其后为输出格式串
+cfgdb-version="cfgdb 1.0 \n inner version=$(SRC_VER) \ncomplier by $(USER)@$(DATE)"
