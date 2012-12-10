@@ -1,0 +1,4 @@
+1.cp git_version.sh xx_version.sh
+2.vim xx_version.sh
+3.在vim中执行 :%s/git/xx/g
+4.实现相应的函数,并测试
