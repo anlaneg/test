@@ -8,7 +8,11 @@ CPLUS_SRCS_OBJECT=$(addprefix $(OUT_DIR)/,$(addsuffix .oo,$(basename $(CPLUS_SRC
 #获得.d文件
 DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename $(CPLUS_SRCS_OBJECT)))
 
+#获取svn文件版本
+SVN_SRC_VERSION=$(shell if `svn info 2>/dev/null 1>/dev/null`; then svn info 2>/dev/null | head -n 5 | tail -n 1 | cut -d ' ' -f 2 ; else echo "NOT_SVN"; fi;)
 
+#获取git文件版本
+GIT_SRC_VERSION=$(shell if `git log 2>/dev/null 1>/dev/null` ; then  git log |  head -n 1 | cut -d ' ' -f 2 ; else echo "NOT_GIT"; fi;)
 #检查是否有MODULE_BEFORE
 ifeq ($(strip $(MODULE_BEFORE)),)
 __module_before__:
@@ -78,7 +82,8 @@ debug_amf:
 	@echo "CPLUS_SRCS_OBJECT=$(CPLUS_SRCS_OBJECT)"
 	@echo "DEPEND_FILE=$(DEPEND_FILE)"
 	@echo "SUB_MODULE=$(SUB_MODULE)"
-
+	@echo "SVN_SRC_VERSION=$(SVN_SRC_VERSION)"
+	@echo "GIT_SRC_VERSION=$(GIT_SRC_VERSION)"
 
 #尝试着包含.d文件
 -include $(DEPEND_FILE)
