@@ -8,3 +8,4 @@
 #形式化语言说明功能如下:
 # if [ ! -e file ] ; cp file to here
 
+awk -f dirsyn.awk dirsyn.config
