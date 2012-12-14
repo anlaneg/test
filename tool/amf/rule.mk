@@ -14,8 +14,11 @@ SUB_MODULE=
 #需要建立的输出目录
 OUT_DIR=obj
 
-#设置需要生成的类型
+#设置需要生成的目标类型
 TARGET_TYPE=obj
+
+#设置需要生成的目标名称
+TARGET_NAME=
 
 #C 默认编译选项
 C_COMPLIER_FLAGS="-Wall -Werror -g"

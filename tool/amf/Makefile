@@ -9,6 +9,6 @@ before:
 end:
 	@echo "do $@:$^"
 
-SUB_MODULE= submod
+SUB_MODULE= 
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
 

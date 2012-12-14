@@ -8,6 +8,8 @@ CPLUS_SRCS_OBJECT=$(addprefix $(OUT_DIR)/,$(addsuffix .oo,$(basename $(CPLUS_SRC
 #获得.d文件
 DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename $(CPLUS_SRCS_OBJECT)))
 
+#获得子模块生成的文件
+SUB_MODULE_OBJECT=$(wildcard $(OUT_DIR)/_*.o)
 
 #检查是否有MODULE_BEFORE
 ifeq ($(strip $(MODULE_BEFORE)),)
@@ -36,7 +38,7 @@ __module_after__: $(MODULE_AFTER)
 endif
 
 
-__all__:__mk_out_dir__ __mk_submod__ __mk_object__
+__all__:__mk_out_dir__ __mk_submod__ __mk_target__
 	@echo "do $@:$^"
 
 
@@ -46,7 +48,7 @@ __mk_out_dir__:
 
 #构建子模块
 __mk_submod__:
-	@for i in $(SUB_MODULE);do $(MAKE) -C $$i all ; done;
+	@for i in $(SUB_MODULE);do $(MAKE) -C $$i all || exit 1 ; done;
 
 #清理生成
 clean:
@@ -66,8 +68,29 @@ $(OUT_DIR)/%.oo:%.cc
 $(OUT_DIR)/%.oo:%.C
 	@echo "$@:$^"
 
-#构造当前目录
-__mk_object__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)
+#生成当前目录要求的目标
+ifeq ($(strip $(TARGET_TYPE)),bin)
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
+	@echo "bin=$@:$^"
+endif
+
+ifeq ($(strip $(TARGET_TYPE)),lib)
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
+(
+	@echo "lib=$@:$^"
+endif
+
+ifeq ($(strip $(TARGET_TYPE)),dynlib)
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
+
+	@echo "dnylib=$@:$^"
+endif
+
+ifeq ($(strip $(TARGET_TYPE)),obj)
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
+
+	@echo "obj=$@:$^"
+endif
 
 #用于amf框架测试
 debug_amf:
@@ -78,6 +101,8 @@ debug_amf:
 	@echo "CPLUS_SRCS_OBJECT=$(CPLUS_SRCS_OBJECT)"
 	@echo "DEPEND_FILE=$(DEPEND_FILE)"
 	@echo "SUB_MODULE=$(SUB_MODULE)"
+	@echo "TARGET_TYPE=$(TARGET_TYPE)"
+	@echo "SUB_MODULE_OBJECT=$(SUB_MODULE_OBJECT)"
 
 
 #尝试着包含.d文件
