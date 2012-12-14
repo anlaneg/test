@@ -1,0 +1,80 @@
+#! /bin/bash
+
+#将集合$1中的所有文件copy到$2目录中去
+function dirsyn_file_cp()
+{
+	src_files="$1";
+	dst_dir="$2";
+
+	#首先检查目标文件夹是否存在
+	if [ ! -e "$dst_dir" ];
+	then
+		echo "mkdir -p $dst_dir";
+	fi;
+
+	#实现文件copy
+	for i in $src_files;
+	do	
+		echo "cp $i $dst_dir"	
+	done;
+}
+
+
+#获取$1中所有文件名称
+#$2 文件名正则表达式,可以为空,如果不为空,则获取到的文件名称需要被过滤
+function dirsyn_get_filelist()
+{
+	file_path="$1"
+	file_name_re="$2"
+	echo `find $file_path -type f | awk -v re_filename="$file_name_re" ' 
+	{ 
+		if(length(re_filename))
+		{
+			printf("%s->match(%s)=%d ",$0,re_filename,match($0,re_filename));
+			if(match($0,re_filename))
+			{
+				printf("\"%s\" ",$0);
+			}
+		}
+		else
+		{
+			printf("\"%s\" ",$0);
+		}
+	}'`
+}
+
+
+#执行集合差运算A-B
+#返回差集
+function dirsyn_collect_operator()
+{
+	a=$1;
+	b=$2;
+	c= ;
+	for i in $a;
+	do
+		for j in $b;
+		do
+			if [ "X`basename $i`" == "X`basename $j`" ];
+			then
+				#TODO 可以在此位置删除掉b中的$i元素
+				#这样可以加快查询
+				break;
+			fi;
+		done;
+		if [ "X`basename $i`" != "X`basename $j`" ];
+		then
+			c="$c $i";
+		fi;
+	done;
+	echo "$c";
+}
+
+
+
+A=`dirsyn_get_filelist /home/along/github/tool/dirsyn "/.*awk/"`
+echo "get filelist A:$A"
+B=`dirsyn_get_filelist /home/along/github/helloworld`
+echo "get filelist B:$B"
+C=`dirsyn_collect_operator "$A" "$B"`
+dirsyn_file_cp "$C" "/test"

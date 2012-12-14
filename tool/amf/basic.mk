@@ -11,6 +11,11 @@ DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename
 #获得子模块生成的文件
 SUB_MODULE_OBJECT=$(wildcard $(OUT_DIR)/_*.o)
 
+#获取svn文件版本
+SVN_SRC_VERSION=$(shell if `svn info 2>/dev/null 1>/dev/null`; then svn info 2>/dev/null | head -n 5 | tail -n 1 | cut -d ' ' -f 2 ; else echo "NOT_SVN"; fi;)
+
+#获取git文件版本
+GIT_SRC_VERSION=$(shell if `git log 2>/dev/null 1>/dev/null` ; then  git log |  head -n 1 | cut -d ' ' -f 2 ; else echo "NOT_GIT"; fi;)
 #检查是否有MODULE_BEFORE
 ifeq ($(strip $(MODULE_BEFORE)),)
 __module_before__:
@@ -103,7 +108,8 @@ debug_amf:
 	@echo "SUB_MODULE=$(SUB_MODULE)"
 	@echo "TARGET_TYPE=$(TARGET_TYPE)"
 	@echo "SUB_MODULE_OBJECT=$(SUB_MODULE_OBJECT)"
-
+	@echo "SVN_SRC_VERSION=$(SVN_SRC_VERSION)"
+	@echo "GIT_SRC_VERSION=$(GIT_SRC_VERSION)"
 
 #尝试着包含.d文件
 -include $(DEPEND_FILE)

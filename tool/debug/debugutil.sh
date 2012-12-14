@@ -44,26 +44,30 @@ function read_config_file()
 		}
 
 		printf(\"/*实现flag控制函数*/\n\");
-		printf(\" static inline void module_debug_enable(const char*module_name)\n
+		printf(\" static inline void debug_module_enable(const char*module_name)\n
 			{\n
 				/*加入实现*/\n
 			}\n
-			static inline void module_debug_disable(const char*module_name)\n
+			static inline void debug_module_disable(const char*module_name)\n
 			{\n
 				/*加入实现*/\n
 			}\n
 
-			static inline void module_debug_enable_all()\n
+			static inline void debug_module_enable_all()\n
 			{\n
 				/*加入实现*/\n
 			}\n
 			
-			static inline void module_debug_disable_all()\n
+			static inline void debug_module_disable_all()\n
 			{\n
 				/*加入实现*/\n
 			}\n
 
-			static inline uint64_t module_debug_state()\n
+			static inline uint64_t debug_module_state()\n
+			{\n
+				/*加入实现*/\n
+			}\n
+			static inline int32_t debug_module_is_enable(const char*module_name)\n
 			{\n
 				/*加入实现*/\n
 			}\n
