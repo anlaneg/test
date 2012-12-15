@@ -9,19 +9,19 @@ END{
 
 
 
-/*完成配置行解析*/
+#完成配置行解析
 function dirsyn_parser_config_line(config_line)
 {
 	#忽略掉注释行
 	if(match($0,/^\s?#.*$/))
 	{ 
-		next;
+		return;
 	}
 	
 	#忽略掉空行
 	if(match($0,/^\s?$/))
 	{
-		next;
+		return;
 	}
 
 	#解析配置行	
@@ -52,7 +52,7 @@ function dirsyn_end()
 
 function dirsyn_config_valid(config_array)
 {
-	/*TODO add config line valid*/
+	#TODO add config line valid
 	return 0;	
 }
 

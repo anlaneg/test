@@ -33,7 +33,7 @@ function dirsyn_get_filelist()
 			printf("%s->match(%s)=%d ",$0,re_filename,match($0,re_filename));
 			if(match($0,re_filename))
 			{
-				printf("\"%s\" ",$0);
+				printf("\"match=%s\" ",$0);
 			}
 		}
 		else
@@ -72,9 +72,9 @@ function dirsyn_collect_operator()
 
 
 
-A=`dirsyn_get_filelist /home/along/github/tool/dirsyn "/.*awk/"`
+A=`dirsyn_get_filelist /home/along/workspace/test/tool/debug "/.*util/"`
 echo "get filelist A:$A"
-B=`dirsyn_get_filelist /home/along/github/helloworld`
+B=`dirsyn_get_filelist ./`
 echo "get filelist B:$B"
 C=`dirsyn_collect_operator "$A" "$B"`
 dirsyn_file_cp "$C" "/test"
