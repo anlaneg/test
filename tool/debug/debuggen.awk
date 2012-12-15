@@ -61,10 +61,10 @@ function gen_module_names()
 	file_module_names="";
 	for(i = 0 ; i < count; ++i)
 	{
-		file_module_names= file_module_names  "\\\"" debug_info[i,"macro"] "\\\",\\n";
+		file_module_names= file_module_names  "\\\"" debug_info[i,"command"] "\\\",\\n";
 	}
 	
-	return file_module_names;
+	return file_module_names  "NULL\\n";
 }
 
 function gen_module_example_name()
@@ -84,11 +84,11 @@ function gen_module_example_name()
 
 function gen_hfile(file_name_toupper,file_module_macro)
 {
-	printf("cat template_debug.h | awk '{sub(\"##FILE_NAME_UPPER##\",\"%s\"); sub(\"##DEBUG_MODULE_COUNT##\",\"%d\");sub(\"##DEBUG_MODULE_MACRO_FLAG##\",\"%s\");sub(\"##DEBUG_MODULE_EXAMPLE##\",\"%s\"); print $0 }';",file_name_toupper,count,file_module_macro,file_module_example_name);
+	printf("cat template_debug.h | awk '{sub(\"##FILE_NAME_UPPER##\",\"%s\"); sub(\"##DEBUG_MODULE_COUNT##\",\"%d\");sub(\"##DEBUG_MODULE_MACRO_FLAG##\",\"%s\");sub(\"##DEBUG_MODULE_EXAMPLE##\",\"%s\"); print $0 }' > %s/%s_debug.h;",file_name_toupper,count,file_module_macro,file_module_example_name,out_path,file_name);
 }	
 			
 	
 function gen_cfile()
 {
-	printf("cat template_debug.c | awk '{sub(\"##FILE_NAME##\",\"%s\"); sub(\"##FILE_NAME_UPPER##\",\"%s\");sub(\"##DEBUG_MODULE_NAME##\",\"%s\"); print $0; }';",file_name,file_name_toupper,file_module_names);
+	printf("cat template_debug.c | awk '{sub(\"##FILE_NAME##\",\"%s\"); sub(\"##FILE_NAME_UPPER##\",\"%s\");sub(\"##DEBUG_MODULE_NAME##\",\"%s\"); print $0; }' > %s/%s_debug.c;",file_name,file_name_toupper,file_module_names,out_path,file_name);
 }
