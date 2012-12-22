@@ -1,0 +1,10 @@
+fun_name:add_fun
+begin
+	input(2,3)=>output(5)
+	input(2,4)=>output(6)
+	input(2,6)=>output(8)
+	input(xx,xx)=>output(10)
+end
+
+
+input((in)a,(inout)b,out)=>
