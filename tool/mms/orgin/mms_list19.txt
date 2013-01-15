@@ -1,0 +1,716 @@
+ 国际电台怀旧金曲            mms://live.cri.cn/oldies/
+国际电台都市流行            mms://live.cri.cn/pop/
+菲特思综艺广播台            mms://117.34.72.114/music
+一听网络音乐电台            mms://online-radio.1ting.com/music
+青檬网络音乐电台            mms://pub1.qmoon.net/911pop?cccode=cc1325
+广东电台音乐之声            mms://live.rgd.com.cn/993
+广东珠江经济电台            mms://live.rgd.com.cn/974
+深圳电台飞扬音乐            mms://vod.szr.com.cn/szr_2
+佛山电台飞跃924             mms://59.38.110.90/924
+佛山电台千色985             mms://59.38.110.90/985
+KissRadio音乐台              mms://bcr.media.hinet.net/RA000042
+北京电台怀旧金曲            mms://alive.bjradio.com.cn/cfm1075
+湖南电台音乐之声            mms://202.103.67.185/音乐
+无锡电台音乐台                rtsp://vs1.thmz.com/radio31
+银河台古典音乐              mms://media.radio.cn/radio4
+猫扑网络电台                  mms://ting.mop.com/mopradio
+厦门音乐广播                  mms://mediasrv2.iptv.xmg.com.cn/yinyue
+银河相声小品                   mms://media.radio.cn/radio2
+上海故事广播                  mms://diantai.smgbb.cn/sgwy
+合肥故事广播                  mms://218.185.192.4/audio4
+
+
+网络电台
+
+猫扑电台                           mms://ting.mop.com/mopradio
+CVC中文电台                    http://www2.cvc.tv/stream/CVC_Chinese_24kbps.m3u
+QQ综艺之声                     http://qr.fm.qq.com/qqradio?qqradio
+QQ-都市流行                    rtsp://live.cri.cn/pop                   
+银河电台中国民乐              mms://media.radio.cn/radio1
+银河评书联播                    mms://media.radio.cn/radio3              
+香港AirPOWER                   rtsp://live.onairpower.com:444/          
+大爱网路电台                      rtsp://bcr.media.hinet.net/RA000017      
+青少年音乐台                    rtsp://58.63.245.9/live/stream=3             
+青檬音乐台                       mms://pub1.qmoon.net/911pop?cccode=cc1325    
+华语之声综合                    rtsp://60.191.21.139/hy960/rtx              
+i RADIO网路音乐台           http://www.iradio.com.tw/radio.asx           
+西洋精选情歌                     mms://media.justaiwan.com/03
+50、60年代西洋歌曲         mms://media.justaiwan.com/04
+派对音乐                            mms://media.justaiwan.com/07
+爵士演唱                           mms://media.justaiwan.com/09
+爵士演奏                           mms://media.justaiwan.com/10
+昭和平成演歌名曲             mms://media.justaiwan.com/12
+东洋流行畅销歌曲              mms://media.justaiwan.com/13
+巴西爵士                          mms://media.justaiwan.com/15
+钢琴演奏                            mms://media.justaiwan.com/17
+水晶音乐                            mms://media.justaiwan.com/18
+舒适环境音乐                    mms://media.justaiwan.com/19
+季节音乐                            mms://media.justaiwan.com/20
+怀旧留声机                       mms://media.justaiwan.com/21
+华语流行畅销                      mms://media.justaiwan.com/22
+中国古典乐                       mms://media.justaiwan.com/24
+儿童音乐                           mms://media.justaiwan.com/25
+生日快乐                            mms://media.justaiwan.com/27
+結婚进行曲/晚安曲            mms://media.justaiwan.com/28
+甜蜜情歌                           mms://media.justaiwan.com/29
+POP流行新曲(节庆音乐)    mms://media.justaiwan.com/30
+时尚音乐                           mms://media.justaiwan.com/37
+轻松旋律                             mms://media.justaiwan.com/43
+轻音乐                                 mms://media.justaiwan.com/38
+
+ 
+
+广东电台
+
+广东电台音乐之声               mms://live.fm993.com.cn/musicfm
+广东珠江经济台                mms://live.rgd.com.cn/974
+广东电台股市广播               mms://live.rgd.com.cn/953
+广东南方生活广播               mms://live.rgd.com.cn/936          
+广东电台城市之声               mms://media.fm1036.com/liveaudio
+广东电台卫星广播               mms://live.rgd.com.cn/914
+广东羊城交通台                 mms://live.rgd.com.cn/1052
+广东电台文体广播               mms://live.rgd.com.cn/1077
+广州花都广播电台               http://www.941gb.com/941gb/04/06.asx                    
+深圳电台新闻频率               mms://vod.szr.com.cn/szr_1
+深圳电台飞扬音乐               mms://vod.szr.com.cn/szr_2
+深圳电台交通频率               mms://vod.szr.com.cn/szr_3
+深圳电台生活频率               mms://vod.szr.com.cn/szr_4
+佛山电台畅游883                mms://59.38.110.90/883
+佛山电台顺德901                mms://59.38.110.90/901
+佛山电台缤纷906                    mms://59.38.110.90/906
+佛山电台飞跃924                    mms://59.38.110.90/924
+佛山电台真爱946                    mms://59.38.110.90/946
+佛山电台千色985                     mms://59.38.110.90/985
+珠海电台新闻资讯                   mms://www.zhtv.com/fm951
+珠海电台交通文艺                    mms://www.zhtv.com/fm875
+东莞电台新闻综合                   mms://radio.sun0769.com/fm1008         
+东莞电台交通音乐                   mms://radio.sun0769.com/fm1075            
+江门电台新闻综合                    mms://116.254.197.80/fm1002
+江门电台旅游音乐                      mms://116.254.197.80/fm933
+汕头电台新闻资讯                    mms://media.strtv.cn/strch1
+汕头电台经济生活                    mms://media.strtv.cn/strch2
+汕头电台音乐之声                   mms://media.strtv.cn/strch3
+潮州电台综合频道                    http://219.131.159.151/czdt939
+潮州电台戏曲之声                   http://219.131.159.150/czdt1031
+澄海广播电台                          mms://bbs.hepan.net.cn/chdt
+遂溪广播电台                          mms://219.129.71.70:8080/
+
+连州广播电台                           mms://210.77.103.131:8080/
+鹤山电台1047                         mms://211.156.182.134/fm1047
+新会广播电台                           mms://220.249.194.132:8080/
+
+中央电台
+
+中央电台中国之声                      mms://mms.cnr.cn//cnr1?MTUjMCM    
+中央电台经济之声                      mms://mms.cnr.cn//cnr2?MTUjMCM    
+中央电台音乐之声                      mms://mms.cnr.cn//cnr3?MTUjMCM    
+中央电台都市之声                      mms://mms.cnr.cn//cnr4?MTUjMCM    
+中央电台中华之声                      mms://mms.cnr.cn//cnr5?MTUjMCM    
+中央电台神州之声                      mms://mms.cnr.cn//cnr6?MTUjMCM    
+中央电台民族之声                  mms://mms.cnr.cn//cnr8?MTUjMCM    
+中央电台华夏之声                   mms://media.radio.cn/live    
+中央电台文艺之声                  mms://mms.cnr.cn//cnr9?MTUjMCM 
+中国国际电台网络                   mms://living.chinabroadcast.cn/inet
+国际电台HitFm887                  mms://live.hitfm.cn/fm887
+国际电台新闻频道                   mms://media.crinewsradio.cn/crinewsradio
+国际在线                                mms://219.142.120.27/chn
+国际电台EASY FM                 mms://enmms.chinabroadcast.cn/fm91.5
+国际在线音乐广播                  mms://enmms.chinabroadcast.cn/am1008
+国际电台怀旧金曲                   mms://live.cri.cn/oldies
+国际电台都市流行                   mms://live.cri.cn/pop
+国际电台乡村民谣                    mms://live.cri.cn/country
+国际电台Round the Clock        mms://livexwb.cri.com.cn/clock
+国际电台Nairobi 91.9              mms://livexwb.cri.com.cn/kenya
+国际电台Vientiane 93.0           mms://livexwb.cri.com.cn/lao
+国际电台Perth 104.9                mms://livexwb.cri.com.cn/aus
+国际电台Capital Service 1       mms://enmms.chinabroadcast.cn/am846
+国际电台Capital Service 2        mms://living.chinabroadcast.cn/en2
+
+118 北京电台
+
+119 北京电台新闻广播               mms://alive.bjradio.com.cn/fm1006 
+120 北京电台故事广播               mms://alive.bjradio.com.cn/am603
+121 北京电台长书广播               mms://alive.bjradio.com.cn/cfm1043
+122 北京电台城市管理               mms://alive.bjradio.com.cn/fm1073
+123 北京电台外语广播               mms://alive.bjradio.com.cn/am774
+124 北京电台戏曲曲艺               mms://alive.bjradio.com.cn/cfm1051
+125 北京电台交通广播               mms://alive.bjradio.com.cn/fm1039
+126 北京电台欢乐时光               mms://alive.bjradio.com.cn/cfm1065
+127 北京电台文艺广播               mms://alive.bjradio.com.cn/fm876
+128 北京电台怀旧金曲               mms://alive.bjradio.com.cn/cfm1075
+129 北京电台体育广播               mms://alive.bjradio.com.cn/fm1025
+130 北京电台通俗音乐               mms://alive.bjradio.com.cn/cfm970
+131 北京电台音乐台                 mms://alive.bjradio.com.cn/fm974
+132 北京电台爱家广播               mms://alive.bjradio.com.cn/am927
+133 北京电台古典音乐               mms://alive.bjradio.com.cn/cfm986
+134 北京电台教学广播               mms://alive.bjradio.com.cn/cfm994
+
+
+135 湖南电台
+
+136 湖南电台交通频道 mms://202.103.67.185/交通
+137 湖南电台经济频道 mms://202.103.67.185/经济
+138 湖南电台文艺频道 mms://202.103.67.185/文艺
+139 湖南电台新闻广播 mms://202.103.67.185/新闻
+140 湖南电台乡村之声 mms://202.103.67.185/乡村
+141 湖南电台旅游频道 mms://220.168.7.27/旅游
+142 湖南电台音乐之声 mms://202.103.67.185/音乐
+143 金鹰之声         mms://real.rednet.cn/955
+
+
+144 港澳电台
+
+145 香港电台第一台   rtsp://202.177.192.111/radio1
+146 香港电台第二台   rtsp://202.177.192.111/radio2
+147 香港电台第三台   rtsp://202.177.192.111/radio3
+148 香港电台第四台   rtsp://202.177.192.111/radio4
+149 香港电台第五台   rtsp://202.177.192.111/radio5
+150 香港电台普通话台 mms://202.177.192.111/ptc
+151 新城知讯台       http://s1.104mfonline.com.hk/Encoder4        
+152 新城财经台       http://s1.104mfonline.com.hk/Encoder5        
+153 新城采讯台       http://s1.104mfonline.com.hk/Encoder3          
+154 香港商业雷霆881 http://www.941gb.com/941gb/23/881.asx
+155 香港商业叱咤903 http://www.941gb.com/941gb/23/903.asx
+
+156 上海电台
+
+157 上海电台新闻频率               mms://218.1.74.230/sgxw
+158 上海电台交通频率               mms://218.1.74.230/sgjt
+159 上海电台都市792                mms://218.1.74.230/ds792
+160 上海电台动感101                http://www.smgbb.cn/101/live101web.asx
+161 上海电台LoveRadio              mms://218.1.74.230/ml103
+162 上海电台经典947                mms://218.1.74.230/jd947
+163 上海电台第一财经               mms://218.1.74.230/dycj
+164 上海电台故事调频               mms://218.1.74.230/sgwy
+165 上海电台海上戏剧               mms://218.1.74.230/sgxj
+166 上海电台体育频率               mms://218.1.74.230/sport
+167 东广电台新闻台                 mms://218.1.74.230/dgxw
+
+168 浙江电台
+
+169 杭州电台新闻广播               mms://218.108.20.172/audio_live1
+170 杭州电台金秋频率               mms://60.191.126.66/audio_fm89
+171 杭州电台丽人广播               mms://218.108.107.169/丽人广播/
+172 杭州电台西湖之声               mms://218.108.20.172/audio_fm89
+173 温州电台经济生活               rtsp://61.164.128.51/live
+174 温州电台音乐广播               rtsp://61.164.128.51/yyt
+175 温州电台新闻广播               rtsp://61.164.128.51/xwt
+176 温州电台交通广播               mms://61.164.128.51/jjt
+177 金华电台新闻综合               mms://211.140.147.252/1          1
+178 金华电台经济频率               mms://211.140.147.252/2          1
+179 金华电台交通音乐               mms://211.140.147.252/3          1
+180 萧山电台有线广播               rtsp://vod.xsgd.net/yx98           
+181 萧山调频广播电台               rtsp://vod.xsgd.net/xs107.9        
+182 瑞安电台910                    mms://www.rabtv.cn/fm910/
+183 瑞安电台107                    mms://www.rabtv.cn/fm107/
+184 台州电台音乐广播               mms://60.191.151.178/fm100
+185 台州电台新闻综合               mms://60.191.151.178/fm987
+186 台州电台交通广播               mms://60.191.151.178/fm1027
+187 绍兴县广播电台                 mms://www.fm106.cn/fm106
+188 舟山人民广播电台               mms://av.zhoushan.cn/Radio
+189 千岛湖之声                     rtsp://218.108.70.60/fm101
+
+190 江苏电台
+
+191 江苏电台财经广播               mms://vod2.jsbc.com/audio0
+192 江苏电台经典音乐               mms://vod2.jsbc.com/audio3.jsgd
+193 江苏电台音乐频率               mms://vod2.jsbc.com/audio4.jsgd
+194 江苏电台故事广播               mms://vod2.jsbc.com/audio2.jsgd
+195 江苏电台文艺广播               mms://vod2.jsbc.com/1053.jsbc
+196 江苏电台交通广播               mms://vod2.jsbc.com/audio7123.jsgd
+197 江苏电台新闻广播               mms://vod2.jsbc.com/937.jsbc
+198 江苏电台新闻频率               mms://vod2.jsbc.com/audio1.jsgd
+199 江苏电台健康广播               mms://vod2.jsbc.com/audio6.jsgd
+200 南京电台101(江苏)              rtsp://ralive.njbg.com.cn/fm101.7           改    
+201 南京电台103(江苏)              rtsp://ralive.njbg.com.cn/myfm               
+202 南京电台新闻96.6               rtsp://ralive.njbg.com.cn/njxw96.6          
+203 南京电台交通频率               rtsp://ralive.njbg.com.cn/fm102.4            
+204 南京电台音乐频率               rtsp://ralive.njbg.com.cn/fm105.8            
+205 南京电台体育频率               rtsp://ralive.njbg.com.cn/fm104.3            
+206 南京电台经济频率               mms://ralive.njbg.com.cn/njjj                
+207 南京电台新闻频率               rtsp://ralive.njbg.com.cn/njxw               
+208 无锡电台交通台                 rtsp://vs1.thmz.com/radio21
+209 无锡电台新闻台                 rtsp://vs1.thmz.com/radio11
+210 无锡电台经济台                 rtsp://vs1.thmz.com/radio41
+211 无锡电台音乐台                 rtsp://vs1.thmz.com/radio31
+212 无锡电台江南之声               rtsp://vs1.thmz.com/radio61
+213 无锡电台都市生活               rtsp://vs1.thmz.com/radio51
+214 常熟新闻综合                   mms://sound.am1116.com/am1116
+215 常熟交通音乐                   mms://sound.am1116.com/fm1008
+216 常熟经济服务                   mms://sound.am1116.com/am927
+217 徐州电台音乐台                 mms://218.3.205.21/dsylpl
+218 徐州电台文艺台                 mms://218.3.205.21/wypl
+219 徐州电台交通台                 mms://218.3.205.21/jtpl
+220 徐州电台新闻台                 mms://218.3.205.21/xwpl
+221 徐州电台城市台                 mms://218.3.205.21/csgb
+222 常州电台戏曲台                 mms://vod1.cztv.tv/747
+223 常州电台交通台                 mms://vod1.cztv.tv/fm90
+224 常州电台资讯娱乐               mms://vod1.cztv.tv/fm1034
+225 常州电台新闻综合               mms://vod1.cztv.tv/846
+226 常州电台生活健康               mms://vod1.cztv.tv/1143
+227 常州电台城市调频               mms://vod1.cztv.tv/fm105.2
+228 常州电台怀旧频率               mms://vod1.cztv.tv/927
+229 常州电台汽车频率               mms://vod1.cztv.tv/fm100.1
+230 苏州电台音乐广播               mms://58.211.0.53/948
+231 苏州电台交通广播               mms://58.211.0.53/1048
+232 苏州电台新闻广播               mms://58.211.0.53/911
+233 苏州电台生活广播               mms://58.211.0.53/fm
+234 苏州电台欢乐都市夜             mms://live.enjoynight.cn/1048
+235 苏州电台故事广播               mms://58.211.0.53/1028
+236 扬州电台交通广播               mms://218.106.97.4/jtt/
+237 扬州电台经济广播               mms://218.106.97.4/jjt/
+238 扬州电台新闻广播               mms://218.106.97.4/xwt/
+
+ 
+
+239 四川电台
+
+240 四川电台经济电台               mms://218.6.174.14/fm89.4
+241 四川电台新闻频率               mms://218.6.172.53/fm6
+242 四川电台岷江音乐               mms://218.6.174.14/FM95.5/Live.asf
+243 四川电台城市之声               mms://218.6.174.14/fm102.6
+244 四川电台交通频道               mms://218.6.174.14/fm101.7
+245 四川电台都市生活               mms://218.6.172.53/fm5
+246 四川电台财富广播               mms://218.6.172.53/fm1
+247 乐山电台新闻频道               mms://218.6.224.44/fm102.8
+
+
+248 广西电台
+
+249 广西电台卫星广播               mms://222.216.110.227:6060/audio4
+250 广西电台对外广播               mms://222.216.110.227:6060/audio6
+251 广西电台交通台                 mms://222.216.110.227:6060/audio5
+252 广西电台文艺广播               mms://222.216.110.227:6060/audio2
+253 广西电台教育生活               mms://222.216.110.227:6060/audio1
+254 广西电台经济广播               mms://222.216.110.227:6060/audio3
+255 玉林电台新闻综合               mms://www.yldt.com/live_xw
+256 玉林电台交通音乐               mms://www.yldt.com/live_jt
+257 百色广播电台                   mms://222.83.250.12/bsradio 
+258 钦州电台音乐广播               mms://www.gxqzdt.com:1056/      
+
+
+259 海南电台
+
+260 海南经济广播 mms://218.77.178.156/LIVECAM1
+261 海南新闻广播 mms://218.77.178.163/LIVECAM8
+262 海南交通广播 mms://218.77.178.163/LIVECAM9
+263 海南文艺广播 mms://218.77.178.163/LIVECAM10
+
+264 福建电台
+
+265 福建电台经济广播 mms://202.109.202.12/jj?MjYzODM0IzEjIzI0NDk5MQ==       
+266 福建电台东南广播 http://video.fjtv.net:8080/mms3.0/videoPlay/findBroadcastUrl.jspa?channelID=21&channelType=0
+267 福建电台音乐广播 mms://61.131.4.183/fm913                                                  
+268 福建电台华艺广播 http://www.hi-fm.com/liveradio/wmp90047.asx 
+269 福建都市生活广播 http://www.fm987.com.cn/Radio/52987radio.asx           
+270 厦门电台新闻广播 mms://mediasrv1.iptv.xmg.com.cn/xinwen
+271 厦门电台经济交通 mms://mediasrv1.iptv.xmg.com.cn/jingji
+272 厦门电台音乐广播 mms://mediasrv1.iptv.xmg.com.cn/yinyue 
+273 厦门电台闽南之声 mms://mediasrv1.iptv.xmg.com.cn/minnan
+274 厦门电台旅游广播 mms://mediasrv2.iptv.xmg.com.cn/tour
+275 华艺广播电台     mms://218.5.3.181:1250/
+276 德化广播电台     mms://122.227.16.189/dhgb   
+277 福州音乐广播      rtsp://120.35.7.66/FZRDM
+278 福州电台新闻广播 rtsp://120.35.7.66/FZRDN
+279 福州电台交通之声 rtsp://120.35.7.66/FZRDT
+
+    
+280 天津电台
+
+    
+281 天津电台古典音乐 http://61.136.19.228/live15
+282 天津电台小说广播 mms://61.136.19.228/live8
+283 天津电台区县广播 http://61.136.19.228/live11
+284 天津电台音乐频道 mms://61.136.19.228/live2
+285 天津电台生活广播 mms://61.136.19.228/live6
+286 天津电台经济广播 mms://61.136.19.228/live3
+287 天津电台交通广播 mms://61.136.19.228/live5
+288 天津电台外语广播 http://61.136.19.228/live16
+289 天津电台戏曲广播 http://61.136.19.228/live14
+    塘沽电台滨海之声 mms://60.30.52.215/binhairadio
+290 天津电台新闻广播 mms://61.136.19.228/live1
+
+291 山东电台
+
+292 山东电台故事乡村 mms://media.sdgb.cn/gushixiangcun
+293 山东电台数字休闲 mms://media.sdgb.cn/shuzixiuxian
+294 山东电台文艺频道 mms://media.sdgb.cn/wenyi
+295 山东电台新闻频道 mms://media.sdgb.cn/xinwen
+296 山东电台经济频道 mms://media.sdgb.cn/jingji
+297 山东电台生活频道 mms://media.sdgb.cn/shenghuo
+298 山东电台交通频道 mms://media.sdgb.cn/jiaotong
+299 山东电台音乐频道 mms://media.sdgb.cn/yinyue
+300 山东电台经济FM96 mms://media.sdgb.cn/jingji96
+301 山东电台体育休闲 mms://media.sdgb.cn/tiyuxiuxian
+302 济南电台音乐887 mms://210.77.193.6/music1
+303 济南电台经济频道 mms://210.77.193.6/jingji
+304 济南电台交通频率 mms://210.77.193.6/jiaotong
+305 济南电台文艺频道 mms://210.77.193.6/wenyi
+306 济南电台音乐频道 mms://210.77.193.6/music1
+307 青岛电台交通广播 http://www.qingdaomedia.com/jtgb.asx
+308 青岛电台文艺广播 http://www.qingdaomedia.com/wygb.asx
+309 青岛电台经济频率 http://www.qingdaomedia.com/jjgb.asx
+310 青岛电台新闻频道 http://www.qingdaomedia.com/qdgb.asx
+311 青岛电台快乐603 http://www.qingdaomedia.com/jjgb2.asx
+312 潍坊电台887      rtsp://222.132.26.195/fm887    
+313 潍坊电台908      rtsp://222.132.26.195/fm908    
+
+314 安徽电台
+
+315 安徽电台农村广播 mms://live.ahradio.com.cn/ncgb
+316 安徽电台交通广播 mms://live.ahradio.com.cn/jtgb
+317 安徽电台生活广播 mms://live.ahradio.com.cn/shgb
+318 安徽电台音乐广播 mms://live.ahradio.com.cn/yygb
+319 安徽电台经济广播 mms://live.ahradio.com.cn/jjgb
+320 安徽电台新闻广播 mms://live.ahradio.com.cn/xwgb
+321 安徽电台小说评书 mms://live.ahradio.com.cn/xspsgb
+322 合肥电台故事广播 mms://218.185.192.4/audio4
+323 合肥电台交通广播 mms://218.185.192.4/audio3
+324 合肥电台文艺广播 mms://218.185.192.4/audio2
+325 合肥电台新闻综合 mms://218.185.192.4/audio1
+326 淮南电台新闻综合 mms://202.102.208.42/live4
+327 淮北电台新闻综合 mms://moive.0561news.com/hbgb1
+328 淮北电台经济生活 mms://moive.0561news.com/hbgb3
+329 淮北电台交通广播 mms://moive.0561news.com/hbgb2
+
+330 湖北电台
+
+331 湖北电台新闻综合 mms://58.48.156.93/1046
+332 湖北电台经济广播 mms://58.48.156.93/998
+333 湖北电台音乐广播 mms://58.48.156.93/1038
+334 湖北电台交通广播 mms://58.48.156.93/1078
+335 湖北电台生活广播 mms://58.48.156.93/966
+336 湖北电台妇女儿童 mms://58.48.156.93/1026
+337 武汉电台交通频道 mms://whreal.whtv.com.cn/jt
+338 武汉电台长江经济 mms://whreal.whtv.com.cn/cj
+339 武汉电台文艺广播 mms://whreal.whtv.com.cn/wy
+340 武汉电台广播电台 mms://whreal.whtv.com.cn/rm
+341 楚天电台交通体育 mms://58.48.156.93/927
+342 楚天电台卫星台   mms://58.48.156.93/916
+343 楚天电台新闻台   mms://58.48.156.93/1179
+344 楚天电台音乐广播 mms://58.48.156.93/1058
+345 宜昌电台都市之声 mms://119.36.136.157:8380/
+346 宜昌电台交通音乐 mms://119.36.136.157:8180/
+347 宜昌电台新闻综合 mms://119.36.136.157:8280/
+
+
+348 河南电台
+
+349 河南音乐广播            mms://vod.hndt.com/yygb
+350 河南MyRadio             mms://vod.hndt.com/fm90
+351 河南交通广播            mms://vod.hndt.com/jtgb
+
+
+352 台湾电台
+
+353 银河流行音乐台              rtsp://media.iwant-in.net/pop
+354 KISSRadio大众台             rtsp://bcr.media.hinet.net/RA000040
+355 KISSRadio音乐台             rtsp://bcr.media.hinet.net/RA000042
+356 KISSRadio大苗粟             rtsp://bcr.media.hinet.net/RA000041 
+357 KISSRadio台南知音           rtsp://bcr.media.hinet.net/RA000044
+358 KISSRadio南投广播           rtsp://bcr.media.hinet.net/RA000043
+359 中广音乐网                  rtsp://bcr.media.hinet.net/RA000007
+360 中广新闻网                  rtsp://bcr.media.hinet.net/RA000008
+361 中广流行网                  rtsp://bcr.media.hinet.net/RA000009
+362 中广古典网                  rtsp://bcr.media.hinet.net/RA000005
+363 中广客家频道                rtsp://bcr.media.hinet.net/RA000006
+364 台北爱乐                    rtsp://bcr.media.hinet.net/RA000018
+365 台北都会资讯                rtsp://bcr.media.hinet.net/RA000070    
+366 台北海洋频道                rtsp://bcr.media.hinet.net/RA000069
+367 台北之音                    rtsp://bcr.media.hinet.net/RA000035    
+368 台北之音-音乐               rtsp://bcr.media.hinet.net/RA000061
+369 台北之音-FM                 rtsp://bcr.media.hinet.net/RA000060
+370 台湾之音-华语               rtsp://bcr.media.hinet.net/RA000063
+371 台湾之音-亚洲               rtsp://bcr.media.hinet.net/RA000059
+372 GoldFm台中92.9              rtsp://bcr.media.hinet.net/RA000028
+373 HitFm高雄90.1               rtsp://bcr.media.hinet.net/RA000034
+374 HitFm台北91.7               rtsp://bcr.media.hinet.net/RA000036
+375 HitFm台中91.5               rtsp://bcr.media.hinet.net/RA000035
+376 复兴广播第一网              rtsp://bcr.media.hinet.net/RA000024
+377 复兴广播第二网              rtsp://bcr.media.hinet.net/RA000025
+378 复兴广播电台                rtsp://bcr.media.hinet.net/RA000026 
+379 佳音经典圣乐                rtsp://bcr.media.hinet.net/RA000029
+380 佳音电台FM90.9              rtsp://bcr.media.hinet.net/RA000030 
+381 佳音CCM                     rtsp://bcr.media.hinet.net/RA000031
+382 亚太电台                    rtsp://bcr.media.hinet.net/RA000002
+383 亚洲电台                    rtsp://bcr.media.hinet.net/RA000003
+384 亚洲卫星音乐台              rtsp://bcr.media.hinet.net/RA000004
+385 宜兰中山电台                rtsp://bcr.media.hinet.net/RA000065
+386 正声台北调幅台              rtsp://bcr.media.hinet.net/RA000015
+387 正声台北调频台              rtsp://bcr.media.hinet.net/RA000016
+388 汉声光华网(短波)            rtsp://bcr.media.hinet.net/RA000077
+389 汉声光华网(中波)            rtsp://bcr.media.hinet.net/RA000075
+390 汉声广播电台                rtsp://bcr.media.hinet.net/RA000074
+391 汉声广播调频                rtsp://bcr.media.hinet.net/RA000076
+392 台北好事989                 rtsp://bcr.media.hinet.net/RA000013
+393 台中好事903                 rtsp://bcr.media.hinet.net/RA000011
+394 台湾文化广播电台            rtsp://bcr.media.hinet.net/RA000032
+395 奇美古典音乐                rtsp://bcr.media.hinet.net/RA000014
+396 全国广播音乐网              rtsp://bcr.media.hinet.net/RA000047
+397 全国广播电台                rtsp://bcr.media.hinet.net/RA000068
+398 国立教育莲花分台            mms://fm973.nerhl.gov.tw:1234/
+399 国立教育台北总台            rtsp://liverec.ner.gov.tw/AMLive
+400 ICRT频道                    rtsp://bcr.media.hinet.net/RA000038
+401 IC之音97.5                  rtsp://bcr.media.hinet.net/RA000037
+402 苹果线上                    rtsp://bcr.media.hinet.net/RA000001
+403 飞碟电台                    rtsp://bcr.media.hinet.net/RA000072
+404 大汉之音                    rtsp://bcr.media.hinet.net/RA000021
+405 台中广播                    rtsp://bcr.media.hinet.net/RA000046
+406 环宇广播                    rtsp://bcr.media.hinet.net/RA000020 
+407 POP Radio                   rtsp://bcr.media.hinet.net/RA000080
+408 始广播电台                  mms://61.221.98.46:8080/
+409 大爱网络电台                rtsp://bcr.media.hinet.net/RA000017
+410 真心之音电台                rtsp://bcr.media.hinet.net/RA000033
+411 高雄港都983                 rtsp://bcr.media.hinet.net/RA000012
+412 云嘉广播电台                mms://61.218.197.178:8080/
+413 台北健康电台                rtsp://bcr.media.hinet.net/RA000027
+414 NEWS98新闻网                rtsp://bcr.media.hinet.net/RA000073
+415 宝岛新声广播                rtsp://bcr.media.hinet.net/RA000066
+416 飞扬调频895                 rtsp://bcr.media.hinet.net/RA000019
+417 台中城市广播                rtsp://bcr.media.hinet.net/RA000028
+418 太阳广播电台                rtsp://bcr.media.hinet.net/RA000064
+419 高屏溪客家电台              rtsp://bcr.media.hinet.net/RA000045
+420 新客家广播电台              rtsp://bcr.media.hinet.net/RA000048
+421 大千电台FM99.1              rtsp://bcr.media.hinet.net/RA000067
+422 台湾之音-欧美及方           rtsp://bcr.media.hinet.net/RA000062
+
+
+423 陕西电台
+
+424 陕西新闻广播    rtsp://218.30.15.177/news
+425 陕西经济广播    rtsp://218.30.15.177/encnomy
+426 陕西交通广播    rtsp://218.30.15.177/traffic
+427 陕西农村广播    rtsp://218.30.15.177/country
+428 陕西音乐广播    rtsp://218.30.15.177/music
+429 陕西都市广播    rtsp://218.30.15.177/city
+430 陕西戏曲广播    rtsp://218.30.15.177/opera
+431 陕西故事广播    rtsp://218.30.15.177/story
+432 陕西少儿广播    rtsp://218.30.15.177/kids
+433 西安新闻广播    rtsp://219.144.186.196/xw
+434 西安交通广播    rtsp://219.144.186.196/jtly
+435 西安音乐广播    rtsp://219.144.186.196/yy
+436 西安资讯广播    rtsp://219.144.186.196/zx
+437 汉中音乐广播    rtsp://www.fm971.net/net971
+
+438 辽宁电台
+
+439 沈阳大耳广播秀 rtsp://218.24.104.71/zhibo
+440 沈阳新闻广播    rtsp://218.24.104.71/news
+441 沈阳经济广播    rtsp://218.24.104.71/jingji
+442 沈阳文艺广播    rtsp://218.24.104.71/wy
+443 沈阳交通广播    mms://218.24.104.71/jiaotong
+444 沈阳体育广播    rtsp://218.24.104.71/tiyu
+445 沈阳都市广播    rtsp://218.24.104.71/dushi
+446 抚顺新闻台      rtsp://219.149.28.13:559/live7
+447 抚顺交通台      rtsp://219.149.28.13:559/live6
+448 抚顺音乐台      rtsp://219.149.28.13:559/live5
+449 丹东新闻频率    mms://60.21.157.2/丹东电台新闻频率
+450 丹东交通频率    mms://60.21.157.2/丹东电台交通频率
+451 丹东生活频率    mms://60.21.157.2/丹东电台生活娱乐频率
+452 丹东黄海频率    mms://60.21.157.2/丹东电台黄海之声
+453 大连新闻广播    rtsp://218.61.6.228/xwgb
+454 大连都市广播    rtsp://218.61.6.228/dlyp2
+455 大连体育广播    rtsp://218.61.6.228/tygb
+456 大连交通广播    rtsp://218.61.6.228/jtgb
+457 大连少儿广播    mms://218.61.6.228/easy radio
+458 大连财经广播    rtsp://218.61.6.228/cjgb
+459 大连新城市广播 rtsp://218.61.6.228/sqgb
+460 大连彩虹网络台 rtsp://218.61.6.228/wlgb
+
+
+461 河北电台
+
+462 河北新闻广播    rtsp://audio1.hebradio.com/live1
+463 河北文艺广播    rtsp://audio1.hebradio.com/live4
+464 河北交通广播    rtsp://audio1.hebradio.com/live3
+465 河北音乐广播    rtsp://audio1.hebradio.com/live6
+466 河北经济广播    rtsp://audio1.hebradio.com/live2
+467 河北生活广播    rtsp://audio1.hebradio.com/live5
+468 河北农村广播    rtsp://audio1.hebradio.com/live7
+469 河北旅游广播    rtsp://audio1.hebradio.com/live8
+470 秦皇岛交通台    mms://qhdradio.oicp.net:9001/
+471 秦皇岛音乐台    mms://qhdradio.oicp.net:9003/
+472 秦皇岛经济台    mms://qhdradio.oicp.net:9002/
+473 廊坊新闻广播    mms://60.10.16.48:8081
+474 廊坊长书广播    mms://60.10.16.48:8083
+475 廊坊戏曲广播    mms://60.10.16.48:8082
+476 石家庄新闻台    mms://121.28.81.221/video1
+477 石家庄经济台    mms://121.28.81.218/audio2
+478 石家庄音乐台    mms://121.28.81.218/audio3
+479 石家庄交通台    mms://121.28.81.218/audio4
+480 石家庄长书台    mms://121.28.81.218/audio5
+481 唐山新闻综合    mms://live.tangshanradio.com/am684news
+482 唐山经济生活    mms://live.tangshanradio.com//am801news
+483 唐山交通文艺    mms://live.tangshanradio.com/fm102news
+484 唐山音乐广播    rtsp://live.tangshanradio.com/fm94news
+485 唐山曹妃甸之声 rtsp://live.tangshanradio.com/am900news
+486 邯郸新闻广播    rtsp://wb.hdbs.cn/live1
+487 邯郸经济文艺    rtsp://wb.hdbs.cn/live2
+488 邯郸交通广播    rtsp://wb.hdbs.cn/live3
+489 邯郸戏曲广播    rtsp://wb.hdbs.cn/live4
+
+
+490 云南电台
+
+491 云南娱乐调频        rtsp://61.159.228.13/fm1017
+492 云南经济广播        rtsp://61.159.228.13/sh887
+493 昆明汽车广播        rtsp://www.radiokm.com/live3
+494 昆明阳光频率        rtsp://www.radiokm.com/live1
+495 昆明都市调频        rtsp://www.radiokm.com/live2
+496 德宏孔雀之声        mms://222.219.29.252:1173/
+497 大理苍洱调频        mms://218.63.190.150:8080
+498 普洱茶都之声        mms://220.164.150.253:1144
+499 普洱茶都调频        mms://220.164.150.253:1145
+
+
+500 甘肃电台
+
+501 兰州新闻综合        rtsp://www.lzr.com.cn/media1
+502 兰州交通音乐        rtsp://www.lzr.com.cn/media2
+503 兰州生活文艺        rtsp://www.lzr.com.cn/media3
+504 白银广播新闻综合    rtsp://221.7.61.202:6872
+
+505 宁夏电台
+
+506 宁夏交通广播        mms://61.133.211.228:1002/
+507 宁夏新闻广播        mms://61.133.211.228:1001/
+508 宁夏财富广播        mms://61.133.211.228:1003/
+509 宁夏都市广播        mms://61.133.211.228:1004/
+
+
+510 山西电台
+
+511 山西文艺广播        rtsp://www.sx1015.com/live1
+512 晋城新闻广播        mms://219.147.36.250/live4
+513 晋城交通广播        mms://219.147.36.250/live5
+
+
+514 蒙古电台
+
+515 赤峰汉语广播    rtsp://rd.cfradio.cn/r1
+516 赤峰蒙语广播    rtsp://rd.cfradio.cn/r2
+517 赤峰文艺广播    rtsp://rd.cfradio.cn/r3
+518 赤峰交通广播    rtsp://rd.cfradio.cn/r4
+
+
+519 黑龙江台
+
+520 哈尔滨经济台    mms://218.10.58.190:9000/
+521 哈尔滨交通台    mms://221.212.91.236/FM925
+522 哈尔滨经济台    mms://221.212.91.236/AM972
+523 哈尔滨文艺台    mms://218.10.58.190:9002/
+524 哈尔滨城市之声 mms://218.10.58.190:9004/
+525 哈尔滨音乐广播 mms://221.212.91.236/FM909
+
+
+526 重庆电台
+
+527 重庆新闻广播    rtsp://v1.cbg.cn/xinwen
+528 重庆经济广播    rtsp://v1.cbg.cn/jingji
+529 重庆交通广播    rtsp://v1.cbg.cn/jiaotong
+530 重庆音乐广播    rtsp://v1.cbg.cn/yinyue
+531 重庆都市广播    rtsp://v1.cbg.cn/dushi
+532 重庆故事广播    rtsp://live.cbg.cn/gushi
+
+
+533 国外电台
+
+534 韩国KBS              http://rki.kbs.co.kr/src/asx/L_RKI.asx        
+535 韩国中央1台          http://www.kbs.co.kr/onair/L_RKI.asx        
+536 韩国中央2台          http://www.kbs.co.kr/onair/L_RKI2.asx   
+537 马来西亚AiFm         http://bkj-station4.jaring.my/aifm?MSWMExt=.asf
+538 马来西亚988友声有色 http://75.125.106.155:8000
+539 日本NHK日语          http://www.nhk.or.jp/rj/asx/rjwmt56.asx
+540 日本NHK              mms://bbn-lf.stream.ne.jp/lfx-bb2
+541 日本湘南海岸广播     mms://43.244.255.28:1755/BeachFM
+542 日本simulFM76.2      http://www.simulradio.jp/sankaku_24k.asx
+543 日本simulFM76.7      http://www.simulradio.jp/flower_24k.asx
+544 日本MBS AM1179       http://www.mbs.jp/radio_bar/asx/welcome.asx
+545 日本iRadio           http://playlist.yahoo.com/makeplaylist.dll?ID=1247943
+546 越南之声             mms://210.245.0.62/vov6
+547 伊朗华语台           mms://62.220.122.8/world2
+548 俄罗斯之声           mms://live.wm.t-bn.de/live/st_ru/stimme_russl_2
+549 莫斯科银雨广播       http://www.silver.ru/mp3cast.pls
+550 新加坡ufm100.3       http://media.netroasia.com/ufm1003/ufm1003.asx
+551 新加坡城市频道       mms://202.172.226.203/FM958
+552 新加坡最爱频道       http://www.love972.sg/asx/fm972.asx
+553 新加坡醉心Yes933     http://www.yes933.sg/asx/fm933.asx
+554 新加坡动力883        http://streaming.clickhere2.com/883jia.asx
+555 多伦多AM1430         http://www.fairchildradio.com/Archive/am1430.asx
+556 多伦多FM88.9         http://www.fairchildradio.com/Archive/fm889.asx
+557 卡加利FM94.7         http://www.fm947.com/live.asx
+558 温哥华AM1470         http://www.am1470.com/liveam.asx
+559 温哥华FM96.1         http://www.am1470.com/livefm.asx
+560 英国广播世界服务     http://www.bbc.co.uk/worldservice/meta/tx/nb/live_news_au_nb.asx
+561 英国广播 1Xtra       http://www.bbc.co.uk/1xtra/realmedia/1xtra_hi.asx
+562 英国广播音乐         http://www.bbc.co.uk/6music/ram/6music_hi.asx
+563 英国广播             http://www.bbc.co.uk/bbc7/realplayer/bbc7_hi.asx
+564 亚洲广播             http://www.bbc.co.uk/asiannetwork/rams/asiannet_hi.asx
+565 体育国外广播         http://www.bbc.co.uk/fivelive/live/live_sportsextra_int.asx
+
+ 
+
+566 摇滚电台
+
+567 常青音乐电台                        http://www.dr.dk/netradio/metafiler/asx/DR_Evergreen_32.asx
+568 1001 Get Net Radio                  http://www.getnetradio.com/top40lo.asx
+569 60s&70s音乐电台                     http://www.1.fm/TuneIn/WM/energy60s_70s32k/Listen.aspx
+570 80s&90s音乐电台                     http://www.1.fm/TuneIn/WM/energy80s32k/Listen.aspx
+571 Audio Juice Misical Cast            http://audiojuice.24server.com/Musicals32k.wmx
+572 Bealts Radio                        http://www.beatlesradio.com/PlayFiles/BEATLEWMlo.asx
+573 DIG Internet Radio                  http://abc.net.au/dig/dig.asx
+574 Digitally Imported FM Hard-Core     http://www.di.fm/wma/hardcore.asx
+575 Digitally Imported FM Progressive   http://www.di.fm/wma/progressive.asx
+576 小镇电台                            http://www.networkwcs.com/asx/wbnl.asx
+577 西雅图校园电台                      http://www.c895worldwide.com/web/streaming/c895wm32.asx
+578 Kiss 105.3 FM                       mms://amazon.atlantic.net/Kiss1053
+579 Kool FM                             http://stream.netro.ca/chbe
+580 L9 Hits Rock                        http://www.l9.fr/l9/24.wax
+581 Old School街舞音乐电台              http://www.1.fm/TuneIn/WM/energyOlds32k/Listen.aspx
+582 Outbound Music Easy Mix             mms://music.outboundmusic.com/OMEasyMix
+583 Outbound Music Pop                  mms://music.outboundmusic.com/OMRadioPop
+584 Outbound Music Rock                 mms://music.outboundmusic.com/OMRadioRock
+585 Radio Skipper                       http://www.radioskipper.com/192.asx
+586 Real HardCore Radio                 http://www.hardcoreradio.nl/hr.asx
+587 Texas Rebel Radio                   http://nick8.surfernetwork.com/Media/TexasRebel.asx
+588 The Edge 102.1                      http://provisioning.streamtheworld.com/asx/CFNYFM.asx
+589 Top 40流行榜                        http://www.1.fm/TuneIn/WM/energytop4032k/Listen.aspx
+
+590 电子音乐
+
+591 1.FM Chillout Lounge                http://www.1.fm/TuneIn/WM/energytcl32k/Listen.aspx
+592 1.FM Dance                          http://www.1.fm/TuneIn/WM/energyDance32k/Listen.aspx
+593 Audio Juice Euro Dance              http://audiojuice.24server.com/Eurodance32k.wmx
+594 Audio Juice Italo Disco             http://audiojuice.24server.com/Italodisco32k.wmx
+595 Audio Juice Oriented Dance          http://audiojuice.24server.com/Orientaldance32k.wmx
+596 Audio Juice Trance Dance            http://audiojuice.24server.com/Trancedance32k.wmx
+597 Bondi FM                            http://www.bondifm.com.au/stream/bondifm.asx
+598 Digital Gunfire                     http://www.digitalgunfire.com/dg.asx
+599 Digitally Imported FM Chillout      http://www.di.fm/wma/chillout.asx
+
+600 街舞音乐
+
+601 Christian HipHop                    http://www.christian-hiphop.net/CHHDN/live/low.asx
+602 Danmarks Radio P3                   http://www.dr.dk/netradio/metafiler/asx/DR_P3_32.asx
+603 Def Jay                             http://www.defjay.com/listen.asx
+604 KEXP - 90.3 FM                      http://www.kexp.org/audio/kexp.wmx
+605 Kink FM                             http://www.garnierprojects.com/streamingmedia/kinkfm/kinkfm.asx
+606 Outbound Music Childrean's          mms://music.outboundmusic.com/OMRadioChildrens
+607 Power Hits                          http://www.powerhitz.com/powerhitz.asx
+608 Triple J                            http://www.abc.net.au/streaming/triplej.asx
+
+ 
+
+609 乡村音乐
+
+610 12 Step Radio                       http://azul.streamguys.com/12stepradio/
+611 Countrybear New                     http://wm-live.abacast.com/countrybear-new-32
+612 Countrybear Oldies                  http://wm-live.abacast.com/countrybear-oldies-32
+613 Countrybear Radio                   http://wm-live.abacast.com/countrybear-main-32
+614 Dig Country Internet Radio          http://www.abc.net.au/streaming/digcountry.asx
+615 KKNG 93.3 FM                        http://nick8.surfernetwork.com/Media/KKNG.asx
+616 Outbound Music Country              mms://music.outboundmusic.com/OMRadioCountry
+617 Outbound Music Praise&WorShip       mms://music.outboundmusic.com/OMRadioPraise
+618 WFMW - 730 AM                       http://www.networkwcs.com/asx/wfmw.asx
+619 丹麦乡村音乐电台                    http://www.dr.dk/netradio/metafiler/asx/DR_Country_32.asx
+
