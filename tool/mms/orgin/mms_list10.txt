@@ -1,0 +1,161 @@
+新闻广播
+mms://218.1.74.230/dgxw 广东新闻广播
+mms://media.sdgb.///xinwen 山东新闻广播
+mms://live.ahradio.//*.///xwgb 安徽新闻广播
+mms://alive.bjradio.//*.///fm1006 北京新闻广播
+mms://av.runsky.//*/newsradio 大连新闻广播
+mms://202.177.192.111/ptc 香港普通话广播
+mms://202.177.192.111/radio1 香港1
+mms://202.177.192.111/radio2 香港2
+mms://202.177.192.111/radio3 香港3
+mms://202.177.192.111/radio4 香港4
+mms://202.177.192.111/radio5 香港5
+体育广播
+mms://alive.bjradio.//*.///fm1025 北京体育
+mms://218.1.74.230/sport 上广体育
+音乐娱乐广播
+mms://125.62.14.105/gushi 重庆故事广播
+mms://218.1.74.230/sgwy 上海故事广播
+mms://media.sdgb.///wenyi 山东文艺
+mms://media.sdgb.///shenghuo 山东生活
+mms://media.sdgb.///jiaotong 山东交通
+mms://media.sdgb.///gushixiangcun 山东乡村
+mms://media.sdgb.///yinyue 山东音乐
+mms://media.sdgb.///tiyuxiuxian 山东休闲
+mms://media.sdgb.///shuzixiuxian 山东数字
+mms://media.radio.///radio4 古典音乐
+mms://218.1.74.230/dg101 感动101
+mms://218.1.74.230/ml103 魅力103
+mms://218.1.74.230/jd947 经典947
+mms://alive.bjradio.//*.///fm876 北京文艺
+mms://alive.bjradio.//*.///fm974 北京音乐
+mms://alive.bjradio.//*.///am603 北京生活
+外语广播
+mms://alive.bjradio.//*.///am774 北京外语
+mms://rj-wmt.gekimedia.//*/rj56 日本国际
+mms://211.233.92.42/L_RKI?free_rki 韩国国际广播1
+mms://211.233.92.42/L_RKI2?free_rki 韩国国际广播2
+mms://216.18.70.242/FM961N 加拿大中文广播
+mms://216.18.70.242/AM1470N 加拿大粤语广播
+mms://216.18.70.242/FM947 加拿大广播
+mms://enmms.chinabroadcast.///am1008  澳洲广播
+
+
+大陆电视
+mms://v1.cbg.///cqws 重庆卫视
+mms://v1.cbg.///mlsz 重庆时装
+mms://v1.cbg.///cqkj 重庆科教
+mms://v1.cbg.///qmpd 重庆汽摩
+mms://v1.cbg.///gzcp 重庆财经
+mms://v1.cbg.///cqgj 重庆国际
+mms://v1.cbg.///cqss 重庆时尚
+mms://v1.cbg.///cqds 重庆都市
+mms://219.134.129.195/SZTV 深圳TV1
+mms://219.134.129.195/sztv_1 深圳都市
+mms://219.134.129.195/sztv_2 深圳电视剧
+mms://219.134.129.195/sztv_3 深圳财经生活
+mms://219.134.129.195/sztv_4 深圳娱乐
+mms://219.134.129.195/sztv_6 深圳少儿
+mms://219.134.129.195/sztv_7 深圳公共
+mms://live.weihai.tv/news 威海TV
+mms://live.weihai.tv/msys 威海2
+mms://live.weihai.tv/MoveTV 威海3
+mms://vs1.thmz.//*/tv51 江苏TV
+mms://218.3.205.21/shzfpd 江苏公共
+mms://218.3.205.21/wyyspd 江苏影视
+mms://218.3.205.21/xwzhpd 江苏综合
+mms://218.3.205.21/jjshpd 江苏经济
+mms://live.smgbb.///ocjshopping  戏剧频道
+mms://220.191.224.12/tv-2 浙江公共频道
+mms:////*.chinadvm.//*/hw 山东TV
+mms://221.0.171.202/qtv 青岛电视台综合频道
+mms://live.sdzztv.//*/zztv zztv
+mms://av1.jiaodong.//*/tv1 山东TV1
+mms://vod.hcrt.///hztv1 杭州综合
+mms://vod.zhwzh.//*.///newslive03 河南教育
+mms://220.168.143.209/YTV 益阳公共
+mms://220.168.143.209/YTV1 益阳新闻
+mms://220.168.143.209/YTV2 益阳乡村
+mms://221.212.177.20/vod 黑龙江卫视
+cctv2>mms://61.153.82.104:5542/cctv2
+cctv5>mms://61.175.111.23:5542/cctv5
+cctv12>mms://202.101.173.70:5542/ahtv
+cctv1>mms://202.102.249.220/live_tv09
+mms://stream.flatbox.nl/rosietv
+mms://62.204.69.104/ero_channel
+
+
+港台电视
+mms://222.190.29.222:1755/157_11872_369  凤凰卫视
+mms://222.77.190.24/hyws  华语卫视
+mms://222.77.190.24/tvb8 TVB8频道
+mms://121.12.175.224/free/1238894548.wmv 卫视体育
+mms://live3.3tv.///mtv5 MTV5
+mms://203.69.41.22/NA_IMTV_ONLINETV-1_450K_PC MTV1
+mms://85.214.87.175/kung-fu-tv 功夫电影
+mms://211.79.112.84/live_400 台湾VEE生活
+mms://channel.nbtv.tw/travel 中天娱乐
+mms://channel.nbtv.tw/liren 立人国中教学
+mms://wmslive.media.hi//*.//*/WebLive_DaaiTV_600 东风卫视
+mms://channel.nbtv.tw/utopia 台湾理想家
+mms://202.175.80.18/tdmvideo/news_file/mf.asf 澳门新闻
+mms://61.139.126.237/lsrec.1105 龙祥电影
+mms://tvfly.server-tv.//*/TVFLY 澳门音乐
+mms://72.166.136.132/atv-200 亚视本港
+
+
+国际电视
+mms://207.7.154.95/charl   美国NASA
+mms://web2.ci.palm-coast.fl.us/tv199LiveStream    美国199
+mms://hernandocountyfl-encoder1.iqm2.//*/iqmtwo_HernandoCountyFl_Encoder1   美国hcgb
+mms://151.1.245.71/cblfilm-live  CBL电影
+mms://PREMIERE.LasVegasNevada.gov:443/KCLV-Live  美国拉斯维加斯
+mms://209.90.224.6/SCANLive  美国freespeech
+mms://a1475.l1293737474.c12937.g.lm.akamaistream.//*/D/1475/12937/v0001/reflector:37474  美国whio
+
+mms://live.hmall.//*/encoder1 韩国购物1台
+mms://mbnlive.hanafoslive.//*/mkimbn200  韩国MBN
+mms://live.hmall.//*/encoder2  韩国hmallshop
+mms://121.189.151.7/tv   韩国mokpombc
+mms://cgntv.hscdn.//*/china_live 韩国cgn
+mms://211.63.212.50/live 韩国3ctv
+mms://211.117.193.99/tvkj  韩国mgc
+mms://211.220.195.199/tvlive  韩国knn
+mms://vod2.cbs.co.kr/cbs_tv_live34 韩国sbs
+mms://203.251.80.180/tbc_tv%20 韩国tbc
+
+
+mms://stream2.canal.qc.ca/enOndes_bas_debit  法国canal
+mms://rr93.diffusepro.//*/rr93 法国clap
+mms://live210.impek.//*/inraci  法国inraci
+mms:////*.labelletv.//*/labelleTV  法国labelle
+mms://mulivan.diffusepro.//*/mulivantv  法国mulivan
+mms:////*.tele102.//*/tele102 法国tele
+mms://stream2.canal.qc.ca/enOndes_bas_debit 法国canal
+mms://wm.live.tv-radio.//*/cap24_360k  法国cap24
+mms://vipnrj.yacast.//*/nrj_tvhit  法国nrj
+mms://livewm.orange.fr/live-multicanaux  法国orange
+mms://vipmms9.yacast.//*/bfm_bfmtv 法国bfm
+mms://85.214.87.175/toon-tv  法国toon卡通
+
+
+mms://dca.live.pod.tv/tandm500 日本tandm
+mms://iptv.telecard.it/Studio100  意大利100
+mms://eu02.egihosting.//*/938657  希腊4E
+mms://wms01.agglo.ch/m1-live  瑞士M1
+mms://stream2.terra.es/wm2live1  西班牙can
+mms://66.128.53.146/telemicro  西班牙telemicro
+mms://streaming.dmtv.//*.br/dmtv   巴西DM
+mms://wms.global-streaming.//*/04988   南非sabc
+mms://217.20.164.165:8000/24tv.asf  乌克兰24
+mms://88.225.232.39/Canli   土耳其Canli
+mms://tv.vietnam//*.vn/live 越南vnn
+mms://64.151.87.201/u 菲律宾untv
+mms://Stream240.PackDeal.Com/ParsTV-Live   parsTV
+mms://195.95.225.110/telenight   telenight
+mms://wten.walla.co.il/10   以色列10
+mms://acc.streamit.//*.au/accbroadcast   澳大利亚acc
+mms://198.64.249.15/salam   伊拉克电视
+mms://streaming.newmedia.lu/telehighres  卢森堡娱乐
+mms://stream.grafton.lv/live_tv5  拉脱维亚娱乐台
+mms://broadcast.issp.co.th/11news1   GTV 

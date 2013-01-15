@@ -1,0 +1,28 @@
+飞网本次简单分享几个自己经常在Google chrome上听的网络电台MMS地址。
+
+先普及下MMS的概念，此MMS不是指“Multimedia Message Service”，这是我们手机上的“多媒体短信服务”，直白的说就是短信。此处的MMS 为(Microsoft Media Server Protocol)，中文“微软媒体服务器协议”，用来访问并流式接收 Windows Media 服务器中 .asf 文件的一种协议，该协议用于访问 Windows Media 发布点上的单播内容。如杭州交通经济广播91.8的MMS地址为mms://vod.hcrt.cn/fm918，即表示FM91.8的Windows Media 服务器名为vod.hcrt.cn，发布点名为fm918。
+
+杭州交通经济广播FM91.8
+mms://vod.hcrt.cn/fm918
+
+我喜欢的栏目中午于虎主持的《我的汽车有话说》，不过几次感觉于虎有点经验过于丰富的感觉，有时候打进电话的听众还没有把问题说清楚，他就开始高谈阔论了，稍微有点过。另外诟病的是该台广告超多。
+CRI怀旧金曲
+mms://live.cri.cn/oldies
+CRI都市流行
+mms://live.cri.cn/pop
+
+CRI的两个经典的频道，没有广告，怀旧，流行歌曲都能为我徐徐播来，不时出现很喜欢的歌曲，那感觉真的不错。虽然有时主持人主持的节目不怎么样。
+杭州新闻调频89
+mms://vod.hcrt.cn/89
+
+在91.8广告的时候就来听这个台。
+五星体育
+mms://diantai.smgbb.cn/sport
+
+上海五星体育还有网络直播，非常的不错。
+澳洲广播
+mms://media4.abc.net.au/raflp/
+
+学学英语，听听澳洲流行乐曲。
+
+平时飞网基本就是听这几个，也就只能分享这几个，个人觉得都是很不错的，重要的是地址都可信有效，不像现在网络上发布一大推地址，没几个可用的强点～

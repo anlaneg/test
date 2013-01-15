@@ -1,0 +1,11 @@
+mms://cdnmms.cnr.cn/cnr001?ZHVob25n 中国之声
+mms://cdnmms.cnr.cn/cnr002?ZHVob25n 经济之声
+mms://cdnmms.cnr.cn/cnr003?ZHVob25n 音乐之声
+mms://cdnmms.cnr.cn/cnr004?ZHVob25n 都市之声
+mms://cdnmms.cnr.cn/cnr005?ZHVob25n 中华之声
+mms://cdnmms.cnr.cn/cnr006?ZHVob25n 神州之声
+mms://cdnmms.cnr.cn/cnr007_p?ZHVob25n 华夏之声-普通话
+mms://cdnmms.cnr.cn/cnr007_s?ZHVob25n 华夏之声-双语
+mms://cdnmms.cnr.cn/cnr008?ZHVob25n 民族之声
+mms://cdnmms.cnr.cn/cnr009?ZHVob25n 文艺之声
+mms://cdnmms.cnr.cn/cnr010?ZHVob25n 银河台 
