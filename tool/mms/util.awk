@@ -17,7 +17,9 @@ function parser_url_comment(line,regex)
 
 	url=substr(line,match_ret,RLENGTH+match_ret-1);
 	comment=substr(line,0,match_ret-1) "" substr(line,match_ret + RLENGTH)
-	printf("%d%s:\"%s\"%s\"%s\"\n",RLENGTH,line,url,split_char,comment);
+	#printf("\"%s\"%s\"%s\"\n",url,split_char,comment);
+	#printf("%s\n",comment);
+	printf("%s\n",url);
 }
 
 

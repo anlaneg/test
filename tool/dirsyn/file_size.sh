@@ -2,8 +2,8 @@
 
 function get_all_file_size()
 {
-	file_path=$1
-	output_path=$2
+	file_path=$1;
+	output_path=$2;
 
 	if [ "X$output_path" == "X-" -o "X$output_path" == "X" ];
 	then
@@ -20,4 +20,4 @@ function get_all_file_size()
 }
 
 
-get_all_file_size /home/along/desktop/desktop_doc/goodbook  /home/along/files_name
+get_all_file_size /home/along/github_test/tool/dirsyn/  /home/along/github_test/tool/files

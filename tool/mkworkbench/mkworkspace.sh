@@ -15,5 +15,5 @@ function do_make_workspace()
 
 
 #在当前目录下创建工作区
-do_make_workspace `pwd`
+do_make_workspace ../atf
 

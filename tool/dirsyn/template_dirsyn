@@ -72,7 +72,7 @@ function dirsyn_collect_operator()
 
 
 
-A=`dirsyn_get_filelist /home/along/workspace/test/tool/debug "/.*util/"`
+A=`dirsyn_get_filelist /home/along/workspace/test/tool/debug "/.+util/"`
 echo "get filelist A:$A"
 B=`dirsyn_get_filelist ./`
 echo "get filelist B:$B"

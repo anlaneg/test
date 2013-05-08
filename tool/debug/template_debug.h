@@ -22,37 +22,37 @@ extern const char* g_debug_module_name[##FILE_NAME_UPPER##_MODULE_COUNT + 1];
 /**
  * 开启模块函数
  * @param[in] module_name 要开启的模块名称,例如"##DEBUG_MODULE_EXAMPLE##"
- * @return 无
- * 注意：如果module_name未定义，则此函数不启作用
+ * @return 0 开启成功
+ * @return !0 开启失败(module_name未定义)
  */
-static inline void debug_module_enable(const char*module_name)
+static inline int32_t debug_module_enable(const char*module_name)
 {
 	int32_t idx;
 	if((idx = debug_get_module_name_index(g_debug_module_name,module_name)) < 0)
 	{
-		//TODO error index
-		return ;
+		return -1;
 	}
 
 	g_debug_module_flag |= (1ULL << idx);	
+	return 0;
 }
 
 /**
  * 关闭模块函数
  * @param[in] module_name 要关闭的模块名称，例如"##DEBUG_MODULE_EXAMPLE##"
- * @return 无
- * 注意：如果module_name未定义，则此函数不启作用
+ * @return 0 关闭成功
+ * @return !0 关闭失败(module_name未定义)
  */
-static inline void debug_module_disable(const char*module_name)
+static inline int32_t debug_module_disable(const char*module_name)
 {
 	int32_t idx;
 	if((idx = debug_get_module_name_index(g_debug_module_name,module_name)) < 0)
 	{
-		//TODO error index
-		return ;
+		return -1;
 	}
 
 	g_debug_module_flag &= (~(1ULL << idx));
+	return 0;
 }
 
 /**
@@ -91,7 +91,6 @@ static inline int32_t debug_module_is_enable(const char*module_name)
 	int32_t idx;
 	if((idx = debug_get_module_name_index(g_debug_module_name,module_name)) < 0)
 	{
-		//TODO error index
 		return 0;
 	}	
 

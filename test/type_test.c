@@ -3,6 +3,7 @@
 
 int main(int argc,char**argv)
 {
+	#ifndef TEST
 	printf("test system type length:\n");
 	printf("sizeof(char)=%u\n",(uint32_t)sizeof(char));
 	printf("sizeof(short)=%u\n",(uint32_t)sizeof(short));
@@ -12,6 +13,6 @@ int main(int argc,char**argv)
 	printf("sizeof(float)=%u\n",(uint32_t)sizeof(float));
 	printf("sizeof(double)=%u\n",(uint32_t)sizeof(double));
 	printf("sizeof(long double)=%u\n",(uint32_t)sizeof(long double));
-
+	#endif
 	return 0;
 }

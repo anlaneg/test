@@ -1,4 +1,7 @@
 
+#设置模块格式
+SUB_MODULE_PREFIX=sub_obj.
+
 #获得SRCS_OBJECT文件
 SRCS_OBJECT=$(SRCS:%.c=$(OUT_DIR)/%.o)
 
@@ -9,7 +12,11 @@ CPLUS_SRCS_OBJECT=$(addprefix $(OUT_DIR)/,$(addsuffix .oo,$(basename $(CPLUS_SRC
 DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename $(CPLUS_SRCS_OBJECT)))
 
 #获得子模块生成的文件
-SUB_MODULE_OBJECT=$(wildcard $(OUT_DIR)/_*.o)
+ifeq ($(strip $(SUB_MODULE)),)
+SUB_MODULE_OBJECT=
+else
+SUB_MODULE_OBJECT=$(SUB_MODULE:%=$(OUT_DIR)/$(SUB_MODULE_PREFIX)%.o) 
+endif
 
 #获取svn文件版本
 SVN_SRC_VERSION=$(shell if `svn info 2>/dev/null 1>/dev/null`; then svn info 2>/dev/null | head -n 5 | tail -n 1 | cut -d ' ' -f 2 ; else echo "NOT_SVN"; fi;)
@@ -49,7 +56,7 @@ __all__:__mk_out_dir__ __mk_submod__ __mk_target__
 
 #生成输出目录
 __mk_out_dir__:
-	@echo "mkdir $(OUT_DIR)"
+	-mkdir -p $(OUT_DIR)
 
 #构建子模块
 __mk_submod__:
@@ -57,44 +64,42 @@ __mk_submod__:
 
 #清理生成
 clean:
-	@echo "-rm -rf $(OUT_DIR)"
+	@for i in $(SUB_MODULE);do $(MAKE) -C $$i clean || exit 1 ; done;
+	-rm -rf $(OUT_DIR)
 
 #c文件生成.o文件
 $(OUT_DIR)/%.o:%.c
-	@echo "$@:$^"
+	$(CC) $(C_COMPLIER_FLAGS) -MD -c -o $@ $^
 
 #c++文件生成.oo文件
 $(OUT_DIR)/%.oo:%.cpp
-	@echo "$@:$^"
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^
 
 $(OUT_DIR)/%.oo:%.cc
-	@echo "$@:$^"
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^
 
 $(OUT_DIR)/%.oo:%.C
-	@echo "$@:$^"
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^
 
 #生成当前目录要求的目标
 ifeq ($(strip $(TARGET_TYPE)),bin)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-	@echo "bin=$@:$^"
+	$(CC) $(C_COMPLIER_FLAGS) -o $(TARGET_NAME) $^ $(LD_FLAGS)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),lib)
-__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-(
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
 	@echo "lib=$@:$^"
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),dynlib)
-__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
 	@echo "dnylib=$@:$^"
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),obj)
-__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-
-	@echo "obj=$@:$^"
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
+	$(CC) -nostdlib -r -o $(TOP_MODULE)/$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(TARGET_NAME).o $^
 endif
 
 #用于amf框架测试
@@ -107,9 +112,10 @@ debug_amf:
 	@echo "DEPEND_FILE=$(DEPEND_FILE)"
 	@echo "SUB_MODULE=$(SUB_MODULE)"
 	@echo "TARGET_TYPE=$(TARGET_TYPE)"
-	@echo "SUB_MODULE_OBJECT=$(SUB_MODULE_OBJECT)"
+	@echo "SUB_MODULE_OBJECT= $(SUB_MODULE_OBJECT)"
 	@echo "SVN_SRC_VERSION=$(SVN_SRC_VERSION)"
 	@echo "GIT_SRC_VERSION=$(GIT_SRC_VERSION)"
+	@echo "C_COMPLIER_FLAGS=$(C_COMPLIER_FLAGS)"
 
 #尝试着包含.d文件
 -include $(DEPEND_FILE)

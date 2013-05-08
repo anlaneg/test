@@ -50,7 +50,7 @@ function gen_module_macro()
 	file_module_macro="";
 	for(i = 0 ; i < count ; ++i)
 	{
-		file_module_macro = file_module_macro  "#define "  debug_info[i,"macro"]  " (1ULL << " count  ") /*" debug_info[i,"help"]  "*/\\n";
+		file_module_macro = file_module_macro  "#define "  debug_info[i,"macro"]  " (1ULL << " i  ") /*" debug_info[i,"help"]  "*/\\n";
 	}
 
 	return file_module_macro;
