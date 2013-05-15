@@ -1,23 +1,27 @@
 
-#ifndef ##FILE_NAME_UPPER##_DEBUG_H
-#define ##FILE_NAME_UPPER##_DEBUG_H
+#ifndef PROCESS_DEBUG_H
+#define PROCESS_DEBUG_H
 
 /*文件头注释*/
 #include <stdint.h>
 #include "libdebug.h"
 
 /*定义模块数目*/
-#define ##FILE_NAME_UPPER##_MODULE_COUNT (##DEBUG_MODULE_COUNT##ULL)
+#define PROCESS_MODULE_COUNT (4ULL)
 
 /*定义相应模块的对外标记*/
-##DEBUG_MODULE_MACRO_FLAG##
+#define HELLO_MODULE (1ULL << 0) /*控制hello模块*/
+#define WORLD_MODULE (1ULL << 1) /*控制world模块*/
+#define LOG_MODULE (1ULL << 2) /*控制world模块*/
+#define TEST_MODULE (1ULL << 3) /*控制world模块*/
+
 
 /*debug模块名称*/
-extern const char* g_debug_module_name[##FILE_NAME_UPPER##_MODULE_COUNT + 1];
+extern const char* g_debug_module_name[PROCESS_MODULE_COUNT + 1];
 
 /**
  * 开启模块函数
- * @param[in] module_name 要开启的模块名称,例如"##DEBUG_MODULE_EXAMPLE##"
+ * @param[in] module_name 要开启的模块名称,例如"HELLO_MODULE"
  * @return 0 开启成功
  * @return !0 开启失败(module_name未定义)
  */
@@ -35,7 +39,7 @@ static inline int32_t debug_module_enable(const char*module_name)
 
 /**
  * 关闭模块函数
- * @param[in] module_name 要关闭的模块名称，例如"##DEBUG_MODULE_EXAMPLE##"
+ * @param[in] module_name 要关闭的模块名称，例如"HELLO_MODULE"
  * @return 0 关闭成功
  * @return !0 关闭失败(module_name未定义)
  */
@@ -56,13 +60,13 @@ static inline int32_t debug_module_disable(const char*module_name)
  */
 static inline void debug_module_enable_all()
 {
-	g_debug_module_flag = (1ULL << (##FILE_NAME_UPPER##_MODULE_COUNT + 1)) -1;
+	g_debug_module_flag = (1ULL << (PROCESS_MODULE_COUNT + 1)) -1;
 }
 
 
 /**
  * 模块模块是否被开启
- * @param[in] module_name 模块名称，例如"##DEBUG_MODULE_EXAMPLE##"
+ * @param[in] module_name 模块名称，例如"HELLO_MODULE"
  * @return 0 此模块未开启
  * @return !0 此模块已开启
  */
