@@ -1,5 +1,5 @@
 all:
-	gcc -o process -Wall -c process_debug.c -I../
+	gcc -g -o process -Wall process_debug.c main.c libdebug.c -I../
 
 clean:
 	-rm -rf process
