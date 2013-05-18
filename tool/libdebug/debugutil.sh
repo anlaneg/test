@@ -14,4 +14,6 @@ function complier_debug_file()
 	eval $command
 }
 
-complier_debug_file ./example/process.debug  ./example/
+#complier_debug_file <src debug file> <output path>
+#complier_debug_file ./example/process.debug  ./example/
+complier_debug_file "$1" "$2" 

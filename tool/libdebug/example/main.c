@@ -1,7 +1,7 @@
 #include <stdio.h>
 
-#include "process_debug.h"
 #include "liblog.h"
+#include "process_debug.h"
 
 int main(int argc,char**argv)
 {

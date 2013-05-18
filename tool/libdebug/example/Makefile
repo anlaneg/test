@@ -1,5 +1,9 @@
-all:
-	gcc -g -o process -Wall process_debug.c main.c libdebug.c -I../
+include $(AMF_PROJECT_MK_ROOT)/rule.mk
 
-clean:
-	-rm -rf process
+C_COMPLIER_FLAGS+= -I../ -I.
+TARGET_TYPE=bin
+TARGET_NAME=process
+
+LD_FLAGS=-L$(AMF_PROJECT_ROOT)/lib  -ldebug
+include $(AMF_PROJECT_MK_ROOT)/basic.mk
+
