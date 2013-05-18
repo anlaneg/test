@@ -84,17 +84,20 @@ $(OUT_DIR)/%.oo:%.C
 #生成当前目录要求的目标
 ifeq ($(strip $(TARGET_TYPE)),bin)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-	$(CC) $(C_COMPLIER_FLAGS) -o $(TARGET_NAME) $^ $(LD_FLAGS)
+	$(CC) $(C_COMPLIER_FLAGS) -o $(OUT_DIR)/$(TARGET_NAME) $^ $(LD_FLAGS)
+	cp $(OUT_DIR)/$(TARGET_NAME) $(AMF_PROJECT_ROOT)/bin
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),lib)
-__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
-	@echo "lib=$@:$^"
+__mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT)
+	ar -r $(OUT_DIR)/$(TARGET_NAME).a  $^
+	cp -rf $(OUT_DIR)/$(TARGET_NAME).a $(AMF_PROJECT_ROOT)/lib
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),dynlib)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
-	@echo "dnylib=$@:$^"
+	$(CC) --share -o $(OUT_DIR)/$(TARGET_NAME).so $^
+	cp -rf $(OUT_DIR)/$(TARGET_NAME).so $(AMF_PROJECT_ROOT)/../lib
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),obj)

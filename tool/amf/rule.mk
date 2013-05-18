@@ -34,6 +34,6 @@ C_COMPLIER_FLAGS=-Wall -Werror -g
 CPLUS_COMPLIER_FLAGS=-Wall -Werror -g
 
 #ld 选项
-LD_FLAGS=
+LD_FLAGS= -L$(AMF_PROJECT_ROOT)/lib
 
 
