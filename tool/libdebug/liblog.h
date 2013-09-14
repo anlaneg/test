@@ -5,13 +5,21 @@
 #include <stdio.h>
 #include "libdebug.h"
 
+//引用lib提供的变量
+extern char *__progname;
+
+#define LIB_OUTPUT(file,fmt,...)\
+	do{\
+		fprintf(file,"[%s] %s:%s:%d ",__progname,__FILE__,__func__,__LINE__);\
+		fprintf(file,fmt,##__VA_ARGS__);\
+	}while(0)
 
 #define LIB_DEBUG(submod,fmt,...) \
 	if((submod) & debug_module_state())\
 	{\
 		if(debug_get_module_log_level() <= DEBUG_LEVEL)\
 		{\
-			fprintf(stdout,fmt,##__VA_ARGS__);\
+			LIB_OUTPUT(stdout,fmt,##__VA_ARGS__);\
 		}\
 	}
 
@@ -20,7 +28,7 @@
 	{\
 		if(debug_get_module_log_level() <= INFO_LEVEL)\
 		{\
-			fprintf(stdout,fmt,##__VA_ARGS__);\
+			LIB_OUTPUT(stdout,fmt,##__VA_ARGS__);\
 		}\
 	}
 
@@ -29,7 +37,7 @@
 	{\
 		if(debug_get_module_log_level() <= LOG_LEVEL)\
 		{\
-			fprintf(stdout,fmt,##__VA_ARGS__);\
+			LIB_OUTPUT(stdout,fmt,##__VA_ARGS__);\
 		}\
 	}
 
@@ -38,7 +46,7 @@
 	{\
 		if(debug_get_module_log_level() <= WARN_LEVEL)\
 		{\
-			fprintf(stderr,fmt,##__VA_ARGS__);\
+			LIB_OUTPUT(stderr,fmt,##__VA_ARGS__);\
 		}\
 	}
 
@@ -47,7 +55,7 @@
 	{\
 		if(debug_get_module_log_level() <= ERROR_LEVEL)\
 		{\
-			fprintf(stderr,fmt,##__VA_ARGS__);\
+			LIB_OUTPUT(stderr,fmt,##__VA_ARGS__);\
 		}\
 	}
 
@@ -56,7 +64,7 @@
 	{\
 		if(debug_get_module_log_level() <= FAULT_LEVEL)\
 		{\
-			fprintf(stderr,fmt,##__VA_ARGS__) ;\
+			LIB_OUTPUT(stderr,fmt,##__VA_ARGS__) ;\
 		}\
 	}
 

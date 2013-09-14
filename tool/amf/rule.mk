@@ -1,12 +1,14 @@
 #保证all为第一个目录
 all: __module_before__ __all__ __module_after__
-	@echo "do $@:$^"
 
 #获取当前文件夹下的所有c文件
 SRCS=$(wildcard *.c)
 
 #获取当前文件夹下所有c++文件
 CPLUS_SRCS=$(wildcard *.cpp) $(wildcard *.C) $(wildcard *.cc)
+
+#获取当前文件夹下所有debug文件
+DEBUG_SRCS=$(wildcard *.debug)
 
 #设置当前文件夹下需要参与编译的子module
 SUB_MODULE=
@@ -18,7 +20,7 @@ TOP_MODULE=.
 OUT_DIR=obj
 
 #设置需要生成的目标类型
-TARGET_TYPE=obj
+TARGET_TYPE=
 
 #设置需要生成的目标名称
 TARGET_NAME=target
@@ -26,6 +28,7 @@ TARGET_NAME=target
 #设置编译器程序
 CC=gcc
 CPLUS=g++
+DEBUG_COMPLIER=debugutil.sh
 
 #C 默认编译选项
 C_COMPLIER_FLAGS=-Wall -Werror -g
@@ -34,6 +37,13 @@ C_COMPLIER_FLAGS=-Wall -Werror -g
 CPLUS_COMPLIER_FLAGS=-Wall -Werror -g
 
 #ld 选项
-LD_FLAGS= -L$(AMF_PROJECT_ROOT)/lib
+LD_FLAGS=-ldebug -lstr -L$(AMF_PROJECT_ROOT)/lib
 
+#include 选项
+AMF_INCLUDE_PATH=-I$(AMF_PROJECT_ROOT)/src/lib/libdebug \
+-I$(AMF_PROJECT_ROOT)/src/lib/libmem \
+-I$(AMF_PROJECT_ROOT)/src/lib/libstr \
+-I$(AMF_PROJECT_ROOT)/src/lib/cjson-code
 
+#设置debug complier path
+DEBUG_COMPLIER_PATH=$(AMF_PROJECT_ROOT)/mk

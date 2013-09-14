@@ -67,12 +67,12 @@ function parser_version_script()
 
 		/^\s?[^#]+.+version/{
 			#获取pro_name			
-			pro_name=substr($0,0,index($0,split_char)-1);
+			pro_name=substr($0,0,index($0,split_char));
 
 			#获取格式串
 			line=substr($0,length(pro_name) + length(split_char) + 1 )
 			
-			#printf("length(pro_name)= %d length(split_char)=%d ,%s\n",length(pro_name),length(split_char),line);
+			#printf("length(pro_name:\"%s\")= %d length(split_char:\"%s\")=%d ,%s\n",pro_name,length(pro_name),split_char,length(split_char),line);
 			#替换内部变量
 			gsub(/\$\(DATE\)/,date_inner,line) ; 
 			gsub(/\$\(SRC_VER\)/,src_ver_inner,line) ; 
@@ -86,7 +86,7 @@ function parser_version_script()
 				printf("file error,exsit more than one format line\n");
 				exit 1
 			}
-			#printf("line match %d\n",match(line,/^".*"$/));
+			#printf("line:%s match %d\n",line,match(line,/^".*"$/));
 			if(match(line,/^".*"$/) ==0 )
 			{
 				printf("format line miss \"");

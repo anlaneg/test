@@ -27,6 +27,7 @@ function do_make_workspace()
 
 	do_directory $WORKSPACE_ROOT/src/lib #用来存放lib库及其头文件
 	ln -s "$GIT_TEST_ROOT/libdebug" "$WORKSPACE_ROOT/src/lib/libdebug"
+	ln -s "$GIT_TEST_ROOT/libmem"   "$WORKSPACE_ROOT/src/lib/libmem"
 }
 
 

@@ -30,7 +30,7 @@ function get_git_workspace_root()
 function get_git_workspace_version()
 {
 	path=$1
-	echo "`git log $path 2>/dev/null | head -n 1 | cut -d ' ' -f 2`";
+	echo "git:`git log $path 2>/dev/null | head -n 1 | cut -d ' ' -f 2`";
 }
 
 #怎么调试,依次调用

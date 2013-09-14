@@ -30,7 +30,7 @@ function get_svn_workspace_root()
 function get_svn_workspace_version()
 {
 	path=$1
-	echo "`svn info $path 2>/dev/null | head -n 5 | tail -n 1 | cut -d ' ' -f 2`";
+	echo "svn:`svn info $path 2>/dev/null | head -n 5 | tail -n 1 | cut -d ' ' -f 2`";
 }
 
 #测试代码
