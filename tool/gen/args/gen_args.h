@@ -1,0 +1,50 @@
+
+
+#ifndef GEN_ARGS_H_
+#define GEN_ARGS_H_
+
+/**
+ * 参数
+ */
+typedef struct gen_args
+{
+	gen_hash_args_t hash_args;
+	gen_hash_t var_hash;
+	char* my_name;
+	char* cfg_file_path;
+	char* tmplate_file_path;
+	char* output_file_path;
+	char* split_char;
+	char* escape_char;
+	int32_t debug_level;
+	int32_t is_need_show_help;
+	int32_t is_need_show_version;
+	int32_t global_buffer_size;
+	gen_output_fun ouput_fun;
+}gen_args_t;
+
+/**
+ * 参数初始化
+ * @param[in] args 参数
+ * @return 0 初始化成功
+ * @return !0 初始化失败
+ */
+int32_t gen_args_init(gen_args_t* args);
+
+/**
+ * 参数销毁
+ * @param[in] args 参数
+ */
+void gen_args_destroy(gen_args_t* args);
+
+/**
+ * 解析参数
+ * @param[in] args 参数
+ * @param[in] argc 参数数目
+ * @param[in] argv 参数集
+ * @return 0 解析成功
+ * @return !0 解析失败
+ */
+int32_t gen_args_parse(gen_args_t*args,int argc,char**argv);
+
+#endif /* GEN_ARGS_H_ */

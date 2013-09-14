@@ -1,22 +1,50 @@
 
-typedef int32_t (*gen_output_fun)(char*,void*arg);
+#include "gen_buffer.h"
 
-typedef struct gen_buffer
+/**
+ * 初始化buffer
+ * @param[in] buffer
+ * @param[in] size 大小
+ * @param[in] output 输出函数
+ * @param[in] arg 参数
+ * @return 0 成功
+ * @return !0 失败
+ */
+int32_t gen_buffer_t* gen_buffer_init(gen_buffer_t* buffer, int32_t size,
+		gen_output_fun output, void*arg)
 {
-	gen_output_fun output;
-	void*arg;
-	int32_t size;
-	int32_t empty_loc;
-	char buffer[0];
-}gen_buffer_t;
+	return -1;
+}
 
-gen_buffer_t* gen_buffer_t* gen_buffer_init(int32_t size,gen_output_fun output,void*arg);
-gen_buffer_t* gen_buffer_destroy(gen_buffer_t*);
+/**
+ * 销毁buffer
+ * @param[in] buffer
+ */
+void gen_buffer_destroy(gen_buffer_t* buffer)
+{
 
-int32_t gen_buffer_flush(gen_buffer_t*buffer,get_output_fun output,void*arg);
+}
 
-//auto invoker buffer flush(one interface?)
-//int32_t gen_buffer_push(gen_buffer_t*buffer,char*str,int32_t length);
-//0== strlen(str)
-int32_t gen_buffer_append(gen_buffer_t*buffer,char*str,uint32_t length);
+/**
+ * flush buffer
+ * @param[in] buffer
+ * @param[in] output 输出
+ * @param[in] arg 参数
+ * @return 生成的长度
+ */
+int32_t gen_buffer_flush(gen_buffer_t*buffer, gen_output_fun output, void*arg)
+{
+	return -1;
+}
 
+/**
+ * append str
+ * @param[in] buffer
+ * @param[in] str 字符串
+ * @param[in] length 长度
+ * @return 输出的长度
+ */
+int32_t gen_buffer_append(gen_buffer_t*buffer, char*str, uint32_t length)
+{
+	return -1;
+}
