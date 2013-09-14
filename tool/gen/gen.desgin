@@ -1,0 +1,5 @@
+1.parse, give a  line ,parse token,and replace ,and return 
+2.hash,  insert key and vlaue to hashtable
+3.config, read config file ,build config hashtable
+4.main,  use config get config db, replay template file by line
+

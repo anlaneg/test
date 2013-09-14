@@ -1,6 +1,6 @@
 
 gen用于提供代码辅助生成功能,命令行如下示:
-./gen -v [<VAR>|<VAR-VALUE>] -p <TEMPLATE-FILE> -o <OUTPUT-FILE>  
+./gen [ { -v <VAR> } | -c <VAR-VALUE>] -p <TEMPLATE-FILE/TEMPLATE-DIRECTROY> -o <OUTPUT-FILE/OUTPUT-DIRECTROY>  
 ./gen --var [<VAR>|<VAR-VALUE>] --parse <TEMPLATE-FILE> --ouptput <OUTPUT-FILE>  
 ./gen --help
 ./gen -h
@@ -9,6 +9,8 @@ gen用于提供代码辅助生成功能,命令行如下示:
 #./gen --split-char '@' 每个变量均需要在一行出现. 空格,回车,用于分隔标识符 暂不支持
 #./gen --escape '\' 指出用哪种方式来表示替换匹配,用哪种方式转义 暂不支持
 #./gen --builtin-variables 使用内建变量 {@line@,@file@} 暂不需要
+#./gen 暂时不支持对目录进行操作
+#./gen 容许,出现多个-v选项,容许-v指出多个配置文件
 
    注意 <TEMPLATE-FILE> 与 <OUTPUT-FILE> 不能为指向同一位置
    VAR ::= KEY '=' VALUE
