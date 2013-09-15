@@ -1,3 +1,4 @@
+#include "gen.h"
 #include "gen_cfg_parse.h"
 
 /**

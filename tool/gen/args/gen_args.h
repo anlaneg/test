@@ -12,7 +12,7 @@ typedef struct gen_args
 	gen_hash_t var_hash;
 	char* my_name;
 	char* cfg_file_path;
-	char* tmplate_file_path;
+	char* template_file_path;
 	char* output_file_path;
 	char* split_char;
 	char* escape_char;
@@ -20,7 +20,7 @@ typedef struct gen_args
 	int32_t is_need_show_help;
 	int32_t is_need_show_version;
 	int32_t global_buffer_size;
-	gen_output_fun ouput_fun;
+	gen_output_fun output_fun;
 }gen_args_t;
 
 /**

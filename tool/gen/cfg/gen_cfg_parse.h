@@ -8,6 +8,8 @@
 #ifndef GEN_CFG_PARSE_H_
 #define GEN_CFG_PARSE_H_
 
+#include <stdio.h>
+
 /**
  * 配置项
  */

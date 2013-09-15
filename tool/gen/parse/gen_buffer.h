@@ -32,7 +32,7 @@ typedef struct gen_buffer
  * @return 0 成功
  * @return !0 失败
  */
-int32_t gen_buffer_t* gen_buffer_init(gen_buffer_t* buffer, int32_t size,
+int32_t gen_buffer_init(gen_buffer_t* buffer, int32_t size,
 		gen_output_fun output, void*arg);
 
 /**

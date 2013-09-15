@@ -41,7 +41,7 @@ typedef void* (*gen_hash_alloc_fun)(uint32_t size);
  * hash释放
  * @param[in] p 要释放的指针
  */
-typedef void (gen_hash_free_fun)(void*p);
+typedef void (*gen_hash_free_fun)(void*p);
 
 /**
  * hash elem
@@ -115,5 +115,6 @@ void gen_hash_delete(gen_hash_t*hash,void*key);
  * @param[in] hash 要操作的hash
  */
 void gen_hash_destroy(gen_hash_t*hash);
+
 
 #endif /* GEN_HASH_H_ */
