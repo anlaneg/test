@@ -14,7 +14,7 @@ DEBUG_SRCS=$(wildcard *.debug)
 SUB_MODULE=
 
 #设置顶层目录
-TOP_MODULE=.
+TOP_MODULE=..
 
 #需要建立的输出目录
 OUT_DIR=obj

@@ -16,9 +16,11 @@ DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename
 
 #获得子模块生成的文件
 ifeq ($(strip $(SUB_MODULE)),)
-SUB_MODULE_OBJECT=
+SUB_MODULE_OBJECT:=
 else
-SUB_MODULE_OBJECT=$(SUB_MODULE:%=$(OUT_DIR)/$(SUB_MODULE_PREFIX)%.o) 
+SUB_MODULE_OBJECT:=$(SUB_MODULE:%=$(OUT_DIR)/$(SUB_MODULE_PREFIX)%.o) 
+
+$(SUB_MODULE_OBJECT):__mk_submod__
 endif
 
 #获取svn文件版本
