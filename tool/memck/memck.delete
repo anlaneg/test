@@ -1,0 +1,182 @@
+#if 0
+#include <stdint.h>
+#include <assert.h>
+#include <malloc.h>
+#include <string.h>
+
+static void memck_init_hook (void);
+static void *memck_malloc_hook (size_t, const void *);
+static void memck_free_hook (void*, const void *);
+static void* memck_realloc_hook(void*ptr,size_t size ,const void*caller);
+
+static void* (* old_realloc_hook)(void*ptr,size_t size,const void*caller);
+static void* (* old_malloc_hook) (size_t,const void *);
+static void (* old_free_hook)(void *,const void *);
+
+void (*__malloc_initialize_hook) (void) = memck_init_hook;
+
+#define HEAD_MAGIC (0xabcdabcdcdabefbcULL)
+#define TAIL_MAGIC (0xbcdefbcd32649349ULL)
+#define HEAD_LENGTH (sizeof(uint64_t)*2)
+#define TAIL_LENGTH (sizeof(uint64_t))
+
+void memck_set_head(void*p,size_t size)
+{ 
+    if(p)
+    {
+	uint64_t * head = (uint64_t*)((char*)p - (HEAD_LENGTH));
+	head[0]=size;
+	head[1]=HEAD_MAGIC;
+    }
+}
+
+void memck_set_tail(void*p ,size_t size)
+{
+    if(p)
+    {
+	uint64_t * tail = (uint64_t*)((char*)p + size);
+	*tail = TAIL_MAGIC;
+    }
+}
+
+void memck_check(void*p)
+{
+	if(p)
+	{
+		uint64_t *head = (uint64_t*)((char*)p - (HEAD_LENGTH));
+		if(head[1] != HEAD_MAGIC)
+        {
+            *(uint64_t*)0=0;
+        }
+		//printf("%lld, %lld!\n",head[1] , HEAD_MAGIC);
+		uint64_t *tail = (uint64_t*)((char*)p + head[0]);
+		if(*tail != TAIL_MAGIC)
+        {
+            *(uint64_t*)0=1;
+        }
+	}
+}
+
+uint64_t memck_get_size(void*p)
+{
+    assert(p);
+    memck_check(p);
+    uint64_t * head = (uint64_t*)((char*)p - (HEAD_LENGTH));
+    return head[0]; 
+}
+
+static void
+memck_init_hook (void)
+{
+    old_malloc_hook = __malloc_hook;
+    old_free_hook = __free_hook;
+    old_realloc_hook = __realloc_hook;
+    __malloc_hook = memck_malloc_hook;
+    __free_hook = memck_free_hook;
+    __realloc_hook = memck_realloc_hook;
+}
+
+static void *
+memck_malloc_hook (size_t size, const void *caller)
+{
+    void *result;
+
+    /* Restore all old hooks */
+    __malloc_hook = old_malloc_hook;
+    __free_hook = old_free_hook;
+    __realloc_hook = old_realloc_hook;
+
+    /* Call recursively */
+    result = malloc (size + HEAD_LENGTH + TAIL_LENGTH);
+   
+    if(result)
+    {
+            memck_set_head((char*)result+HEAD_LENGTH,size);
+            memck_set_tail((char*)result+HEAD_LENGTH,size);
+    } 
+
+    /* Save underlying hooks */
+    old_malloc_hook = __malloc_hook;
+    old_free_hook = __free_hook;
+    old_realloc_hook = __realloc_hook;
+
+    /* printf might call malloc, so protect it too. */
+    //printf ("malloc (%u) returns %p\n", (unsigned int) size, result);
+    /* Restore our own hooks */
+    __malloc_hook = memck_malloc_hook;
+    __free_hook = memck_free_hook;
+    __realloc_hook = memck_realloc_hook;
+    return (char*)result + HEAD_LENGTH;
+}
+
+static void
+memck_free_hook (void *ptr, const void *caller)
+{
+    /* Restore all old hooks */
+    __malloc_hook = old_malloc_hook;
+    __free_hook = old_free_hook;
+    __realloc_hook =old_realloc_hook;
+    /* Call recursively */
+    if(ptr)
+    {
+	    memck_check(ptr);	
+        free ((char*)ptr-HEAD_LENGTH);
+    }
+    else
+    {
+        free(ptr);
+    }
+    /* Save underlying hooks */
+    old_malloc_hook = __malloc_hook;
+    old_free_hook = __free_hook;
+    old_realloc_hook = __realloc_hook;
+    /* printf might call free, so protect it too. */
+    //printf ("freed pointer %p\n", ptr);
+    /* Restore our own hooks */
+    __malloc_hook = memck_malloc_hook;
+    __free_hook = memck_free_hook;
+    __realloc_hook = memck_realloc_hook;
+}
+
+static void* memck_realloc_hook(void*ptr,size_t size ,const void*caller)
+{
+    if(ptr == NULL)
+    {
+        return memck_malloc_hook(size,caller);
+    }
+
+    if(size == 0)
+    {
+        memck_free_hook(ptr,caller);
+        return NULL;
+    }
+
+    uint64_t length =  memck_get_size(ptr);
+    void* new_ptr = memck_malloc_hook(size,caller);
+    if(length >= size)
+    {
+        length = size;
+    }
+    memcpy(new_ptr,ptr,length);
+    memck_free_hook(ptr,caller);
+
+    return new_ptr;
+}
+#endif
+#if 0
+int
+main (int arg,char **argv)
+{
+    int i ; 
+    malloc(100);
+    malloc(100);
+    char* p = malloc(100);
+   
+    for (i = -4 ; i < 104;++i)
+    { 
+	    *(p+i)='\0';
+    }
+    free(p);
+    return 0;
+}
+#endif
