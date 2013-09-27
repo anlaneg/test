@@ -1,0 +1,24 @@
+
+support 'xpath'
+support 'dom'
+
+   (a)
+    |--(b)
+    |--(c)
+    `--(d)
+	|--(e)
+	`--(f)
+
+node_spell_validate
+node_value_validate
+node_semantics_validate
+
+1.首先将xml构造成dom对象
+2.检查词法(是否存在不认识的节点,不认识的属性)
+3.检查节点数量,节点属性取值类型(含语义检查插件提供的检查函数)
+4.dom对象转换,提供符号表(符号表仅对应插件可见)
+5.代码生成(含代码生成插件处理)
+
+
+1阶段无插件,无条件生成dom对象,如生成不成功,则认为不合乎xml规范
+2阶段
