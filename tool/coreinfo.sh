@@ -16,6 +16,7 @@ do
         printf "\t%s," "level:`cat $dir/level`";
         printf "%s,"   "size:`cat $dir/size`";
         printf "%s,"   "cache-line:`cat $dir/coherency_line_size`";
+	printf "%s,"   "set(row):`cat $dir/number_of_sets`";
         printf "%s,"   "way:`cat $dir/ways_of_associativity`";
         printf "%s,"   "share:`cat $dir/shared_cpu_list`";
         printf "%s\n"   "type:`cat $dir/type`";
