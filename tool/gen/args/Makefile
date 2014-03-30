@@ -7,7 +7,7 @@ SUB_MODULE=
 #ld 选项
 LD_FLAGS+=
 #c_complier flags
-C_COMPLIER_FLAGS+= -I..
+C_COMPLIER_FLAGS+= -I.. -I../cfg/
 
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
 

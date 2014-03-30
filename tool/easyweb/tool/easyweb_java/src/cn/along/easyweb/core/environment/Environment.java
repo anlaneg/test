@@ -3,12 +3,14 @@ package cn.along.easyweb.core.environment;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
+import cn.along.easyweb.core.config.ConfigPath;
+
 public class Environment implements IEnvironment
 {
 	static
 	{
 		PropertyConfigurator
-				.configure("/home/along/project/cworkspace/easyweb_java/src/lg4j.properties");
+				.configure(new ConfigPath().getConfigPath("lg4j.properties"));
 	}
 	public static final Logger log = Logger.getLogger(Environment.class);
 	private static IEnvironment env = new Environment();

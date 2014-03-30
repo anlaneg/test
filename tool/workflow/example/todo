@@ -1,0 +1,43 @@
+1.实现ip地址的申请
+2.mac,userid,ip-result
+3.set xml
+4.set html
+5.set database table
+
+
+1.用户登录
+2.点击ip申请，即自动生成一个ip地址
+3.可查询已申请的ip地址
+
+需要三个页面
+1.登录页面  : {userid,username,userpassword,method="login"}
+2.点击ip申请，生成一个ip地址 :{userid,method="ip_alloc"}
+3.点击ip查询，生成为具体某一用户，分配过的ip地址:{userid,method="query"}
+
+user table
+{userid,username,userpassword}
+
+
+ip_alloc table
+{ipid,userid,ip}
+
+1.实现：
+   query,
+2.申请
+   insert(a,b,null,null)
+3.query
+
+
+class A{
+  a;
+  b;
+  c;
+  public ArrayList<A> query(a);
+  public void load();
+  public void update();
+  public void insert();
+  public void delete();
+  public A get_load();
+}
+
+

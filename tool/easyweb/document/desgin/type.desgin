@@ -1,0 +1,44 @@
+	支持类型添加，支持各类型有各自独立的参数
+	uint8_t
+	uint16_t
+	uint32_t
+	uint64_t
+
+	int8_t
+	int16_t
+	int32_t
+	int64_t
+
+	uint8_t[length]
+	uint16_t[length]
+	uint32_t[length]
+	uint64_t[length]
+
+	int8_t[length]
+	int16_t[length]
+	int32_t[length]
+	int64_t[length]
+
+	#支持多维数组	
+	uint8_t[length][length]
+	uint16_t[][]
+	uint32_t[][]
+	uint64_t[][]
+	int8_t[][]
+	int16_t[][]
+	int32_t[][]
+	int64_t[][]
+	
+	#支持复杂数据类型（暂不实现）
+	string
+	string[]
+	string[][]
+	verctor[]
+	verctor
+	set
+	set[]
+	hashtable
+	hashtable[]
+	bitmap
+	bitmap[]
+

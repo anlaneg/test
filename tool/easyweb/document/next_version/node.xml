@@ -1,0 +1,55 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<!-- 容许json, soap , 结构体 ,三种方式 
+１。支持前端与后端完全分离。
+２。前端与后端测试可以独立进行。
+３。支持多种前端方式
+４。支持多种语言实现的后端方式
+
+实现思路：
+将struct 概念中的action折分为
+input->check->process->store->output
+			    |->nextstate{output}
+			    |->forward
+			    |->redirect
+-->
+<state name="STATES-NAME" >
+<!-- 
+<table name="">
+
+</table>
+
+支持这种方式的目的是为了更方便的书写xml,这个我可以独立出一个xml
+或者多个xml来做这件事
+<struct name="">
+ <member />
+ <index />
+</struct> -->
+<input>
+<!--对输入内容进行定义 -->
+<const type="MEMBER-TYPE-NAME" name="MEMBER-NAME" default="DEFAULT-VALUE" min="" max="" />
+<var type="" />
+<request />
+<session />
+</input>
+
+<output>
+<!--对输出内容进行定义 -->
+</output>
+
+<check>
+<!-- 对输入内容进行检查 -->
+</check>
+
+<process>
+<!-- 对输入内容进行处理 -->
+</process>
+
+<store>
+<!-- 对结果的进行存储 ,参阅hibernate -->
+</store>
+
+<datasource name="DATASOURCE-NAME" >
+<!-- 用于定义数据源,参阅hibats -->
+</datasource>
+
+</state>

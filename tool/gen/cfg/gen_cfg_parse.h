@@ -8,26 +8,14 @@
 #ifndef GEN_CFG_PARSE_H_
 #define GEN_CFG_PARSE_H_
 
-#include <stdio.h>
-
+struct gen_args;
 /**
- * 配置项
+ * 通过配置装载变量
+ * @param[in] args 配置参数
+ * @return 0 配置解析装载成功
+ * @return !0 配置解析装载失败
  */
-typedef struct gen_cfg_item
-{
-	char*name;
-	char*value;
-}gen_cfg_item_t;
-
-/**
- * 配置解析
- * @param[in] file 配置文件
- * @param[in] item_tbl 配置项表
- * @param[in] max_size 最大配置项表
- * @return 0 配置解析成功
- * @return !0 配置解析失败
- */
-int32_t gen_cfg_parse(FILE*file,gen_cfg_item_t* item_tbl,uint32_t max_size);
+int32_t gen_cfg_load_variable(struct gen_args* args);
 
 
 #endif /* GEN_CFG_PARSE_H_ */

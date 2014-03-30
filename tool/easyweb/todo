@@ -1,0 +1,82 @@
+做什么？
+
+１。实现动态网页开发简单化。
+
+２。在１的基础上，实现工作流
+
+３。在实现２的前提下，考虑将其搞成多机器。
+
+现在做了什么？
+１。实现输出与输出
+２。提供了数据库表与对象的映射机制
+３。提供了处理状态转换模型
+４。提供了与客户端的通信协议。
+
+未提供：
+１。界面处理
+２。后台业务处理
+３。
+
+现在的假设：
+１。前端可做简单运算，实现后台数据展示与输入数据的收集
+２。后端负责处理持久化，及实现前端复杂应用。｀
+
+
+1.input,check,process,state-forward,output,store
+2.input,check,state-forward,output,process,store
+说明：input是界面录入的数据，是一个状态转移时传入的数据
+　　　check是对传入的数据的校验，检查，检查通过进入process流程，失败后，则进入其它状态,在state-forward中描述下一个状态。
+      process 对check通过的数据进行处理，这一过程可能会修改input中的数据，或者不修改，它也可能引入新的数据,这在process-result中指明。
+　　　store是process中指出包含的出来时的结果，可以存放在数据库中（这里会提供一个实用库)
+      output传入下一状态或者界面的数据。
+
+<check>
+ <case value="" state-forward="" >
+     <output>
+     </output>
+ </case>
+ <case value="" state-forward="" >
+     <output>
+     </output>
+ </case>
+ <!--注意，这里没有default情况，default情况向下继续运行至process流程 -->
+<check>　　
+
+<output>
+<!-- 依赖type可以定义一些描述标记 -->
+<var type="" name="" >
+<const type="" name="" >
+</output>
+
+
+<struct name="" >
+<index />
+<member />
+<member name="" type="" paramtype="in/inout/out" default="" />
+</struct>
+
+<process>
+<result>
+   <output>
+</result>
+<store table="person" operator="" command="" >
+</store>
+</process>
+
+<process>
+<output>
+</output>
+<store table="person" operator="inser/update/delete" sql="">
+<param value=""
+</store>
+<out type="" />
+<out type="" />
+</process>
+
+<!-- 可以想到的简间的可执行语言扩展　-->
+<store type="">
+<if condition="" >
+<for condition="" >
+<call name="" param1="" param2="" param3="">
+<value />
+</store>

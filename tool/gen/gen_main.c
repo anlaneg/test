@@ -1,69 +1,39 @@
+#include <stdlib.h>
+#include <string.h>
+#include <errno.h>
 
-/**
- * 工作区
- */
-typedef struct gen_workspace
-{
-	gen_hash_t* cfg_hash;
-	gen_buffer_t* in_buffer;
-	gen_buffer_t* out_buffer;
-} gen_workspace_t;
-
-
-static int32_t gen_workspace_init(gen_workspace_t* workdspace, gen_args_t*args)
-{
-
-}
-
-static int32_t gen_workspace_destory(gen_workspace_t*workspace)
-{
-
-}
-
-static int32_t workspace_load_variable(gen_workspace_t*workspace,
-		gen_args_t* args)
-{
-
-}
-
-static int32_t workspace_parse_tmplate_file(gen_workspace_t*workspace,
-		gen_args_t*args)
-{
-
-}
+#include "gen.h"
 
 int main(int argc, char**argv)
 {
 	int32_t ret = -1;
 	gen_args_t args;
-	gen_workspace_t workspace;
 
 	//0.do args init
-	if (gen_args_init(&args))
+	if (gen_args_init(&args, argv[0]))
 	{
-		//TODO
+		LIB_ERROR(PARSER, "init args fail!\n");
+		return -1;
 	}
 
 	//1.parse argv
 	if ((ret = gen_args_parse(&args, argc, argv)))
 	{
+		LIB_ERROR(PARSER, "parse argments fail!\n");
 		gen_args_destroy(&args);
-		exit (ret)
+		exit(ret);
 	}
 
 	//2.do workdspace init
-	if (gen_workspace_init(&workspace, &args))
-	{
-	}
+	gen_hash_dump(&args.var_hash, args.output_fun);
 
-	//3.build variable hashtable
-	if (workspace_load_variable(&workspace, &args))
+	//3.template file process
+	gen_hash_dump(&args.var_hash, args.output_fun);
+	if (gen_parse_tmplate_file_process(&args))
 	{
-	}
-
-	//4.template file process
-	if (workspace_parse_tmplate_file(&workspace, &args))
-	{
+		LIB_ERROR(PARSER, "parse tmplate fail!\n");
+		gen_args_destroy(&args);
+		return -1;
 	}
 
 	return 0;

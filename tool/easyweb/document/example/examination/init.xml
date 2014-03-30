@@ -1,0 +1,14 @@
+<!--这个xml用于定义出init状态 -->
+<? xml version="1.0" encode="utf-8" ?>
+<state name="init" packet="example.examination">
+	<predefine>
+		<struct name="global">
+		</struct>
+
+		<struct name="per-user">
+			<member type="string" name="username" />
+		</struct>
+	</predefine>
+
+     <!--init 及destroy可以为空 -->
+</state>

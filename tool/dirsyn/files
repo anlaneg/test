@@ -1,0 +1,10 @@
+#! /bin/bash
+function find_all_files()
+{
+	FIND_PATH=$1;
+	OUTFILE=$2;
+	find "$FIND_PATH" -type f | awk '{ system("ls -al " $0) | getline d ;
+	split(d,line_array," "); }' #>> $OUTFILE;
+}
+
+find_all_files `pwd`  out_file

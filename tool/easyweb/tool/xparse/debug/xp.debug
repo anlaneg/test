@@ -1,0 +1,9 @@
+CHECK:check:语法检查模块
+GEN:gen:生成模块
+PARSE:parser:解析模块
+DEBUG:debug:debug模块
+FRAME:frame:frame模块
+PLUGIN:plugin:插件模块
+SYNTAX:syntax:语法模块
+SYNTAX_CHECK:syntax_check:语法检查
+SYNTAX_TREE:syntax_tree:语法树

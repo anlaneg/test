@@ -50,6 +50,7 @@ public class EasywebInputServlet implements IEasywebInputAdapter
 
 	public ICheck getRequestCheck()
 	{
+		//lookfor table for checkName
 		return new LoginCheck();
 	}
 

@@ -1,0 +1,17 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state name="result" packet="example.examination" >
+	<input>
+		<struct>
+			<input_session>
+				<member type="string" name="user_name" pass_type="out" />
+			</input_session>
+
+			<input_sql>
+				<member type="uint8_t" name="result"  pass_type="out" />
+			</input_sql>
+		</struct>
+	</input>
+	<output>
+		<member type="uint8_t" name="result" />	
+	</output>	
+</state>

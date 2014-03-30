@@ -1,0 +1,35 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state>
+
+ <input>
+ </input>
+
+ <check >
+   <case value="" >
+	<output>
+	</output>
+   </case>
+   <case value="" >
+	<output>
+	</output>
+   </case>
+   <default >
+	<output>
+	</output>
+   </default>
+ </check>
+
+ <!-- 此处学习hibernate -->
+ <table name="" >
+ 	<index />
+ 	<member />
+ </table>
+
+  <!-- 此处学习ibaits -->
+  <datasource operator="insert" name="xxx" >
+   insert into values('?','?',?) 
+  </datasource>
+  
+  <datasource operator="update|query|delete" name="" >
+  </datasource>
+</state>

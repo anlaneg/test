@@ -14,6 +14,7 @@ DEBUG_SRC_GEN=$(DEBUG_SRCS:%.debug=%_debug.c) $(DEBUG_SRCS:%.debug=%_debug.h)
 #获得.d文件
 DEPEND_FILE=$(addsuffix .d,$(basename $(SRCS_OBJECT))) $(addsuffix .d,$(basename $(CPLUS_SRCS_OBJECT)))
 
+
 #获得子模块生成的文件
 ifeq ($(strip $(SUB_MODULE)),)
 SUB_MODULE_OBJECT:=
@@ -76,41 +77,45 @@ clean:
 
 #c文件生成.o文件
 $(OUT_DIR)/%.o:%.c
-	$(CC) $(C_COMPLIER_FLAGS) -MD -c -o $@ $< $(AMF_INCLUDE_PATH)
-
+	$(CC) $(C_COMPLIER_FLAGS) $(AMF_INCLUDE_PATH) -MD -c -o $@ $< 
 #c++文件生成.oo文件
 $(OUT_DIR)/%.oo:%.cpp
-	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^ $(AMF_INCLUDE_PATH)
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) $(AMF_INCLUDE_PATH) -c -o $@ $^ 
 
 $(OUT_DIR)/%.oo:%.cc
-	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^ $(AMF_INCLUDE_PATH)
-
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) $(AMF_INCLUDE_PATH) -c -o $@ $^ 
 $(OUT_DIR)/%.oo:%.C
-	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) -c -o $@ $^ $(AMF_INCLUDE_PATH)
+	$(CPLUSPLUS) $(CPLUS_COMPLIER_FLAGS) $(AMF_INCLUDE_PATH) -c -o $@ $^ 
 
+#检查应使用的编译器
+ifeq ($(strip $(CPLUS_SRCS_OBJECT)),)
+__target_complier__=$(CC)
+else
+__target_complier__=$(CPLUSPLUS)
+endif
 
 #生成当前目录要求的目标
 ifeq ($(strip $(TARGET_TYPE)),bin)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
-	$(CC) $(C_COMPLIER_FLAGS) -o $(OUT_DIR)/$(TARGET_NAME) $^ $(LD_FLAGS) $(AMF_INCLUDE_PATH)
+	$(__target_complier__) $(C_COMPLIER_FLAGS) -o $(OUT_DIR)/$(TARGET_NAME) $^ $(LD_FLAGS) $(AMF_INCLUDE_PATH)
 	cp $(OUT_DIR)/$(TARGET_NAME) $(AMF_PROJECT_ROOT)/bin
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),lib)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT)
-	@ar -r $(OUT_DIR)/$(TARGET_NAME).a  $^
+	ar -r $(OUT_DIR)/$(TARGET_NAME).a  $^
 	cp -rf $(OUT_DIR)/$(TARGET_NAME).a $(AMF_PROJECT_ROOT)/lib
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),dynlib)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
-	$(CC) --share -o $(OUT_DIR)/$(TARGET_NAME).so $^ $(AMF_INCLUDE_PATH)
-	cp -rf $(OUT_DIR)/$(TARGET_NAME).so $(AMF_PROJECT_ROOT)/../lib
+	$(__target_complier__) -fPIC -shared -o $(OUT_DIR)/$(TARGET_NAME).so $^ $(AMF_INCLUDE_PATH)
+	cp -rf $(OUT_DIR)/$(TARGET_NAME).so $(AMF_PROJECT_ROOT)/lib
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),obj)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
-	$(CC) -nostdlib -r -o $(TOP_MODULE)/$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(TARGET_NAME).o $^ $(AMF_INCLUDE_PATH)
+	$(__target_complier__) -nostdlib -r -o $(TOP_MODULE)/$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(TARGET_NAME).o $^ $(AMF_INCLUDE_PATH)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),)

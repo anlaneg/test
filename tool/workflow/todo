@@ -1,0 +1,54 @@
+1.xml->web html
+2.xml->code source
+4.xml->database source
+5.flowxml->code source
+
+１。实现定义xml生成输入界面
+２。实现定义xml生成源代码
+３。实现定义xml生成数据库操作代码
+４。实现定义flowxml生成流控制代码
+
+//类型限制：uint64_t|int64_t|uint32_t|int32_t|uint16_t|int16_t|uint8_t|int8_t|char|double|float|boolean
+//可定义相应的数组类型，支持多维数据，采用后面加"[33][44][55]"的形式定义数组类型，
+//为了兼容先创建的数据库，为每一个有命字的实体，再添加一个alias字段，用于定义先于xml而出现的名称,这些名字，常常是无法在程序语言内直接以变量名使用的，例如："a-b",这就在程序语言内不是一个合法的名字(如果出现这种情况，建意以视图方式自行实现）
+
+class A
+{
+	int a; //this is a
+}
+
+create table A (a int) ;
+
+<input type="text" value="" name="a" id="A:a" />
+
+http://wewrew.com/afdasfd.jsp?abcdef=xxx&ccc=xxx
+<desc>
+<entity name="A" >
+
+<index>
+<member name="hello" type="" default="" html_type="text|area|hidden|password|select|radio" help="注释说明这个字段是什么的.">
+<option value="1" text="ABC" />
+<option value="2" text="DEF" />
+</member>
+</index>
+<member name="a" type="int" default="" help="this is a" />
+</entity>
+
+<!--
+	这个用来将完成用户上传的数据get,post
+	这个格式内需提供$(function function_name,a,b) 	
+	这个方式容许我们提供一些内置函数来对字符串进行操作
+	进行转换  :-)
+	input 做为keyword
+
+	operator可支持“insert","query","modify","delete" 操作
+	id 用于实现实现命令号
+		
+ -->
+<command pattern="abcdef=$(a)&ttst=$()dafda=$()" id="pattern-name" operator="query|insert|modify|delete" help="" />
+<command pattern="abcdef=$(a)&ttst=$()dafda=$()" id="pattern-name" help="" />
+<command pattern="abcdef=$(a)&ttst=$()dafda=$()" id="pattern-name" help="" />
+
+</desc>
+
+hibernate,ibatis

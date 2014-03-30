@@ -1,0 +1,26 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<map>
+	<struct name="struct-name" alias="table-name" >
+		<index>
+			<member name="field" alias="a" type="char|int8_t|uint8_t|int16_t|uint16_t|int32_t|uint32_t|int64_t|uint64_t|float|double|string|date|" html_type="" array_len="" > </member>
+		</index>
+		<member name="" alias="" type="" html_type="" default="null" many-to-many="" > </member>
+
+		<member name="" alias="" type="" html_type="" one-to-many="" > </member>
+
+		<member name="" alias="" type="" html_type="" many-to-one="" > </member>
+
+		<member name="" alias="" type="" html_type="" one-to-one="" > </member>
+
+	</struct>
+
+	<command text="" prev="" cmd="inser|query|delete|update" />
+
+	<!--
+	 我担心以面定义的不够使用，故添加了这四个，模拟ibatis
+	 <insert />
+	 <select />
+	 <update />
+	 <delete />
+	 -->
+</map>

@@ -1,0 +1,23 @@
+<!-- 此文件用于设计终止状态xml,目的做状态初始化，进行系统初始化，任何状态必须由此状态开始 -->
+<? xml version="1.0" encode="utf-8" ?>
+<state name="destroy">
+<predefine>
+	<!-- 可以定义出多个sql表进行映射 -->
+	<struct name="" table="" >
+		<index name="" type="" columt="" />
+		<input name="" type="" columnt="" />
+		<input name="" type="" columnt="" />
+		<member name="" type="" columnt="" />
+	</struct>
+	
+	<struct name="session">
+	</struct>
+
+	<struct name="per-user">
+	</struct>
+</predefine>
+<input>
+</input>
+<check>
+</check>
+</state>

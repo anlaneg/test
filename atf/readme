@@ -1,0 +1,65 @@
+用于建立一个测试框架，
+此框架要求可以测试C语言，精确至函数级别
+做自动化测试。
+
+需要设计一种测试用例描述格式。
+可依据此用例描述格式自动生成测试输入，
+并自动进行测试，其大致格式如下示：
+
+input {xxx,yyy}
+output {xxx,yyy}
+before {xxxx}
+after {xxx}
+
+前置条件，后置条件,
+输入，输出。
+init() {
+}
+
+destroy() {
+}
+
+testcase "name" {
+  init {
+  }
+
+  before {
+  }
+
+  after
+  {
+  }
+
+  input {
+  }
+
+  output {
+  }
+
+  destroy()
+  {
+  }
+
+  stub()
+  {
+  }
+}
+
+
+test_xxxx()
+{
+  init:
+  {
+  }
+
+  intput:{
+   xxx
+  }
+output:{
+  xxx
+  }
+destroy:
+{
+}
+
+

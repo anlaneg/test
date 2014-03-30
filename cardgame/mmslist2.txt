@@ -1,0 +1,227 @@
+
+网易 
+博客 
+发现
+小组
+风格
+ 
+网易LOFTER-Android版下载>
+创建博客 登录  
+ 加关注
+清影斓韵
+
+芸羽心雨-清影雅逸
+
+    首页
+    日志
+    相册
+    音乐
+    收藏
+    博友
+    关于我
+
+ 
+ 
+日志
+ 
+ 
+ 
+魅力金融城-陆家嘴
+ 
+地球最后的珍稀物种
+在线电视代码  
+
+2012-02-02 09:54:24|  分类： 网页素材 |字号 订阅
+
+  
+
+ 
+ 
+ 
+代码
+ 
+<EMBED height="430" allowNetworking="internal" allowScriptAccess="never" width="440" loop="-1" invokeurls="false" src="mms://221.12.170.8:554/cctv1" type="application/x-mplayer2" wmode="transparent"   wmode="transparent"> 
+
+ 
+
+标签：
+在线电视
+代码
+杂谈
+	分类： 博客技巧
+
+代码（以中央一套为例）：
+
+<P align=center><EMBED src=mms://221.12.170.8:554/cctv1 width=460 height=450 type=application/x-mplayer2 LOOP="-1" VOLUME="0"></EMBED></P>
+
+<CENTER><A href="http://blog.sina.com.cn/s/blog_804c60dd0100sqbx.html"><IMG border=0>&nbsp;<FONT face=楷体_GB2312 size=4>点此分享代码</FONT></A></CENTER>
+
+ 
+
+说明：（怎么使用代码就不用说了吧！）
+
+1、代码中蓝色部分为电视台地址，可以根据自己喜欢的电视台调换，电视台地址附后。
+
+2、代码中绿色数字为屏幕宽、高，可以自己调试。
+
+3、附电视台地址：
+
+mms://58.22.96.10/litv01 凤凰中文台
+
+mms://58.22.96.10/litv02 CHANNEL [V] 音乐
+
+mms://58.22.96.10/litv03 凤凰资讯台
+
+mms://58.22.96.10/litv04 阳光街视
+
+mms://58.22.96.10/litv05 法国时尚台
+
+mms://58.22.96.10/litv06 星空卫视大陆台
+
+mms://58.22.96.10/litv07 无限国语台TV8
+
+mms://58.22.96.10/litv08 星空体育中文台
+
+mms://58.22.96.10/litv09 湖南卫视
+
+mms://58.22.96.10/litv10 CCTV-5
+
+mms://58.22.96.10/litv11 CCTV-9
+
+mms://58.22.96.10/litv12 香港创世纪卫视台
+
+mms://58.22.96.10/litv13 华娱卫视
+
+mms://58.22.96.10/litv14 环球金融快线
+
+mms://58.22.96.10/litv15 CCTV-10
+
+mms://58.22.96.10/litv16 CCTV-4
+
+mms://58.22.96.10/litv17 CCTV-2
+
+mms://live.cctv.com/cctv_live1 CCTV-1(综合)
+
+mms://live.cctv.com/live3 CCTV-1(综合)
+
+mms://live.cctv.com/live12 CCTV-2(经济)
+
+mms://live.cctv.com/live12 CCTV-2(经济)
+
+mms://live.cctv.com/live13 CCTV-3(综艺)
+
+mms://live.cctv.com/live13 CCTV-3(综艺)
+
+mms://live.cctv.com/cctv_live4 CCTV-4(国际)
+
+mms://58.22.96.10/litv16 CCTV-4(国际)
+
+mms://61.236.93.37/litv16 CCTV-4(国际)
+
+mms://58.22.96.10/litv10 CCTV-5(体育)
+
+mms://live.cctv.com/live15 CCTV-5(体育)
+
+mms://221.12.42.160:1080/cctv5 CCTV-5(体育)
+
+mms://live.cctv.com/live16 CCTV-6(电影)
+
+mms://live.cctv.com/live17 CCTV-7(农业)
+
+mms://61.157.125.74:2004/cctv8_new CCTV-8(电视剧)
+
+mms://221.12.42.160:1080/cctv8 CCTV-8(电视剧)
+
+mms://live.cctv.com/cctv_live9 CCTV-9(英语)
+
+mms://58.22.96.10/litv11 CCTV-9(英语)
+
+mms://61.236.93.37/litv11 CCTV-9(英语)
+
+mms://live.cctv.com/live20 CCTV10(科学)
+
+mms://58.22.96.10/litv15 CCTV10(科学)
+
+mms://61.236.93.37/litv15 CCTV10(科学)
+
+mms://live.cctv.com/live21 CCTV-11(戏剧)
+
+mms://live.cctv.com/live22 CCTV-12(社会)
+
+mms://live.cctv.com/livemusic CCTV-音乐
+
+mms://live.cctv.com/livenews CCTV-新闻
+
+mms://live.cctv.com/livekids CCTV-少儿
+
+ 
+
+其他精彩：
+
+一组超精彩的swf素材
+
+博客投票小调查的代码
+
+《形象演示太阳系星球的运动和数据… 在线电视代码
+
+博客装扮手册 在线电视代码在线电视代码
+
+博客里添加广播电台代码（附50个电…
+
+一组最漂亮的博客透明背景代码
+
+最新最全的时钟、日历代码（200多…
+
+文字字动态特效代码 在线电视代码
+
+首页组件放不下怎么办？
+
+博客代码大全
+
+ 
+
+罕见实拍天地精灵雪地火狐 - 清影斓韵的日志 - 网易博客
+
+ 
+分享到：        
+阅读(142)| 评论(0)| 转载 (2) |举报
+ 
+魅力金融城-陆家嘴
+ 
+地球最后的珍稀物种
+历史上的今天
+
+    Flash中导出透明背景的GIF动画2008-02-02 14:50:01
+
+最近读者
+登录后，您可以在此留下足迹。
+泉友
+泉友
+江风泊月
+江风泊月
+qzdzzxjwc
+qzdzzxjw
+飞扬
+飞扬
+qazws
+qazws
+      。
+      。
+ydq200888
+ydq20088
+四季皆春
+四季皆春
+评论
+点击登录|昵称：
+ 
+ 
+ 
+ 
+ 
+ 
+公司简介 - 联系方法 - 招聘信息 - 客户服务 - 隐私政策 - 博客风格 - 手机博客 - VIP博客 - 订阅此博客
+
+网易公司版权所有 ©1997-2013
+
+精选 来自：一空之间 老飘飘的阴暗面
+

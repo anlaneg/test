@@ -1,0 +1,14 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<!-- 本文件用于定义登录界面及登录处理-->
+<state name="login-state">
+<input>
+<var name="user_name" type="string(32)" default="" />
+<var name="user_password" type="string(32)" default="" />
+</input>
+
+<check type="int32_t" >
+<result value="1" nextState="login-success" output="" process="" />
+<result value="0" forward="/xx/xx.do?action=pst" />  
+</check>
+</state>
+

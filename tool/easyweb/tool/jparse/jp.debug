@@ -1,0 +1,5 @@
+CORE:core:核心模块
+GEN:gen:生成模块
+PARSER:parser:解析模块
+DEBUG:debug:debug模块
+FRAME:frame:frame模块

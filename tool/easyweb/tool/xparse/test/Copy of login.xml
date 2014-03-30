@@ -1,0 +1,38 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<!-- 此文件负责登录界面-->
+<state name="login" packet="example.examination">
+	<input>
+		<struct name="login_info">
+			<member name="user_name" type="string" pass-type="in" comment="用户名">
+				<validate max-length="16" comment="定义用户名称不得超过16字节" />
+			</member>
+			<member name="user_password" type="string" pass-type="in"  comment="密码">
+				<validate max-length="16" comment="密码不得超过16字节" />
+			</member>
+			<input-sql sql-statement="select user_pwd from users where user_name= ?">
+				<param type="string" value="$(this.login_info.user_name)" />
+				<struct>
+					<member type="string" name="load_pwd" pass-type="out" comment="自数据库中取出的密码" />
+				</struct>	
+			</input-sql>
+			<member type="string" name="error_msg" pass-type="out" comment="显示错误信息" />
+		</struct>
+	</input>
+	<check>
+		<result value="1" redirect="$(this.$rollback)" comment="如果校验失败，则跳转到来时的界面">
+			<output>
+				<struct>
+					<member type="string" name="output_error_msg" is-const="true" value="ERROR:$(this.login_info.user_name)\n" comment="显示错误信息" />
+				</struct>
+			</output>
+		</result>
+		<default forward="welcome" >
+		<!-- 此处还得再设计一下，否则不知道填充session -->
+		<output>
+			<output-per-user>
+					<member type="string" name="username" value="$(this.login_info.user_name)" comment="将user_name放入session中"/>
+			</output-per-user>
+		</output>
+		</default>
+	</check>
+</state>

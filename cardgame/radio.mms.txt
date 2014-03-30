@@ -1,0 +1,17 @@
+    北京音乐广播      mms://alive.bjradio.com.cn/fm974
+    北京电台新闻广播  mms://alive.bjradio.com.cn/fm1006
+    北京故事广播      mms://alive.bjradio.com.cn/am603
+    北京城市管理台    mms://alive.bjradio.com.cn/fm1073
+    北京交通广播      mms://alive.bjradio.com.cn/fm1039
+    北京文艺广播      mms://alive.bjradio.com.cn/fm876
+    北京体育广播      mms://alive.bjradio.com.cn/am927
+    北京外语广播      mms://alive.bjradio.com.cn/am774
+    北京教学广播      mms://alive.rbc.cn/CFM994
+    北京古典音乐广播  mms://alive.rbc.cn/cfm986
+    北京电台通俗音乐  mms://alive.bjradio.com.cn/cfm970
+    北京电台长书广播  mms://alive.bjradio.com.cn/cfm1043|
+    北京戏曲综艺      mms://alive.rbc.cn/CFM1051
+    北京欢乐时光      mms://alive.rbc.cn/CFM1065
+    北京怀旧金曲      mms://alive.rbc.cn/CFM1075
+    北京电台爱家广播  mms://alive.bjradio.com.cn/am927
+    青檬音乐台        mms://pub1.qmoon.net/911pop

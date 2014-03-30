@@ -1,0 +1,457 @@
+	
+
+    分享
+    应用程序
+    公共主页
+    人人生活
+    人人小组
+    同名同姓
+    校园百科
+    大学百科
+    人人热点
+    人人小站
+    人人逛街
+    人人校招
+
+人人网 renren.com - 人人网校内是一个真实的社交网络，联系朋友，一起玩游戏
+注册
+登录
+帮助
+给我们提建议
+更多
+加入人人网，找回老朋友，结交新朋友。
+加入人人网
+分享
+返回分享首页»
+分享
+我的广播情结（附上各广播的频率和流媒体地址）
+来源： 胡春龙的日志
+
+      我喜欢听广播，以至于到了痴迷的程度。一上网我做的第一件事不是打开QQ、飞信、校内，而是打开流媒体播放器听在线广播。我每天有三个固定时间用收音机听各种广播：07：00听VOA（短波，单位KHz，短波不像调频，在各个城市的频率和电台不一样，短波在很大很大的范围内，频率都是一样的，所以这些频率在全国各地是一样的，下同，6070 7220 7480 11560）、08：00听BBC（短波15360）、09：00听ABC（短波15415 17750），17：00听BBC（短波17760）、18：00听ABC（短波11945），20：00听CRI Easy FM（调频，合肥92.4MHz，北京91.5MHz，天津、上海、厦门、广州等几个城市也有）、21：00听VOA（短波7575 9640 9760 11705）、22：00听CRI Easy FM、23：00听BBC（短波5875 6195 9740）。由于我听的大部分是短波广播，在室内几乎接收不到，所以我要到室外去收听，这就使得我不怕冷。在合肥，冬天我可以不穿毛衣和秋裤过冬。
+      说到与广播的缘份，还得从大一上学期期末考试周说起。大一上期末考第一天考英语我就发烧得厉害，考完后就去校医院，结果被告知我得了水痘（当时我班上有很多人感染了水痘），按校医院的规定，水痘患者必须隔离治疗两周，于是我就住进了校医院。在病房里，我实在闲得无聊，那时我连手机都还没买，幸好带了一个全波段收音机，整天拿着收音机收各种电台，先是听调频广播，这样我就认识了CRI Easy FM，后来感觉老听EZFM没意思，一半中文一半英文，还是中式发音，就转去搜索短波电台，从此我就认识了BBC。由于是在室内，只有BBC能够听清楚，其他电台一片杂音。当时一听BBC就傻眼了，完全听不懂，语速快那是自然的，更要命的那是英式发音，而我们听到的英语绝大部分是美式发音。但是那时我闲得实在无聊，就只好硬着头皮去听，没想到慢慢的我就能够听懂很多了，慢慢的我发现英式发音比美式发音好听多了。后来两年时间里我几乎都是听BBC。不过现在我还会听Deutsche Welle、Radio Australia、VOA，和这几个电台的故事那又得从大二寒假说起。
+      大二寒假是一个天寒地冻的寒假，那次的雪灾相信大家都不会忘记吧。很不幸，我回家的那天下午家里就停电了，而且一停就是二十来天，直到次年的正月初五才来电。没有电，手机、电视、电脑之类的就如同废铁了，又是闲得无聊至极，幸好我把收音机带回家了。于是当大家都还在被窝里睡觉或者在屋里烤火的时候，我就提着收音机，在冰天雪地里慢慢的旋转调谐按钮，搜索来自世界各国的电台（主要是英语电台，还有一些国外的中文台，天天说共党的坏话），每收到一个电台，我就记下时间和频率，就这样，我就记下了很多电台的播出时间和频率。那个寒假，我收到了几十个英文电台，BBC、ABC、CBC、VOA、Deutsche Welle、RFI、CRI等几家主流电台那时自然不用说的，还收到了台湾、香港、日本、朝鲜、韩国、俄罗斯、泰国、新加坡、越南、印度等国家和地区的中文和英文电台。这些电台让我对中国的黑暗面有比较全面的了解，当时我甚至成一愤青了。但后来越听越多，反而觉得没什么了，觉得中国也就这个样子。后来又听了大半年，我对中国的看法又有了很大的改变，认为那些问题都是中国在发展和崛起的表现，每个社会在发展的过程中都会有这样那样的问题，我对中国的现状是不满的，但对未来是充满希望的。
+      大二下学期买了笔记本，由于平时经常听广播，上网就经常在百度百科、维基百科里搜索那些电台，了解那些电台的情况，在百科里有它们的官方网站链接，就进去看看，发现有在线收听的按钮，于是点进去。后来觉得要打开网页来收听太麻烦，就想方设法把地址提取出来，放到Windows Media Player和Realplayer里面去听。当时提取的地址大多数都是这样两种形式：http://www.***.asx、http://www.***.ram。但是众所周知，我们伟大的共党会封锁很多外国媒体网站，现在CNN、VOA、Deutsche Welle、RFI等网站需要非常规手段才能访问。这样一来，以上两种形式的收听地址是没法收听的。后来我就想方设法提取以mms和rtsp开头的流媒体地址，于是就产生了下面各电台的收听地址。
+
+      以mms开头的地址用Windows Media Player播放，以rtsp开头的地址用Realplayer播放。告诉大家一个诀窍：新建一个记事本文件，把某一个流媒体地址复制到里面，保存为那个电台的名字，然后把文件的后缀txt改一下（mms开头的地址把txt改为asx，rtsp开头的地址把txt改为ram），并且把asx文件的默认打开方式改为Windows Media Player,ram改为Realplayer（如果你安装了暴风影音的话会修改默认关联程序，很讨厌！）。
+有些地址过长，注意换行。
+ABC International: International radio of the Australian Broadcasting Corporation.
+    mms://media3.abc.net.au/raelp
+ABC Dig Music: Plays music from the genres of pop, rock, blues, country, soul, jazz etc.
+    mms://media3.abc.net.au/digradio
+ABC Classic FM: Australian classical music radio
+    mms://media3.abc.net.au/classicfm
+ABC News Radio: Australia's only national, continuous news network.
+    mms://media3.abc.net.au/news-radio
+ABC Triple J: A music radio intended to appeal to listeners between the ages of 18 and 30.
+    mms://a1512.l4412545511.c44125.g.lm.akamaistream.net/D/1512/44125/v0001/reflector:45511
+BBC Radio 1: The best new music and entertainment
+
+    http://www.bbc.co.uk/radio1/realaudio/media/r1live.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/radio1/radio1_bb_live_int_eq1_sl0?BBC-UID=a43be388988e0dc960ef4e4bb1db8e6f903fffb9b080f10474ef4997dc32ba21&amp;SSO2-UID=
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/radio1/radio1_nb_int_live.ra?BBC-UID=14fbd8678aa24f04342ac1db91360f25860e51f850d051a4642f09b77c223a51&SSO2-UID=
+
+BBC Radio 1 Extra: Specialises in new black music, sometimes referred to as urban music.
+
+    http://www.bbc.co.uk/1xtra/realmedia/1xtralive.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/1xtra/1xtra_bb_live_int_ep1_sl0?BBC-UID=e42b2358481f81d4f88b1188f1dfc2e255dd7e3ea06011f4748f6a71040dfb57&amp;SSO2-UID=
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/1xtra/1xtra_nb_int_live.ra?BBC-UID=f46b48273ad33e16fa44288cb1e970efed486f85008052714278a004045d2254&SSO2-UID
+
+BBC Radio 2: The UK's most listened to radio station, with 12.9 million weekly listeners.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/radio2/radio2_nb_int_live.ra?BBC-UID=741b58a7aaf4c96e61ec64a4518c2a3ea3b369de10704184f42f90126c08282c&SSO2-UID=
+    http://www.bbc.co.uk/radio2/realmedia/fmg2.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/radio2/radio2_bb_live_int_eq1_sl0?BBC-UID=847b530858afc51b31c38118515d5dcf7e4f5c84d0f0710404ef69c76c929a21&amp;SSO2-UID=
+
+BBC Radio 3: Classical and jazz music.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/radio3/radio3_nb_int_live.ra?BBC-UID=c46bf817da44cd206cb9f075d135ffe75f1ee18a10a0f1c4747fd47668401e9a&SSO2-UID=
+    http://www.bbc.co.uk/radio3/ram/r3g2.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/radio3/radio3_bb_live_int_eq1_sl0?BBC-UID=c4cb5348587f3a457abc108641173452da855e0e5000f1b484dfb8a1dc1a7cbd&amp;SSO2-UID=
+
+BBC Radio 4: Current affairs, factual, drama and comedy.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/radio4/radio4_nb_int_live.ra?BBC-UID=c4db08379ad514153ceb3e5351ef5c8278c164fb0060f1b4043fc43698e06efa&SSO2-UID=
+    http://www.bbc.co.uk/radio4/realplayer/media/fmg2.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/radio4/radio4_bb_live_int_eq1_sl0?BBC-UID=24dbe3b8f84f2e8090dd601bd189bccccf30aec84070b17464efa9773403b314&amp;SSO2-UID=
+
+BBC Radio 5 Live: 24 hour news, sports and talk.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/radio5/5live_nb_int_live.ra?BBC-UID=441b68376ad5b8cb8a7e612681cc153585a3bf304090c154348f2456839a492a&SSO2-UID=
+    http://www.bbc.co.uk/fivelive/live/surestream_int.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/radio5/radio5_bb_live_int_eq1_sl0?BBC-UID=445be3a88970f1ed0b63f720313e8b13df24c5201090e281c2f8d054740d72b4&amp;SSO2-UID=
+
+BBC Radio 6 Music: Features BBC music archives.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/6music/6music_nb_int_live.ra?BBC-UID=448bb8979a558d1b4bc020a6418bdcc3ef93cd2a4080d1d4c4bfc486d36a19aa&SSO2-UID=
+    http://www.bbc.co.uk/6music/ram/dsatg2.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/6music/6music_bb_live_int_eq1_sl0?BBC-UID=a4eb7308b87d2a4ec802a569f14f1783903299489060c124c48fca81d4ad5b77&amp;SSO2-UID=
+
+BBC Radio 7: Broadcasts comedy, drama, and children's programming nationally 24 hours a day.
+
+    rtsp://rmlegacy.bbc.co.uk/bbc-rbs/rmlegacy/farm/live24/bbc_ami/bbc7/bbc7_nb_int_live.ra?BBC-UID=f4db48376aa6d026ebf171a851d0cad88395b8d1b0a0d184548f54f6630a394a&SSO2-UID=
+    http://www.bbc.co.uk/bbc7/realplayer/dsatg2.ram
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/bbc7/bbc7_bb_live_int_eq1_sl0?BBC-UID=a48bf3c8a9e03f8d11f4e03101a94223ea7e8a63a070a1f4444fc947c4938394&amp;SSO2-UID=
+
+BBC Asian Network: Broadcasts Asian music, news, entertainment, culture, debate and drama.
+
+    mms://wmlive.bbc.net.uk/wms/bbc_ami/asiannet/asiannet_bb_live_int_eq1_sl0?BBC-UID=842b136839e173082d3a796881bffe2e848f251c70d0e134847ff8610ffb8685&amp;SSO2-UID=
+
+BBC World Service: Arguably the most widely recognised international broadcaster.
+
+    http://www.bbc.co.uk/worldservice/meta/tx/nb/live_news_au_nb.ram
+    mms://livewmstream-ws.bbc.co.uk.edgestreams.net/reflector:38972
+    rtsp://a101.l3944150100.c39441.g.lr.akamaistream.net/live/D/101/39441/v0001/reflector:50100?BBC-UID=f4ebc8374a51c65521e18899b127aa0af3ff90e32050825102582094737c10a8_n&SSO2-UID=
+    http://www.bbc.co.uk/worldservice/meta/tx/nb/live_infent_au_nb.ram
+
+Beijing Music Radio:
+    mms://alive.rbc.cn/fm974
+CBC Radio One: Primarily news and information.
+    http://out1.cbc.icy.abacast.com:80/cbc-cbcr1vcr-96
+CBC Radio Two: Broadcasts music, arts and culture programming.
+    http://out1.cbc.icy.abacast.com:80/cbc-cbcr2vcr-128
+CNN (Cable News Network):
+    http://www.cnn.com/audio/radio/liveaudio.asx
+    mms://a1181.l3760631180.c37606.n.lm.akamaistream.net/D/1181/37606/v0001/reflector:31180
+CRI International (English):
+    mms://media.chinabroadcast.cn/en3
+CRI Country (写意民谣):
+    mms://live.cri.cn/country
+CRI 海峡飞虹:
+    mms://live.cri.cn/hxfh
+CRI News Radio (环球资讯):
+    rtsp://real.crinewsradio.cn/encoder/crinewsradio
+    mms://media.crinewsradio.cn/crinewsradio
+CRI Office:
+    mms://live.cri.cn/office
+CRI Old (怀旧金曲):
+    mms://live.cri.cn/oldies
+CRI Pop (都市流行):
+    mms://live.cri.cn/pop
+CRI Easy FM (轻松调频):
+    mms://enmms.chinabroadcast.cn/fm91.5
+CRI Hit FM (劲曲频道):
+    mms://live.hitfm.cn/fm887
+Deutsche Welle:
+    mms://c13010-ls.w.core.cdn.streamfarm.net/dwworldlive-live/13010dwras50
+NPR (National Public Radio):
+    mms://a442.l2063255316.c20632.g.lm.akamaistream.net/D/442/20632/v0001/reflector:55316?v1st=&mt=5
+RFI (Radio France International):
+    mms://a291.l3384150290.c33841.g.lm.akamaistream.net/D/291/33841/v0001/reflector:50290
+VOA:
+    rtsp://a1702.l211048984.c2110.g.lr.akamaistream.net/live/D/1702/2110/v0001/reflector:48984
+VOA Music Mix:
+    rtsp://a165.l211051251.c2110.g.lr.akamaistream.net/live/D/165/2110/v0001/reflector:51251
+
+
+
+      下面是我记下来的BBC、ABC、DW（Deutsche Welle）、VOA的频率表（单位是KHz），其中BBC对应于上面流媒体地址的BBC World Service，ABC对应于ABC International，VOA对应于VOA News Now。
+      又是我们伟大的共党，几乎对每个外国电台进行干扰！一般是镜像频率干扰，也有近频甚至同频干扰（如对VOA的干扰）。对于镜像频率干扰，解决的办法是买一个好一点的收音机，采用二次变频技术消除镜像干扰，这样的收音机一般在100块钱左右，对于近频和同频，我就没办法了。我一开始的那个收音机是二十几块钱买的，抗干扰能力很差。
+
+BBC
+
+LOCAL         Frequency
+00:00-01:00    5975  7355  9740
+01:00-02:00    5975  7355
+02:00-03:00    5945  5955
+03:00-04:00    5945  5955
+04:00-05:00   
+05:00-06:00    3915  5875  5965  6195
+06:00-07:00    3915  5875  5965  6195  9740
+07:00-08:00    3915  5875  6135  7385  9740  11955
+08:00-09:00    9740  13725 15335 15360
+09:00-10:00    9740  15335 15360 17615
+10:00-11:00    5940  9410  15310
+11:00-12:00    9410  12095 15310 17790
+12:00-13:00    9410  15310 15360 17790
+13:00-14:00    9410  15310 15360 17790
+14:00-15:00    9410  15310 15360 17790
+15:00-16:00    9410  15310 15360 17790
+16:00-17:00    15310 15575 17790
+17:00-18:00    6195  9740  11895 17760
+18:00-19:00    6195  9605  9740  11895
+19:00-20:00    9605  9740  11895 17790
+20:00-21:00    5875  9605  9740  17790
+21:00-22:00    5875  6195  9740
+22:00-23:00    5875  6195  9740
+23:00-24:00    5875  6195  9740
+
+
+ABC
+
+LOCAL         Frequency
+00:00-01:00    6080  9475
+01:00-02:00    6080  9475
+02:00-03:00    6080  9475
+03:00-04:00    6080  11880
+04:00-05:00    11880
+05:00-06:00
+06:00-07:00
+07:00-08:00
+08:00-09:00    15415 17750   
+09:00-10:00    15415 17750
+10:00-11:00    15415 17750 21725
+11:00-12:00    15415 17750 21725
+12:00-13:00    15415 17750 21725
+13:00-14:00    17750
+14:00-15:00    17750
+15:00-16:00    11945
+16:00-17:00    11945
+17:00-18:00    11945
+18:00-19:00    11945
+19:00-20:00    11945
+20:00-21:00    11945
+21:00-22:00    9560  9580  9590
+22:00-23:00    6080  9475
+23:00-24:00    6080  9475
+
+
+VOA
+
+Standard
+LOCAL         Frequency
+00:00-01:00
+01:00-02:00
+02:00-03:00
+03:00-04:00
+04:00-05:00
+05:00-06:00
+06:00-07:00    6070  7220  7480  11560
+07:00-08:00    6070  7220  7480  11560
+08:00-09:00    12095
+09:00-10:00    7325  9435  11705
+10:00-11:00
+11:00-12:00   
+12:00-13:00
+13:00-14:00
+14:00-15:00
+15:00-16:00
+16:00-17:00
+17:00-18:00
+18:00-19:00
+19:00-20:00
+20:00-21:00    7575  9640  11705 11750
+21:00-22:00    7575  9640  9760  11705
+22:00-23:00    7575  9760  9930  12150
+23:00-24:00    7575  9310  9930  12150
+Special
+LOCAL         Frequency
+00:00-01:00    9395  13600 15445
+01:00-02:00
+02:00-03:00
+03:00-04:00    9585  12020
+04:00-05:00
+05:00-06:00
+06:30-07:00    5890  7230  9780
+07:00-08:00    6180  7460  11840
+08:30-09:00    6170  9325  9620  12005 15290
+09:00-10:00   
+10:00-11:00
+11:00-12:00   
+12:00-13:00
+13:00-14:00
+14:00-15:00
+15:00-16:00
+16:00-17:00
+17:00-18:00
+18:00-19:00
+19:00-20:00
+20:00-21:00
+21:00-22:00
+22:00-23:00
+23:00-24:00    6140  7520  9760  15460
+
+
+DW
+
+LOCAL         Frequency
+00:00-01:00    5965 9560
+01:00-02:00
+02:00-03:00
+03:00-04:00
+04:00-05:00
+05:00-06:00
+06:00-07:00
+07:00-08:00   
+08:00-09:00    7265 9785 15640   
+09:00-10:00   
+10:00-11:00
+11:00-12:00    11695 17800   
+12:00-13:00
+13:00-14:00
+14:00-15:00
+15:00-16:00
+16:00-17:00
+17:00-18:00    17710 21780
+18:00-19:00
+19:00-20:00
+20:00-21:00
+21:00-22:00
+22:00-23:00
+23:00-24:00
+
+
+CRI
+
+LOCAL         Frequency
+00:00-01:00    6060  7235
+01:00-02:00    6090  6140  7410  7420  7425
+02:00-03:00
+03:00-04:00
+04:00-05:00
+05:00-06:00
+06:00-07:00    5915 
+07:00-08:00    5915  6145  7415  9610  11790
+08:00-09:00    9425  11650 11885
+09:00-10:00    9420  11650 11885
+10:00-11:00    11785 13640
+11:00-12:00    9460  11785 13620 15110 15120
+12:00-13:00    9460  13620 15120 17725 17855
+13:00-14:00    11880 15350 15465 17725 17855
+14:00-15:00    11880 15350 15465 17540
+15:00-16:00    11880 15350 15465 17540
+16:00-17:00    11880 15350 15465 17540
+17:00-18:00    9415  15350 17750
+18:00-19:00    5955  7215  11640 15190 15350
+19:00-20:00    5955  9570  11650 13590 13720
+20:00-21:00    5955  7250  9460  9600  11650
+21:00-22:00    5955  7300  9655  9730  11980
+22:00-23:00    7300  9765  9460  9765  11665
+23:00-24:00    7325  7405  9785  9870
+
+
+
+说了这么多广播的，顺便送上电视的流媒体地址吧：
+CCTV-1综合    mms://video.bupt.edu.cn/CCTV-1
+CCTV-2财经    mms://video.bupt.edu.cn/CCTV-2
+CCTV-3综艺    mms://video.bupt.edu.cn/CCTV-3
+CCTV-4国际    mms://video.bupt.edu.cn/CCTV-4
+CCTV-5体育    mms://video.bupt.edu.cn/CCTV-5
+CCTV-6电影    mms://video.bupt.edu.cn/CCTV-6
+CCTV-7农业    mms://video.bupt.edu.cn/CCTV-7
+CCTV-8电视剧    mms://video.bupt.edu.cn/CCTV-8
+CCTV-9英语    mms://video.bupt.edu.cn/CCTV-9
+CCTV-10科教    mms://video.bupt.edu.cn/CCTV-10
+CCTV-11戏曲    mms://video.bupt.edu.cn/CCTV-11
+CCTV-12社会    mms://video.bupt.edu.cn/CCTV-12
+CCTV-新闻    mms://video.bupt.edu.cn/CCTV-news
+CCTV-音乐    mms://video.bupt.edu.cn/CCTV-music
+CCTV-少儿    mms://video.bupt.edu.cn/CCTV-kid
+CCTV-高清    mms://video.bupt.edu.cn/CCTV-HDTV
+中央教育一套    mms://video.bupt.edu.cn/CETV-1
+中央教育三套    mms://video.bupt.edu.cn/CETV-3
+湖南卫视    mms://video.bupt.edu.cn/HNWS
+湖北卫视    mms://video.bupt.edu.cn/HBWS
+辽宁卫视    mms://video.bupt.edu.cn/LNWS
+广东卫视    mms://video.bupt.edu.cn/GDWS
+福建卫视    mms://video.bupt.edu.cn/FJWS
+上海卫视    mms://video.bupt.edu.cn/SHWS
+云南卫视    mms://video.bupt.edu.cn/YNWS
+安徽卫视    mms://video.bupt.edu.cn/AHWS
+深圳卫视    mms://video.bupt.edu.cn/SZWS
+浙江卫视    mms://video.bupt.edu.cn/ZJWS
+BTV-1综合    mms://video.bupt.edu.cn/BTV-1
+BTV-2文艺    mms://video.bupt.edu.cn/BTV-2
+BTV-3科教    mms://video.bupt.edu.cn/BTV-3
+BTV-4影视    mms://video.bupt.edu.cn/BTV-4
+BTV-5财经    mms://video.bupt.edu.cn/BTV-5
+BTV-6体育    mms://video.bupt.edu.cn/BTV-6
+BTV-7生活    mms://video.bupt.edu.cn/BTV-7
+BTV-8青少    mms://video.bupt.edu.cn/BTV-8
+BTV-9公共    mms://video.bupt.edu.cn/BTV-9
+ChannelV    mms://video.bupt.edu.cn/ChannelV
+法国时尚频道    mms://video.bupt.edu.cn/FashionTV
+星空卫视    mms://video.bupt.edu.cn/XKWS
+凤凰中文    mms://video.bupt.edu.cn/FHZW
+凤凰资讯    mms://video.bupt.edu.cn/FHZX
+卡酷动画    mms://video.bupt.edu.cn/KKDH
+旅游卫视    mms://video.bupt.edu.cn/LLWS
+华娱卫视    mms://video.bupt.edu.cn/HYWS
+上海体育    mms://video.bupt.edu.cn/SHTY
+美国卡通频道    mms://video.bupt.edu.cn/CartoonNetwork
+日本卡通频道    mms://video.bupt.edu.cn/AnimaX
+ESPN    mms://video.bupt.edu.cn/ESPN
+AXN        mms://video.bupt.edu.cn/AXN
+MTVPHIL    mms://video.bupt.edu.cn/MTVPHIL
+香港电影频道    mms://video.bupt.edu.cn/HMC1
+东风卫视    mms://video.bupt.edu.cn/DFWS
+Discovery    mms://video.bupt.edu.cn/Discovery
+BBC World    mms://video.bupt.edu.cn/BBC
+新疆体育    mms://video.bupt.edu.cn/XJTY
+上视纪实    mms://video.bupt.edu.cn/SSJS
+
+补充一下：这些电视的mms地址需要ipv6支持。在Windows XP下打开ipv6方法：
+
+开始－>运行，输入cmd，弹出一个dos窗口，输入：ipv6 install，回车就OK了。
+
+在Linux系统下好像默认支持了，至少我的是。
+
+还有可能要教育网才能访问，电信的不一定可以，但我没试过，因为我在学校用的是教育网。
+
+源地址：http://blog.renren.com/GetEntry.do?id=449314881&owner=236591290
+来源：胡春龙的日志 | 分享 12 | 浏览 90
+评论 | 分享 | 赞 | 举报
+
+    管伟鹏
+    管伟鹏
+
+    喜欢听广播
+    2012-07-24 12:34
+    回复
+    月神曦和
+    月神曦和
+
+    太棒了！我用自制的asx文件链接BBC很流畅
+    2012-09-11 18:35
+    回复
+    计算机—计算机—11，4—梦~~扬~~
+    计算机—计算机—11，4—梦~~扬~~
+
+    太给力了！
+    2012-10-07 08:53
+    回复
+    计算机—计算机—11，4—梦~~扬~~
+    计算机—计算机—11，4—梦~~扬~~
+
+    这个有时候挺有用
+    2012-10-10 23:20
+    回复
+
+    不靠谱，也不能无聊
+
+    人人网小黄鸡的真相及小黄鸡调教教程
+
+    美国和中国老师讲灰姑娘的故事： 这就是差距！
+
+    人情世故 谈谈《绝交要趁早》（by 陈谌）
+
+    为什么美国有那么多肌肉强大的肌肉男？
+
+    【社评】控制你的愤怒
+
+    170的妹子吐槽的同时，180的妹子也站起来了
+
+    你想我白天变成高富帅还是晚上变成高富帅？
+
+显示更多 »
+味多美蛋糕，免费送100元
+元旦开门红，全场3折。
+
+    关于
+    开放平台
+    人人游戏
+    公共主页
+    手机人人
+    团购
+    皆喜网
+    营销服务
+    招聘
+    友情链接
+    客服帮助
+    隐私
+
+人人网©2013
+北京千橡网景科技发展有限公司： 文网文[2009]169号·京ICP证090254号·京公网安备110000000009号·甲测资字11002066·文化部监督电子邮箱：wlwh@vip.sina.com·互联网药品信息服务资格证
+
+文明办网文明上网举报电话：4000803580 举报邮箱：admin1@renren-inc.com    不良信息举报中心    网络110报警服务    北京文化市场举报热线
+返回顶部
+

@@ -1,0 +1,61 @@
+
+testcase "name" {
+
+	include {
+		//
+	}
+
+	stub {
+		//
+	}
+
+	init {
+		//
+	}
+
+	before {
+	}
+
+	after {
+	}
+
+	destroy
+	{
+	}
+
+	function "xxx" {
+
+		include {
+			//在里面可以写一些include 文件
+		}
+
+		stub {
+			//在此处添加一些桩实现。
+		}
+
+		init
+		{
+		}
+
+		before
+		{
+			//在里面可以写一些C代码,用在testcase名称
+		}
+
+		after
+		{
+			//在里面可以写一些C代码，用在testcase名称
+		}
+
+		destroy
+		{
+		}
+
+		//
+		input( xx , yy, zz ) => output( tt , yy , zz )
+
+			( in xx , out yy , out zz ) => ( tt )
+			input(xx,yy,zz)=>  
+			( in xx , out yy , out zz ) => ( tt )
+	}
+}

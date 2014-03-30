@@ -1,0 +1,13 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<map>
+<struct name="ip_address_alloc" alias="" >
+<index>
+	<member type="uint64_t" name="user_id" one-to-one="user_info" />
+</index>
+
+	<member type="char[]" name="mac" array_len="18" default="" />
+	<member type="uint32_t" name="ip" default="0" />
+</struct>
+
+ <command text="" html="post" />
+</map>

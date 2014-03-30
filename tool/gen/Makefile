@@ -2,7 +2,7 @@ include $(AMF_PROJECT_MK_ROOT)/rule.mk
 
 TARGET_TYPE=bin
 TARGET_NAME=gen
-SUB_MODULE=args cfg hash parse
+SUB_MODULE=debug args cfg hash parse
 
 #ld 选项
 LD_FLAGS+=

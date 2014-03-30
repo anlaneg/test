@@ -1,0 +1,19 @@
+cli/webui-----(text/json/http)------->gateway(text2struct/json2struct/http2struct)------->forward-------->app(just do config)-------->cfgtree
+
+1.注意forward可以与cfgtree是一个进程
+2.cfgtree是一个配置保存数，它保存app让它保存的配置，app可以对cfgtree有操作权限
+这里cfgtree上保存的是app期望的样子,app不能任意保存，否则它要在恢复时做两种结构体的处理.
+
+#这些操作用于生成一个响应的消息，app将这些响应给cfgtree，来控制cfgtree对配置的保存。
+cfgtree_delete(index)
+cfgtree_delete(index,entity,...)
+cfgtree_add(index,mask,entity)
+cfgtree_add(index)
+cfgtree_modify(index,mask,entity)
+
+
+1.rpc
+2.parser
+3.protocol
+4.util function
+5.recovery

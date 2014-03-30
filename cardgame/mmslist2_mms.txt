@@ -1,0 +1,46 @@
+<EMBED height="430" allowNetworking="internal" allowScriptAccess="never" width="440" loop="-1" invokeurls="false" src="mms://221.12.170.8:554/cctv1" type="application/x-mplayer2" wmode="transparent"   wmode="transparent"> 
+<P align=center><EMBED src=mms://221.12.170.8:554/cctv1 width=460 height=450 type=application/x-mplayer2 LOOP="-1" VOLUME="0"></EMBED></P>
+mms://58.22.96.10/litv01 凤凰中文台
+mms://58.22.96.10/litv02 CHANNEL [V] 音乐
+mms://58.22.96.10/litv03 凤凰资讯台
+mms://58.22.96.10/litv04 阳光街视
+mms://58.22.96.10/litv05 法国时尚台
+mms://58.22.96.10/litv06 星空卫视大陆台
+mms://58.22.96.10/litv07 无限国语台TV8
+mms://58.22.96.10/litv08 星空体育中文台
+mms://58.22.96.10/litv09 湖南卫视
+mms://58.22.96.10/litv10 CCTV-5
+mms://58.22.96.10/litv11 CCTV-9
+mms://58.22.96.10/litv12 香港创世纪卫视台
+mms://58.22.96.10/litv13 华娱卫视
+mms://58.22.96.10/litv14 环球金融快线
+mms://58.22.96.10/litv15 CCTV-10
+mms://58.22.96.10/litv16 CCTV-4
+mms://58.22.96.10/litv17 CCTV-2
+mms://live.cctv.com/cctv_live1 CCTV-1(综合)
+mms://live.cctv.com/live3 CCTV-1(综合)
+mms://live.cctv.com/live12 CCTV-2(经济)
+mms://live.cctv.com/live12 CCTV-2(经济)
+mms://live.cctv.com/live13 CCTV-3(综艺)
+mms://live.cctv.com/live13 CCTV-3(综艺)
+mms://live.cctv.com/cctv_live4 CCTV-4(国际)
+mms://58.22.96.10/litv16 CCTV-4(国际)
+mms://61.236.93.37/litv16 CCTV-4(国际)
+mms://58.22.96.10/litv10 CCTV-5(体育)
+mms://live.cctv.com/live15 CCTV-5(体育)
+mms://221.12.42.160:1080/cctv5 CCTV-5(体育)
+mms://live.cctv.com/live16 CCTV-6(电影)
+mms://live.cctv.com/live17 CCTV-7(农业)
+mms://61.157.125.74:2004/cctv8_new CCTV-8(电视剧)
+mms://221.12.42.160:1080/cctv8 CCTV-8(电视剧)
+mms://live.cctv.com/cctv_live9 CCTV-9(英语)
+mms://58.22.96.10/litv11 CCTV-9(英语)
+mms://61.236.93.37/litv11 CCTV-9(英语)
+mms://live.cctv.com/live20 CCTV10(科学)
+mms://58.22.96.10/litv15 CCTV10(科学)
+mms://61.236.93.37/litv15 CCTV10(科学)
+mms://live.cctv.com/live21 CCTV-11(戏剧)
+mms://live.cctv.com/live22 CCTV-12(社会)
+mms://live.cctv.com/livemusic CCTV-音乐
+mms://live.cctv.com/livenews CCTV-新闻
+mms://live.cctv.com/livekids CCTV-少儿

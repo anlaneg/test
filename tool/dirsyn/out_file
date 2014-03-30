@@ -1,0 +1,16 @@
+0	/home/along/github_test/tool/dirsyn/out_file
+4	/home/along/github_test/tool/dirsyn/files
+4	/home/along/github_test/tool/dirsyn/template_dirsyn
+4	/home/along/github_test/tool/dirsyn/dirsyn.config
+4	/home/along/github_test/tool/dirsyn/dirsyn.awk
+4	/home/along/github_test/tool/dirsyn/dirsyn.sh
+4	/home/along/github_test/tool/dirsyn/readme
+/home/along/github_test/tool/dirsyn/out_file
+0 /home/along/github_test/tool/dirsyn/out_file/home/along/github_test/tool/dirsyn/files
+0 /home/along/github_test/tool/dirsyn/files/home/along/github_test/tool/dirsyn/template_dirsyn
+0 /home/along/github_test/tool/dirsyn/template_dirsyn/home/along/github_test/tool/dirsyn/.files.swp
+0 /home/along/github_test/tool/dirsyn/.files.swp/home/along/github_test/tool/dirsyn/dirsyn.config
+0 /home/along/github_test/tool/dirsyn/dirsyn.config/home/along/github_test/tool/dirsyn/dirsyn.awk
+0 /home/along/github_test/tool/dirsyn/dirsyn.awk/home/along/github_test/tool/dirsyn/dirsyn.sh
+0 /home/along/github_test/tool/dirsyn/dirsyn.sh/home/along/github_test/tool/dirsyn/readme
+0 /home/along/github_test/tool/dirsyn/readme

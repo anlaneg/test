@@ -1,0 +1,9 @@
+
+#导出AMF工程的根目录
+export AMF_PROJECT_ROOT=`pwd`
+export AMF_PROJECT_MK_ROOT="$AMF_PROJECT_ROOT/mk"
+
+#实现一些实用设置
+ulimit -c unlimited
+sudo echo "$AMF_PROJECT_ROOT/core-%e-%p" > /proc/sys/kernel/core_pattern
+sudo ldconfig "$AMF_PROJECT_ROOT/lib/"

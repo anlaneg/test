@@ -27,23 +27,24 @@ TARGET_NAME=target
 
 #设置编译器程序
 CC=gcc
-CPLUS=g++
+CPLUSPLUS=g++
 DEBUG_COMPLIER=debugutil.sh
 
 #C 默认编译选项
-C_COMPLIER_FLAGS=-Wall -Werror -g
+C_COMPLIER_FLAGS= -Wall -Werror -g -Wshadow -Wpointer-arith #-Wmissing-prototypes -Wstrict-prototypes 
 
 #C++ 默认编译选项
 CPLUS_COMPLIER_FLAGS=-Wall -Werror -g
 
 #ld 选项
-LD_FLAGS=-ldebug -lstr -L$(AMF_PROJECT_ROOT)/lib
+LD_FLAGS=-ldebug -lstr -L$(AMF_PROJECT_ROOT)/lib -finline-functions
 
 #include 选项
 AMF_INCLUDE_PATH=-I$(AMF_PROJECT_ROOT)/src/lib/libdebug \
 -I$(AMF_PROJECT_ROOT)/src/lib/libmem \
 -I$(AMF_PROJECT_ROOT)/src/lib/libstr \
--I$(AMF_PROJECT_ROOT)/src/lib/cjson-code
+-I$(AMF_PROJECT_ROOT)/src/lib/cjson-code \
+-I$(AMF_PROJECT_ROOT)/src/lib/libxml
 
 #设置debug complier path
 DEBUG_COMPLIER_PATH=$(AMF_PROJECT_ROOT)/mk

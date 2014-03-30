@@ -1,0 +1,3 @@
+
+#导出AMF工程的根目录
+export AMF_PROJECT_ROOT=`pwd`

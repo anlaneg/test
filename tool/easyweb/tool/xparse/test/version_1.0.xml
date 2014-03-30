@@ -1,0 +1,46 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<!-- 此文档用于演示xparse1.0版本功能，实现一个用户登录请求功能
+	
+	用户自客户端会出出如下数据
+	'{
+		"username":"along",
+		"password":"packet"
+	}'
+	
+	此数据信息将发往:
+	 http://127.0.0.1:8080/version_1/login.ew
+	 
+	 响应信息来自于服务器端，服务器端通过检查用户名是否为
+	 along而发回此项
+	 '{
+	 	"message":"welcome"
+	  }'
+	  否则发回
+	  '{
+	  	 "message":"login fail!"
+	  }'
+ -->
+ <state name="Demon10"  packet="cn.along.easyweb.demon" version="1.0">
+     <input>
+         <struct name="login_info">
+             <member name="username" type="string" comment="用户名"/>
+             <member name="password" type="string" comment="密码"/>
+         </struct>
+     </input>
+     <check>
+         <result value="login_fail" comment="失败情况">
+             <output>
+	             <struct name="login_fail">
+	                 <member name="message" type="string" is-const="true" value="login fail" comment="登录失败时消息"/>
+	             </struct>
+             </output>
+         </result>
+         <default comment="成功情况下执行">
+             <output>
+	             <struct name="login_success" >
+	                 <member name="message" type="string" is-const="true" value="welcome" comment="登录成功时消息"/>
+	             </struct>
+             </output>
+         </default>
+     </check>
+ </state>

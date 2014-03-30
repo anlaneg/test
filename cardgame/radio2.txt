@@ -1,0 +1,743 @@
+
+。NET学习
+博客园    首页    新随笔    联系    订阅订阅    管理
+posts - 22,  comments - 8,  trackbacks - 0
+全国网络广播电台地址
+mms://211.89.225.101/live3
+中央电台音乐频道
+
+mms://vl.sina.com.cn/popmusic
+东广音乐台动感101
+
+mms://vstream.sina.com.cn/900
+中广网MUSICRADIO
+
+mms://vl.sina.com.cn/classicmusic
+东广音乐台经典947
+
+mms://vl.sina.com.cn/103
+东广音乐台魅力103
+
+mms://video.rednet.com.cn/1061
+长沙音乐频道
+
+http://www.ctbs.cn/ssgb.asp
+楚天音乐台
+
+mms://221.232.155.100/audio1
+播放
+
+mms://61.185.214.171/fm931
+西安音乐台
+
+rtsp://211.167.134.41/broadcast/live3
+苏州电台音乐台
+
+http://61.136.19.228/live2
+天津人民广播电台音乐台
+
+http://listen.bjradio.com.cn/yinyue_player.htm
+北京音乐广播
+
+http://listen.bjradio.com.cn/xiquzongyi_player.htm
+北京广播网戏曲曲艺
+
+http://listen.bjradio.com.cn/gudian_player.htm
+北京广播网古典音乐
+
+http://listen.bjradio.com.cn/tongsu_player.htm
+北京广播网通俗音乐
+
+http://listen.bjradio.com.cn/qingyinyue_player.htm
+北京广播网轻音乐
+
+rtsp://202.110.222.247/encoder/xiuxianyinyue
+山东广播休闲音乐频道
+
+mms://ralive.njbg.com.cn/njyyt
+南京音乐台
+mms://221.11.107.243:1101/fm897
+安广音乐台1
+
+mms://221.11.107.242:1100/fm959
+安广音乐台2
+
+mms://www.fm993.cn/musicfm
+广东电台音乐之声
+
+http://listen.bjradio.com.cn/yazhouliuxing_player.htm
+北京广播网流行音乐
+
+rtsp://211.89.225.1/encoder/cnr3
+中国广播网音乐之声
+
+rtsp://av.runsky.com:554/encoder/fm1067
+大连音乐台
+
+mms://audio.hndt.com/yygb
+河南人民广播电台音乐广播
+
+mms://vodwmtstream.bdchina.com/887
+济南音乐广播
+
+http://radio.cnnb.com.cn/
+宁波音乐广播
+
+http://www.am621.com/on/jrt.rm
+黑龙江音乐广播
+
+rtsp://218.104.136.12/encoder/yyt.ram
+厦门音乐广播
+
+http://www.ahradio.com.cn/radio.php?radio=音乐台
+安徽人民广播-音乐台
+
+mms://218.28.9.116/音乐广播
+FM944音乐广播
+
+http://www.tz100.net/radio.asp
+台州音乐广播
+
+http://www.radio.cn/
+银河台
+
+rtsp://www.xjbs.com.cn/encoder/yyt
+新疆卫星音乐广播
+
+mms://202.111.173.44:8080/
+延边音乐生活广播
+
+rtsp://broadcast.nbradio.com/encoder/jkzs.rm
+宁波音乐频道--音乐之声
+
+http://www.fm990.com.cn/bc/cnsidemp.html
+990新闻音乐广播
+
+mms://av1.jiaodong.net/radio4
+烟台人民广播电台音乐频道
+
+rtsp://221.10.89.58:554/encoder/mynews
+绵阳音乐广播台
+
+http://www.cqbs.com/play_online/music_online.htm
+重庆音乐广播频道
+
+http://fm913.fjii.com/listenfjii.htm
+fm913音乐网络电台
+
+http://vod.jsgd.com.cn/audio4.jsgd/.asf
+江苏音乐电台
+
+http://www.fm881.com.cn/fm881.htm
+重庆音乐台
+
+mms://210.87.162.171/audio6
+陕西音乐广播
+
+mms://www.fm993.cn/musicfm
+广东电台音乐之声
+
+mms://218.62.32.23/yyt
+东北亚音乐台
+
+http://www.stv.sh.cn/classic.asx
+上海东方经典音乐
+
+http://www.stv.sh.cn/popmusic.asx
+上海东方动感101
+
+mms://218.1.74.225/103
+上海魅力音乐
+
+rtsp://221.215.69.6/encoder/fm915.rm
+青岛音乐体育广播
+
+rtsp://www.xjbs.com.cn/encoder/yyt
+新疆卫星音乐广播
+
+http://www.gzbs.cn/player/radio.htm?tt=3
+贵州音乐广播
+
+mms://61.131.4.158/fm913
+福建音乐台
+
+mms://218.61.33.73/yinyue
+大连音乐台
+
+mms://221.11.107.243:1101/
+安广音乐台1
+
+mms://221.11.107.242:1100/
+安广音乐台2
+
+mms://www.lzr.com.cn/media2
+兰州音乐广播
+
+rtsp://211.167.134.41/broadcast/live3
+苏州电台音乐台
+
+http://radio.media.hinet.net/player/cat.asp?radio_id={ABB07AF5-9993-4171-8D92-47592190E4F9}
+台湾中广音乐广播
+
+mms://media.iwant-in.net/pop
+台湾银河流行音乐台
+
+http://www.metroradio.com.hk/real-radio/listen997.html
+香港新城娱乐电台
+
+http://radio.1ting.com/
+一听音乐电台
+
+http://fm.qq.com/
+QQ电台
+
+http://radio.wanwa.com/yhc.asp
+网蛙电台
+
+http://ent.rednet.cn/muiscvido/rednet.htm
+红网在线电台
+
+http://live.mop.com/mopradio
+猫扑电台
+
+http://radio.21cn.com/radioforum/radio/nj/broadcast/green.jsp/
+21CN网络电台
+
+http://www.163888.net/radio/
+163888网络电台
+
+http://radio.sogua.com/index.asp?type=4
+Sogua电台
+
+mms://202.175.80.10/LiveAudio
+澳门电台
+
+mms://202.177.192.223/cr2
+香港叱咤903电台
+
+
+国家广播电台
+http://www.cnradio.com.cn/
+中央人民广播电台
+
+mms://211.89.225.101/live1
+中国之声
+
+mms://211.89.225.101/live2
+经济之声
+
+mms://211.89.225.101/live3
+音乐之声
+
+
+mms://211.89.225.101/live4
+都市之声
+
+mms://211.89.225.101/live5
+中华之声
+
+mms://211.89.225.101/live6
+神州之声
+
+mms://211.89.225.101/live7
+华夏普通话
+
+mms://211.89.225.101/live8
+民族之声
+
+mms://211.89.225.101/live9
+文艺之声
+
+mms://211.89.225.101/live10
+华夏双语
+
+http://www.radio.cn/
+银河台
+
+mms://media.radio.cn/radio1
+银河台中国民乐
+
+mms://media.radio.cn/radio2
+银河台相声小品
+
+mms://media.radio.cn/radio3
+银河台长篇评书
+
+mms://media.radio.cn/radio4
+银河台古典音乐
+
+http://www.cri.com.cn/
+中国国际广播电台
+
+mms://living.chinabroadcast.cn/inet
+中国国际广播电台中文频道
+
+mms://enmms.chinabroadcast.cn/am1008
+中国国际广播电台语英频道
+
+mms://media.crinewsradio.cn/olympics
+奥运广播
+
+mms://media.crinewsradio.cn/la
+老挝万象调频台
+
+http://gb.chinabroadcast.cn/inet/schedule.htm
+节目单
+
+http://gb.chinabroadcast.cn/inet/programs.htm
+精彩视频
+
+
+省级广播电台
+http://www.bjradio.com.cn/
+北京人民广播电台
+
+：
+http://listen.bjradio.com.cn/xinwen_player.htm
+新闻广播
+
+http://listen.bjradio.com.cn/gudian_player.htm
+古典音乐
+
+http://listen.bjradio.com.cn/jingji_player.htm
+城市管理
+
+http://listen.bjradio.com.cn/tongsu_player.htm
+通俗音乐
+
+http://listen.bjradio.com.cn/jiaotong_player.htm
+交通广播
+
+http://listen.bjradio.com.cn/jiaoxue_player.htm
+北京教学
+
+http://listen.bjradio.com.cn/wenyi_player.htm
+文艺广播
+
+http://listen.bjradio.com.cn/wuexueyingshi_player.htm
+文学影视
+
+http://listen.bjradio.com.cn/tiyu_player.htm
+体育广播
+
+http://listen.bjradio.com.cn/xiquzongyi_player.htm
+戏曲曲艺
+
+http://listen.bjradio.com.cn/yinyue_player.htm
+音乐广播
+
+http://listen.bjradio.com.cn/yazhouliuxing_player.htm
+亚洲流行
+
+http://listen.bjradio.com.cn/shenghuo_player.htm
+首都生活
+
+http://listen.bjradio.com.cn/qingyinyue_player.htm
+轻音乐
+
+http://listen.bjradio.com.cn/waiyu_player.htm
+外语广播
+
+http://listen.bjradio.com.cn/dab_player.htm
+DAB广播
+
+
+上海人民广播电台：
+http://www.stv.sh.cn/990.asx
+新闻频率
+
+http://www.stv.sh.cn/648.asx
+交通频率
+
+http://www.stv.sh.cn/1045.asx
+东广新闻
+
+http://www.stv.sh.cn/792.asx
+都市792
+
+http://www.stv.sh.cn/popmusic.asx
+动感101
+
+http://www.stv.sh.cn/103.asx
+魅力103
+
+http://www.stv.sh.cn/classic.asx
+经典947
+
+http://www.stv.sh.cn/977.asx
+第一财经
+
+http://www.stv.sh.cn/1422.asx
+开心调频
+
+http://www.stv.sh.cn/1197.asx
+海上戏剧
+
+mms://218.1.74.225/940
+体育频率
+
+
+天津人民广播电台：
+http://www.sowang.com/zt/61.136.19.228/live1
+新闻广播
+
+mms://61.136.19.228/live2
+音乐广播
+
+mms:///61.136.19.228/live3
+经济广播
+
+mms://61.136.19.228/live4
+文艺广播
+
+mms://61.136.19.228/live5
+交通广播
+
+mms://61.136.19.228/live6
+生活广播
+
+mms:///61.136.19.228/live7
+滨海广播
+
+mms://61.136.19.228/live8
+小说广播
+
+mms://61.136.19.228/live9
+娱乐广播
+
+
+山东人民广播电台：
+rtsp://60.216.51.155/encoder/xinwen
+山东人民广播电台
+
+rtsp://60.216.51.155/encoder/xinwen
+新闻频道
+
+rtsp://60.216.51.155/encoder/jingji
+经济频道
+
+rtsp://60.216.51.155/encoder/wenyi
+文艺频道
+
+rtsp://60.216.51.155/encoder/shenghuo
+生活频道
+
+rtsp://60.216.51.155/encoder/jiaotong
+交通频道
+
+rtsp://60.216.51.155/encoder/diliu
+第六频道
+
+rtsp://60.216.51.155/encoder/xiuxianyinyue
+数字休闲音乐频道
+
+rtsp://60.216.51.155/encoder/yinyue
+音乐频道
+
+
+河南人民广播电台：
+mms://audio.hndt.com/xwgb
+新闻广播
+
+mms://audio.hndt.com/jjgb
+经济广播
+
+mms://audio.hndt.com/jtgb
+交通广播
+
+mms://audio.hndt.com/wygb
+戏曲广播
+
+mms://audio.hndt.com/nygb
+农村广播
+
+mms://audio.hndt.com/lygb
+旅游广播
+
+mms://audio.hndt.com/fm90
+MyRadio
+
+mms://audio.hndt.com/YSWZ
+有声文字
+
+mms://audio.hndt.com/yygb
+音乐广播
+
+http://www.zzradio.cn/live/912.asx
+郑州人民广播电台
+
+
+吉林人民广播电台：
+mms://218.62.32.23/xwt
+新闻综合台
+
+mms://218.62.32.23/dzt
+大众生活台
+
+mms://218.62.32.23/yyt
+东北亚音乐台
+
+mms://218.62.32.23/jtt
+交通文艺台
+
+mms://218.62.32.23/jkt
+健康娱乐台
+
+mms://218.62.32.23/zxt
+广播咨讯台
+
+mms://202.111.175.181:8000/
+延边朝语广播
+
+mms://202.111.173.44:8080/
+延边音乐生活广播
+
+
+辽宁人民广播电台：
+http://218.25.58.3:20000/
+辽宁电台新闻台
+
+http://218.25.58.3:20001/
+辽宁电台经济台
+
+http://218.25.58.3:20002/
+辽宁电台文艺台
+
+http://218.25.58.3:20003/
+辽宁电台交通台
+
+http://218.25.58.3:20004/
+辽宁电台生活娱乐台
+
+
+湖南人民广播电台：
+mms://video.rednet.com.cn/1032
+湖南人民广播电台卫星广播电视
+
+mms://video.rednet.com.cn/901
+湖南人民广播电台经济频道
+
+mms://video.rednet.com.cn/975
+湖南人民广播电台文艺频道
+
+mms://video.rednet.com.cn/918
+湖南人民广播电台交通频道
+
+
+广西人民广播电台：
+mms://221.7.194.18:8080/audio4
+卫星广播
+
+mms://221.7.194.18:8080/audio3
+经济广播
+
+mms://221.7.194.18:8080/audio1
+教育生活广播
+
+mms://221.7.194.18:8080/audio2
+文艺广播
+
+mms://221.7.194.18:8080/audio5
+交通台
+
+mms://221.7.194.18:8080/audio6
+对外广播
+
+
+广东人民广播电台：
+mms://61.145.112.81/fm914
+卫星广播
+
+mms://www.fm993.cn/musicfm
+音乐之声
+
+mms://218.16.125.114/audiofm1036
+城市之声
+
+rtsp://218.16.120.179:554/broadcast/fm1052.rm
+交通广播
+
+mms://www.zhtv.com/fm951
+珠海城市之声
+
+mms://www.zhtv.com/fm875
+珠海交通音乐广播
+
+http://61.145.71.212/live/dx985.asx
+佛山电台千色频道
+
+mms://media.zstv.com.cn/zsradio1.wmv
+中山人民广播电台
+
+
+陕西人民广播电台：
+mms://218.30.15.166/audio1
+新闻综合广播
+
+mms://218.30.15.166/audio3
+财富广播
+
+mms://218.30.15.166/audio4
+交通广播
+
+mms://218.30.15.166/audio5
+农村广播
+
+mms://218.30.15.166/audio6
+音乐广播
+
+mms://218.30.15.166/audio2
+戏曲广播
+
+新疆人民广播电台：rtsp://www.xjbs.com.cn/encoder/738 综合广播
+分类: 其它
+绿色通道： 好文要顶 关注我 收藏该文与我联系
+夜帝
+关注 - 0
+粉丝 - 0
++加关注
+0
+0
+(请您对文章做出评价)
+« 博主上一篇：转 C#调用Windows API函数
+» 博主下一篇：JavaScript实现功能全集
+posted on 2007-10-14 01:02 夜帝 阅读(5656) 评论(3) 编辑 收藏
+
+FeedBack:
+#1楼
+2008-01-26 23:06 | 林强[未注册用户]
+电台
+  
+#2楼
+2008-04-08 20:07 | ASSSSS[未注册用户]
+用这个软件就OK
+http://www.nofox.com/radio/29389
+  
+#3楼
+2008-09-18 19:33 | palm[未注册用户]
+刚好需要这个！
+  
+刷新评论刷新页面返回顶部
+注册用户登录后才能发表评论，请 登录 或 注册，访问网站首页。
+IE10：全面支持HTML5，让你创造更多
+找优秀程序员，就在博客园
+博客园首页博问新闻闪存程序员招聘知识库
+最新IT新闻:
+· VMware迫使前雇员交出开源项目Vert.x
+· 选择者的困境
+· 冯大辉：十年莽撞 IT 路
+· 用户亲历：人人都在抛弃人人
+· 2013年智能手表会火吗？
+» 更多新闻...
+最新知识库文章:
+· 你真想到了50岁还靠编程来养家糊口吗？
+· 编写高效的JavaScript程序
+· Javascript 模块化编程
+· 使用CSS的类名交集复合选择器
+· 马云专访全文：商业王国、孤独感、管理艺术
+» 更多知识库文章...
+Copyright ©2013 夜帝 Powered By: 博客园 模板提供：沪江博客
+<	2007年10月	>
+日	一	二	三	四	五	六
+30	1	2	3	4	5	6
+7	8	9	10	11	12	13
+14	15	16	17	18	19	20
+21	22	23	24	25	26	27
+28	29	30	31	1	2	3
+4	5	6	7	8	9	10
+
+公告：
+       
+        本博客内容来源于网络，只是收集本人感兴趣的知识与技术！大部分从其它网转载过来，没注明出处，请谅解，同时希望对来访的你也有所帮助！
+                        
+欢迎来自:
+106.3.103.191 的朋友！
+
+昵称：夜帝
+园龄：5年4个月
+粉丝：0
+关注：0
++加关注
+搜索
+ 
+ 
+常用链接
+
+    我的随笔
+    我的评论
+    我的参与
+    最新评论
+    我的标签
+
+最新随笔
+
+    1. 无进程木马 思路 [转]
+    2. 开发GIS应用简明教程
+    3. DateTime 日期操作
+    4. C#开发终端式短信的原理和方法
+    5. JavaScript实现功能全集
+    6. 全国网络广播电台地址
+    7. 转 C#调用Windows API函数
+    8. AJAX基础教程
+    9. C#一个显示分页页码类
+    10. C#实现窗体淡入淡出效果的几种方法
+
+随笔分类(22)
+
+    .Net C#(15)
+    Ajax(1)
+    Javascript(2)
+    WebForm(aspx)(2)
+    其它(2)
+    数据库
+
+随笔档案(22)
+
+    2007年11月 (2)
+    2007年10月 (5)
+    2007年9月 (15)
+
+文章档案(4)
+
+    2007年11月 (2)
+    2007年9月 (2)
+
+网站链接
+
+    C#开源资源大全
+    codeproject
+    corner
+    csharp-source
+    Java 开源
+    教程
+    中国协议分析网
+
+积分与排名
+
+    积分 - 15493
+    排名 - 7463
+
+最新评论
+
+    1. Re:C#冒泡排序算法
+    //最多做R.Length-1趟排序 for(i=0; [b]i<R.Length[/b]; i++)是否应该要改成 [b]i<R.Length -1[/b] ?
+    --BreezeWoo
+
+阅读排行榜
+
+    1. 全国网络广播电台地址(5656)
+    2. C#冒泡排序算法(2595)
+    3. 使用C#开发COM+组件(1436)
+    4. C#实现窗体淡入淡出效果的几种方法(982)
+    5. 初识C#线程(781)
+
+评论排行榜
+
+    1. 全国网络广播电台地址(3)
+    2. C#开发终端式短信的原理和方法(1)
+    3. C#冒泡排序算法(1)
+    4. 用Visual C#编写仿MSN Messager的滚动提示窗口(0)
+    5. 创建不规则窗体和控件(0)
+
+推荐排行榜
+
