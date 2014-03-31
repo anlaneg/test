@@ -8,7 +8,7 @@
 </head>
 <body>
 	<form method="post" action="/easyweb/action.do">
-		<textarea id="hello" name="hello" rows="10">{ "head":{ "version":1,"encode":"utf-8","name":["cn.along.easyweb.core.flowframe.test.Login",] },"content":[{"name":"along","password":"hello"},],"extend":null}</textarea>
+		<textarea id="hello" name="hello" rows="10">{ "head":{ "version":1,"encode":"utf-8","name":["cn.along.easyweb.core.flowframe.test.demon1.Login",] },"content":[{"name":"along","password":"hello"},],"extend":null}</textarea>
 		<input type="submit" value="submit" />
 	</form>
 </body>

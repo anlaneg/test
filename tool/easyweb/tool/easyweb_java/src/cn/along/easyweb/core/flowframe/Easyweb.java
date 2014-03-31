@@ -15,7 +15,7 @@ public class Easyweb
 		StateCheckResult check_result = null;
 		IState nextState;
 		IState currentState = input.getRequestState();
-		ICheck check = input.getRequestCheck();
+		//ICheck check = input.getRequestCheck(currentState);
 		Logger logger = input.getRequestEnvironment().getLogger();
 
 		do
@@ -26,7 +26,7 @@ public class Easyweb
 				currentState.fill(input);// var,session,application,method,database
 											// fill
 				logger.debug("do state check");
-				check_result = currentState.doCheck(input, check);// do
+				check_result = currentState.doCheck(input);// do
 																	// check,and
 																	// get
 																	// output,forward

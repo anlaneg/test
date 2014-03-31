@@ -1,0 +1,16 @@
+#this is a comment line
+/*这是一个注释行*/
+//这也是一个注释行
+{
+	"version":1,
+	"config":
+	[
+		{
+			"packageName":"cn.along.easyweb.core.flowframe.test.demon1",
+			"maps":
+			[
+				{"name":"Login","method":"check","className":"cn.along.easyweb.core.flowframe.test.demon1.LoginCheck"},
+			]
+		},
+	]
+}

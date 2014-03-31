@@ -6,11 +6,13 @@ import cn.along.easyweb.core.flowframe.exception.StateCheckException;
 
 public interface IState
 {
-	public void setInput(int idx,Object obj);
+	public void setInput(int idx, Object obj);
+
 	public Object getInput();
+
 	public void fill(IEasywebInputAdapter input) throws AutoFillException;
 
-	public StateCheckResult doCheck(IEasywebInputAdapter input, ICheck check)
+	public StateCheckResult doCheck(IEasywebInputAdapter input)
 			throws StateCheckException;
 
 	public void resultFill(IEasywebInputAdapter input,
