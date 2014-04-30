@@ -5,6 +5,7 @@ BEGIN{
 }
 
 {
+	printf("%s>",id);
 	line1();
 	getline ;
 
@@ -150,52 +151,48 @@ function line10()
 
 function line11()
 {
-	printf("%s>",$0);
 }
 
 function line12()
 {
-	printf("%s>",$0);
 }
 
 function line13()
 {
-	printf("%s>",$0);
 }
 
 function line14()
 {
-	printf("%s>",$0);
 }
 
 function line15()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line16()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line17()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line18()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line19()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line20()
 {
-	printf("%s>",$0);
+	printf("%s>",substr($3,1,length($3)-6));
 }
 
 function line21()

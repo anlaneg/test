@@ -5,7 +5,11 @@
 
 source content 
 
-#HOME_INFO_URL='http://www.fang99.com/buycenter/buildInfo.aspx?BuildingId=0000001132'
-#helper_get_page_content "$HOME_INFO_URL" | tr -d '\r\n' | sed 's.</\?tr>.\n.g;s.</td>.\n.g;s.<td.\n<td.g;' | grep "<td" | sed -n '175p;60p;117p;101p;103p;105p;97p;48p;157p;159p;161p;163p;177p;179p;123p;125p;127p;129p;131p;133p;135p;89p;36p'
+#echo "$1"
+#HOME_INFO_URL='http://www.fang99.com/buycenter/buildInfo.aspx?BuildingId='
+#for i in `cat result.txt | cut -d'>' -f 1`;
+#do
+#helper_get_page_content "$HOME_INFO_URL$i" > output/$i.html #| tr -d '\r\n' | sed 's.</\?tr>.\n.g;s.</td>.\n.g;s.<td.\n<td.g;' | grep "<td" | sed -n '175p;60p;117p;101p;103p;105p;97p;48p;157p;159p;161p;163p;177p;179p;123p;125p;127p;129p;131p;133p;135p;89p;36p' | awk -v id=$i -F'>' -f info.awk
+#done;
 
-cat cn.txt | awk -F'>' -f info.awk
+cat output/0000002241.html | grep "id=\"lbl_" | awk -f new.awk
