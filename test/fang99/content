@@ -1,0 +1,15 @@
+#! /bin/bash
+
+#获取指定位置的页面
+function helper_get_page_content()
+{
+	echo "want get $1";
+	curl "$1" --referer "http://www.baidu.com" | iconv -f GBK -t utf-8 ;
+}
+
+function helper_get_page_count()
+{
+	echo "no implements"	
+}
+
+

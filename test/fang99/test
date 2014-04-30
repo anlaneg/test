@@ -1,0 +1,5 @@
+#! /bin/bash
+
+#awk -F'>' -f index.awk an.txt
+#awk -f info.awk  an.txt   >cn.txt
+cat an.txt | tr -d '\r\n' | sed 's.</\?tr>.\n.g;s.</td>.\n.g;s.<td.\n<td.g;' | grep "<td"
