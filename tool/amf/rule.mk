@@ -1,5 +1,10 @@
+
+#添加debug.mk
+include $(AMF_PROJECT_MK_ROOT)/debug.mk
+
 #保证all为第一个目录
 all: __module_before__ __all__ __module_after__
+	$(call amf_debug_log, "do $@:$^")
 
 #获取当前文件夹下的所有c文件
 SRCS=$(wildcard *.c)
@@ -21,6 +26,9 @@ OUT_DIR=obj
 
 #设置需要生成的目标类型
 TARGET_TYPE=
+
+#设置编译器名称
+CC=gcc
 
 #设置需要生成的目标名称
 TARGET_NAME=target
