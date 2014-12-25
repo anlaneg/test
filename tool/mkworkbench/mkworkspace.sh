@@ -1,5 +1,6 @@
 #! /bin/bash
 
+#创建目录,创建相应构建工具的文件.
 WORKSPACE_ROOT=
 GIT_TEST_ROOT="`pwd`/.."
 
