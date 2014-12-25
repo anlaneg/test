@@ -1,0 +1,68 @@
+#分支管理策略
+1.分支应包含以下几个
+  (1) development   --开发分支
+  (2) development-test  --开发发布的可测试版本
+  (3) stable            --通过测试的稳定版本{主线}
+  (4) release-alpha     --发布alpha版本
+  (5) release-beta      --发布beta版本
+  (6) release           --正式发布版本
+  (7) release-path      --发布后fix问题后产生的版本
+  (8) testcase-dev  --自动化测试用例
+
+2.测试人员参与的分支
+  (1) development-test --测试人员测试,直至达到分模块转集成标准,各入stable版本
+  (2) stable       --测试人员测试,直到达到发布alpha标准
+  (3) release-alpha      --测试人员测试,直到达到发布beta标准
+  (4) release-beta       --测试人员测试,直到达到出厂标准
+  (5) release-path       --测试人员测试,确认问题被fix且未出现改动引发 
+  (6) testcase-dev       --测试人员开发分支
+
+3.开发人员参与分支
+  (1) development-hotfix --开发人员为fix已确认bug而使用的分支,分支同步自development,确认解决后,合入development版本{用例合入testcase-dev}
+  (2) development-test-hotfix --开发人员为fix已确认bug而使用的分支,分支同步自development-test,确认解决后,合入development-test版本{用例合入testcase-dev}
+
+  (3) stable-hotfix     --开发人员为fix已确认bug而使用的分支,分支同步自stable,确认解决后,合入stable版本{用例合入testcase-dev}
+
+  (4) release-alpha-hotfix --开发人员为fix已确认bug而使用的分支,分支同步自release-alpha,确认解决后,合入release-alpha版本 {测试时间增加:{用例合入testcase-dev}}
+  (5) release-beta-hotfix  --开发人员为fix已确认bug而使用的分支,分支同步自release-beta,确认解决后,合入release-beta版本{测试时间增加:{用例合入testcase-dev} }
+  (6) release-path-hotfix  --开发人员为fix已确认bug而使用的分支,分支同步自release-path,确认解决后,合入release-path版本{用例合入testcase-dev}
+
+4.分支创建说明:
+  (1) development 来源于stable分支
+  (2) development-test 来源于development分支
+  (3) stable 来源于development-test分支
+  (4) release-alpha来源于stable分支
+  (5) release-beta来源于release-alpha分支
+  (6) release 来源于release-beta分支
+  (7) release-path 来源于release分支
+  (8) testcase-release  来源于testcase-dev分支
+5.分支合并
+  (1) development分支需要依次合入
+	release-path
+	release
+	release-beta
+	release-alpha
+	stable
+	development-test
+     合入条件:无条件合入
+  (2) development-test 分支
+	合入development分支
+	合入条件:
+  (3) stable分支
+	合入development-test分支
+	合入条件:
+  (4) release-alpha分支
+        合入stable分支
+	合入条件:
+  (5) release-beta分支
+        合入release-alpha分支
+	合入条件:
+  (6) release分支
+	合入release-beta分支
+	合入条件:
+  (7) release-path分支
+        合入release分支
+	合入条件:
+  (8) testcase-dev 分支
+        需要能区分哪部分用例	
+

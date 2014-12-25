@@ -1,0 +1,32 @@
+1601587387 594 ./file_size.sh
+114635350 96 ./readme
+4294967295 0 ./an.txt
+1020322499 970 ./dirsyn.awk
+4077003142 370 ./dirsyn.sh
+3227641925 1441 ./template_dirsyn
+4053099172 847 ./filesyn.sh
+3725137279 1059 ./dirsyn.config
+xxxxxxxxxxx
+4294967295 0
+1601587387 594 ./file_size.sh
+114635350 96 ./readme
+793879095 248 ./an.txt
+1020322499 970 ./dirsyn.awk
+4077003142 370 ./dirsyn.sh
+3227641925 1441 ./template_dirsyn
+766957835 861 ./filesyn.sh
+3725137279 1059 ./dirsyn.config
+-----------------------
+4294967295 0
+1601587387 594 ./file_size.sh
+114635350 96 ./readme
+221854799 508 ./an.txt
+1020322499 970 ./dirsyn.awk
+4077003142 370 ./dirsyn.sh
+3227641925 1441 ./template_dirsyn
+119591943 861 ./filesyn.sh
+3725137279 1059 ./dirsyn.config
+-----------------------
+3227641925 1441 ./template_dirsyn
+3227641925 1441 ./template_dirsyn
+3227641925 1441 ./template_dirsyn

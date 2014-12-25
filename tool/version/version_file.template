@@ -1,0 +1,11 @@
+define(`M4_VERSION_FUN',`$1'_get_version_info)
+define(`M4_REPLACE',split(xx,xx,xx));
+const char* 
+M4_VERSION_FUN(M4_INPUT_MODULE)()
+{
+	static const char* pro_name="M4_INPUT_PRONAME";
+	return pro_name;
+}
+
+forloop(`i', 1, 8, `i ')
+forloop(`i', 1, 8, `forloop(`j',1,8,`(`i',`j')')')

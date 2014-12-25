@@ -1,0 +1,19 @@
+
+{
+	len=length($0); 
+	for(i=1;i<=len;++i)
+	{
+		c=substr($0,i,1);
+		/*printf("{ %s[%d]=%s}\n",$0,i,c);*/
+		if( c == "\r" || c== "\n")
+		{
+			break;
+		}
+		if(c < " " || c > "~") 
+		{
+			printf("%6dd,%s\n",NR,$0); 
+			next ;
+			break;  
+		} 
+	}
+}

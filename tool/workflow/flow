@@ -1,0 +1,48 @@
+
+(1)
+  a;
+  b;
+
+(2)
+ a && b
+
+(3) 
+ a || b
+
+(4)
+ !a;
+
+(5)
+a switch
+ case 1:
+case 2:
+case 3:
+default;
+
+(6)
+START:
+  a
+  switch 0:
+	break;
+  switch 1:
+        c;
+        goto START;
+b;
+
+
+state_
+logic_fun
+init_fun
+finish_fun
+input
+output
+action_fun
+roll_back_fun
+base_type
+comment
+descript
+id
+
+
+robot
+

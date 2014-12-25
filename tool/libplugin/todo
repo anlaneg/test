@@ -1,0 +1,53 @@
+实现一个插件装载系统,用于实现插件接口绑定
+初始化.支持调试装载(即优先装载哪个接口)
+
+提供一个include head file.
+
+private_struct由用户完成绑定.
+
+typedef struct interface{
+//
+//
+//
+}interface_t;
+
+init;
+deinit;
+
+libplugin_load(path,".so",order)
+{
+};
+
+libplugin_init();
+libplugin_destroy();
+libplugin_run("name",xx);
+
+
+///design
+typedef int32_t (*plugin_init_fun)(void*interface,int argc,char**argv);
+typedef int32_t (*plugin_exit_fun)(void*interface);
+typedef plugin
+{
+	uint32_t plugin_id;
+	uint32_t priority;
+	char* plugin_name[32];
+	void* interface;
+	uint32_t interface_size;
+	plugin_init_fun init;
+	plugin_exit_fun	exit;
+};
+
+libplugin_dyn_install(char*name,uint32_t private_size,int argc,char**argv);
+libplugin_dyn_unistall(char*name);
+libplugin_enable_hook(char*name,uint32_t hook);
+libplugin_disable_hook(char*name,uint32_t hook);
+libplugin_hook_run(uint32_t hook,void* ctx);
+
+//有一些插件,有一些hook点
+//插件可以动态的插入,可以动态的删除
+//指定的插件可以选择性的打开或关闭指定的hook点
+//系统在运行时,对当前打开某一hook点调用插件的入口函数.
+
+
+//引申一下,是否可以通过插件方式来构建系统,将模块采用插件形式
+//挂接到系统中,通过第三方脚本将这些插件合起来?
