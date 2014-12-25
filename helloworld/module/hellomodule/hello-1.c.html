@@ -1,0 +1,33 @@
+<!-- Generator: GNU source-highlight 3.1.4
+by Lorenzo Bettini
+http://www.lorenzobettini.it
+http://www.gnu.org/software/src-highlite -->
+<pre><tt><b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;linux/module.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;linux/kernel.h&gt;</font>
+<b><font color="#000080">#include</font></b> <font color="#FF0000">&lt;linux/init.h&gt;</font>
+
+<font color="#009900">int</font> <b><font color="#000000">add</font></b><font color="#990000">(</font><font color="#009900">int</font> a<font color="#990000">,</font><font color="#009900">int</font> b<font color="#990000">);</font>
+<i><font color="#9A1900">//加入参数</font></i>
+<b><font color="#0000FF">static</font></b> <font color="#009900">char</font><font color="#990000">*</font> mystring<font color="#990000">=</font><font color="#FF0000">"along"</font><font color="#990000">;</font>
+
+<b><font color="#000000">MODULE_LICENSE</font></b><font color="#990000">(</font><font color="#FF0000">"GPL"</font><font color="#990000">);</font>
+<b><font color="#000000">module_param</font></b><font color="#990000">(</font>mystring<font color="#990000">,</font>charp<font color="#990000">,</font><font color="#993399">0000</font><font color="#990000">);</font>
+<b><font color="#000000">MODULE_PARM_DESC</font></b><font color="#990000">(</font>mystring<font color="#990000">,</font><font color="#FF0000">"my name"</font><font color="#990000">);</font>
+<b><font color="#0000FF">static</font></b> <font color="#009900">int</font> __<font color="#008080">init</font> <b><font color="#000000">initmodule</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font>
+<font color="#FF0000">{</font>
+	<b><font color="#000000">printk</font></b><font color="#990000">(</font>KERN_INFO <font color="#FF0000">"hello world 1.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+	<i><font color="#9A1900">//返回非0表示初始化失败</font></i>
+	<b><font color="#000000">printk</font></b><font color="#990000">(</font>KERN_INFO <font color="#FF0000">"my name is %s</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font>mystring<font color="#990000">);</font>
+	<b><font color="#0000FF">return</font></b> <font color="#993399">0</font><font color="#990000">;</font>
+<font color="#FF0000">}</font>
+
+<b><font color="#0000FF">static</font></b> <font color="#009900">void</font> __<font color="#008080">exit</font> <b><font color="#000000">cleanupmodule</font></b><font color="#990000">(</font><font color="#009900">void</font><font color="#990000">)</font>
+<font color="#FF0000">{</font>
+	<b><font color="#000000">printk</font></b><font color="#990000">(</font>KERN_INFO <font color="#FF0000">"3 + 4 = %d</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">,</font><b><font color="#000000">add</font></b><font color="#990000">(</font><font color="#993399">3</font><font color="#990000">,</font><font color="#993399">4</font><font color="#990000">));</font>
+	<b><font color="#000000">printk</font></b><font color="#990000">(</font>KERN_INFO <font color="#FF0000">"goodbye world 1.</font><font color="#CC33CC">\n</font><font color="#FF0000">"</font><font color="#990000">);</font>
+	
+<font color="#FF0000">}</font>
+
+<b><font color="#000000">module_init</font></b><font color="#990000">(</font>initmodule<font color="#990000">);</font>
+<b><font color="#000000">module_exit</font></b><font color="#990000">(</font>cleanupmodule<font color="#990000">);</font>
+</tt></pre>
