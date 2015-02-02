@@ -19,3 +19,8 @@ for first test
  -----|-------|-------|-------|------|-----|-----
   ab  | a     |       |       |      |     |afd
   tt  |  ab   | dafd  | fdafd | dafd | dafd|dafd
+
+
+![baidu Logo](http://www.baidu.com/img/baidu_jgylogo3.gif)
+
+This is [an example](http://example.com/ "Title") inline link.
