@@ -60,7 +60,6 @@ __all__:__mk_out_dir__ __mk_submod__ __mk_target__
 
 #生成输出目录
 __mk_out_dir__:
-	$(call amf_debug_log,  "mkdir $(OUT_DIR)")
 	$(call amf_command_execute,-mkdir $(OUT_DIR))
 
 #构建子模块
@@ -113,8 +112,6 @@ endif
 ifeq ($(strip $(TARGET_TYPE)),obj)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
 	$(__target_complier__) -nostdlib -r -o $(TOP_MODULE)/$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(TARGET_NAME).o $^ $(AMF_INCLUDE_PATH)
-endif
-
 	$(call amf_debug_log,  "obj=$@:$^")
 	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $@ $^)
 endif
