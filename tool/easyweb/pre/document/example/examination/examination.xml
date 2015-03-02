@@ -1,0 +1,56 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state name="examination" packet="example.examination">
+	<predefine>
+		<!--问题 -->
+		<struct name="question_t">
+			<member name="number" type="int32_t" />
+			<member name="question" type="string" />
+			<member name="answer_type" default="1" />
+			<!--表示下面是一个动态数组,极限大小为6 -->
+			<struct style="dnyarray" limit-size="6" >
+			     <member name="option" type="string" />
+			</struct>
+		</struct>
+		
+		<!-- 响应 -->
+		<struct name="answer_t">
+			<member name="number" type="int32_t" />
+			<struct style="dnyarray" limit-size="6">
+				<member name="result" type="string" />
+			<struct>
+		</struct>
+	</predefine>
+
+	<input>
+	   <struct>
+	   	<input_session>
+			<member type="string" name="user_name" pass_type="out" />
+		</input_session>
+
+		<union uname="is_first_request">
+			<part value="1" />
+				<!-- 支持空的union -->
+			</part>
+			<part value="0" >
+				<struct style="array" size="20">
+					<member name="answer" type="answer" />
+				</struct>
+			</part>
+		</union>
+	   </struct>
+	</input>
+
+	<check>
+		<result value="1" forward="examination_result_show">
+			<!-- TODO 需要添加输出,output-sql 需要变通下 -->
+			<output-sql sql-statement=""  foreach="">
+			</output-sql>
+		</result>
+		<default forward="examination">
+			<struct style="array" size="20" >
+				<member name="examination" type="question_t" />
+			</struct>
+		</default>
+	</check>
+</state>
+

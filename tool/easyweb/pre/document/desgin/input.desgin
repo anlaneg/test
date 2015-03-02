@@ -1,0 +1,113 @@
+#本文件用于定义input
+<!--
+	接受的需求:
+	1.支持枚举，支持union  参见output定义 
+  	2.支持从后台提供，由相应的插件生成相应的代码 ,如后台从session  
+  	3.支持从数据库中提取，由相应插件生成相应的代码，如sql等 (考虑支持结构体块的概念。无名结构体。方便指定从sql提取等。)
+  	4.支持由check,process函数处理时，再设置值  <member type="" name="" pass_type="(in)|out|inout"
+  	5.数据类型  参见output定义 
+  	6.支持常量 <member type="" name="" is_const="true" >  当其用于index时，可指定为唯一元素  
+	7.要支很容易扩展对其它方式写入的解析，无论是从编译角度，还是实现角度。
+
+	-->
+
+<!-- 
+	未接受的需求:
+	
+	1.支持lay加载块 
+   	2.支持简单的检查标记，如is_allow_null="true"  is_interger="true" is_float_number="true"  第一版本可考虑不支持，若支持，需考虑容易加载，容易扩展 
+
+	-->
+  
+<!-- ----------------实现样例---------------------------- -->
+
+<input>
+<struct type_name="这个用于指定类型名称,方便外界引用" table_name="这个用于做表映射" >
+	<member type="实个用于指明类型" name="这个用于说明字段名称" column="" is_const="true" />
+	<member type="int32_t" name="abc" pass_type="in"  />
+
+	<input_sql sql="select * from table where a=?">
+	<param type=""  value="$current.abc" />
+	<struct>
+		<member type="" name="" pass_type="out"  />
+		<member type="" name="" pass_type="in" />
+		<member type="" name="" pass_type="inout" />
+	</struct>	
+	</input_sql >
+
+	<input_method name="abcef" >
+	   <param type="" value="" />
+	   <struct>
+		<member type="" name="" pass_type="" /> 
+	   </struct>
+	</input_method >
+
+	<input_session  comment="依据名称来加载" >
+	  <struct>
+		<member type="" name="" pass_type="out"  />
+		<member type="" name="" pass_type="in" />
+		<member type="" name="" pass_type="inout" />
+	</struct>	
+
+	</input_session >
+	
+</struct>
+</input>
+
+<-------------------------各点说明----------------------------------->
+<!---下面的每个标签，都能包含有一个comment属性 -->
+<!---下面的每个标签，都能包含有一个validt属性,用于实现值校验 -->
+<!-- 类似于session -->
+<input-per-user>
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" default="" comment=""/>
+	</struct>
+</input-per-user>
+
+<input-method method-name="">
+	<param type="" value="" />
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" default="" comment="" >
+		<value-valid xxxx>
+		</member>
+	</struct>
+</input-method>
+
+<!-- 类似于application -->
+<input-global>
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" />
+	</struct>
+</input-global>
+
+<input-sql sql-statement="">
+	<parameter type="" value="" />
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" commet="" />
+	</struct>
+</input-sql>
+
+<!-- 联合 -->
+<union name="union-type">
+	<part value="">
+		<!-- 这里可以跟 input 内的其它元素 -->
+	</part>
+	<part value="">
+		<!-- 这里可以跟 input 内的其它元素 -->
+	</part>
+</union>
+
+<!-- 联合,与member相同 -->
+<enum name="" default-value="" is-allow-bit-operator="true">
+         <option text="TEST_ABC" value="0x1" />
+         <option text="TEST_DEX" value="0x2" />
+         <option text="TEST_ZXY" value="0x4" />
+</enum>
+
+
+<input>
+	<struct>
+		<!--这里支持：　常量，枚举，联合 -->
+		<member type="" name="" is-const="" value="" comment=""/>
+	</struct>
+</input>

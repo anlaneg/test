@@ -1,0 +1,27 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state name="Login" packet="cn.along.module.flow">
+	<input style="single">
+		<struct name="info">
+			<member name="user_name" type="string" pass-type="in" comment="用户名" />
+			<member name="password"  type="string" pass-type="in" comment="密码"   />
+			<member name="dp_pwd"    type="string" pass-type="out" comment="dp"    />
+			<input-sql sql-statement="select user_pwd from users where user_name= ?">
+				<param type="string" value="$INPUT.user_name" />
+			</input-sql>
+			<input-method name="" />
+			<input-session>
+				<map name="" 
+			</input-session>
+		</struct>	
+	</input>
+	<switch>
+	   <case value="1" redirect="name">
+		<output>
+		</output>
+	   </case>
+	   <default forward="welcome">
+		<output>
+		</output>
+	   </default>
+	</switch>
+</state>

@@ -1,0 +1,20 @@
+#本文件用于定义预定义数据结构，预定义的数据结构用于方便描述
+#另外，也可用于指明在input或output中使用,名称采用包方式进行
+#引用
+<predefine>
+	<!-- 可以定义出多个sql表进行映射 -->
+	<struct name="" table="" >
+		<index name="" type="" columt="" />
+		<input name="" type="" columnt="" />
+		<input name="" type="" columnt="" />
+		<member name="" type="" columnt="" />
+	</struct>
+
+	<!-- 认为global,per-user等为系统关键字，不能用来做名称-->	
+	<struct name="global">
+	</struct>
+
+	<struct name="per-user">
+	</struct>
+</predefine>
+

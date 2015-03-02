@@ -1,0 +1,674 @@
+#本文件用于说明每个元素表示的意思及每个元素的子元素
+#用以下格式进行说明
+#{ "comment":"","tag":"", "attribute":[],"parent":""}
+#建成什么样的树？如果XX是它的子元素，则其位于XX下面
+#如果XX是它的属性，则节点里就有这一属性
+#"validate":"valid_state_packet",
+[
+	{
+		"tag":"state",
+		"parent":null,
+		"require":"true",
+		"attribute":[
+				{
+					"attribute-name":"package",
+					"type":"string",
+					"comment":"定义包名称"
+				},
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"状态名称"
+				}
+			    ],
+		"comment":"根元素，定义状态"
+	},
+
+	{
+		"tag":"input",
+		"parent":"state",
+		"require":"true",
+		"attribute":[],
+		"comment":"输出标签名，每个state节点有且仅有一个此类型节点"
+	},
+	
+	{
+		"tag":"predefine",
+		"parent":"state",
+		"require":"true",
+		"attribute":[],
+		"comment":"预定义标签，每个state节点有且仅有一个此类型节点"
+	},
+
+	{
+		"tag":"check",
+		"parent":"state",
+		"require":"true",
+		"attribute":[],
+		"comment":"检查标签名，每个state节点有且仅有一个此类型节点"
+	},
+	
+	{
+		"tag":"result",
+		"parent":"check",
+		"require":"true",
+		"attribute":[
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"检查结果"
+				},
+				
+				{
+					"attribute-name":"redirect",
+					"type":"string",
+					"comment":"重定向"
+				},
+				
+				{
+					"attribute-name":"forward",
+					"type":"string",
+					"comment":"状态转换"
+				}
+			    ],
+		"comment":"检查结果项标签"
+	},
+
+	{
+		"tag":"default",
+		"parent":"check",
+		"require":"true",
+		"attribute":[
+				{
+					"attribute-name":"redirect",
+					"type":"string",
+					"comment":"重定向"
+				},
+				
+				{
+					"attribute-name":"forward",
+					"type":"string",
+					"comment":"状态转换"
+				}
+			    ],
+		"comment":"检查结果项标签"
+	},
+
+	{
+		"tag":"output",
+		"parent":"result",
+		"require":"false",
+		"attribute":[]
+	},
+
+	{
+		"tag":"struct",
+		"parent":"input",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+				{
+					"attribute-name":"style",
+					"type":"string",
+					"comment":"结构体样式"
+				},
+
+				{
+					"attribute-name":"limit-size",
+					"type":"int",
+					"comment":"极限大小"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"output",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"predefine",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"member",
+		"parent":"struct",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type",
+					"type":"string",
+					"comment":"成员类型"
+				},
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"成员名称"
+				},
+				{
+					"attribute-name":"pass-type",
+					"type":"in|out|inout",
+					"comment":"成员传输方式"
+				},
+				{
+					"attribute-name":"alias",
+					"type":"string",
+					"comment":"成员别名",
+				},
+				{
+					"attribute-name":"default-value",
+					"type":"string",
+					"comment":"成员默认值",
+				},
+				{
+					"attribute-name":"comment",
+					"type":"string",
+					"comment":"成员注释"
+				},
+				{
+					"attribute-name":"is-const",
+					"type":"string",
+					"comment":"成员是否常量"
+				},
+				{
+					"attribute-name":"limit-size",
+					"type":"string",
+					"comment":"极限大小"
+				},
+			    ]
+	},
+
+	{
+		"tag":"input-per-user",
+		"parent":"input",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"per-user名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"validator",
+		"parent":"member",
+		"require":"false",
+		"attribute":[
+
+			    ],
+		"comment":"成员校验"
+	},
+
+	{
+		"tag":"validator",
+		"parent":"struct",
+		"require":"false",
+		"attribute":[
+
+			    ],
+		"comment":"结构体校验"
+	},
+
+	{
+		"tag":"struct",
+		"parent":"input-per-user",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"output-per-user",
+		"parent":"output",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"per-user名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"output-per-user",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"input-method",
+		"parent":"input",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"method-name",
+					"type":"string",
+					"comment":"方法名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"input-method",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"output-method",
+		"parent":"output",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"method-name",
+					"type":"string",
+					"comment":"方法名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"output-method",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"input-global",
+		"parent":"input",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"global名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"input-global",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"output-global",
+		"parent":"output",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"global名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"output-global",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"input-sql",
+		"parent":"input",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"sql-statement",
+					"type":"string",
+					"comment":"sql语句"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"input-sql",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"output-sql",
+		"parent":"output",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"sql-statement",
+					"type":"string",
+					"comment":"sql语句"
+				},
+			    ],
+	},
+
+	{
+		"tag":"struct",
+		"parent":"output-sql",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type-name",
+					"type":"string",
+					"comment":"结构体名称"
+				},
+
+				{
+					"attribute-name":"table-name",
+					"type":"string",
+					"comment":"数据库表名称"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"union",
+		"parent":"struct",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"联合体名称"
+				},
+			    ],
+	},
+
+	{
+		"tag":"enum",
+		"parent":"struct",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"name",
+					"type":"string",
+					"comment":"枚举类型名称"
+				},
+				{
+					"attribute-name":"default-value",
+					"type":"string",
+					"comment":"默认值"
+				},
+				{
+					"attribute-name":"is-allow-bit-operator",
+					"type":"string",
+					"comment":"是否支持位运算"
+				},
+
+			    ],
+	},
+
+	{
+		"tag":"option",
+		"parent":"enum",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"text",
+					"type":"string",
+					"comment":"枚举类型字面选项"
+				},
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"枚举类型值"
+				},
+			    ],
+	},
+
+	{
+		"tag":"parameter",
+		"parent":"input-sql",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type",
+					"type":"string",
+					"comment":"参数的数据类型"
+				},
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"参数值"
+				},
+			    ],
+	},
+	
+	{
+		"tag":"parameter",
+		"parent":"input-method",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type",
+					"type":"string",
+					"comment":"参数的数据类型"
+				},
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"参数值"
+				},
+			    ],
+	},
+
+	{
+		"tag":"parameter",
+		"parent":"output-sql",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type",
+					"type":"string",
+					"comment":"参数的数据类型"
+				},
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"参数值"
+				},
+			    ],
+	},
+	
+	{
+		"tag":"parameter",
+		"parent":"output-method",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"type",
+					"type":"string",
+					"comment":"参数的数据类型"
+				},
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"参数值"
+				},
+			    ],
+	},
+
+	{
+		"tag":"part",
+		"parent":"union",
+		"require":"false",
+		"attribute":[
+				{
+					"attribute-name":"value",
+					"type":"string",
+					"comment":"联合类型的值"
+				},
+			    ],
+	},
+
+//用于说明这个是事件
+	{
+		"tag":"event",
+		"parent":"state",
+		"require":"false",
+		"attribute":[
+			    ],
+		"comment":"事件机制"
+	},
+
+	{
+		"tag":"input-before",
+		"parent":"event",
+		"require":"false",
+		"attribute":[
+			    ],
+		"comment":"输入前事件"
+	},
+
+	{
+		"tag":"check-before",
+		"parent":"event",
+		"require":"false",
+		"attribute":[
+			    ],
+		"comment":"检查前事件"
+	},
+]
