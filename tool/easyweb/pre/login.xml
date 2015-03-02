@@ -10,17 +10,27 @@
 			</input-sql>
 			<input-method name="" />
 			<input-session>
-				<map name="" 
+				<map src="" dest="" /> 
 			</input-session>
+			<input-global>
+				<map src="" dest="" /> 
+			</input-global>
+			<input-cookie>
+				<map src="" dest="" /> 
+			</input-cookie>
 		</struct>	
 	</input>
 	<switch>
 	   <case value="1" redirect="name">
 		<output>
+		    <struct name="">
+		    </struct>
 		</output>
 	   </case>
 	   <default forward="welcome">
 		<output>
+		    <struct name="">
+		    </struct>
 		</output>
 	   </default>
 	</switch>
