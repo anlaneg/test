@@ -8,16 +8,13 @@
 			<input-sql sql-statement="select user_pwd from users where user_name= ?">
 				<param type="string" value="$INPUT.user_name" />
 			</input-sql>
-			<input-method name="" />
+			<input-method name="abc" />
 			<input-session>
-				<map src="" dest="" /> 
+				<map src="" target="" /> 
 			</input-session>
 			<input-global>
-				<map src="" dest="" /> 
+				<map src="" target="" /> 
 			</input-global>
-			<input-cookie>
-				<map src="" dest="" /> 
-			</input-cookie>
 		</struct>	
 	</input>
 	<switch>
@@ -25,6 +22,16 @@
 		<output>
 		    <struct name="">
 		    </struct>
+		    <output-sql sql-statement="delete from users where user_name= ?">
+			      <param type="string" value="$SESSION.xx" />
+		    </output-sql>
+		    <output-method name="abc" />
+		    <output-session>
+			     <map src="" target="" />
+		    </output-session>
+		    <output-global>
+			     <map src="" target="" />
+		    </output-global>
 		</output>
 	   </case>
 	   <default forward="welcome">
