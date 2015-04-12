@@ -1,0 +1,95 @@
+
+
+//if statement
+if(bool)
+{
+}
+else
+{
+}
+
+//if-else if statement
+if(bool)
+{
+}
+else if(bool)
+{
+}
+else
+{
+}
+
+//no switch statement
+
+//while statement
+while(bool)
+{
+}
+
+
+//for statement
+for(var i = 0 ; i < 10; i++)
+{
+}
+
+//function statement
+[public | private | protected] function function_name(var var1,var var2,var var3)
+{
+
+	//return null
+}
+
+
+//class statement
+class A extends B
+{
+	[public | private | protected] [static] var a;
+	
+	[public | private | protected ] [static] function A()
+	{
+		super();
+	}
+
+	function A(var var1)
+	{
+		super()
+	}
+}
+
+
+class Object
+{
+	public var methods;//array
+	public var vars;//array
+	public var type;
+	public var module;
+	public var document;//hash table {file,class,function,var}
+
+	public invoke
+	/// xxxxxx
+	/// xxxxx
+	/// xxxxx
+
+}
+
+
+import packet.class ;
+ex-import xx;//
+
+
+//lib desgin
+
+/root/code
+/interface/package
+/version
+/interface
+/lib-function
+/lib-function-document
+/dpentds
+/download-url
+/dev-name
+/dev-email
+/dev-bug-info
+/copyright
+/example
+
