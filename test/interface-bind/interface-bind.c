@@ -149,7 +149,7 @@ int if_read(int fd)
                 //read unit
                 char buffer[65536];
                 ssize_t readn= safe_read(fd, &buffer,65536);//make sure no byte to read
-                printf("we read %d bytes \n",readn);
+                printf("we read %d bytes \n",(int)readn);
             }
             else if(FD_ISSET(fd,&eset))
             {
