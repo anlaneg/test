@@ -1,0 +1,17 @@
+static int
+vtysh_execute_func (const char *line, int pager)
+{
+	int ret;
+	vector vline;
+	struct cmd_element *cmd;
+	/*int tried = 0;*/
+
+	/* Split readline string up into the vector. */
+	vline = cmd_make_strvec (line);
+
+	if (vline == NULL)
+	{
+		return CMD_SUCCESS;
+	}
+
+        ret = cmd_execute_command (vline, g_vty, &cmd, 1);
