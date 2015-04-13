@@ -33,12 +33,32 @@ for(var i = 0 ; i < 10; i++)
 }
 
 //function statement
-[public | private | protected] function function_name(var var1,var var2,var var3)
+[public | private | protected] function function_name(var var1,var var2,var var3,valist)
 {
 
 	//return null
 }
 
+//try-catch statemnet
+try
+{
+}
+catch(IOException e)
+{
+	
+}
+catch(Exception e)
+{
+}
+
+//throw Exception
+throw new IOException()
+
+//new statement
+new A() ==>Class.load_name(A).methods("A(void)").invoke();
+
+//this statement
+this.a = b;
 
 //class statement
 class A extends B
@@ -59,30 +79,43 @@ class A extends B
 
 class Object
 {
-	public var methods;//array
-	public var vars;//array
-	public var type;
-	public var module;
-	public var document;//hash table {file,class,function,var}
+	public var methods;//array[Method]
+	public var members;//array[Variable]
+	public var type;//array[Type]
+	public var module//Module;
+	public var document;//Document=>hash table {file,class,function,var}
+	public var libs;//array[Libary]
 
-	public invoke
+	
 	/// xxxxxx
 	/// xxxxx
 	/// xxxxx
-
+	public function static a();
+	public function b();
 }
 
+function axx()
+{
+}
+
+class Context()
+{	
+	//parse info 
+}
+
+statement-version 1;
+synmic-version 1;
 
 import packet.class ;
-ex-import xx;//
+package xx;//
 
 
-//lib desgin
-
+//lib desgin(解决库依赖及库安装问题)
+//2进制,源码,源码文档
 /root/code
-/interface/package
-/version
-/interface
+/root/interface/package
+/root/version
+/root/interface
 /lib-function
 /lib-function-document
 /dpentds
@@ -93,3 +126,31 @@ ex-import xx;//
 /copyright
 /example
 
+
+//operator desgin
+a + b; //must number,string
+a - b; //must number
+a * b; //must number
+a / b; //must number
+a % b; //must interger
+
+a += b; //blow
+a -= b;
+a *= b;
+a /= b;
+a %= b;
+
+a ^ b; //must integer
+a & b; //must integer
+~ a  ; //must integer
+a | b; //must integer
+
+a && b //must bool
+a || b //must bool
+!a     //must bool
+
+a.b    //attribute access
+a.b()  //function  access
+
+
+//build
