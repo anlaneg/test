@@ -1,0 +1,34 @@
+
+		  +-------------+	
+   PCA--------eth0|		|
+		  |             |eth1--------PCB
+		  +-------------+
+			|eth2
+			|
+			|
+		       PCD
+
+
+   snat
+   1.PCA---->PCB
+	(1) 如果snat转换后与目的地址在同一网段
+		则转换后地址，需要进行arp代理。{代理发生在目的地址的出接口}
+	(2) 如果snat转换后与目的地址不在同一网段
+		则转换后地址，不需要进行arp代理。
+	
+   dnat
+   1.PCA---->PCB
+	(1) 如果dnat转换前与源地址在同一网段
+		则转换前地址，需要进行arp代理 {需要在配置下来时，进行自动代理，代理发生成入接口}
+	(2) 如果dnat转换前与源地址不在同一网段
+		则转换后地址，不需要进行arp代理。
+		
+   实际上按照规则：
+	(srcif,srcip,protocol,srcport,dstif,dstip,dstport) snat------>(srcip',protocol,srcport',dstip,dstport)
+	(srcif,srcip,protocol,srcport,dstip,dstport) dnat -------->(srcip,protocol,srcport,dstip',dstport')
+
+	按照规则，可配置任意类型的nat
+
+        
+       clone nat ,如果我实现了 (pca,protocol,srcport)------>(pca',protocol,srcport')
+		则所有经此发出去的报文均采用此映射  (以节省池中的ip及port)
