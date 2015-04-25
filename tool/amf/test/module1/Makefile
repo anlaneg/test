@@ -9,7 +9,7 @@ before:
 end:
 	@echo "do $@:$^"
 
-TARGET_TYPE=bin
+TARGET_TYPE=obj
 
 SUB_MODULE=
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
