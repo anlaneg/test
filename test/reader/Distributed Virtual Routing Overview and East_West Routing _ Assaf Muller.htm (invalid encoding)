@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/count" async=""></script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/count_002" async=""></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<title>Distributed Virtual Routing – Overview and East/West Routing | Assaf Muller</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="pingback" href="http://assafmuller.com/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://s0.wp.com/wp-content/themes/pub/ryu/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+		<script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/wl" async="" type="text/javascript"></script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/remote-login.php" type="text/javascript"></script>
+		<script type="text/javascript">
+		/* <![CDATA[ */
+			if ( 'function' === typeof WPRemoteLogin ) {
+				document.cookie = "wordpress_test_cookie=test; path=/";
+				if ( document.cookie.match( /(;|^)\s*wordpress_test_cookie\=/ ) ) {
+					WPRemoteLogin();
+				}
+			}
+		/* ]]> */
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="Assaf Muller » Feed" href="http://assafmuller.com/feed/">
+<link rel="alternate" type="application/rss+xml" title="Assaf Muller » Comments Feed" href="http://assafmuller.com/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="Assaf Muller » Distributed Virtual Routing – Overview and East/West Routing Comments Feed" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+function addLoadEvent(func){var oldonload=window.onload;if(typeof window.onload!='function'){window.onload=func;}else{window.onload=function(){oldonload();func();}}}
+/* ]]> */
+</script>
+<link rel="stylesheet" id="all-css-0" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="ryu-lato-css" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/css.css" type="text/css" media="all">
+<link rel="stylesheet" id="ryu-playfair-display-css" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/css_002.css" type="text/css" media="all">
+<link rel="stylesheet" id="all-css-4" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a.css" type="text/css" media="all">
+<link rel="stylesheet" id="print-css-4" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/global-print.css" type="text/css" media="print">
+<script type="text/javascript">
+/* <![CDATA[ */
+var LoggedOutFollow = {"invalid_email":"Your subscription did not succeed, please try again with a valid email address."};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a_002.js"></script>
+<link rel="stylesheet" id="all-css-0" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/style.css" type="text/css" media="all">
+<!--[if lt IE 8]>
+<link rel='stylesheet' id='highlander-comments-ie7-css'  href='https://s2.wp.com/wp-content/mu-plugins/highlander-comments/style-ie7.css?m=1351637563g&#038;ver=20110606' type='text/css' media='all' />
+<![endif]-->
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://assafmuller.wordpress.com/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml"> 
+<link rel="prev" title="Multinode DVR Devstack" href="http://assafmuller.com/2015/04/06/multinode-dvr-devstack/">
+<link rel="next" title="Distributed Virtual Routing – SNAT" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/">
+<meta name="generator" content="WordPress.com">
+<link rel="canonical" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/">
+<link rel="shortlink" href="http://wp.me/p3ZOTu-5b">
+<link rel="alternate" type="application/json+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=json&amp;url=http%3A%2F%2Fassafmuller.com%2F2015%2F04%2F15%2Fdistributed-virtual-routing-overview-and-eastwest-routing%2F&amp;for=wpcom-auto-discovery"><link rel="alternate" type="application/xml+oembed" href="https://public-api.wordpress.com/oembed/1.0/?format=xml&amp;url=http%3A%2F%2Fassafmuller.com%2F2015%2F04%2F15%2Fdistributed-virtual-routing-overview-and-eastwest-routing%2F&amp;for=wpcom-auto-discovery">
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="Distributed Virtual Routing - Overview and East/West Routing">
+<meta property="og:url" content="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/">
+<meta property="og:description" content="Where Am I? * Overview and East/West Traffic SNAT Floating IPs Legacy Routing Overview DVR aims to isolate the failure domain of the traditional network node and to optimize network traffic by elim...">
+<meta property="article:published_time" content="2015-04-15T01:25:15+00:00">
+<meta property="article:modified_time" content="2015-04-16T15:54:35+00:00">
+<meta property="article:author" content="http://assafmuller.com/author/assafmuller/">
+<meta property="og:site_name" content="Assaf Muller">
+<meta property="og:image" content="https://assafmuller.files.wordpress.com/2015/04/legacy.png">
+<meta property="og:image" content="https://assafmuller.files.wordpress.com/2015/04/br-int2.png">
+<meta property="og:image" content="https://assafmuller.files.wordpress.com/2015/04/br-tun.png">
+<meta property="og:image" content="https://assafmuller.files.wordpress.com/2015/04/east_west_physical_cropped.png">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:site" content="@wordpressdotcom">
+<meta name="twitter:image" content="https://assafmuller.files.wordpress.com/2015/04/legacy.png?w=240">
+<meta name="twitter:card" content="summary">
+<meta property="article:publisher" content="https://www.facebook.com/WordPresscom">
+<link rel="shortcut icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1405977958g" sizes="16x16 24x24 32x32 48x48">
+<link rel="icon" type="image/x-icon" href="http://s2.wp.com/i/favicon.ico?m=1405977958g" sizes="16x16 24x24 32x32 48x48">
+<link rel="apple-touch-icon-precomposed" href="http://s0.wp.com/i/webclip.png?m=1391188133g">
+<link rel="openid.server" href="http://assafmuller.wordpress.com/?openidserver=1">
+<link rel="openid.delegate" href="http://assafmuller.wordpress.com/">
+<link rel="search" type="application/opensearchdescription+xml" href="http://assafmuller.com/osd.xml" title="Assaf Muller">
+<link rel="search" type="application/opensearchdescription+xml" href="https://wordpress.com/opensearch.xml" title="WordPress.com">
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Assaf Muller"><meta name="msapplication-window" content="width=device-width;height=device-height"><meta name="msapplication-task" content="name=Subscribe;action-uri=http://assafmuller.com/feed/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=Sign up for a free blog;action-uri=http://wordpress.com/signup/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Support;action-uri=http://support.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="msapplication-task" content="name=WordPress.com Forums;action-uri=http://forums.wordpress.com/;icon-uri=http://s2.wp.com/i/favicon.ico"><meta name="title" content="Distributed Virtual Routing – Overview and East/West Routing | Assaf Muller on WordPress.com">
+<meta name="description" content="Where Am I? * Overview and East/West Traffic SNAT Floating IPs Legacy Routing Overview DVR aims to isolate the failure domain of the traditional network node and to optimize network traffic by eliminating the centralized L3 agent shown above. It does that by moving most of the routing previously performed on the network node to…">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #ffffff; }
+</style>
+
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/google_service.js">
+</script>
+<script type="text/javascript">
+if ( typeof GS_googleAddAdSenseService == 'function' ) { GS_googleAddAdSenseService("ca-pub-3443918307802676"); }
+if ( typeof GS_googleEnableAllServices == 'function' ) { GS_googleEnableAllServices() };
+</script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/google_ads.js"></script><script type="text/javascript">
+if ( typeof GA_googleAddSlot == 'function' ) { GA_googleAddSlot("ca-pub-3443918307802676", "wpcom_below_post"); }
+</script>
+<script type="text/javascript">
+if ( typeof GA_googleFetchAds == 'function' ) { GA_googleFetchAds(); }
+</script>
+
+<script type="text/javascript">
+var wpcom_ads = { bid: 59062656, pt: 'permalink', wa: 0, as: 0, domain: 'assafmuller.com', url: 'http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/', gid: '', };
+</script>
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script type="text/javascript">
+	window.google_analytics_uacct = "UA-52447-2";
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-52447-2']);
+	_gaq.push(['_setDomainName', 'none']);
+	_gaq.push(['_setAllowLinker', true]);
+	_gaq.push(['_initData']);
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ga);
+	})();
+</script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ga.js" async="" type="text/javascript"></script>
+<script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/osd.js" type="text/javascript"></script><link rel="stylesheet" type="text/css" id="gravatar-card-css" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/hovercard.css"><link rel="stylesheet" type="text/css" id="gravatar-card-services-css" href="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/services.css"><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a" async="" type="text/javascript"></script></head>
+
+<body class="single single-post postid-321 single-format-standard custom-background mp6 customizer-styles-applied highlander-enabled highlander-light">
+
+
+<div id="page" class="hfeed site">
+		<div id="widgets-wrapper" class="toppanel hide">
+		<div id="secondary" role="complementary" class="wrap clear one">
+		<div id="top-sidebar-one" class="widget-area" role="complementary">
+				<aside id="recent-posts-3" class="widget widget_recent_entries">		<h1 class="widget-title">Recent Posts</h1>		<ul>
+					<li>
+				<a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-floating-ips/">Distributed Virtual Routing – Floating IPs</a>
+							<span class="post-date">April 15, 2015</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/">Distributed Virtual Routing – SNAT</a>
+							<span class="post-date">April 15, 2015</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/">Distributed Virtual Routing – Overview and East/West Routing</a>
+							<span class="post-date">April 15, 2015</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2015/04/06/multinode-dvr-devstack/">Multinode DVR Devstack</a>
+							<span class="post-date">April 6, 2015</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/12/30/juno-advanced-routing-compatibility/">Juno Advanced Routing Compatibility</a>
+							<span class="post-date">December 30, 2014</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/11/08/openstack-paris-network-node-high-availability-video/">OpenStack Paris Network Node High Availability</a>
+							<span class="post-date">November 8, 2014</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/08/16/layer-3-high-availability/">Layer 3 High Availability</a>
+							<span class="post-date">August 16, 2014</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/07/31/vote-for-openstack-paris-sessions/">Vote for OpenStack Paris sessions!</a>
+							<span class="post-date">July 31, 2014</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/07/01/the-need-for-network-overlays-part-i/">The need for Network Overlays – part I</a>
+							<span class="post-date">July 1, 2014</span>
+						</li>
+					<li>
+				<a href="http://assafmuller.com/2014/05/21/ovs-arp-responder-theory-and-practice/">OVS ARP Responder – Theory and Practice</a>
+							<span class="post-date">May 21, 2014</span>
+						</li>
+				</ul>
+		</aside>	</div><!-- #first .widget-area -->
+	
+	
+	
+	</div><!-- #secondary -->	</div>
+	
+	
+	<div id="search-wrapper" class="toppanel hide">
+		
+<form method="get" id="searchform" class="searchform" action="http://assafmuller.com/" role="search">
+	<label for="s" class="screen-reader-text">Search</label>
+	<input class="field" name="s" id="s" placeholder="Search …" type="search">
+	<input class="submit" id="searchsubmit" value="Search" type="submit">
+</form>	</div>
+
+	<div id="triggers-wrapper">
+		<ul class="triggers clear">
+						<li class="widgets-trigger">
+				<a href="#" class="theme-genericon" title="Widgets">
+					<span class="screen-reader-text">Widgets</span>
+				</a>
+			</li>
+			
+			
+			<li class="search-trigger">
+				<a href="#" class="theme-genericon" title="Search">
+					<span class="screen-reader-text">Search</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<header id="masthead" class="site-header" role="banner">
+		<div class="wrap">
+			
+							<a class="site-logo" href="http://assafmuller.com/" title="Assaf Muller" rel="home">
+					<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/cropped-img_1775-after1.jpg" alt="" class="no-grav header-image" height="409" width="1500">
+				</a>
+			
+			<hgroup>
+				<h1 class="site-title"><a href="http://assafmuller.com/" title="Assaf Muller" rel="home">Assaf Muller</a></h1>
+				<h2 class="site-description"></h2>
+			</hgroup>
+		</div><!-- .wrap -->
+
+					<nav id="site-navigation" class="navigation-main clear" role="navigation">
+				<h1 class="menu-toggle">Menu</h1>
+				<div class="screen-reader-text skip-link"><a href="#content" title="Skip to content">Skip to content</a></div>
+
+				<div class="wrap"><ul id="menu-top-menu" class="menu"><li id="menu-item-50" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-50"><a href="http://assafmuller.com/about/">About</a></li>
+<li id="menu-item-208" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-208"><a target="_blank" href="https://www.youtube.com/playlist?list=PLzEh1lsvQomPYewTOg-HJZPpbcAsBwKbg">Videos</a></li>
+<li id="menu-item-176" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-176"><a href="http://assafmuller.com/category/talks/">Talks</a></li>
+<li id="menu-item-54" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-54"><a href="http://assafmuller.com/category/openstack/">OpenStack</a></li>
+<li id="menu-item-240" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-240"><a href="http://assafmuller.com/category/overlays/">Overlays</a></li>
+<li id="menu-item-177" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-177"><a href="http://assafmuller.com/category/ml2/">ML2</a></li>
+<li id="menu-item-53" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-53"><a href="http://assafmuller.com/category/open-vswitch/">Open vSwitch</a></li>
+<li id="menu-item-383" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-383"><a href="http://assafmuller.com/category/dvr/">DVR</a></li>
+<li id="menu-item-55" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-55"><a href="http://assafmuller.com/category/ovirt/">oVirt</a></li>
+</ul></div>			</nav><!-- #site-navigation -->
+			</header><!-- #masthead -->
+
+	<div id="main" class="site-main">
+	<div id="primary" class="content-area">
+		<div id="content" class="site-content" role="main">
+
+		
+			
+<article id="post-321" class="clear post-321 post type-post status-publish format-standard hentry category-dvr category-open-vswitch category-openstack">
+	<div class="entry-wrap wrap clear">
+		
+		<header class="entry-header">
+			<span class="categories-links"><a href="http://assafmuller.com/category/dvr/" rel="category tag">DVR</a>, <a href="http://assafmuller.com/category/open-vswitch/" rel="category tag">Open vSwitch</a>, <a href="http://assafmuller.com/category/openstack/" rel="category tag">OpenStack</a></span><h1 class="entry-title">Distributed Virtual Routing – Overview and East/West Routing</h1>		</header><!-- .entry-header -->
+
+		<footer class="entry-meta">
+			<span class="entry-date"><a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/" title="04:25" rel="bookmark"><time datetime="2015-04-15T04:25:15+00:00">April 15, 2015</time></a></span><span class="author vcard"><a class="url fn n" href="http://assafmuller.com/author/assafmuller/" title="View all posts by assafmuller" rel="author">assafmuller</a></span>
+						<span class="comments-link"><a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/#comments">5 Comments</a></span>
+			
+					</footer><!-- .entry-meta -->
+
+				<div class="entry-content clear">
+			<p><strong>Where Am I?</strong><br>
+* Overview and East/West Traffic<br>
+<a title="Distributed Virtual Routing – SNAT" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/" target="_blank">SNAT</a><br>
+<a title="Distributed Virtual Routing – Floating IPs" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-floating-ips/" target="_blank">Floating IPs</a></p>
+<h2>Legacy Routing</h2>
+<p><a href="https://assafmuller.files.wordpress.com/2015/04/legacy.png"><img class="alignnone size-full wp-image-384" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/legacy.png" alt="legacy" height="312" width="696"></a></p>
+<h2>Overview</h2>
+<p>DVR aims to isolate the failure domain of the traditional network 
+node and to optimize network traffic by eliminating the centralized L3 
+agent shown above. It does that by moving most of the routing previously
+ performed on the network node to the compute nodes.</p>
+<ul>
+<li>East/west traffic (Traffic between different networks in the same 
+tenant, for example between different tiers of your app) previously all 
+went through one of your network nodes whereas with DVR it will bypass 
+the network node, going directly between the compute nodes hosting the 
+VMs.</li>
+<li>North/south traffic with floating IPs (Traffic originating from the 
+external network to VMs using floating IPs, or the other way around) 
+will not go through the network node, but will be routed directly by the
+ compute node hosting the VM. As you can understand, DVR asserts that 
+your compute nodes are directly connected to your external network(s).</li>
+<li>North/south traffic for VMs without floating IPs will still be 
+routed through the network node (Distributing SNAT poses another set of 
+challenges).</li>
+</ul>
+<p>Each of these traffic categories introduces its own set of 
+complexities and will be explained in separate blog posts. The following
+ sections depicts the requirements and the <a title="Multinode DVR Devstack" href="http://assafmuller.com/2015/04/06/multinode-dvr-devstack/">previous blog post</a> lists the required configuration changes.</p>
+<h2>Required Knowledge</h2>
+<ul>
+<li>Specific sections require OVS flows and tunneling knowledge, which you can obtain from <a href="http://assafmuller.com/category/overlays/" target="_blank">previous posts in my blog</a> (Go from the bottom to the top)</li>
+<li>How ‘legacy’ (Non-distributed, non-HA) routers work
+<ul>
+<li><a href="https://developer.rackspace.com/blog/neutron-networking-l3-agent/" target="_blank">Overview</a></li>
+<li><a href="https://www.mirantis.com/blog/identifying-and-troubleshooting-neutron-namespaces/" target="_blank">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+<h2><strong>Deployment Requirements</strong></h2>
+<ul>
+<li>ML2 plugin</li>
+<li>L2pop mechanism driver enabled</li>
+<li>openvswitch mechanism driver enabled, and the OVS agent installed on all of your compute nodes</li>
+<li>External network connectivity to each of your individual compute nodes</li>
+<li>Juno required tunneling (VXLAN or GRE) tenant networks</li>
+<li>Kilo introduces support for VLAN tenant networks as well</li>
+</ul>
+<h2><strong>East/West Routing</strong></h2>
+<p>Logical topology:</p>
+<p><a href="https://assafmuller.files.wordpress.com/2015/04/east_west.png"><img class=" size-full wp-image-323 alignnone" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/east_west.png" alt="east_west"></a></p>
+<p>&nbsp;</p>
+<p style="text-align:left;">Physical topology:</p>
+<p><a href="https://assafmuller.files.wordpress.com/2015/04/east_west_physical_cropped.png"><img class=" wp-image-326 size-full alignnone" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/east_west_physical_cropped.png" alt="east_west_physical_cropped"></a></p>
+<p>In this example, the blue VM pings the orange VM. As you can see via 
+the dotted line, routing occurs in the source host. The router present 
+on both compute nodes is the <strong>same</strong> router.</p>
+<pre>neutron router-list
++--------------------------------------+-------------+-----------------------+-------------+-------+
+| id                                   | name        | external_gateway_info | distributed | ha    |
++--------------------------------------+-------------+-----------------------+-------------+-------+
+| 44015de0-f772-4af9-a47f-5a057b28fd72 | distributed | null                  | True        | False |
++--------------------------------------+-------------+-----------------------+-------------+-------+
+</pre>
+<p>As we can see, the same router is present on two different compute nodes:</p>
+<pre>[stack@vpn-6-21 devstack (master=)]$ neutron l3-agent-list-hosting-router distributed
++--------------------------------------+-------------------------+----------------+-------+----------+
+| id                                   | host                    | admin_state_up | alive | ha_state |
++--------------------------------------+-------------------------+----------------+-------+----------+
+| 6aaeb8a4-b393-4d08-96d2-e66be23216c1 | vpn-6-23.<span class="skimlinks-unlinked">tlv.redhat.com</span> | True           | :-)   |          |
+| e8b033c5-b515-4a95-a5ca-dbc919b739ef | vpn-6-21.<span class="skimlinks-unlinked">tlv.redhat.com</span> | True           | :-)   |          |
++--------------------------------------+-------------------------+----------------+-------+----------+
+
+</pre>
+<p>The router namespace was created on both nodes, and it has the exact same interfaces, MAC and IP addresses:</p>
+<pre>[stack@<strong>vpn-6-21</strong> devstack (master=)]$ ip netns
+qrouter-44015de0-f772-4af9-a47f-5a057b28fd72
+
+[stack@<strong>vpn-6-21</strong> devstack (master=)]$ sudo ip netns exec qrouter-44015de0-f772-4af9-a47f-5a057b28fd72 ip address
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
+    ...
+70: qr-c7fa2d36-3d: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN group default 
+    link/ether fa:16:3e:3c:74:9c brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.1/24 brd 10.0.0.255 scope global qr-c7fa2d36-3d
+    ...
+71: qr-a3bc956c-25: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN group default 
+    link/ether fa:16:3e:a3:3b:39 brd ff:ff:ff:ff:ff:ff
+    inet 20.0.0.1/24 brd 20.0.0.255 scope global qr-a3bc956c-25
+    ...
+</pre>
+<pre>[stack@<strong>vpn-6-23</strong> devstack (master=)]$ ip netns
+qrouter-44015de0-f772-4af9-a47f-5a057b28fd72
+
+[stack@<strong>vpn-6-23</strong> devstack (master=)]$ sudo ip netns exec qrouter-44015de0-f772-4af9-a47f-5a057b28fd72 ip address
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default 
+    ...
+68: qr-c7fa2d36-3d: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN group default 
+    link/ether fa:16:3e:3c:74:9c brd ff:ff:ff:ff:ff:ff
+    inet 10.0.0.1/24 brd 10.0.0.255 scope global qr-c7fa2d36-3d
+    ...
+69: qr-a3bc956c-25: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UNKNOWN group default 
+    link/ether fa:16:3e:a3:3b:39 brd ff:ff:ff:ff:ff:ff
+    inet 20.0.0.1/24 brd 20.0.0.255 scope global qr-a3bc956c-25
+    ...
+</pre>
+<h3><strong>Router Lifecycle</strong></h3>
+<p>For the purpose of east/west traffic we will happily ignore the SNAT /
+ centralized portion of distributed routers. Since DVR routers are 
+spawned on compute nodes, and a deployment can potentially have a great 
+deal of them, it becomes important to optimize and create instances of 
+DVR routers only when and where it makes sense.</p>
+<ul>
+<li>When a DVR router is hooked up to a subnet, the router is scheduled 
+to all compute nodes hosting ports on said subnet (This includes DHCP, 
+LB and VM ports)
+<ul>
+<li>The L3 agent on the compute node will receive a notification and configure the router</li>
+<li>The OVS agent will plug the distributed router port and configure its flows</li>
+</ul>
+</li>
+<li>When a VM (That’s connected to a subnet that is served by a DVR 
+router) is spawned, and the VM’s compute node does not already have that
+ DVR router configured then the router is scheduled to the node</li>
+</ul>
+<h3>Host MACs</h3>
+<p>Before tracking a packet from one VM to the next, let’s outline an 
+issue with the nature of distributed ports. As we can see in the ‘ip 
+address’ output above, DVR router replicas are scheduled to all relevant
+ compute nodes. This means that the exact same interface (MAC and IP 
+address included!) is present in more than one place in the network. <a href="http://i.imgur.com/7pnHbwP.jpg" target="_blank">Without taking special precautions this could result in a catastrophe.</a></p>
+<ul>
+<li>When using VLAN tenant networks, the underlay hardware switches will
+ re-learn the router’s internal devices MAC addresses again and again 
+from different ports. This could cause issues, depending on the switch 
+and how it is configured (Some admins <a href="http://www.ciscopress.com/articles/article.asp?p=1722561" target="_blank">enable security measures</a>
+ to disable re-learning a MAC on a different port by shutting down the 
+offending port). Generally speaking, it is a fundamental networking 
+assumption that a MAC address should only be present in one location in 
+the network at a time.</li>
+<li>Regardless of the segmentation type, the virtual switches on a given
+ compute node would learn that the MAC address is present both locally 
+and remotely, resulting in a similar effect as with the hardware 
+underlay switches.</li>
+</ul>
+<p>The chosen solution was to allocate a unique MAC address per compute 
+node. When a DVR-enabled OVS agent starts, it requests its MAC address 
+from the server via a new RPC message. If one exists, it is returned, 
+otherwise a new address is generated, persisted in the database in a new
+ Host MACs table and returned.</p>
+<pre>MariaDB [neutron]&gt; select * from dvr_host_macs;
++-------------------------+-------------------+
+| host                    | mac_address       |
++-------------------------+-------------------+
+| vpn-6-21.<span class="skimlinks-unlinked">tlv.redhat.com</span> | fa:16:3f:09:34:f2 |
+| vpn-6-23.<span class="skimlinks-unlinked">tlv.redhat.com</span> | fa:16:3f:4e:4f:98 |
+| vpn-6-22.<span class="skimlinks-unlinked">tlv.redhat.com</span> | fa:16:3f:64:a0:74 |
++-------------------------+-------------------+
+</pre>
+<p>This address is then used whenever traffic from a DVR router leaves 
+the machine; The source MAC address of the DVR interface is replaced 
+with the host’s MAC address via OVS flows. As for the reverse, it is 
+assumed that you may not connect more than a single router to a subnet 
+(Which is actually an incorrect assumption as the API allows this). When
+ traffic comes in to a compute node, and it matches a local VM’s MAC 
+address and his network’s segmentation ID, then the source MAC is 
+replaced from the remote machine’s host MAC to that VM’s gateway MAC.</p>
+<h3>Flows</h3>
+<p>br-int:</p>
+<p><a href="https://assafmuller.files.wordpress.com/2015/04/br-int2.png"><img class="alignnone size-full wp-image-371" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/br-int2.png" alt="br-int"></a></p>
+<p>br-tun:</p>
+<p><a href="https://assafmuller.files.wordpress.com/2015/04/br-tun.png"><img class=" size-full wp-image-335 alignnone" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/br-tun.png" alt="br-tun" height="500" width="696"></a></p>
+<p>Let’s track unicast traffic from the local VM ‘blue’ on the blue 
+subnet to a remote VM orange on the orange subnet. It will first be 
+forwarded from the blue VM to its local gateway through br-int and 
+arrive at the router namespace. The router will route to the remote VM’s
+ orange subnet, effectively replacing the source MAC to its orange 
+interface, and the destination MAC with the orange VM’s MAC (How does it
+ know this MAC? More on this in the next section). It then sends the 
+packet back to br-int, which forwards it again to br-tun. Upon arrival 
+to br-tun’s table 0, the traffic is classified as traffic coming from 
+br-int and is redirected to table 1. The source MAC at this point is the
+ router’s orange MAC and is thus changed to the local host’s MAC and 
+redirected to table 2. The traffic is classified as unicast traffic and 
+is redirected to table 20, where <a title="ML2 – Address Population" href="http://assafmuller.com/2014/02/23/ml2-address-population/" target="_blank">l2pop</a>
+ inserted a flow for the remote VM’s orange MAC and the traffic is sent 
+out through the appropriate tunnel with the relevant tunnel ID.</p>
+<p>When the traffic arrives at the remote host, it is forwarded to 
+br-tun which redirects the traffic to table 4 (Assuming VXLAN). The 
+tunnel ID is matched and a local VLAN tag is strapped on (This is so the
+ network could be matched when it arrives on br-int). In table 9, the 
+host MAC of the first host is matched, and the traffic is forwarded to 
+br-int. In br-int, the traffic is redirected to table 1 because it 
+matches the source MAC of the first host. Finally, the local VLAN tag is
+ stripped, the source MAC is changed again to match the router’s orange 
+MAC and the traffic is forwarded to the orange VM. Success!</p>
+<iframe src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/embed.xht" marginheight="0" marginwidth="0" frameborder="0" height="569" width="696"></iframe>
+<h3>ARP</h3>
+<p>Let’s observe the ARP table of the router on the first node:</p>
+<pre>[stack@vpn-6-21 devstack (master=)]$ sudo ip netns exec qrouter-44015de0-f772-4af9-a47f-5a057b28fd72 ip neighbor
+10.0.0.11 dev qr-c7fa2d36-3d lladdr fa:16:3e:19:63:25 PERMANENT
+20.0.0.22 dev qr-a3bc956c-25 lladdr fa:16:3e:7d:49:80 PERMANENT
+</pre>
+<p>Permanent / static records, that’s curious… How’d they end up there? 
+As it turns out, part of the process of configuring a DVR router is 
+populating static ARP entries for every port on an interface’s subnet. 
+This is done whenever a new router is scheduled to a L3 agent, or an 
+interface is added to an existing router. Every relevant L3 agent 
+receives the notification, and when adding the interface to the router 
+(Or configuring a new router), it asks for all of the ports on the 
+interface’s subnet via a new RPC method. It then adds a static ARP entry
+ for every port. Whenever a new port is created, or an existing unbound 
+port’s MAC address is changed, all L3 agents hosting a DVR router 
+attached to the port’s subnet are notified via another new RPC method, 
+and an ARP entry is added (Or deleted) from the relevant router.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://blueprints.launchpad.net/neutron/+spec/neutron-ovs-dvr" target="_blank">Blueprint</a></li>
+<li><a href="http://specs.openstack.org/openstack/neutron-specs/specs/juno/neutron-ovs-dvr.html" target="_blank">Spec</a></li>
+<li><a href="https://wiki.openstack.org/wiki/Neutron/DVR" target="_blank">Wiki document</a></li>
+<li><a href="https://docs.google.com/document/d/1iXMAyVMf42FTahExmGdYNGOBFyeA4e74sAO3pvr_RjA/edit" target="_blank">Design document</a></li>
+<li><a href="https://docs.google.com/document/d/1depasJSnGZPOnRLxEC_PYsVLcGVFXZLqP52RFTe21BE" target="_blank">L2 design document</a></li>
+<li><a href="https://docs.google.com/document/d/1jCmraZGirmXq5V1MtRqhjdZCbUfiwBhRkUjDXGt5QUQ/" target="_blank">L3 design document</a></li>
+</ul>
+
+<div class="wpcnt">
+<div class="wpa">
+<a class="wpa-about" href="http://wordpress.com/about-these-ads/" rel="nofollow">About these ads</a>
+<script type="text/javascript">
+		var wpcom_adclk_hovering = false;
+		var wpcom_adclk_recorded = false;
+		var wpcom_adclk_theme = "Ryu";
+		var wpcom_adclk_slot = "wpcom_below_post";
+		var wpcom_adclk_network = ( typeof wpcom_adclk_network === "undefined" ) ? "" : wpcom_adclk_network ;
+
+		jQuery(document).ready( function() {
+			function wpcom_adclk_hover_yes() { wpcom_adclk_hovering = true; }
+			function wpcom_adclk_hover_no() { wpcom_adclk_hovering = false; }
+			jQuery(".wpa").click(wpcom_adclk_click);
+			jQuery(".wpa iframe").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+			jQuery(".wpa object").hover( wpcom_adclk_hover_yes, wpcom_adclk_hover_no );
+
+			jQuery(window).blur( function() {
+				if ( wpcom_adclk_hovering ) { wpcom_adclk_click(); }
+			});
+		});
+
+		function wpcom_adclk_impression() {
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_imp_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_imp_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_imp_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_imp_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			return true;
+		}
+
+		function wpcom_adclk_click() {
+			if (wpcom_adclk_recorded) { return true; } // no double counting
+			var stat_gif = document.location.protocol + "//pixel.wp.com/g.gif?v=wpcom-no-pv";
+			stat_gif += "&x_ads_click_theme=" + wpcom_adclk_theme;
+			stat_gif += "&x_ads_click_placement="+wpcom_adclk_slot;
+			stat_gif += "&x_ads_click_network=" + wpcom_adclk_network;
+			stat_gif += "&x_ads_click_theme_network="+wpcom_adclk_theme+"_"+wpcom_adclk_network;
+
+			new Image().src = stat_gif + "&baba=" + Math.random();
+			wpcom_adclk_recorded = true;
+			var now=new Date(); var end=now.getTime()+250;
+			while(true){now=new Date();if(now.getTime()>end){break;}}
+			return true;
+		}
+	
+if ( typeof GA_googleAddAttr == 'function' ) {
+GA_googleAddAttr("AdOpt", "1");
+GA_googleAddAttr("Origin", "other");
+GA_googleAddAttr("LangId", "1");
+GA_googleAddAttr("Domain", "assafmuller.com");
+GA_googleAddAttr("BlogId", "59062656");
+GA_googleAddAttr("PageURL", "http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/");
+GA_googleAddAttr("Autotag", "technology");
+GA_googleAddAttr("Tag", "dvr");
+GA_googleAddAttr("Tag", "open-vswitch");
+GA_googleAddAttr("Tag", "openstack");
+GA_googleAddAttr("theme_bg", "ffffff");
+GA_googleAddAttr("theme_border", "e4e2d9");
+GA_googleAddAttr("theme_text", "000000");
+GA_googleAddAttr("theme_link", "000000");
+GA_googleAddAttr("theme_url", "000000");
+GA_googleAddAdSensePageAttr("google_page_url", "http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/");
+GA_googleFillSlot("wpcom_below_post");
+}
+</script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ads"></script><div id="google_ads_div_wpcom_below_post_ad_wrapper">
+<div id="google_ads_div_wpcom_below_post_ad_container" style="display:inline-block;"><div style="width: 300px; height: 250px; overflow: hidden; position: absolute; top: -10000px; left: -10000px;" id="grv-personalization-16"><iframe style="overflow: hidden; width: 300px; height: 250px;" scrolling="no" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/w2.htm" frameborder="0"></iframe></div>
+<script type="text/javascript">
+  //<![CDATA[
+ function _grc(k){return(document.cookie.match('(^|; )'+k+'=([^;]*)')||0)[2]}
+    (function(){
+    window.gravityInsightsParams = {
+      'type': 'content',
+      'site_guid': '361837bc83c4c2cba7b350dff56a564f',
+      'user_guid': _grc('grvinsights'),
+      'sourceUrl': 'assafmuller.com',
+    };
+    var b,c,d,e,f,g,h,i;f=(b=!0===gravityInsightsParams.useGravityUserGuid?1:0,e=b?"":gravityInsightsParams.user_guid||(null!=(g=/grvinsights=([^;]+)/.exec(document.cookie))?g[1]:void 0)||"",c=(null!=(h=window.jQuery)?null!=(i=h.fn)?i.jquery:void 0:void 0)||"","http://rma-api.gravity.com/v1/api/intelligence/wl?jq="+c+"&sg="+gravityInsightsParams.site_guid+"&ug="+e+"&ugug="+b+"&pl=16&id=grv-personalization-16&type=iframe");
+    window.grvMakeScript=function(j){var a;a=document.createElement("script");a.type="text/javascript";a.async=!0;a.src=j;return a};d=document.getElementsByTagName("script")[0];f&&d.parentNode.insertBefore(window.grvMakeScript(f),d);})();
+  //]]>
+</script>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<script type="text/javascript">
+jQuery( window ).load( function() {
+    if ( jQuery(".wpa script[src*='virool.com']").length > 0 || jQuery(".wpa script[src*='shareth.ru']").length > 0 || jQuery(".wpa iframe[src*='boomvideo.tv']").length > 0 || jQuery(".wpa iframe[src*='viewablemedia.net']").length > 0 || jQuery(".wpa .sharethrough-placement").length > 0 ) {
+        jQuery( '.wpa' ).css( 'width', '400px' );
+    }
+setTimeout(function(){if(typeof GS_googleAddAdSenseService !== 'function'){new Image().src=document.location.protocol+"//pixel.wp.com/g.gif?v=wpcom-no-pv&x_noads=adblock&baba="+Math.random()}},100);
+} );
+</script>
+
+<div id="jp-post-flair" class="sharedaddy sd-like-enabled sd-sharing-enabled"><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon-text sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-twitter"><a rel="nofollow" class="share-twitter sd-button share-icon" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/?share=twitter&amp;nb=1" title="Click to share on Twitter" id="sharing-twitter-321"><span>Twitter</span></a></li><li class="share-facebook"><a rel="nofollow" class="share-facebook sd-button share-icon" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/?share=facebook&amp;nb=1" title="Share on Facebook" id="sharing-facebook-321"><span>Facebook<span class="share-count">4</span></span></a></li><li class="share-google-plus-1"><a rel="nofollow" class="share-google-plus-1 sd-button share-icon" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/?share=google-plus-1&amp;nb=1" title="Click to share on Google+" id="sharing-google-321"><span>Google</span></a></li><li class="share-end"></li></ul></div></div></div><div class="sharedaddy sd-block sd-like jetpack-likes-widget-wrapper jetpack-likes-widget-loaded" id="like-post-wrapper-59062656-321-554b22953c39d" data-src="//widgets.wp.com/likes/#blog_id=59062656&amp;post_id=321&amp;origin=assafmuller.wordpress.com&amp;obj_id=59062656-321-554b22953c39d" data-name="like-post-frame-59062656-321-554b22953c39d"><h3 class="sd-title">Like this:</h3><div class="likes-widget-placeholder post-likes-widget-placeholder" style="height: 55px; display: none;"><span class="button"><span>Like</span></span> <span class="loading">Loading...</span></div><iframe class="post-likes-widget jetpack-likes-widget" name="like-post-frame-59062656-321-554b22953c39d" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a.htm" frameborder="0" height="55px" width="100%"></iframe><span class="sd-text-color"></span><a class="sd-link-color"></a></div>
+<div style="display: block;" id="jp-relatedposts" class="jp-relatedposts">
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+<div class="jp-relatedposts-items jp-relatedposts-items-minimal"><p class="jp-relatedposts-post jp-relatedposts-post0" data-post-id="345" data-post-format="false"><span class="jp-relatedposts-post-title"><a data-position="0" data-origin="321" rel="nofollow" title="Distributed Virtual Routing - SNAT
+
+Where Am I? Overview and East/West Traffic * SNAT Floating IPs SNAT vs Floating IPs A quick reminder about two NAT types used in Neutron. SNAT refers to source NAT, or, changing the source address of packets as they leave the external device of a router. This is used for…" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/" class="jp-relatedposts-post-a">Distributed Virtual Routing - SNAT</a></span><span class="jp-relatedposts-post-context">In "DVR"</span></p><p class="jp-relatedposts-post jp-relatedposts-post1" data-post-id="342" data-post-format="false"><span class="jp-relatedposts-post-title"><a data-position="1" data-origin="321" rel="nofollow" title="Distributed Virtual Routing - Floating IPs
+
+Where Am I? Overview and East/West Traffic SNAT * Floating IPs In The Good Old Days... Legacy routers provide floating IPs connectivity by performing 1:1 NAT between the VM's fixed IP and its floating IP inside the router namespace. Additionally, the L3 agent throws out a gratuitous ARP when it…" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-floating-ips/" class="jp-relatedposts-post-a">Distributed Virtual Routing - Floating IPs</a></span><span class="jp-relatedposts-post-context">In "DVR"</span></p><p class="jp-relatedposts-post jp-relatedposts-post2" data-post-id="252" data-post-format="false"><span class="jp-relatedposts-post-title"><a data-position="2" data-origin="321" rel="nofollow" title="Layer 3 High Availability
+
+L3 Agent Low Availability Today, you can utilize multiple network nodes to achieve load sharing, but not high availability or redundancy. Assuming three network nodes, creation of new routers will be scheduled and distributed amongst those three nodes. However, if a node&nbsp;drops, all routers on that node will cease to…" href="http://assafmuller.com/2014/08/16/layer-3-high-availability/" class="jp-relatedposts-post-a">Layer 3 High Availability</a></span><span class="jp-relatedposts-post-context">In "OpenStack"</span></p></div></div></div>					</div><!-- .entry-content -->
+		
+		<span class="entry-format-badge theme-genericon"><span class="screen-reader-text">Standard</span></span>
+	</div><!-- .entry-wrap -->
+</article><!-- #post-## -->
+				<nav role="navigation" id="nav-below" class="navigation-post double">
+		<div class="wrap clear">
+			<h1 class="screen-reader-text">Post navigation</h1>
+
+		
+			<div class="next"><a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/" rel="next"><span class="meta-nav">→</span> <span class="text-nav">Distributed Virtual Routing – SNAT</span></a></div>
+			<div class="previous"><a href="http://assafmuller.com/2015/04/06/multinode-dvr-devstack/" rel="prev"><span class="meta-nav">←</span> <span class="text-nav">Multinode DVR Devstack</span></a></div>
+
+		
+		</div>
+	</nav><!-- #nav-below -->
+	
+			
+<div id="comments" class="comments-area">
+	<div class="comments-wrap wrap">
+
+					<h2 class="comments-title">
+				5 thoughts on “<span>Distributed Virtual Routing – Overview and East/West Routing</span>”			</h2>
+
+			
+			<ol class="comment-list">
+					<li class="post pingback">
+		<p>Pingback: <a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-snat/" rel="external nofollow" class="url">Distributed Virtual Routing – SNAT | Assaf Muller</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-floating-ips/" rel="external nofollow" class="url">Distributed Virtual Routing – Floating IPs | Assaf Muller</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="http://greenstack.die.upm.es/2015/04/15/distributed-virtual-routing-snat/" rel="external nofollow" class="url">Distributed Virtual Routing – SNAT - GREENSTACK</a></p>
+	</li><!-- #comment-## -->
+	<li class="post pingback">
+		<p>Pingback: <a href="https://www.openstack.org/blog/2015/04/openstack-community-weekly-newsletter-apr-10-17/" rel="external nofollow" class="url">OpenStack Community Weekly Newsletter (Apr 10 – 17) | The OpenStack Blog</a></p>
+	</li><!-- #comment-## -->
+	<li class="comment byuser comment-author-call518 even thread-even depth-1 highlander-comment" id="li-comment-944">
+		<article id="comment-944" class="comment">
+			<footer>
+				<div class="comment-author vcard">
+					<span class="comment-author-avatar"><img id="grav-de7a6cf11cf1bba091ed411c5fa97598-0" alt="" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/de7a6cf11cf1bba091ed411c5fa97598.jpg" class="avatar avatar-48 grav-hashed grav-hijack" height="48" width="48"></span>
+					<cite class="fn theme-genericon"><a href="http://call518.wordpress.com/" rel="external nofollow" class="url">call518</a></cite> <span class="says">says:</span>				</div><!-- .comment-author .vcard -->
+			</footer>
+
+			<div class="comment-content">
+				<p>Reblogged this on <a href="https://call518.wordpress.com/2015/04/18/distributed-virtual-routing-overview-and-eastwest-routing/" rel="nofollow">JungIn's Blog</a>.</p>
+							</div>
+
+			<div class="comment-meta commentmetadata">
+				<a href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/comment-page-1/#comment-944"><time datetime="2015-04-18T08:26:04+00:00">
+				April 18, 2015 at 08:26				</time></a>
+				<a class="comment-reply-link" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/?replytocom=944#respond" onclick='return addComment.moveForm( "comment-944", "944", "respond", "321" )' aria-label="Reply to call518">Reply</a>							</div><!-- .comment-meta .commentmetadata -->
+		</article><!-- #comment-## -->
+
+	</li><!-- #comment-## -->
+			</ol><!-- .comment-list -->
+
+			
+		
+		
+								<div id="respond" class="comment-respond js">
+				<h3 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/#respond" style="display:none;">Cancel reply</a></small></h3>
+									<form action="http://assafmuller.com/wp-comments-post.php" method="post" id="commentform" class="comment-form">
+																										
+
+
+												<input id="highlander_comment_nonce" name="highlander_comment_nonce" value="7e9d9d6460" type="hidden"><input name="_wp_http_referer" value="/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/" type="hidden">
+<input name="hc_post_as" id="hc_post_as" value="guest" type="hidden">
+
+<div class="comment-form-field comment-textarea">
+	
+	<div id="comment-form-comment"><textarea class="autosizejs " tabindex="-1" style="position: absolute; top: -999px; left: 0px; right: auto; bottom: auto; border: 0px none; padding: 0px; box-sizing: content-box; word-wrap: break-word; height: 0px ! important; min-height: 0px ! important; overflow: hidden; transition: none 0s ease 0s ; font-family: Arial,Helvetica,Tahoma,Verdana,sans-serif; font-size: 14px; font-weight: 400; font-style: normal; letter-spacing: 0px; text-transform: none; text-decoration: none; word-spacing: 0px; text-indent: 0px; line-height: 20.7px; width: 530px;">Enter your comment here...</textarea><textarea style="height: 41px; overflow: hidden; word-wrap: break-word; resize: none;" placeholder="Enter your comment here..." id="comment" name="comment" title="Enter your comment here..."></textarea></div>
+</div>
+
+<div style="display: none;" id="comment-form-identity">
+
+	<div id="comment-form-nascar">
+		<p>Fill in your details below or click an icon to log in:</p>
+		<ul>
+			<li class="selected" style="display:none;">
+				<a href="#comment-form-guest" id="postas-guest" title="Guest">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:WordPress.com" id="postas-wordpress" title="WordPress.com">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Twitter" id="postas-twitter" title="Twitter">
+					<span></span>
+				</a>
+			</li>
+			<li>
+				<a href="#comment-form-load-service:Facebook" id="postas-facebook" title="Facebook">
+					<span></span>
+				</a>
+			</li>
+			<li>
+		</li></ul>
+	</div>
+
+	<div id="comment-form-guest" class="comment-form-service selected">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+<a href="https://gravatar.com/site/signup/" target="_blank">				<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Gravatar" class="no-grav" width="25">
+</a>			</div>
+
+				<div class="comment-form-fields">
+				<div class="comment-form-field comment-form-email">
+					<label for="email">Email <span class="required">(required)</span> <span class="nopublish">(Address never made public)</span></label>
+					<div class="comment-form-input"><input id="email" name="email" type="email"></div>
+				</div>
+				<div class="comment-form-field comment-form-author">
+					<label for="author">Name <span class="required">(required)</span></label>
+					<div class="comment-form-input"><input id="author" name="author" type="text"></div>
+				</div>
+				<div class="comment-form-field comment-form-url">
+					<label for="url">Website</label>
+					<div class="comment-form-input"><input id="url" name="url" type="text"></div>
+				</div>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-wordpress" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/wplogo.png" alt="WordPress.com Logo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="wp_avatar" id="wordpress-avatar" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_user_id" id="wordpress-user_id" class="comment-meta-wordpress" value="" type="hidden">
+				<input name="wp_access_token" id="wordpress-access_token" class="comment-meta-wordpress" value="" type="hidden">
+				<p class="comment-form-posting-as pa-wordpress"><strong></strong> You are commenting using your <span class="skimlinks-unlinked">WordPress.com</span> account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'wordpress'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-twitter" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Twitter picture" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="twitter_avatar" id="twitter-avatar" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_user_id" id="twitter-user_id" class="comment-meta-twitter" value="" type="hidden">
+				<input name="twitter_access_token" id="twitter-access_token" class="comment-meta-twitter" value="" type="hidden">
+				<p class="comment-form-posting-as pa-twitter"><strong></strong> You are commenting using your Twitter account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'twitter'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-facebook" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Facebook photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="fb_avatar" id="facebook-avatar" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_user_id" id="facebook-user_id" class="comment-meta-facebook" value="" type="hidden">
+				<input name="fb_access_token" id="facebook-access_token" class="comment-meta-facebook" value="" type="hidden">
+				<p class="comment-form-posting-as pa-facebook"><strong></strong> You are commenting using your Facebook account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'facebook'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+	<div id="comment-form-googleplus" class="comment-form-service">
+		<div class="comment-form-padder">
+			<div class="comment-form-avatar">
+				<img src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/ad516503a11cd5ca435acc9bb6523536.png" alt="Google+ photo" class="no-grav" width="25">
+			</div>
+
+				<div class="comment-form-fields">
+				<input name="googleplus_avatar" id="googleplus-avatar" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_user_id" id="googleplus-user_id" class="comment-meta-googleplus" value="" type="hidden">
+				<input name="googleplus_access_token" id="googleplus-access_token" class="comment-meta-googleplus" value="" type="hidden">
+				<p class="comment-form-posting-as pa-googleplus"><strong></strong> You are commenting using your Google+ account. <span class="comment-form-log-out">(&nbsp;<a href="javascript:HighlanderComments.doExternalLogout(%20'googleplus'%20);">Log&nbsp;Out</a>&nbsp;/&nbsp;<a href="#" onclick="javascript:HighlanderComments.switchAccount();return false;">Change</a>&nbsp;)</span></p>
+			</div>
+	
+		</div>
+	</div>
+
+
+	<div id="comment-form-load-service" class="comment-form-service">
+		<div class="comment-form-posting-as-cancel"><a href="javascript:HighlanderComments.cancelExternalWindow();">Cancel</a></div>
+		<p>Connecting to %s</p>
+	</div>
+
+</div>
+
+<script type="text/javascript">
+var highlander_expando_javascript = function(){
+	var input = document.createElement( 'input' ),
+	    comment = jQuery( '#comment' );
+
+	if ( 'placeholder' in input ) {
+		comment.attr( 'placeholder', jQuery( '.comment-textarea label' ).remove().text() );
+	}
+
+	// Expando Mode: start small, then auto-resize on first click + text length
+	jQuery( '#comment-form-identity' ).hide();
+	jQuery( '#comment-form-subscribe' ).hide();
+	jQuery( '#commentform .form-submit' ).hide();
+
+	comment.css( { 'height':'10px' } ).one( 'focus', function() {
+		var timer = setInterval( HighlanderComments.resizeCallback, 10 )
+		jQuery( this ).animate( { 'height': HighlanderComments.initialHeight } ).delay( 100 ).queue( function(n) { clearInterval( timer ); HighlanderComments.resizeCallback(); n(); } );
+		jQuery( '#comment-form-identity' ).slideDown();
+		jQuery( '#comment-form-subscribe' ).slideDown();
+		jQuery( '#commentform .form-submit' ).slideDown();
+	});
+}
+jQuery(document).ready( highlander_expando_javascript );
+</script>
+
+<div style="display: none;" id="comment-form-subscribe">
+	<p class="comment-subscription-form"><input name="subscribe" id="subscribe" value="subscribe" style="width: auto;" tabindex="6" type="checkbox"> <label class="subscribe-label" id="subscribe-label" for="subscribe" style="display: inline;">Notify me of new comments via email.</label></p></div>
+
+						
+						<p style="display: none;" class="form-submit"><input name="submit" id="comment-submit" class="submit" value="Post Comment" type="submit"> <input name="comment_post_ID" value="321" id="comment_post_ID" type="hidden">
+<input name="comment_parent" id="comment_parent" value="0" type="hidden">
+</p><p style="display: none;"><input id="akismet_comment_nonce" name="akismet_comment_nonce" value="c3ec1fff84" type="hidden"></p>
+<input name="genseq" value="1430987413" type="hidden">
+<p style="display: none;"></p>					<input id="ak_js" name="ak_js" value="1430987415224" type="hidden"></form>
+							</div><!-- #respond -->
+			<div style="clear: both"></div>
+	</div><!-- .comments-wrap -->
+</div><!-- #comments -->
+		
+		</div><!-- #content -->
+	</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<div class="site-info wrap">
+						<a href="https://wordpress.com/?ref=footer_blog">Blog at WordPress.com</a>.
+			<span class="sep"> | </span>
+			<a href="https://wordpress.com/themes/ryu/" title="Learn more about this theme">The Ryu Theme</a>.		</div><!-- .site-info -->
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<!-- wpcom_wp_footer -->
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/gprofiles.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var WPGroHo = {"my_hash":""};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/wpgroho.js"></script>
+
+	<script>
+		//initialize and attach hovercards to all gravatars
+		jQuery( document ).ready( function( $ ) {
+
+			if (typeof Gravatar === "undefined"){
+				return;
+			}
+
+			if ( typeof Gravatar.init !== "function" ) {
+				return;
+			}			
+
+			Gravatar.profile_cb = function( hash, id ) {
+				WPGroHo.syncProfileData( hash, id );
+			};
+			Gravatar.my_hash = WPGroHo.my_hash;
+			Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+		});
+	</script>
+
+		<div style="display:none">
+	<div class="grofile-hash-map-de7a6cf11cf1bba091ed411c5fa97598">
+	</div>
+	</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+var HighlanderComments = {"loggingInText":"Logging In\u2026","submittingText":"Posting Comment\u2026","postCommentText":"Post Comment","connectingToText":"Connecting to %s","commentingAsText":"%1$s: You are commenting using your %2$s account.","logoutText":"Log Out","loginText":"Log In","connectURL":"https:\/\/assafmuller.wordpress.com\/public.api\/connect\/?action=request","logoutURL":"https:\/\/assafmuller.wordpress.com\/wp-login.php?action=logout&_wpnonce=9033ece106","homeURL":"http:\/\/assafmuller.com\/","postID":"321","gravDefault":"identicon","enterACommentError":"Please enter a comment","enterEmailError":"Please enter your email address here","invalidEmailError":"Invalid email address","enterAuthorError":"Please enter your name here","gravatarFromEmail":"This picture will show whenever you leave a comment. Click to customize it.","logInToExternalAccount":"Log in to use details from one of these accounts.","change":"Change","changeAccount":"Change Account","comment_registration":"0","userIsLoggedIn":"","isJetpack":"0","text_direction":"ltr"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a.js"></script>
+
+	<div style="bottom: -269px;" id="bit" class="loggedout-follow-normal">
+		<a class="bsub" href="javascript:void(0)"><span id="bsub-text">Follow</span></a>
+		<div id="bitsubscribe">
+
+					<h3><label for="loggedout-follow-field">Follow “Assaf Muller”</label></h3>
+
+			<form action="https://subscribe.wordpress.com" method="post" accept-charset="utf-8" id="loggedout-follow">
+			<p>Get every new post delivered to your Inbox.</p>
+
+			<p id="loggedout-follow-error" style="display: none;"></p>
+
+						<p class="bit-follow-count">Join 58 other followers</p>
+			<p><input name="email" value="Enter your email address" onfocus='this.value=(this.value=="Enter your email address") ? "" : this.value;' onblur='this.value=(this.value=="") ? "Enter your email address" : this.value;' id="loggedout-follow-field" type="email"></p>
+
+			<input name="action" value="subscribe" type="hidden">
+			<input name="blog_id" value="59062656" type="hidden">
+			<input name="source" value="http://assafmuller.com/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/" type="hidden">
+			<input name="sub-type" value="loggedout-follow" type="hidden">
+
+			<input id="_wpnonce" name="_wpnonce" value="514faa7d72" type="hidden"><input name="_wp_http_referer" value="/2015/04/15/distributed-virtual-routing-overview-and-eastwest-routing/" type="hidden">
+			<p id="bsub-subscribe-button"><input value="Sign me up" type="submit"></p>
+			</form>
+					<div id="bsub-credit"><a href="https://wordpress.com/?ref=lof">Build a website with WordPress.com</a></div>
+		</div><!-- #bitsubscribe -->
+	</div><!-- #bit -->
+
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"http:\/\/assafmuller.com\/2015\/04\/15\/distributed-virtual-routing-overview-and-eastwest-routing\/":321};
+		window.WPCOM_jetpack = false;
+				window.WPCOM_site_ID = 59062656;
+			</script>
+		<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-twitter' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomtwitter', 'menubar=1,resizable=1,width=600,height=350' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-facebook' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomfacebook', 'menubar=1,resizable=1,width=600,height=400' );
+				return false;
+			});
+		});
+		</script>
+				<script type="text/javascript">
+		jQuery(document).on( 'ready post-load', function(){
+			jQuery( 'a.share-google-plus-1' ).on( 'click', function() {
+				window.open( jQuery(this).attr( 'href' ), 'wpcomgoogle-plus-1', 'menubar=1,resizable=1,width=480,height=550' );
+				return false;
+			});
+		});
+		</script>
+				<iframe src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/master.htm" scrolling="no" id="likes-master" name="likes-master" style="display:none;"></iframe>
+		<div id="likes-other-gravatars"><div class="likes-text"><span>%d</span> bloggers like this:</div><ul class="wpl-avatars sd-like-gravatars"></ul></div>
+		<script type="text/javascript">
+		//<![CDATA[
+			var jetpackLikesWidgetQueue = [];
+			var jetpackLikesWidgetBatch = [];
+			var jetpackLikesMasterReady = false;
+
+			function JetpackLikespostMessage( message, target ) {
+				if ( "string" === typeof message ){
+					try{
+						message = JSON.parse( message );
+					}
+					catch(e) {
+						return;
+					}
+				}
+
+				pm( {
+					target: target,
+					type: 'likesMessage',
+					data: message,
+					origin: '*'
+				} );
+			}
+
+			function JetpackLikesBatchHandler() {
+				var requests = [];
+				jQuery( 'div.jetpack-likes-widget-unloaded' ).each( function( i ) {
+					if ( jetpackLikesWidgetBatch.indexOf( this.id ) > -1 )
+						return;
+					jetpackLikesWidgetBatch.push( this.id );
+					var regex = /like-(post|comment)-wrapper-(\d+)-(\d+)-(\w+)/;
+					var match = regex.exec( this.id );
+					if ( ! match || match.length != 5 )
+						return;
+
+					var info = {
+						blog_id: match[2],
+						width:   this.width
+					};
+
+					if ( 'post' == match[1] ) {
+						info.post_id = match[3];
+					} else if ( 'comment' == match[1] ) {
+						info.comment_id = match[3];
+					}
+
+					info.obj_id = match[4];
+
+					requests.push( info );
+				});
+
+				if ( requests.length > 0 ) {
+					JetpackLikespostMessage( { event: 'initialBatch', requests: requests }, window.frames['likes-master'] );
+				}
+			}
+
+			function JetpackLikesMessageListener( event ) {
+				if ( "undefined" == typeof event.event )
+					return;
+
+				if ( 'masterReady' == event.event ) {
+					jQuery( document ).ready( function() {
+						jetpackLikesMasterReady = true;
+
+						var stylesData = {
+								event: 'injectStyles'
+						};
+
+						if ( jQuery( 'iframe.admin-bar-likes-widget' ).length > 0 ) {
+							JetpackLikespostMessage( { event: 'adminBarEnabled' }, window.frames[ 'likes-master' ] );
+
+							stylesData.adminBarStyles = {
+								background: jQuery( '#wpadminbar .quicklinks li#wp-admin-bar-wpl-like > a' ).css( 'background' ),
+								isRtl: ( 'rtl' == jQuery( '#wpadminbar' ).css( 'direction' ) )
+							};
+						}
+
+						if ( !window.addEventListener )
+							jQuery( '#wp-admin-bar-admin-bar-likes-widget' ).hide();
+
+						stylesData.textStyles = {
+							color: jQuery( '.sd-text-color').css( 'color' ),
+							fontFamily: jQuery( '.sd-text-color' ).css( 'font-family' ),
+							fontSize: jQuery( '.sd-text-color' ).css( 'font-size' ),
+							direction: jQuery( '.sd-text-color' ).css( 'direction' ),
+							fontWeight: jQuery( '.sd-text-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-text-color' ).css( 'font-style' ),
+							textDecoration: jQuery( '.sd-text-color' ).css('text-decoration')
+						};
+
+						stylesData.linkStyles = {
+							color: jQuery( '.sd-link-color' ).css('color'),
+							fontFamily: jQuery( '.sd-link-color' ).css('font-family'),
+							fontSize: jQuery( '.sd-link-color' ).css('font-size'),
+							textDecoration: jQuery( '.sd-link-color' ).css('text-decoration'),
+							fontWeight: jQuery( '.sd-link-color' ).css( 'font-weight' ),
+							fontStyle: jQuery( '.sd-link-color' ).css( 'font-style' )
+						};
+
+						JetpackLikespostMessage( stylesData, window.frames[ 'likes-master' ] );
+
+						JetpackLikesBatchHandler();
+
+						jQuery( document ).on( 'inview', 'div.jetpack-likes-widget-unloaded', function() {
+							jetpackLikesWidgetQueue.push( this.id );
+						});
+					});
+				}
+
+				if ( 'showLikeWidget' == event.event ) {
+					jQuery( '#' + event.id + ' .post-likes-widget-placeholder'  ).fadeOut( 'fast', function() {
+						jQuery( '#' + event.id + ' .post-likes-widget' ).fadeIn( 'fast', function() {
+							JetpackLikespostMessage( { event: 'likeWidgetDisplayed', blog_id: event.blog_id, post_id: event.post_id, obj_id: event.obj_id }, window.frames['likes-master'] );
+						});
+					});
+				}
+
+				if ( 'clickReblogFlair' == event.event ) {
+					wpcom_reblog.toggle_reblog_box_flair( event.obj_id );
+				}
+
+				if ( 'showOtherGravatars' == event.event ) {
+					var $container = jQuery( '#likes-other-gravatars' );
+					var $list = $container.find( 'ul' );
+
+					$container.hide();
+					$list.html( '' );
+
+					$container.find( '.likes-text span' ).text( event.total );
+
+					jQuery.each( event.likers, function( i, liker ) {
+						$list.append( '<li class="' + liker.css_class + '"><a href="' + liker.profile_URL + '" class="wpl-liker" rel="nofollow" target="_parent"><img src="' + liker.avatar_URL + '" alt="' + liker.name + '" width="30" height="30" style="padding-right: 3px;" /></a></li>');
+					} );
+
+					var offset = jQuery( "[name='" + event.parent + "']" ).offset();
+
+					$container.css( 'left', offset.left + event.position.left - 10 + 'px' );
+					$container.css( 'top', offset.top + event.position.top - 33 + 'px' );
+
+					var rowLength = Math.floor( event.width / 37 );
+					var height = ( Math.ceil( event.likers.length / rowLength ) * 37 ) + 13;
+					if ( height > 204 ) {
+						height = 204;
+					}
+
+					$container.css( 'height', height + 'px' );
+					$container.css( 'width', rowLength * 37 - 7 + 'px' );
+
+					$list.css( 'width', rowLength * 37 + 'px' );
+
+					$container.fadeIn( 'slow' );
+
+					var scrollbarWidth = $list[0].offsetWidth - $list[0].clientWidth;
+					if ( scrollbarWidth > 0 ) {
+						$container.width( $container.width() + scrollbarWidth );
+						$list.width( $list.width() + scrollbarWidth );
+					}
+				}
+			}
+
+			pm.bind( 'likesMessage', function(e) { JetpackLikesMessageListener(e); } );
+
+			jQuery( document ).click( function( e ) {
+				var $container = jQuery( '#likes-other-gravatars' );
+
+				if ( $container.has( e.target ).length === 0 ) {
+					$container.fadeOut( 'slow' );
+				}
+			});
+
+			function JetpackLikesWidgetQueueHandler() {
+				var wrapperID;
+				if ( ! jetpackLikesMasterReady ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				if ( jetpackLikesWidgetQueue.length > 0 ) {
+					// We may have a widget that needs creating now
+					var found = false;
+					while( jetpackLikesWidgetQueue.length > 0 ) {
+						// Grab the first member of the queue that isn't already loading.
+						wrapperID = jetpackLikesWidgetQueue.splice( 0, 1 )[0];
+						if ( jQuery( '#' + wrapperID ).hasClass( 'jetpack-likes-widget-unloaded' ) ) {
+							found = true;
+							break;
+						}
+					}
+					if ( ! found ) {
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				} else if ( jQuery( 'div.jetpack-likes-widget-unloaded' ).length > 0 ) {
+					// Grab any unloaded widgets for a batch request
+					JetpackLikesBatchHandler();
+
+					// Get the next unloaded widget
+					wrapperID = jQuery( 'div.jetpack-likes-widget-unloaded' ).first()[0].id;
+					if ( ! wrapperID ) {
+						// Everything is currently loaded
+						setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+						return;
+					}
+				}
+
+				if ( 'undefined' === typeof wrapperID ) {
+					setTimeout( JetpackLikesWidgetQueueHandler, 500 );
+					return;
+				}
+
+				var $wrapper = jQuery( '#' + wrapperID );
+				$wrapper.find( 'iframe' ).remove();
+
+				if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='22px' width='68px' frameBorder='0' scrolling='no' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				} else {
+					$wrapper.find( '.post-likes-widget-placeholder' ).after( "<iframe class='post-likes-widget jetpack-likes-widget' name='" + $wrapper.data( 'name' ) + "' height='55px' width='100%' frameBorder='0' src='" + $wrapper.data( 'src' ) + "'></iframe>" );
+				}
+
+				$wrapper.removeClass( 'jetpack-likes-widget-unloaded' ).addClass( 'jetpack-likes-widget-loading' );
+
+				$wrapper.find( 'iframe' ).load( function( e ) {
+					var $iframe = jQuery( e.target );
+					$wrapper.removeClass( 'jetpack-likes-widget-loading' ).addClass( 'jetpack-likes-widget-loaded' );
+
+					JetpackLikespostMessage( { event: 'loadLikeWidget', name: $iframe.attr( 'name' ), width: $iframe.width() }, window.frames[ 'likes-master' ] );
+
+					if ( $wrapper.hasClass( 'slim-likes-widget' ) ) {
+						$wrapper.find( 'iframe' ).Jetpack( 'resizeable' );
+					}
+				});
+				setTimeout( JetpackLikesWidgetQueueHandler, 250 );
+			}
+			JetpackLikesWidgetQueueHandler();
+		//]]>
+		</script>
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/form.js"></script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var JetpackEmojiSettings = {"base_url":"http:\/\/s0.wp.com\/wp-content\/mu-plugins\/emoji\/twemoji\/"};
+/* ]]> */
+</script>
+<script type="text/javascript">
+/* <![CDATA[ */
+var sharing_js_options = {"lang":"en","counts":"1"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/a_003.js"></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='/wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>	<script type="text/javascript">
+	var skimlinks_pub_id = "725X584219"
+	var skimlinks_sitename = "assafmuller.wordpress.com";
+	</script>
+	<script type="text/javascript" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/725X1342.js"></script><script src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/w.js" type="text/javascript" async="" defer="defer"></script>
+<script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'59062656','blog_tz':'3','user_lang':'en','blog_lang':'en','user_id':'0'}]);
+_stq.push(['view', {'blog':'59062656','v':'wpcom','tz':'3','user_id':'0','post':'321','subd':'assafmuller'}]);
+_stq.push(['extra', {'crypt':'UE5XaGUuOTlwaD85flAmcm1mcmZsaDhkV11YdWtpP0NsWnVkPS9sL0ViLndld3B2W1ouTiZRdFtwZ0N1Qm5MSUN0L35CWTZMdEF1R3k5OW1SUEZfNm1YbzBjSiZPUiZBcyZsUk0xaW1BRmFwYVd6YUdTOEp5ZngvXT9BWzRYMWtxYjZiS1EtPVlMcDNQd25OW0xWc1lMM19YJjlpa0hWYUJ0UUgmR1g0K11Da19IbWRlYVpNbl1FZTF4S35EaDZ3ZjBDdHNEaFJRM3JvZ3NYMFNDZDItOFtxLWFBS3JHZlFuT35heE5ITHxCbCwsaGVYZCs1cVJxM25ZUktzS1hUUFFOb0hhR0s1QXcyX1lxbmk4dkpfMERwdDNPLU5demdsVjYlanw='}]);
+_stq.push([ 'clickTrackerInit', '59062656', '321' ]);
+	</script>
+<noscript><img src="http://pixel.wp.com/b.gif?v=noscript" style="height:0px;width:0px;overflow:hidden" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+
+
+
+<img id="wpstats" src="Distributed%20Virtual%20Routing%20%E2%80%93%20Overview%20and%20East_West%20Routing%20_%20Assaf%20Muller_files/g.gif"><iframe style="display: none; width: 0px; height: 0px;" name="google_osd_static_frame" id="google_osd_static_frame_5720617274449"></iframe></body></html>
+<!--
+	generated in 0.401 seconds
+	71252 bytes batcached for 300 seconds
+-->
