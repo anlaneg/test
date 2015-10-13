@@ -10,5 +10,7 @@ end:
 	@echo "do $@:$^"
 
 SUB_MODULE=module1 module2 
+TARGET_TYPE=bin
+
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
 

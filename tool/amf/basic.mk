@@ -94,27 +94,27 @@ $(OUT_DIR)/%.oo:%.C
 ifeq ($(strip $(TARGET_TYPE)),bin)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
 	$(call amf_debug_log,  "bin=$@:$^")
-	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $@ $^)
+	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $(TARGET_NAME) $^)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),lib)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
 	$(call amf_debug_log,  "lib=$@:$^")
-	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $@ $^)
+	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $(TARGET_NAME) $^)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),dynlib)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT) $(SUB_MODULE_OBJECT)
 
 	$(call amf_debug_log,  "dnylib=$@:$^")
-	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $@ $^)
+	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $(TARGET_NAME) $^)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),obj)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
 	#$(__target_complier__) -nostdlib -r -o $(TOP_MODULE)/$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(TARGET_NAME).o $^ $(AMF_INCLUDE_PATH)
 	$(call amf_debug_log,  "obj=$@:$^")
-	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -o $@ $^)
+	$(call amf_command_execute,$(CC) $(C_COMPLIER_FLAGS) -c -o $(TARGET_NAME) $^)
 endif
 
 #用于amf框架测试
@@ -130,6 +130,7 @@ debug_amf:
 	$(call amf_debug_log,  "SUB_MODULE_OBJECT=$(SUB_MODULE_OBJECT)")
 	$(call amf_debug_log,  "SVN_SRC_VERSION=$(SVN_SRC_VERSION)")
 	$(call amf_debug_log,  "GIT_SRC_VERSION=$(GIT_SRC_VERSION)")
+	$(call amf_debug_log,  "TARGET_NAME=$(TARGET_NAME)")
 
 #尝试着包含.d文件
 -include $(DEPEND_FILE)
