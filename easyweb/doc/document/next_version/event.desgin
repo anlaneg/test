@@ -1,0 +1,17 @@
+#此部分提供事件机制
+#1.input_before  此事件发生于收到对端输入
+#2.input_after   此事件发生于调用check之前
+#3.input_each_member_before  此事件发生于每个成员赋值之前
+#4.input_each_member_after  此事件发生于每个成员赋值之后
+#5.check_before  
+#6.check_after
+#7.output_before
+#8.output_after
+#9 output_each_member_before
+#10.output_each_member_after
+#11.forward_before (可以问别人是否容许转移等)
+#12.forward_after
+<event-collect>
+	<event action="input_before" implement="" />
+	<!-- 事件 -->
+</event-collect>

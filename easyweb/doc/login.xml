@@ -1,0 +1,46 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state name="Login" packet="cn.along.module.flow" version="1.0">
+	<input style="single"><!-- array  -->
+		<struct name="info">
+			<member name="user_name" type="string" pass-type="in" comment="用户名" /><!-- byte,short,int,long,float,double,char,boolean,string,class, -->
+			<member name="password"  type="string" pass-type="in" comment="密码"   />
+			<member name="dp_pwd"    type="string" pass-type="out" comment="dp"    />
+			<input-sql sql-statement="select user_pwd from users where user_name= ?">
+				<param type="string" value="$INPUT.user_name" />
+			</input-sql>
+			<input-method name="abc" >
+				<param type="string" name="" value="select user_pwd from users where user_name=?" />
+			</input-method>
+			<input-session>
+				<map src="" target="" /> 
+			</input-session>
+			<input-global>
+				<map src="" target="" /> 
+			</input-global>
+		</struct>
+	</input>
+	<switch>
+	   <case value="1" redirect="name">
+		<output>
+		    <struct name="">
+		    </struct>
+		    <output-sql sql-statement="delete from users where user_name= ?">
+			      <param type="string" value="$SESSION.xx" />
+		    </output-sql>
+		    <output-method name="abc" />
+		    <output-session>
+			     <map src="" target="" />
+		    </output-session>
+		    <output-global>
+			     <map src="" target="" />
+		    </output-global>
+		</output>
+	   </case>
+	   <default forward="welcome">
+		<output>
+		    <struct name="">
+		    </struct>
+		</output>
+	   </default>
+	</switch>
+</state>

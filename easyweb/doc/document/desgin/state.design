@@ -1,0 +1,3 @@
+#采用state做为根节点
+<state name="xxx" packet="cn.along">
+</state>

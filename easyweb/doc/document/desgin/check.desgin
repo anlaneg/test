@@ -1,0 +1,40 @@
+#本文件用于定义check
+#此定义主要实现状态转移，output等
+
+ <!-- 
+	接受的需求：
+	  1.转移要支持:
+		(1) 内部重定向至另一位置，状态不发生变化,关键字 redirect完成此项功能
+		(2) 内部重定向至另一位置，状态发生变化,关键字　forward完成此项功能
+
+	  2.check结果为整数，且为int32_t 
+
+	  3.支持output
+  -->
+
+<!-- --------------实现样例----------------------- -->
+<check >
+  <rule value="1" forward="" />
+  <result value="2" forward="" />
+  <default forward="">
+	<output />
+  </default>
+<check>
+
+<!------------------------------------------>
+<check>
+	<result value="" redirect="">
+		<output>
+		</output>
+	</result>
+	<result value="" redirect="">
+		<output>
+		</output>
+	</result>
+	<default forward="">
+		<output>
+		</output>
+	</default>
+</check>
+
+

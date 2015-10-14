@@ -1,0 +1,155 @@
+#本文件用于说明output节点下所有子节点及其相应定义
+
+<!-- 
+   接受的需求：
+	1.无论input还是output每一个字段均强制要求填写注释，注释字段名称 comment
+	2.支持枚举，支持联合类型(这种均以type来应对)
+	3.要支持向sql中写入
+     	4.要支持向session中写入
+     	5.要支持向响应中写入
+	6.要支持向请求中写入
+	7.支持向其它方式写入扩展
+	8.支持表映射方式
+
+	
+-->
+
+<!-- 
+   未接受的需求：
+	1. style="[json|resthtml|email|database]" style_paramter="xxx" 
+ -->
+
+<!-- --------------实现样例------------ ----->
+
+<output>
+  <struct type_name="" table_name="" >
+  	<member name="" type="" default="" /> 
+	<union name="" default="">
+		<part value="">
+			<member  name="ipaddr4" type="sf_ipv4_t" option_value="1" />
+		</part>
+		<part value="">
+			<member name="ipaddr6" type="sf_ipv6_t" />
+		</part>
+	</union>
+
+  <!-- 支持枚举数据类型 -->
+	<enum name="" default="" is_allow_bit_operator="true">
+		<option text="TEST_ABC" value="1" />
+		<option text="TEST_DEX" value="2" />
+	</enum>
+
+   <output_sql >
+	<struct>
+        </struct>
+   </output_sql>
+
+    <output_method>
+    </output_method>
+
+    <output_session>
+    </output_session>
+
+    <output_request>
+    </output_request>
+
+   <struct>
+</output>
+
+<!--支持的数据类型:
+
+	支持类型添加，支持各类型有各自独立的参数
+	uint8_t
+	uint16_t
+	uint32_t
+	uint64_t
+
+	int8_t
+	int16_t
+	int32_t
+	int64_t
+
+	uint8_t[]
+	uint16_t[]
+	uint32_t[]
+	uint64_t[]
+	int8_t[]
+	int16_t[]
+	int32_t[]
+	int64_t[]
+
+	#支持多维数组	
+	uint8_t[][]
+	uint16_t[][]
+	uint32_t[][]
+	uint64_t[][]
+	int8_t[][]
+	int16_t[][]
+	int32_t[][]
+	int64_t[][]
+	
+	#支持复杂数据类型（暂不实现）
+	string
+	string[]
+	string[][]
+	dynarray[]
+	dynarray
+	set
+	set[]
+	hashtable
+	hashtable[]
+-->
+
+<-------------------------各点说明----------------------------------->
+<!-- 类似于session -->
+<output-per-user>
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" comment=""/>
+	</struct>
+</output-per-user>
+
+<output-method method-name="">
+	<param type="" value="" />
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" comment="" />
+	</struct>
+</output-method>
+
+<!-- 类似于application -->
+<output-global>
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" />
+	</struct>
+</output-global>
+
+<output-sql sql-statement="">
+	<!--填充sql语句 -->
+	<param type="" value="" />
+	<struct name="">
+		<member type="" name="" pass-type="" alias="" commet="" />
+	</struct>
+</output-sql>
+
+<!-- 枚举 -->
+<union name="union-type">
+	<part value="">
+		<!-- 这里可以跟 input 内的其它原素 -->
+	</part>
+	<part value="">
+	</part>
+</union>
+
+<!-- 联合,与member相同 -->
+<enum name="" default-value="" is-allow-bit-operator="true">
+         <option text="TEST_ABC" value="0x1" />
+         <option text="TEST_DEX" value="0x2" />
+         <option text="TEST_ZXY" value="0x4" />
+</enum>
+
+
+<output>
+	<struct>
+		<!--这里支持：　常量，枚举，联合 -->
+		<member type="" name="" is-const="" value="" comment=""/>
+	</struct>
+</output>

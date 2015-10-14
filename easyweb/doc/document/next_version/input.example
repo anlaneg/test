@@ -1,0 +1,41 @@
+<? xml version="1.0" encode="utf-8" ?>
+<state name="input_example">
+<input>
+<struct type-name="input">
+	<member type="int32_t" name="const_var" is_const="true"  value="32" />
+	<member type="int32_t" name="abc" pass_type="in"  />
+
+	
+	<input-sql sql="select * from table where a=?" >
+		<param type=""  value="$current.abc" />
+		<struct alias="">
+			<member type="" name="" pass_type="out"  />
+			<member type="" name="" pass_type="in" />
+			<member type="" name="" pass_type="inout" />
+		</struct>	
+	</input-sql>
+
+	<input-method name="abcef" >
+	   <param type="" value="" />
+	   <struct>
+		<member type="" name="" pass_type="" /> 
+	   </struct>
+	</input-method>
+
+	<input-per-user comment="依据名称来加载">
+		<struct>
+			<member type="" name="" pass_type="out" alias="" />
+			<member type="" name="" pass_type="in"  alias="" />
+			<member type="" name="" pass_type="inout" alias="" />
+		</struct>	
+	</input-per-user>
+
+	<input-global>
+		<struct>
+			<member type="" name="" pass_type="out" />
+		</struct>
+	</input-global>
+	
+</struct>
+</input>
+</state>

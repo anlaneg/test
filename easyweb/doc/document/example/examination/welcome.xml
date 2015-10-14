@@ -1,0 +1,27 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<!--期待将check等实现为接口 -->
+<state name="welcome" packet="example.examination" >
+	<input>
+		<struct>
+			<input-per-user>
+					<member type="string" name="user_name" pass_type="out" comment="自session中取出此数据" />
+			</input-per-user>
+		
+			<input-method name="examination_get_server_time">	
+				<member type="date" name="current_time"  pass_type="out" comment="自系统中取出此数据，在check函数中取出即可" />
+			</input-method>
+		</struct>
+	</input>
+	<check>
+		<result value="1" forward="examination" comment="如果检查通过，进入考试状态">
+		<output>
+	
+		</output>	
+		</result>
+		<default forward="$(this.$rollback)" comment="继续在本状态，注意这里需要区分出是返回直界面">
+		<output>
+	
+		</output>	
+		</default>
+	</check>
+</state>

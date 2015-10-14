@@ -1,0 +1,34 @@
+<? xml version="1.0" encoding="utf-8" ?>
+<state name="register" packet="example.examination">
+	<predefine>
+		<struct name="user_table" table="USERS">
+			<index name="user_name" type="string" />
+			<member name="user_password" type="string" />
+		</struct>	
+	</predefine>
+	
+	<input>
+		<struct>
+			<member name="user" type="user_table" />
+		</struct>
+		
+		<!--检查user是否含有此用户 -->
+		<input-sql sql-statement="">
+			<param />
+			<struct>
+				
+			</struct>
+		</input-sql>
+	</input>
+
+	<check>
+		<result value="1" redirect="$(this.$rollback)">
+			<output>
+			</output>
+		</result>
+		<default forward="login">
+			<output>
+			</output>
+		</default>
+	</check>
+</state>
