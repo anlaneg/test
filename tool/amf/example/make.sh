@@ -12,6 +12,7 @@ function make_test()
 	execute make -f $file clean
 }
 
+source environment_setting
 make_test Makefile.normal
 mkdir ../obj
 make_test Makefile.tiny
