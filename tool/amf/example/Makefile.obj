@@ -1,0 +1,16 @@
+include $(AMF_PROJECT_MK_ROOT)/rule.mk
+
+MODULE_BEFORE=before
+MODULE_AFTER=end
+
+before:
+	@mkdir ../obj
+
+end:
+	@rm -rf ../obj
+
+TARGET_TYPE=obj
+INCLUDE_PATH+=
+TARGET_NAME=test
+include $(AMF_PROJECT_MK_ROOT)/basic.mk
+

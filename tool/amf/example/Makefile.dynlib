@@ -1,0 +1,5 @@
+include $(AMF_PROJECT_MK_ROOT)/rule.mk
+TARGET_TYPE=dynlib
+TARGET_NAME=libtest.so
+include $(AMF_PROJECT_MK_ROOT)/basic.mk
+

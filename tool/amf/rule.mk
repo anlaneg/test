@@ -25,10 +25,7 @@ TOP_MODULE=..
 OUT_DIR=obj
 
 #设置需要生成的目标类型
-TARGET_TYPE=
-
-#设置编译器名称
-CC=gcc
+TARGET_TYPE=obj
 
 #设置需要生成的目标名称
 TARGET_NAME=target
@@ -39,7 +36,7 @@ CPLUSPLUS=g++
 DEBUG_COMPLIER=debugutil.sh
 
 #C 默认编译选项
-C_COMPLIER_FLAGS= -Wall -Werror -g -Wshadow -Wpointer-arith #-Wmissing-prototypes -Wstrict-prototypes 
+C_COMPLIER_FLAGS= -Wall -Werror -g -Wshadow -Wpointer-arith
 
 #C++ 默认编译选项
 CPLUS_COMPLIER_FLAGS=-Wall -Werror -g
@@ -54,5 +51,7 @@ AMF_INCLUDE_PATH=-I$(AMF_PROJECT_ROOT)/src/lib/libdebug \
 -I$(AMF_PROJECT_ROOT)/src/lib/cjson-code \
 -I$(AMF_PROJECT_ROOT)/src/lib/libxml
 
+#设置include path
+INCLUDE_PATH=
 #设置debug complier path
 DEBUG_COMPLIER_PATH=$(AMF_PROJECT_ROOT)/mk
