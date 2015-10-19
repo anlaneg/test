@@ -2,3 +2,4 @@
 #导出AMF工程的根目录
 export AMF_PROJECT_ROOT=`pwd`
 export AMF_PROJECT_MK_ROOT="$AMF_PROJECT_ROOT/../"
+export AMF_PROJECT_LIBDEBUG="$AMF_PROJECT_ROOT/../../libdebug"

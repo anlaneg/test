@@ -2,6 +2,9 @@
 #定义当前debug是否开启(true为开启)
 ENABLE_AMF_DEBUG=false
 
+define display
+	@echo "$(1)"
+endef
 define amf_debug_log_inner
 	@echo "amf_debug_log :$(1)"
 endef
