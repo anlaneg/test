@@ -1,8 +1,7 @@
 include $(AMF_PROJECT_MK_ROOT)/rule.mk
-
 SRCS=libdebug.c
 TARGET_TYPE=lib
-TARGET_NAME=libdebug
+TARGET_NAME=libdebug.a
 
 MODULE_AFTER=test_debug
 

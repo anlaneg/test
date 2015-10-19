@@ -1,9 +1,9 @@
 include $(AMF_PROJECT_MK_ROOT)/rule.mk
 
-C_COMPLIER_FLAGS+= -I../ -I.
 TARGET_TYPE=bin
 TARGET_NAME=process
 
-LD_FLAGS=-L$(AMF_PROJECT_ROOT)/lib  -ldebug
+INCLUDE_PATH=-L$(AMF_PROJECT_ROOT) -I../ -I. -Iobj/
+DEPEND_LIBS= -ldebug
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
 
