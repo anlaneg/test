@@ -9,7 +9,19 @@ function complier_debug_file()
 	out_folder="$2";
 	debug_awk_path="$3";
 
-	self_name="`echo $debug_file | awk '{ print substr($0,0,length($0) - length(\"debug.\")) }'`";
+	self_name="`echo $debug_file | awk '{ 
+
+			# /* awk at ubuntu 10.10 and awk at ubuntu 14.04 process diffent */
+			test_var=\"a.debug\";
+			postfix=\"debug\";
+			if (substr(test_var,0,length(test_var)-length(postfix)) != "a")
+			{
+				postfix=\".debug\";	
+			}
+			# /* print postfix; */
+			print substr($0,0,length($0) - length(postfix)) ;
+
+		}'`";
 	#echo $self_name
 	command="`awk -F':' -f $debug_awk_path/debuggen.awk -v file_name=$self_name out_path=$out_folder debug_awk_path=$debug_awk_path $1`"
 	#echo $command

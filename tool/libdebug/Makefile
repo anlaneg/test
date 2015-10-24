@@ -6,9 +6,8 @@ TARGET_NAME=libdebug.a
 MODULE_AFTER=test_debug
 
 test_debug:
-	./debugutil.sh ./example/process.debug ./example/
-	$(MAKE) -C ./example clean
 	$(MAKE) -C ./example/ 
+	$(MAKE) -C ./example clean
 
 include $(AMF_PROJECT_MK_ROOT)/basic.mk
 
