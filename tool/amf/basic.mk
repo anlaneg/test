@@ -67,9 +67,20 @@ __mk_submod__:
 
 __cl_submod__:
 	@for i in $(SUB_MODULE);do $(MAKE) -C $$i clean || exit 1 ; done;
+
+
 #清理生成
-clean:__cl_submod__
+ifeq ($(strip $(CLEAN_AFTER)),)
+__module_clean_after__:
+else
+__module_clean_after__: $(CLEAN_AFTER)
+endif
+
+__clean__: __cl_submod__ __cl_target__ __module_clean_after__
+
+__cl_target__:
 	$(call amf_command_execute,  @rm -rf $(OUT_DIR))
+	$(call amf_command_execute,  @rm -rf $(TARGET_NAME))
 
 
 $(DEBUG_SRC_GEN):$(OUT_DIR)/%_debug.c:%.debug
@@ -80,7 +91,7 @@ $(OUT_DIR)/%_debug.o:$(OUT_DIR)/%_debug.c
 	
 #c文件生成.o文件
 $(OUT_DIR)/%.o:%.c
-	$(call amf_command_execute ,$(CC) $(C_USER_COMPLIER_FLAG) -c -o $@ $<)
+	$(call amf_command_execute ,$(CC) $(C_USER_COMPLIER_FLAG) -fPIC -c -o $@ $<)
 
 #c++文件生成.oo文件
 $(OUT_DIR)/%.oo:%.cpp
@@ -110,7 +121,7 @@ endif
 
 ifeq ($(strip $(TARGET_TYPE)),obj)
 __mk_target__: $(SRCS_OBJECT) $(CPLUS_SRCS_OBJECT)  $(SUB_MODULE_OBJECT) 
-	$(call amf_command_execute,$(CC) $(C_USER_COMPLIER_FLAG) -nostdlib -r -o ../$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(shell basename $(CURDIR)).o $^)
+	$(call amf_command_execute,$(CC) $(C_USER_COMPLIER_FLAG) -fPIC -nostdlib -r -o ../$(OUT_DIR)/$(SUB_MODULE_PREFIX)$(shell basename $(CURDIR)).o $^)
 endif
 
 ifeq ($(strip $(TARGET_TYPE)),)

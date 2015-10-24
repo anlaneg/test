@@ -4,7 +4,8 @@ include $(AMF_PROJECT_MK_ROOT)/debug.mk
 
 #保证all为第一个目录
 all: __module_before__ __all__ __module_after__
-	$(call amf_debug_log, "do $@:$^")
+
+clean:__clean__
 
 #获取当前文件夹下的所有c文件
 SRCS=$(wildcard *.c)
