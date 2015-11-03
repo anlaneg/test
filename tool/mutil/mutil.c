@@ -20,7 +20,7 @@ int try_result(int start,int end,double p)
     {
         double answer365 = result365(i,p);
         double answer366 = result366(i,p);
-        printf("%6d    %.4f  |  %.2f    (%.4f)  |  %.2f    (%.4f)\n",i,p,answer365,answer365,answer366,answer366);
+        printf("%6d    %.4f  |  %.2f    (%.5f)  |  %.2f    (%.5f)\n",i,p,answer365,answer365,answer366,answer366);
     }
 }
 
