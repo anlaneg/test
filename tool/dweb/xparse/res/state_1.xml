@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<state name="Login" packet="cn.along.module.flow" version="1.0">
+	<input style="array">
+		<struct name="info" type="struct-type">
+			<!-- 目前数组类型未定义　
+				byte[] length="用逗号分隔各维度“
+				dynamic-size="true/false"    (解决)
+			-->
+
+			<member name="user_name" type="byte[]" length="2,3" dynamic-size="false" pass-type="in" comment="用户名" default="" />
+		</struct>
+
+		<!-- 简单表达式定义了，但未详细考虑,可以考虑提供系统函数方式 (解决）
+
+			$xx.xx
+			$xx.xx.value.method().
+
+		-->
+
+		<!-- 目前没有定义事件，处理filter模式时有问题 (解决）
+			<event>
+				<event-action class-name="class.xx" triggest="xx">
+					<param name="" type="">value</param>
+				</event-action> 
+			</event>
+		-->
+
+		<!-- 字段校验未定义  (解决)
+			<validators>
+				<field name=""/>
+				<field-validator type="class-name" >
+					<param name="" type="">value</param>
+					<param name="" type="">value</param>
+					<message>xxxxxx</message>
+				</field-validator>
+			</validators>
+		-->
+
+		
+
+		<!-- 1. sql语句是否需要包含多条sql      (不需要)
+		     2. 是否应实现两类标签来表示input,output  (不需要)
+		     3. 结果集如何map ?(强制规定格式)
+		 -->
+		<sql name="abc">
+			<select>select * from abc</select>
+			<param type="string" >$INPUT.user_name</param>
+		</sql>
+
+		<method fun-name="class.bc">
+			<param type="string" name="">select * xx </param>
+			
+		</method>
+	
+		<session dir="in">
+			<map src="abc" target="abc" />
+		</session>
+
+		<global dir="in">
+			<map src="abc" target="abc" />
+		</global>
+
+		<!--
+		<input-sql name="xx" sql-statement="select user_pwd from users where user_name= ?">
+			<param type="string" value="$INPUT.user_name" />
+		</input-sql>
+		<input-method fun-name="class.bc" >
+			<param type="string" name="" value="select user_pwd from users where user_name=?" />
+		</input-method>
+		<input-session>
+			<map src="" target="" /> 
+		</input-session>
+		<input-global>
+			<map src="" target="" /> 
+		</input-global>
+		-->
+	</input>
+	<switch fun-name="class.fun-name">
+	   <case value="1" redirect="name" break="true">
+		<output>
+		    <struct name="abc" type="def">
+		    </struct>
+
+		    <sql name="def">
+			<delete>delete from users where user_name = ?</delete>
+			<param type="string" value="$SESSION.xx" />
+		    </sql>
+		    <method fun-name="class.abc" >
+			<param type="string" value="23" />
+		    </method>
+		    <session dir="in">
+			     <map src="def" target="def" />
+		    </session>
+		    <global dir="in">
+			     <map src="acd" target="acd" />
+		    </global>
+		</output>
+	   </case>
+	   <default forward="welcome" break="true">
+		<output>
+		    <struct name="xxb" type="xxb">
+		    </struct>
+		</output>
+	   </default>
+	</switch>
+</state>

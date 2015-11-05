@@ -1,0 +1,34 @@
+<input>
+	<struct name="A" type="B">
+		<member name="abc" type="byte" />
+		<member name="v1" type="short" />
+		<member name="v2" type="int" />
+		<member name="v3" type="long" />
+		<member name="v4" type="float" />
+		<member name="v5" type="double" />
+		<member name="v6" type="boolean" />
+		<member name="v8" type="byte[]" length="2,3" pass-type="in"
+			comment="" default="" />
+	</struct>
+	<sql name="select_all">
+		<select>select * from login</select>
+	</sql>
+
+	<sql name="delete_all">
+		<insert>insert login(name,password) values(@name@,@password@)</insert>
+		<param name="name" type="String">abc</param>
+		<param name="password" type="String">34242fdsafd</param>
+	</sql>
+
+	<method fun-name="along">
+		<param type="String" name="abc">hello world</param>
+	</method>
+
+	<session>
+		<map src="abc" target="des" />
+	</session>
+
+	<global>
+		<map src="abc" target="des" />
+	</global>
+</input>
