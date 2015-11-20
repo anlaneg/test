@@ -1,0 +1,67 @@
+release
+
+一个软件包发布框架.
+1.给定软件构建地址,自动构建
+    (1)svn,git
+    (2)提供回调接口支持注入构建过程
+2.将构建好的软件进行打包.
+    (1)构建完成,提供回调接口,信息收集并打包
+3.将打包好的软件进行发布.
+    (1)构造包,并发布到何位置
+4.监测软件构建,实现周期性或自动性执行1,2,3步.
+    (1)监测svn,git版本库是否变动,变动则执行(1),(2),(3)
+    (2)构建完成结果邮件送出
+
+
+
+
+配置文件设计:
+[source]
+svn=http://xxx.xxx.xx/source
+git=
+username=
+password=
+
+[build]
+host=
+workspace-dir=
+username=
+password=
+build-script=
+
+[collect]
+target=xx.${VERSION}.${PLATFORM}.tar.gz
+#"/usr/home/a.txt" -> "/xx/a.txt"
+files="xxxxx"->"xxxxx",
+target-host=
+dir=
+username=
+passowrd=
+collect-script=
+packet-script=
+
+[monitor]
+interval=10s
+log=/var/log/release.log
+result-maill-to=xx@xx.xx
+smtp-addr=
+smtp-port=
+send-mail-from=xx@xx.xx
+release-fail=['ingnore','prev-version','next-version']
+
+[event]
+release-server-setup=
+release-begin=
+source-checkout-before=
+source-checkout-after=
+source-build-before=
+source-build-after=
+result-collect-before=
+result-collect-after=
+result-packet-before=
+result-packet-after=
+release-finish=
+release-server-stop=
+
+
+
