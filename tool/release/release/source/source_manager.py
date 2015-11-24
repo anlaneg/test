@@ -19,7 +19,7 @@ class SourceManager(event.EventBase):
                 #print("%s.%s" % (filename,postfix))
                 if filename == "__init__" or postfix != "py":
                     continue
-                imp_str="%s.%s.%s" % (dirpath,filename,filename.capitalize())
+                imp_str="%s.%s.%s" % (dirpath.replace('/','.'),filename,filename.capitalize())
                 #print(imp_str)
                 obj=imp.load_class(imp_str)
                 plugin[filename] = obj
@@ -44,4 +44,7 @@ if __name__ == "__main__":
    
     a = SourceManager({'url':'svn://192.168.150.75','username':'along','password':'along','type':'svn'})
     print(a.version())
+    print(a.checkout('/home/along/test1/diff'))
     print(a.update('/home/along/test1/diff'))
+
+    
