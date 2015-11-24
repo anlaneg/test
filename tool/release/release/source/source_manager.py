@@ -44,3 +44,4 @@ if __name__ == "__main__":
    
     a = SourceManager({'url':'svn://192.168.150.75','username':'along','password':'along','type':'svn'})
     print(a.version())
+    print(a.update('/home/along/test1/diff'))

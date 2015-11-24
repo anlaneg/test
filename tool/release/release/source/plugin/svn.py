@@ -4,13 +4,13 @@ from release.source import plugin_base as base
 from release.utils  import run
 class Svn(base.PluginBase):
     def update(self,cfg,cwd,version):
-        cmd=['svn' , 'update',cwd,
+        cmd=['svn' , 'update',
              '-r %s ' % version if version else ' ',
              '--username',cfg.username,
              '--password',cfg.password,
              '--non-interactive','--no-auth-cache' ]
         #os.system('svn cleanup')
-        stdout=run.simple_execute(cmd)
+        stdout=run.simple_execute(cmd,cwd=cwd)
         return stdout
     def checkout(self,cfg,cwd,version):
         cmd=['svn' , 'checkout',

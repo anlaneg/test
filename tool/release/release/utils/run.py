@@ -7,19 +7,19 @@ def _subprocess_setup():
     # non-Python subprocesses expect.
     signal.signal(signal.SIGPIPE, signal.SIG_DFL)
 
-def _create_process(cmd,shell):
+def _create_process(cmd,shell,cwd):
     obj = subprocess.Popen(cmd, shell=shell,
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             preexec_fn=_subprocess_setup,
             close_fds=True,
-            stderr=subprocess.PIPE)
+            stderr=subprocess.PIPE,cwd=cwd)
     return obj
 
 def execute(cmd, process_input=None,
             return_stderr=False, 
-            log_fail_as_error=True,shell=False):
-    obj= _create_process(cmd,shell=shell)
+            log_fail_as_error=True,shell=False,cwd=None):
+    obj= _create_process(cmd,shell=shell,cwd=cwd)
     _stdout, _stderr = obj.communicate(process_input)
     returncode = obj.returncode
     obj.stdin.close()
@@ -31,6 +31,6 @@ def execute(cmd, process_input=None,
             print("stderr %s" % _stderr)
     return (_stdout, _stderr) if return_stderr else _stdout
 
-def simple_execute(cmd,return_stderr=False,shell=False):
-    return execute(cmd,return_stderr=return_stderr,shell=shell)
+def simple_execute(cmd,return_stderr=False,shell=False,cwd=None):
+    return execute(cmd,return_stderr=return_stderr,shell=shell,cwd=cwd)
 
