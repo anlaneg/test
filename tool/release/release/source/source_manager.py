@@ -28,12 +28,16 @@ class SourceManager(event.EventBase):
     def __init__(self,cfg):
         super(SourceManager,self).__init__(cfg)
         self.plugin=self.load_extends()
-        self.url=cfg['url']
-        self.username=cfg['username']
-        self.password=cfg['password']
-        self.type=cfg['type']
+        self.url=self.get_or_raise(cfg,'url')
+        self.username=self.get_or_raise(cfg,'username')
+        self.password=self.get_or_raise(cfg,'password')
+        self.type=self.get_or_raise(cfg,'type')
+
     def checkout(self,cwd,version=None):
-        return self.plugin[self.type].checkout(self,cwd,version)
+        self.trigger('source-checkout-before')
+        ret=self.plugin[self.type].checkout(self,cwd,version)
+        self.trigger('source-checkout-after')
+        return ret
     def version(self):
         return self.plugin[self.type].version(self)
     def update(self,cwd,version=None):

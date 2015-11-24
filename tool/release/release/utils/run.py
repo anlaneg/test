@@ -34,3 +34,14 @@ def execute(cmd, process_input=None,
 def simple_execute(cmd,return_stderr=False,shell=False,cwd=None):
     return execute(cmd,return_stderr=return_stderr,shell=shell,cwd=cwd)
 
+def script_execute(file_path,cwd=None):
+    idx=file_path.rfind('.')
+    if idx != -1:
+        post_fix=file_path[idx:]
+        if post_fix ==".py":
+            return execute(['python',file_path],cwd=cwd)
+    return execute(['bash',file_path],cwd_cwd)
+        
+    
+    
+

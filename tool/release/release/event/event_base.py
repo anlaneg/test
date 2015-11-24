@@ -13,6 +13,10 @@ class EventBase(object):
         'result-package-after',
         'release-finish',
         'release-server-stop']
+    def get_or_raise(self,cfg,member):
+        if member in cfg:
+            return cfg[member]
+        raise Exception("No found prototy '%s'" % member)
     def __init__(self,cfg):
         config={}
         for event in self.EVENT_LIST:
