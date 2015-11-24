@@ -58,8 +58,8 @@ source-build-before=
 source-build-after=
 result-collect-before=
 result-collect-after=
-result-packet-before=
-result-packet-after=
+result-package-before=
+result-package-after=
 release-finish=
 release-server-stop=
 

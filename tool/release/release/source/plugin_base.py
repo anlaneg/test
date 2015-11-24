@@ -1,5 +1,7 @@
 class PluginBase(object):
-    def checkout(self):
-        raise NotImplemented
-    def cur_version(self):
-        raise NotImplemented
+    def checkout(self,cfg,cwd,version):
+        raise NotImplementedError()
+    def version(self,cfg):
+        raise NotImplementedError()
+    def update(self,cfg,cwd,version):
+        raise NotImplementedError()

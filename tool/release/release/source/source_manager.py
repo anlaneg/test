@@ -2,8 +2,9 @@
 import sys
 import os
 from release.utils import importutils as imp
+from release.event import event_base as event
 
-class SourceManager(object):
+class SourceManager(event.EventBase):
     @staticmethod
     def load_extends(path="plugin"):
         plugin={}
@@ -25,19 +26,21 @@ class SourceManager(object):
         return plugin
 
     def __init__(self,cfg):
+        super(SourceManager,self).__init__(cfg)
         self.plugin=self.load_extends()
         self.url=cfg['url']
         self.username=cfg['username']
         self.password=cfg['password']
-        self.event=event.EventBase.get_instance()
-    def checkout(self,cwd):
-        
-        pass
-    def cur_version(self):
-        pass
+        self.type=cfg['type']
+    def checkout(self,cwd,version=None):
+        return self.plugin[self.type].checkout(self,cwd,version)
+    def version(self):
+        return self.plugin[self.type].version(self)
+    def update(self,cwd,version=None):
+        return self.plugin[self.type].update(self,cwd,version)
 
 
 if __name__ == "__main__":
    
-    a = SourceManager({})
-    a.load_extends()
+    a = SourceManager({'url':'svn://192.168.150.75','username':'along','password':'along','type':'svn'})
+    print(a.version())

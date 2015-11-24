@@ -11,7 +11,7 @@ class Svn(base.PluginBase):
              '--non-interactive','--no-auth-cache' ]
         #os.system('svn cleanup')
         stdout=run.simple_execute(cmd)
-        print(stdout)
+        return stdout
     def checkout(self,cfg,cwd,version):
         cmd=['svn' , 'checkout',
             cfg.url if not version else "%s@%s" % (cfg.url,version),             cwd,
@@ -19,10 +19,8 @@ class Svn(base.PluginBase):
              '--password',cfg.password,
              '--non-interactive','--no-auth-cache' ]
         stdout=run.simple_execute(cmd)
-        for line in stdout.split('\n'):
-            print("%s" % line)
-
-    def cur_version(self,cfg):
+        return stdout
+    def version(self,cfg):
         cmd=['svn','log',
             cfg.url,
             '-l','1',
