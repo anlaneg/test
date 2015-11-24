@@ -10,6 +10,6 @@ class BuildManager(event.EventBase):
 
     def build(self):
         self.trigger('source-build-before')
-        ret=run.script_execute(self,script,self.cwd)
+        ret=run.script_execute(self.script,[],self.cwd)
         self.trigger('source-build-after')
         return ret

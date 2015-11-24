@@ -30,7 +30,7 @@ password=
 build-script=
 
 [collect]
-target=xx.${VERSION}.${PLATFORM}.tar.gz
+target=xx.%(version)s.%(platform)s.tar.gz
 #"/usr/home/a.txt" -> "/xx/a.txt"
 files="xxxxx"->"xxxxx",
 target-host=
@@ -38,7 +38,6 @@ dir=
 username=
 passowrd=
 collect-script=
-packet-script=
 
 [monitor]
 interval=10s
