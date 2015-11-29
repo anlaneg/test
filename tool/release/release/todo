@@ -45,7 +45,8 @@ log=/var/log/release.log
 result-maill-to=xx@xx.xx
 smtp-addr=
 smtp-port=
-send-mail-from=xx@xx.xx
+sender-mail-name=xx@xx.xx
+sender-mail-password=xxxxx
 release-fail=['ingnore','prev-version','next-version']
 
 [event]
