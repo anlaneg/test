@@ -1,124 +1,241 @@
-class ConfigTypeBase(object):
-    def __init__(config_param):
-        self.param=config_param
+from release.cfg import config_base
 
-    def string_to_value(self,string):
-        pass
-    def value_to_string(self,value):
-        pass
+cfg=None
+def get_cfg():
     
-class ConfigStringType(ConfigTypeBase):
-    def string_to_value(self,string):
-        pass
-    def value_to_string(self,value):
-        pass
-
-class ConfigStringListType(ConfigTypeBase):
-    def string_to_value(self,string):
-        pass
-    def value_to_string(self,value):
-        pass
-
-class ConfigEnumType(ConfigTypeBase):
-    def string_to_value(self,string):
-        pass
-    def value_to_string(self,value):
-        pass
-
-class ConfigIntType(ConfigTypeBase):
-    def string_to_value(self,string):
-        pass
-    def value_to_string(self,value):
-        pass
-
-class ConfigType(object):
-    BUILDIN_TYPE={
-        'string':ConfigStringType,
-        'string-list':ConfigStringListType,
-        'enum':ConfigEnumType,
-        'int':ConfigIntType,
-    }
-    @staticmethod
-    def mapping_type(type_name,param):
-        if type_name not in BUILDIN_TYPE:
-            raise Exception("Unknow type '%s'" % type_name)
-        return BUILDIN_TYPE[type_name](param)
-
-class Config(object):
-    def __init__(self,segment,config_name,config_type,default_value,help_text,config_param):
-        self.segment=segment
-        self.config_name=segment
-        #self.config_param=config_param
-        self.type=ConfigType.mapping_type(config_type,config_param)
-        self.default_value=self.type.string_to_value(default_value)
-        self.help_text=help_text
-
-    def gen_config_template():
-        return """
-#%(help_text)s
-#default value
-#%(config_name)s = %(default_value)s
-#%(config_name)s = 
-""" % {'help_text':self.help_text,
-        'config_name':self.config_name,
-        'default_value':self.type.value_to_string(self.default_value)}
-
-class ConfigManager(object):
-    def __init__(self):
-        self.cfg={}
-    def addConfig(self,segment,config_name,config_type,default_value,helper,config_param):
-        
-        config={
-                config_name:Config(segment,config_name,config_type,default_value,helper,config_param)
-               }
-        if segment in self.cfg:
-            self.cfg[segment].update(config)
-        else:
-            self.cfg[segment]=config
-    def addConfig(self,*config):
-        for i in config:
-            self.addConfig(i)
-    def gen_config_template(self):
-        result=""
-        for key,value in self.cfg:
-            result+="\n[%s]\n" % key
-            for conf_name,confg in value:
-                result+=config.gen_config_template()
-        return result
-    def _parse_config(segment,config_line):
-        equal_char=config_line.find('=')
-        if equal_char == -1 || len(line) <= equal_char + 1:
-            raise Exception("Invalid config line '%s'" % line)
-        return { line[0:equal_char].strip():line[equal_char+1:].lstrip() }
-    def parse_config_file(self,path):
-        cfg={}
-        try:
-            cfg_file = open(path,'r')
-            config_line=""
-            segment_name=""
-            for line in cfg_file.readlines():
-                line=line.lstrip()
-                if line.startswith('#'):
-                    #comment line
-                    continue
-                if line.endswith('\\'):
-                    #drop '\'
-                    config_line+=line[:-1]
-                    continue
-                if config_line:
-                    config_line += line
-                    cfg[segment_name].update(self._parse_config(segment_name,config_line))
-                    config_line=""
-                    continue
-                if line.startwith('['):
-                    #segment begin
-                    segment_name=line.rstrip()[1:-1] #drop '[' ']'
-                    continue
-                else:
-                    #normal line
-                    cfg[segment_name].update(self._parse_config(segment_name,line))
-            if "" in cfg:
-                raise Exception("Unkown segment")
-        except IOError as e:
-            print(e)
-        return cfg
+if __name__ == "__main__":
+    cfg=ConfigManager()
+    cfg.add_config([
+        {'segment':'source',
+         'config_name':'url',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出源码路径,例如 svn://192.168.0.1/svnroot/project1',
+         'config_param':None
+        },
+        {'segment':'source',
+         'config_name':'username',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出源码下载用户名',
+         'config_param':None
+        },
+        {'segment':'source',
+         'config_name':'password',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出源码源码下载用户对应地密码',
+         'config_param':None
+        },
+        {'segment':'build',
+         'config_name':'host',
+         'config_type':'string',
+         'default_value':"127.0.0.1",
+         'helper':'此选项用于指出编译机器主机ip',
+         'config_param':None
+        },
+        {'segment':'build',
+         'config_name':'workspace-dir',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出编译开始时工作目录',
+         'config_param':None
+        },
+        {'segment':'build',
+         'config_name':'username',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出编译机器用户名',
+         'config_param':None
+        },
+        {'segment':'build',
+         'config_name':'password',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出编译机器密码',
+         'config_param':None
+        },
+        {'segment':'build',
+         'config_name':'build-script',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于编译脚本',
+         'config_param':None
+        },
+        {'segment':'collect',
+         'config_name':'target',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布文件名称',
+         'config_param':None
+        },
+        {'segment':'collect',
+         'config_name':'target-host',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布机器ip',
+         'config_param':None
+        },
+        {'segment':'collect',
+         'config_name':'username',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布机器用户名',
+         'config_param':None
+        },
+        {'segment':'collect',
+         'config_name':'password',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布机器密码',
+         'config_param':None
+        },
+        {'segment':'collect',
+         'config_name':'collect-script',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布文件脚本',
+         'config_param':None
+        },
+        {'segment':'monitor',
+         'config_name':'interval',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出源码变更检测周期时间(单位S)',
+         'config_param':None
+        },
+        {'segment':'monitor',
+         'config_name':'log',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出系统日志存放位置',
+         'config_param':None
+        },
+        {'segment':'monitor',
+         'config_name':'result-mail-to',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出结果通知人员邮箱地址',
+         'config_param':None
+        },
+        {'segment':'monitor',
+         'config_name':'smtp-addr',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出邮件传输服务器地址,例如stmp.126.com',
+         'config_param':None
+        },
+        {'segment':'monitor',
+         'config_name':'smtp-port',
+         'config_type':'int',
+         'default_value':994,
+         'helper':'此选项用于指出smtp报务器端口号',
+         'config_param':None
+        },
+         {'segment':'monitor',
+         'config_name':'sender-mail-name',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发件人地址',
+         'config_param':None
+        },
+         {'segment':'monitor',
+         'config_name':'sender-mail-password',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发件人密码',
+         'config_param':None
+        },
+         {'segment':'monitor',
+         'config_name':'release-fail',
+         'config_type':'enum',
+         'default_value':"ignore",
+         'helper':'此选项用于出错时处理方式',
+         'config_param':["ignore","prev-version","next-version"]
+        },
+         {'segment':'event',
+         'config_name':'release-server-setup',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于服务启动时事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'release-begin',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出每个服务周期开启时事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'source-checkout-before',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出导出源码前事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'source-checkout-after',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出导出源码后事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'source-build-before',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出构造前事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'source-build-after',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出构造后事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'result-collect-before',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布收集前事件',
+         'config_param':None
+        },
+         {'segment':'event',
+         'config_name':'result-collect-after',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布收集后事件',
+         'config_param':None
+        },
+        {'segment':'event',
+         'config_name':'result-package-before',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出打包前事件',
+         'config_param':None
+        },
+        {'segment':'event',
+         'config_name':'result-package-after',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出打包后事件',
+         'config_param':None
+        },
+        {'segment':'event',
+         'config_name':'release-finish',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出发布后事件',
+         'config_param':None
+        },
+        {'segment':'event',
+         'config_name':'release-server-stop',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出服务停机事件',
+         'config_param':None
+        },
+    ])
+    print(cfg.gen_config_template())
