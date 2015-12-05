@@ -1,10 +1,11 @@
 from release.cfg import config_base
 
-cfg=None
+global_cfg=None
+
 def get_cfg():
-    
-if __name__ == "__main__":
-    cfg=ConfigManager()
+    if global_cfg:
+        return global_cfg
+    cfg=config_base.ConfigManager()
     cfg.add_config([
         {'segment':'source',
          'config_name':'url',
@@ -238,4 +239,6 @@ if __name__ == "__main__":
          'config_param':None
         },
     ])
-    print(cfg.gen_config_template())
+
+    global_cfg=cfg
+    return global_cfg
