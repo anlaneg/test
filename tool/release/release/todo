@@ -40,7 +40,7 @@ passowrd=
 collect-script=
 
 [monitor]
-interval=10s
+interval=10
 log=/var/log/release.log
 result-maill-to=xx@xx.xx
 smtp-addr=

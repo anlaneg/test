@@ -1,4 +1,5 @@
-
+from release.utils import run
+from release.event import event_base as event
 class BuildManager(event.EventBase):
     def __init__(self,cfg):
         super(BuildManager,self).__init__(cfg)

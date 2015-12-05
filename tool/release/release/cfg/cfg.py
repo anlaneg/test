@@ -1,8 +1,11 @@
+
+#coding:utf-8
 from release.cfg import config_base
 
 global_cfg=None
 
-def get_cfg():
+def get_cfg_manager():
+    global global_cfg
     if global_cfg:
         return global_cfg
     cfg=config_base.ConfigManager()
@@ -13,6 +16,13 @@ def get_cfg():
          'default_value':"",
          'helper':'此选项用于指出源码路径,例如 svn://192.168.0.1/svnroot/project1',
          'config_param':None
+        },
+        {'segment':'source',
+         'config_name':'type',
+         'config_type':'enum',
+         'default_value':"svn",
+         'helper':'此选项用于指出源码插件类型',
+         'config_param':['svn']
         },
         {'segment':'source',
          'config_name':'username',

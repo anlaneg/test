@@ -3,26 +3,20 @@ import sys
 import os
 from release.utils import importutils as imp
 from release.event import event_base as event
+import release.source.plugin
 
 class SourceManager(event.EventBase):
     @staticmethod
-    def load_extends(path="plugin"):
+    def load_extends():
+        path = release.source.plugin.__path__[0]
         plugin={}
-        for dirpath,dirnames,filenames in os.walk(path):
-            for f in filenames:
-                idx = f.rfind('.')
-                if idx == -1:
-                    continue
-
-                postfix=f[idx+1:]
-                filename=f[0:idx]
-                #print("%s.%s" % (filename,postfix))
-                if filename == "__init__" or postfix != "py":
-                    continue
-                imp_str="%s.%s.%s" % (dirpath.replace('/','.'),filename,filename.capitalize())
-                #print(imp_str)
-                obj=imp.load_class(imp_str)
-                plugin[filename] = obj
+        for f in sorted(os.listdir(path)):
+            mod_name, file_ext = os.path.splitext(os.path.split(f)[-1])
+            if mod_name == "__init__" or file_ext != ".py":
+                continue
+            imp_str="release.source.plugin.%s.%s" % (mod_name,mod_name.capitalize())
+            obj=imp.load_class(imp_str)
+            plugin[mod_name] = obj
         return plugin
 
     def __init__(self,cfg):

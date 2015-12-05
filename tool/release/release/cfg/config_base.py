@@ -97,10 +97,10 @@ class ConfigManager(object):
 
     def _parse_config(self,segment,config_line):
         equal_char=config_line.find('=')
-        if equal_char == -1 or len(line) <= equal_char + 1:
+        if equal_char == -1 or len(config_line) <= equal_char + 1:
             raise Exception("Invalid config line '%s'" % line)
-        cfg_name=line[0:equal_char].strip()
-        cfg_value=line[equal_char+1:].lstrip()
+        cfg_name=config_line[0:equal_char].strip()
+        cfg_value=config_line[equal_char+1:].strip()
         cfg_type=self._lookfor_cfg(segment,cfg_name)
         if not cfg_type:
             raise Exception("Unkown config: \n[%s]\n%s" % (segment,config_line))
@@ -125,14 +125,18 @@ class ConfigManager(object):
                     cfg[segment_name].update(self._parse_config(segment_name,config_line))
                     config_line=""
                     continue
-                if line.startwith('['): #segment begin
+                if line.startswith('['): #segment begin
                     segment_name=line.rstrip()[1:-1] #drop '[' ']'
+                    cfg[segment_name]={}
                     continue
                 else: #normal line
+                    if "" == line.strip():
+                        continue #skip blank line
+                    print("adafdfda",segment_name)
                     cfg[segment_name].update(self._parse_config(segment_name,line))
 
             if "" in cfg:
                 raise Exception("Unkown segment")
         except IOError as e:
-            print(e)
+            raise
         return cfg
