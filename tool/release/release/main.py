@@ -10,7 +10,7 @@ def main():
     print(cfg)
     source=source_manager.SourceManager(cfg['source'])
     build=build_manager.BuildManager(cfg['build'])
-    #collect=collect_manager.CollectManager(cfg['collect'])
+    collect=collect_manager.CollectManager(cfg['collect'])
   
     while True:
         current_version=source.version()

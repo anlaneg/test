@@ -40,7 +40,7 @@ def script_execute(file_path,args,cwd=None):
         post_fix=file_path[idx:]
         if post_fix ==".py":
             return execute(['python',file_path],cwd=cwd)
-    return execute(['bash',file_path] + args,cwd_cwd)
+    return execute(['bash',file_path] + args,cwd)
         
     
     
