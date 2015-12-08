@@ -81,6 +81,13 @@ def get_cfg_manager():
          'config_param':None
         },
         {'segment':'collect',
+         'config_name':'output-dir',
+         'config_type':'string',
+         'default_value':"",
+         'helper':'此选项用于指出要发布到的目录名称',
+         'config_param':None
+        },
+        {'segment':'collect',
          'config_name':'target-host',
          'config_type':'string',
          'default_value':"",
@@ -110,8 +117,8 @@ def get_cfg_manager():
         },
         {'segment':'monitor',
          'config_name':'interval',
-         'config_type':'string',
-         'default_value':"",
+         'config_type':'int',
+         'default_value':10,
          'helper':'此选项用于指出源码变更检测周期时间(单位S)',
          'config_param':None
         },
