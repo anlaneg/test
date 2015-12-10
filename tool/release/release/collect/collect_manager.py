@@ -13,6 +13,6 @@ class CollectManager(event.EventBase):
     def package(self,cwd,env):
         cmd=[self.target % env]
         self.trigger('result-package-before')
-        ret=run.script_execute(self.script,cmd,cwd=cwd)
+        ret=run.execute_helper(self.script,cmd,cwd=cwd)
         self.trigger('result-package-after')
         return ret

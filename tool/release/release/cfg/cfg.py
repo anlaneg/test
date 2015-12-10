@@ -111,7 +111,7 @@ def get_cfg_manager():
         {'segment':'collect',
          'config_name':'collect-script',
          'config_type':'string',
-         'default_value':"",
+         'default_value':"make release",
          'helper':'此选项用于指出发布文件脚本',
          'config_param':None
         },

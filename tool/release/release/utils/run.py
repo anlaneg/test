@@ -1,4 +1,4 @@
-
+import os
 import signal
 import subprocess
 import log as LOG
@@ -44,5 +44,21 @@ def script_execute(file_path,args,cwd=None):
     return execute(['bash',file_path] + args,cwd)
         
     
-    
+def execute_helper(executeable,args,cwd=None):
+    try:
+        stdout=None
+        stderr=None
+        #LOG.log(cwd)
+        #import pdb
+        #pdb.set_trace()
+        if os.path.exists(executeable):
+            stdout,stderr=script_execute(executeable,args,return_stderr=True,cwd=cwd)
+        else:
+            stdout,stderr=execute(executeable.split(' ',1) + args,return_stderr=True,cwd=cwd)
+        if stderr:
+            LOG.error(stderr)
+        if stdout:
+            LOG.log(stdout)
+    except Exception as e:
+        LOG.error("execute : %s fail,error message is %s" % (executeable,str(e)))
 
