@@ -69,7 +69,7 @@ def get_cfg_manager():
         {'segment':'build',
          'config_name':'build-script',
          'config_type':'string',
-         'default_value':"",
+         'default_value':"make all",
          'helper':'此选项用于编译脚本',
          'config_param':None
         },

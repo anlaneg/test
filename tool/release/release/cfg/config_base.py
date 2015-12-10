@@ -107,6 +107,19 @@ class ConfigManager(object):
         
         return { cfg_name: cfg_type.string_to_value(cfg_value)}
 
+    def _add_default_value(self,cfg,segment,cfg_name,default_value):
+        if segment not in cfg:
+            cfg[segment]={}
+        if cfg_name not in cfg[segment]:
+            cfg[segment].update({cfg_name:default_value})
+    def _fill_default_value(self,cfg):
+        for segment in self.cfg.keys():
+            config = self.cfg[segment]
+            for cfg_name in config.keys():
+                item_cfg=config.get(cfg_name,None)
+                if item_cfg and item_cfg.default_value:
+                    self._add_default_value(cfg,segment,cfg_name,item_cfg.default_value)
+        return cfg
     def parse_config_file(self,path):
         cfg={}
         try:
@@ -132,11 +145,11 @@ class ConfigManager(object):
                 else: #normal line
                     if "" == line.strip():
                         continue #skip blank line
-                    print("adafdfda",segment_name)
                     cfg[segment_name].update(self._parse_config(segment_name,line))
 
             if "" in cfg:
                 raise Exception("Unkown segment")
         except IOError as e:
             raise
+        cfg=self._fill_default_value(cfg)
         return cfg

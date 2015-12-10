@@ -4,11 +4,13 @@ from build  import build_manager
 from collect import collect_manager
 from cfg import cfg as config
 from monitor import server
+from utils import log as LOG
 def main():
     old_version=None
     cfg_manager=config.get_cfg_manager()
+    LOG.log("try to read config file :./release.conf")
     cfg=cfg_manager.parse_config_file('./release.conf')
-    print(cfg)
+    LOG.log("config:%s" % cfg)
     source=source_manager.SourceManager(cfg['source'])
     build=build_manager.BuildManager(cfg['build'])
     collect=collect_manager.CollectManager(cfg['collect'])

@@ -4,6 +4,7 @@ import time
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import log as LOG
 
 class SMTP_SSL(smtplib.SMTP):
      def __init__(self, host='',port=465 , local_hostname=None, key=None, cert=None):
@@ -18,17 +19,17 @@ class SMTP_SSL(smtplib.SMTP):
              try :
                  self.sock = socket.socket(af, socktype, proto)
                  if self.debuglevel > 0:
-                    print(stderr, ' connect: ' , (host, port))
+                    LOG.log(' connect: host:%s port:%s' % (host, port))
 
                  self.sock.connect(sa)
 
                  sslobj = socket.ssl(self.sock, self.key, self.cert)
              except socket.error, msg:
                  if self.debuglevel > 0:
-                     print(stderr, ' connect fail: ' , (host, port))
+                    LOG.error(' connect fail: host:%s port:%s' % (host, port))
 
                  if self.sock:
-                     self.sock.close()
+                    self.sock.close()
 
                  self.sock = None
                  continue
@@ -42,7 +43,7 @@ class SMTP_SSL(smtplib.SMTP):
 
          (code, msg) = self.getreply()
          if self.debuglevel > 0:
-            print(stderr, " connect: " , msg)
+            LOG.log(" connect: %s" % msg)
          return (code, msg)
 
 class EmailNotify(object):
@@ -78,7 +79,6 @@ class EmailNotify(object):
             body = MIMEText(self.body,_subtype="plain", _charset='utf-8')
             msg.attach(body)
             for f in self.attach:
-                #print(f)
                 att = MIMEText(open(f['path'], 'rb').read(), 'base64', 'utf-8')
                 att["Content-Type"] = 'application/octet-stream'
                 att["Content-Disposition"] = 'attachment; filename="%s"' % f['name']
@@ -91,8 +91,6 @@ class EmailNotify(object):
     def send(self,stmp_host,stmp_port,username,password):
         if not self.title or not self.me or not self.to or not self.body:
             raise Exception("mail <title>,<me>,<to>,<body> must be set")
-        #print("ok")
-        #print(self._build_mail().as_string())
         try:
             server = smtplib.SMTP_SSL()
             #server.set_debuglevel(1)
@@ -101,7 +99,7 @@ class EmailNotify(object):
             server.sendmail(self.me,self.to,self._build_mail().as_string())
             server.close()
         except Exception as e:
-            print(e)
+            LOG.error(str(e))
             raise e
 
 if __name__ == "__main__":

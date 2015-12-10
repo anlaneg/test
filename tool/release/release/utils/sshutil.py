@@ -1,13 +1,13 @@
 import os
 import paramiko
-
+import log as LOG
 def _default_response_process_fun(stdin,stdout,stderr):
     lines=stderr.readlines()
     if len(lines):
         raise Exception(lines)
     else:
         for l in stdout.readlines():
-            print(l)
+            LOG.log(l)
 
 class SSHUtil(object):
     def __init__(self,host,username,password,port=22):
@@ -23,7 +23,7 @@ class SSHUtil(object):
             ssh_client.connect(hostname=self.host,port=self.port,username=self.name,password=self.password)
             return ssh_client
         except Exception as e:
-            print(e)
+            LOG.error(str(e))
             raise
 
     def close(self,ssh_client):
@@ -48,7 +48,7 @@ class SSHUtil(object):
                 ssh_client.close()
 
         except Exception as e:
-            print(e)
+            LOG.error(str(e))
             raise
 
     def _updown_file(self,src,dst,is_up):
@@ -62,7 +62,7 @@ class SSHUtil(object):
                 sftp.get(src,dst)
             transport.close()
         except Exception as e:
-            print(e)
+            LOG.error(str(e))
             raise
 
     def upload_file(self,local_file,remote_file):
@@ -75,12 +75,12 @@ if __name__ == "__main__":
     def display(stdin,stdout,stderr):
         lines=stderr.readlines()
         if len(lines):
-            print("fail:")
+            LOG.log("fail:")
             for l in lines:
-                print(l)
+                LOG.log(l)
         else:
             for l in stdout.readlines():
-                print(l)
+                LOG.log(l)
 
     username=""
     password=""

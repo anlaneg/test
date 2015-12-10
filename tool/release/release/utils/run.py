@@ -1,6 +1,7 @@
 
 import signal
 import subprocess
+import log as LOG
 
 def _subprocess_setup():
     # Python installs a SIGPIPE handler by default. This is usually not what
@@ -25,10 +26,10 @@ def execute(cmd, process_input=None,
     obj.stdin.close()
 
     if returncode and log_fail_as_error:
-        print("Waring execut '%s' return: %s" % (cmd,returncode))
+        LOG.warning("execute '%s' return: %s" % (cmd,returncode))
         if return_stderr==False:
-            print("execute command %s" % obj)
-            print("stderr %s" % _stderr)
+            LOG.error("execute command %s" % obj)
+            LOG.error("stderr %s" % _stderr)
     return (_stdout, _stderr) if return_stderr else _stdout
 
 def simple_execute(cmd,return_stderr=False,shell=False,cwd=None):

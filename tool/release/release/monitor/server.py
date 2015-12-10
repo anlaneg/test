@@ -2,10 +2,12 @@ import os
 from release.event import event_base as event
 import signal
 import time
+from release.utils import log as LOG
+
 class Server(event.EventBase):
     @staticmethod
     def term_signal_process(signum, stack):
-        print("wait process die")
+        LOG.log("wait process die")
         self.state_start=False
 
     def __init__(self,cfg):
@@ -29,15 +31,15 @@ class Server(event.EventBase):
         self.stop()
         self.start()
     def status(self):
-        print("rlease (%d) Running" % os.getpid())
+        LOG.log("release (%d) Running" % os.getpid())
     def _do_service(self,source,build,collect):
         old_version=None
         while self.state_start:
             current_version=source.version()
-            print("version=",current_version,"front_version=",old_version)
+            LOG.log("current version %s,prev version %s" % (current_version,old_version))
             if current_version != old_version:
                 source.checkout(build.cwd,version=current_version)
                 build.build()
                 collect.package(build.cwd,env={})
-            print("sleep %s" % self.interval)
+            LOG.log("sleep %s" % self.interval)
             time.sleep(self.interval)

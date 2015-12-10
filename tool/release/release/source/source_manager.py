@@ -4,6 +4,7 @@ import os
 from release.utils import importutils as imp
 from release.event import event_base as event
 import release.source.plugin
+from release.utils import log as LOG
 
 class SourceManager(event.EventBase):
     @staticmethod
@@ -41,8 +42,8 @@ class SourceManager(event.EventBase):
 if __name__ == "__main__":
    
     a = SourceManager({'url':'svn://192.168.150.75','username':'along','password':'along','type':'svn'})
-    print(a.version())
-    print(a.checkout('/home/along/test1/diff'))
-    print(a.update('/home/along/test1/diff'))
+    LOG.log(a.version())
+    LOG.log(a.checkout('/home/along/test1/diff'))
+    LOG.log(a.update('/home/along/test1/diff'))
 
     

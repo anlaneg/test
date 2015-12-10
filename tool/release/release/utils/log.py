@@ -1,15 +1,16 @@
 import time
 import sys
+import os
 
 class MyLog(object):
     instance=None
     def __init__(self):
         pass
     def display(self,info,file_name,line,msg):
-        print("%(date)s %(info)s %(file)s:%(line)s  %(msg)s\n" % { 
+        print("%(date)s %(info)s %(file)s:%(line)s  %(msg)s" % { 
                 'date':time.strftime("%Y-%m-%d %X"),
                 'info':info,
-                'file':file_name,
+                'file':os.path.basename(file_name),
                 'line':line,
                 'msg':msg
                 })

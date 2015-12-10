@@ -1,4 +1,4 @@
-
+from release.utils import log as LOG
 
 class EventBase(object):
     EVENT_LIST=['release-server-setup',
@@ -29,7 +29,7 @@ class EventBase(object):
             raise Exception("no find event '%s'" % event)
         cfg=self.event.get(event,None)
         if cfg:
-            print("******trigger %s******" % cfg)
+            LOG.log("******trigger %s******" % cfg)
 
 if __name__ == "__main__":
     event = EventBase({'release-begin':'/usr/bin/ls'})
