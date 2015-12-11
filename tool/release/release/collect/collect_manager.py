@@ -11,7 +11,7 @@ class CollectManager(event.EventBase):
         #self.password=self.get_or_raise(cfg,'password')
         self.script=self.get_or_raise(cfg,'collect-script')
     def package(self,cwd,env):
-        cmd=[self.target % env]
+        cmd=['file_name="'+ self.target % env + '"']
         self.trigger('result-package-before')
         ret=run.execute_helper(self.script,cmd,cwd=cwd)
         self.trigger('result-package-after')

@@ -76,7 +76,7 @@ def get_cfg_manager():
         {'segment':'collect',
          'config_name':'target',
          'config_type':'string',
-         'default_value':"",
+         'default_value':"release-%(version)s-%(date)s.tar.gz",
          'helper':'此选项用于指出发布文件名称',
          'config_param':None
         },

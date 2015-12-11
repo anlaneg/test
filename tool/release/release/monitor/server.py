@@ -40,6 +40,6 @@ class Server(event.EventBase):
             if current_version != old_version:
                 source.checkout(build.cwd,version=current_version)
                 build.build()
-                collect.package(build.cwd,env={})
+                collect.package(build.cwd,env={'version':current_version,'date':time.strftime("%Y%m%d%H%M%S")})
             LOG.log("sleep %s" % self.interval)
             time.sleep(self.interval)
