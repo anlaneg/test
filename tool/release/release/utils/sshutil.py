@@ -29,6 +29,30 @@ class SSHUtil(object):
     def close(self,ssh_client):
         if ssh_client:
             ssh_client.close()
+    def _connect(self):
+        try:
+            ssh_client=paramiko.SSHClient()
+            ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            ssh_client.connect(hostname=self.host,port=self.port,username=self.name,password=self.password)
+            return ssh_client
+        except Exception as e:
+            LOG.error(str(e))
+            raise
+    def _input_process(self,stdin,cmds):
+        for cmd in cmds:
+            stdin.write(cmd + '\n') 
+    def execute_lines(self,cmd,output_process,cwd=None):
+        if cwd:
+           cmd = [ 'cd %s' % cwd] + cmd + ['exit']
+        try:
+            ssh = self._connect()
+            stdin,stdout,stderr=ssh.exec_command('bash')
+            self._input_process(stdin,cmd)
+            output_process(stdout,stderr)
+            ssh.close()
+        except Exception as e:
+            LOG.error(str(e))
+            raise
 
     def execute(self,cmd,response_fun=_default_response_process_fun,ssh_client=None):
         is_need_close=False
@@ -73,6 +97,9 @@ class SSHUtil(object):
 
 if __name__ == "__main__":
     def display(stdin,stdout,stderr):
+        line_display(stdout,stderr)
+
+    def line_display(stdout,stderr):
         lines=stderr.readlines()
         if len(lines):
             LOG.log("fail:")
@@ -84,5 +111,7 @@ if __name__ == "__main__":
 
     username=""
     password=""
-    ssh=SSHUtil('127.0.0.1',username,password)
+    host=""
+    ssh=SSHUtil(host,username,password)
+    ssh.execute_lines(['pwd','ls -l','echo "hello"'],line_display,cwd='/home/along/dvr')
     ssh.execute("pwd",display)
