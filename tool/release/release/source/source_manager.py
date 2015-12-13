@@ -28,9 +28,9 @@ class SourceManager(event.EventBase):
         self.password=self.get_or_raise(cfg,'password')
         self.type=self.get_or_raise(cfg,'type')
 
-    def checkout(self,cwd,version=None):
+    def checkout(self,cwd,version=None,host='127.0.0.1',user=None,password=None):
         self.trigger('source-checkout-before')
-        ret=self.plugin[self.type].checkout(self,cwd,version)
+        ret=self.plugin[self.type].checkout(self,cwd,version,host,user,password)
         self.trigger('source-checkout-after')
         return ret
     def version(self):

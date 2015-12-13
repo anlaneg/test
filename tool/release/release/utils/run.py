@@ -59,6 +59,7 @@ def execute_helper(executeable,args,cwd=None):
             LOG.error(stderr)
         if stdout:
             LOG.log(stdout)
+        return stdout,stderr
     except Exception as e:
         LOG.error("execute : %s fail,error message is %s" % (executeable,str(e)))
 

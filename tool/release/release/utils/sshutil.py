@@ -41,15 +41,16 @@ class SSHUtil(object):
     def _input_process(self,stdin,cmds):
         for cmd in cmds:
             stdin.write(cmd + '\n') 
-    def execute_lines(self,cmd,output_process,cwd=None):
-        if cwd:
-           cmd = [ 'cd %s' % cwd] + cmd + ['exit']
+    def execute_lines(self,cmd,cwd=None):
+        cmd = ([ 'cd %s' % cwd] if cwd else []) + cmd + ['exit']
         try:
             ssh = self._connect()
             stdin,stdout,stderr=ssh.exec_command('bash')
             self._input_process(stdin,cmd)
-            output_process(stdout,stderr)
+            stdout_str="".join(stdout.readlines())
+            stderr_str="".join(stderr.readlines())
             ssh.close()
+            return stdout_str,stderr_str
         except Exception as e:
             LOG.error(str(e))
             raise
@@ -109,9 +110,13 @@ if __name__ == "__main__":
             for l in stdout.readlines():
                 LOG.log(l)
 
-    username=""
-    password=""
-    host=""
+    username="samsung"
+    password="along"
+    host="192.168.0.106"
     ssh=SSHUtil(host,username,password)
-    ssh.execute_lines(['pwd','ls -l','echo "hello"'],line_display,cwd='/home/along/dvr')
+    stdout,stderr=ssh.execute_lines(['pwd','ls -l','echo "hello"'],cwd='/home')
+    if stderr:
+        LOG.error(stderr)
+    if stdout:
+        LOG.log(stdout)
     ssh.execute("pwd",display)
