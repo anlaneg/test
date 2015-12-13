@@ -34,6 +34,7 @@ class Server(event.EventBase):
         LOG.log("release (%d) Running" % os.getpid())
     def _do_service(self,source,build,collect):
         old_version=None
+        LOG.flush()
         while self.state_start:
             current_version=source.version()
             LOG.log("current version %s,prev version %s" % (current_version,old_version))
@@ -41,5 +42,6 @@ class Server(event.EventBase):
                 source.checkout(build.cwd,version=current_version,host=build.host,user=build.username,password=build.password)
                 build.build()
                 collect.package(build.cwd,env={'version':current_version,'date':time.strftime("%Y%m%d%H%M%S")},host=build.host,user=build.username,password=build.password)
+                LOG.flush()#next version mail log information
             LOG.log("sleep %s" % self.interval)
             time.sleep(self.interval)

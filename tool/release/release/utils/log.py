@@ -5,17 +5,22 @@ import os
 class MyLog(object):
     instance=None
     def __init__(self):
+        self.log=[]
         pass
     def display(self,info,file_name,line,msg):
-        print("%(date)s %(info)s %(file)s:%(line)s  %(msg)s" % { 
+        message="%(date)s %(info)s %(file)s:%(line)s  %(msg)s" % { 
                 'date':time.strftime("%Y-%m-%d %X"),
                 'info':info,
                 'file':os.path.basename(file_name),
                 'line':line,
                 'msg':msg
-                })
+                }
+        self.log.append(message)
+        print(message)
     def flush(self):
-        pass
+        ret=self.log
+        self.log=[]
+        return ret
 
     @staticmethod
     def get_log():
@@ -44,7 +49,7 @@ def debug(msg):
 def error(msg):
     Log._log_inner(Log.ERROR,"ERROR",msg)
 def flush():
-    MyLog.get_log().flush()
+    return MyLog.get_log().flush()
 def set_log_level(i):
     Log.log_level = i
 
