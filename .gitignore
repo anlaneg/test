@@ -1,1 +1,4 @@
 *.pyc
+release.conf*
+tool/mms/*
+
