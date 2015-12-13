@@ -3,8 +3,16 @@ from release.event import event_base as event
 import signal
 import time
 from release.utils import log as LOG
+from release.utils import email_notify as email
 
 class Server(event.EventBase):
+    mail_info="""
+hello all:
+    here log from release 0.9 :
+==============================
+%s
+==============================
+    """
     @staticmethod
     def term_signal_process(signum, stack):
         LOG.log("wait process die")
@@ -34,14 +42,18 @@ class Server(event.EventBase):
         LOG.log("release (%d) Running" % os.getpid())
     def _do_service(self,source,build,collect):
         old_version=None
-        LOG.flush()
         while self.state_start:
             current_version=source.version()
-            LOG.log("current version %s,prev version %s" % (current_version,old_version))
             if current_version != old_version:
+                LOG.flush()
+                LOG.log("current version %s,prev version %s" % (current_version,old_version))
                 source.checkout(build.cwd,version=current_version,host=build.host,user=build.username,password=build.password)
                 build.build()
                 collect.package(build.cwd,env={'version':current_version,'date':time.strftime("%Y%m%d%H%M%S")},host=build.host,user=build.username,password=build.password)
-                LOG.flush()#next version mail log information
+                result_email=email.EmailNotify(self.sender,self.result_mails,"release result notify %s" % time.strftime("%Y-%m-%d %X"))
+                log_array=LOG.flush()#next version mail log information
+                result_email.set_body(Server.mail_info % "\n".join(log_array))
+                result_email.send(self.smtp_host,self.smtp_port,self.sender,self.sender_password)
+                old_version = current_version
             LOG.log("sleep %s" % self.interval)
             time.sleep(self.interval)
