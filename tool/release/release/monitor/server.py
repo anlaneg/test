@@ -24,12 +24,18 @@ hello all:
         super(Server,self).__init__(cfg)
         self.interval=self.get_or_raise(cfg,'interval')
         self.log=self.get_or_raise(cfg,'log')
-        self.result_mails=self.get_or_raise(cfg,'result-mail-to')
-        self.smtp_host=self.get_or_raise(cfg,'smtp-addr')
-        self.smtp_port=self.get_or_raise(cfg,'smtp-port')
-        self.sender=self.get_or_raise(cfg,'sender-mail-name')
-        self.sender_password=self.get_or_raise(cfg,'sender-mail-password')
         self.relase_fail=self.get_or_raise(cfg,'release-fail')
+        self.smtp_host=cfg.get('smtp-addr',None)
+        if self.smtp_host:
+            self.result_mails=self.get_or_raise(cfg,'result-mail-to')
+            self.smtp_port=self.get_or_raise(cfg,'smtp-port')
+            self.sender=self.get_or_raise(cfg,'sender-mail-name')
+            self.sender_password=self.get_or_raise(cfg,'sender-mail-password')
+        else:
+            self.smtp_port=None
+            self.sender=None
+            self.sender_password=None
+            self.result_mails=None
     def stop(self):
         signal.kill(0,signal.SIGTERM)
     def start(self,source,build,collect):
