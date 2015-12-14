@@ -5,8 +5,16 @@ import os
 class MyLog(object):
     instance=None
     def __init__(self):
-        self.log=[]
+        self.log_cache=False
         pass
+    def enable_log_cache(self):
+        self.log_cache=True
+        self.log=[]
+    def disable_log_cache(self):
+        self.log_cache=False
+        ret = self.log
+        self.log=[]
+        return ret
     def display(self,info,file_name,line,msg):
         message="%(date)s %(info)s %(file)s:%(line)s  %(msg)s" % { 
                 'date':time.strftime("%Y-%m-%d %X"),
@@ -15,12 +23,13 @@ class MyLog(object):
                 'line':line,
                 'msg':msg
                 }
-        self.log.append(message)
+        if self.log_cache:
+            self.log.append(message)
         print(message)
-    def flush(self):
-        ret=self.log
-        self.log=[]
-        return ret
+    #def flush(self):
+    #    ret=self.log
+    #    self.log=[]
+    #    return ret
 
     @staticmethod
     def get_log():
@@ -48,8 +57,12 @@ def debug(msg):
     Log._log_inner(Log.DEBUG,"DEBUG",msg)
 def error(msg):
     Log._log_inner(Log.ERROR,"ERROR",msg)
-def flush():
-    return MyLog.get_log().flush()
+#def flush():
+#    return MyLog.get_log().flush()
+def enable_log_cache():
+    MyLog.get_log().enable_log_cache()
+def disable_log_cache():
+    return MyLog.get_log().disable_log_cache()
 def set_log_level(i):
     Log.log_level = i
 

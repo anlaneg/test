@@ -45,15 +45,17 @@ hello all:
         while self.state_start:
             current_version=source.version()
             if current_version != old_version:
-                LOG.flush()
+                #LOG.flush()
+                LOG.enable_log_cache()
                 LOG.log("current version %s,prev version %s" % (current_version,old_version))
                 source.checkout(build.cwd,version=current_version,host=build.host,user=build.username,password=build.password)
                 build.build()
                 collect.package(build.cwd,env={'version':current_version,'date':time.strftime("%Y%m%d%H%M%S")},host=build.host,user=build.username,password=build.password)
-                result_email=email.EmailNotify(self.sender,self.result_mails,"release result notify %s" % time.strftime("%Y-%m-%d %X"))
-                log_array=LOG.flush()#next version mail log information
-                result_email.set_body(Server.mail_info % "\n".join(log_array))
-                result_email.send(self.smtp_host,self.smtp_port,self.sender,self.sender_password)
+                log_array=LOG.disable_log_cache()
+                if self.smtp_host and self.sender:
+                    result_email=email.EmailNotify(self.sender,self.result_mails,"release result notify %s" % time.strftime("%Y-%m-%d %X"))
+                    result_email.set_body(Server.mail_info % "\n".join(log_array))
+                    result_email.send(self.smtp_host,self.smtp_port,self.sender,self.sender_password)
                 old_version = current_version
             LOG.log("sleep %s" % self.interval)
             time.sleep(self.interval)
