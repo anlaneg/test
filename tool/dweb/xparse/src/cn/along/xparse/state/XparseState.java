@@ -58,19 +58,20 @@ public class XparseState extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("input".equals(((Element) node).getTagName()))
 				{
-				case "input":
 					XparseInput input = XparseInput.parse((Element) node);
 					Assert.test(input != null);
 					state.setInput(input);
-					break;
-				case "switch":
+				}
+				else if ("switch".equals(((Element) node).getTagName()))
+				{
 					XparseSwitch xswitch = XparseSwitch.parse((Element) node);
 					Assert.test(xswitch != null);
 					state.setSwitch(xswitch);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException("Unkown tag in state :'"
 							+ ((Element) node).getTagName() + "'");
 				}

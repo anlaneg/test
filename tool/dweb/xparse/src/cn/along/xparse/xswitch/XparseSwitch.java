@@ -51,13 +51,14 @@ public class XparseSwitch extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("case".equals(((Element) node).getTagName()))
 				{
-				case "case":
 					XparseCase xcase = XparseCase.parse((Element) node);
+
 					xswitch.addOrderCase(xcase);
-					break;
-				case "default":
+				}
+				else if ("default".equals(((Element) node).getTagName()))
+				{
 					if (!is_find_default)
 					{
 						XparseDefault xdefault = XparseDefault
@@ -69,11 +70,12 @@ public class XparseSwitch extends XparseBase
 					{
 						xswitch.throwException("'default' tag must have and only have one");
 					}
-					break;
-				default:
+				}
+				else
+				{
 					xswitch.throwException("Unkown tag in 'switch' :"
 							+ ((Element) node).getTagName());
-					break;
+
 				}
 			}
 		}

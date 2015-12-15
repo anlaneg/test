@@ -45,13 +45,13 @@ public class XparseSession extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("map".equals(((Element) node).getTagName()))
 				{
-				case "map":
 					XparseMap map = XparseMap.parse((Element) node);
 					session.addMap(map);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'session' : '"
 									+ ((Element) node).getTagName() + "'");
@@ -78,11 +78,11 @@ public class XparseSession extends XparseBase
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("<session dir=\"" + this.direction + "\">");
-		for(int i = 0 ; i < this.maps.size();++i)
+		for (int i = 0; i < this.maps.size(); ++i)
 		{
 			XparseMap map = this.maps.get(i);
 			builder.append(map.createString());
-		} 
+		}
 		builder.append("</session>");
 		return builder.toString();
 	}

@@ -44,13 +44,14 @@ public class XparseMethod extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("param".equals(((Element) node).getTagName()))
 				{
-				case "param":
-					XparseParameter param = XparseParameter.parse((Element)node);
+					XparseParameter param = XparseParameter
+							.parse((Element) node);
 					method.addParameter(param);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException("Unkown tag '"
 							+ ((Element) node).getTagName()
 							+ "' be fount at tag Method");
@@ -85,7 +86,7 @@ public class XparseMethod extends XparseBase
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("<method fun-name=\"" + this.class_name + "\">");
-		for(int i = 0 ; i < this.params.size(); ++i)
+		for (int i = 0; i < this.params.size(); ++i)
 		{
 			XparseParameter param = this.params.get(i);
 			builder.append(param.createString());

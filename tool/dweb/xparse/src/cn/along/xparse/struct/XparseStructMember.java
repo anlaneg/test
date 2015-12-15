@@ -82,14 +82,13 @@ public class XparseStructMember extends XparseBase
 
 	private void setPassType(String attribute) throws XparseSyntaxException
 	{
-		switch (attribute)
+		if ("in".equals(attribute) || "out".equals(attribute)
+				|| "inout".equals(attribute))
 		{
-		case "in":
-		case "out":
-		case "inout":
 			this.passType = attribute;
-			break;
-		default:
+		}
+		else
+		{
 			throw new XparseSyntaxException("Unkown Pass Type:'" + type + "'");
 		}
 	}
@@ -112,29 +111,25 @@ public class XparseStructMember extends XparseBase
 			type2 = type2.substring(0, type2.length() - 2).trim();
 		}
 
-		switch (type2)
+		if ("byte".equals(type2) || "char".equals(type2)
+				|| "short".equals(type2) || "int".equals(type2)
+				|| "long".equals(type2) || "float".equals(type2)
+				|| "double".equals(type2) || "boolean".equals(type2)
+				|| "String".equals(type2))
 		{
-		case "byte":
-		case "char":
-		case "short":
-		case "int":
-		case "long":
-		case "float":
-		case "double":
-		case "boolean":
-		case "String":
-			break;
-		default:
+			this.type = type2;
+		}
+		else
+		{
 			if (type2.startsWith("class:"))
 			{
 				type2 = type2.substring("class:".length()).trim();
 				this.is_class = true;
-				break;
+
 			}
 			throw new XparseSyntaxException("Unkown Type :'" + type2 + "'");
 		}
 
-		this.type = type2;
 	}
 
 	private void setMemberLength(String length2) throws XparseSyntaxException
@@ -158,15 +153,16 @@ public class XparseStructMember extends XparseBase
 	private void setMemberIsDynamicSize(String dynamic_size)
 			throws XparseSyntaxException
 	{
-		switch (dynamic_size)
+		if ("true".equals(dynamic_size))
 		{
-		case "true":
 			this.is_dynamic_size = true;
-			break;
-		case "false":
+		}
+		else if ("false".equals(dynamic_size))
+		{
 			this.is_dynamic_size = false;
-			break;
-		default:
+		}
+		else
+		{
 			throw new XparseSyntaxException("Unkown Dynamic Size : '"
 					+ dynamic_size + "'");
 		}
@@ -251,20 +247,17 @@ public class XparseStructMember extends XparseBase
 		}
 		builder.append("}");
 
-		switch (this.type)
+		if ("byte".equals(this.type) || "char".equals(this.type)
+				|| "short".equals(this.type) || "int".equals(this.type)
+				|| "long".equals(this.type) || "float".equals(this.type)
+				|| "double".equals(this.type) || "boolean".equals(this.type)
+				|| "String".equals(this.type))
 		{
-		case "byte":
-		case "char":
-		case "short":
-		case "int":
-		case "long":
-		case "float":
-		case "double":
-		case "boolean":
-		case "String":
 			return "new XRuntimeDefaultValue(" + builder.toString()
 					+ ", new String[]{" + this.def + "})." + fun_name;
-		default:
+		}
+		else
+		{
 			return "new " + this.type + "()";
 		}
 	}

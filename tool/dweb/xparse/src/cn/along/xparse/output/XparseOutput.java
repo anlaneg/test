@@ -35,31 +35,35 @@ public class XparseOutput extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("struct".equals(((Element) node).getTagName()))
 				{
-				case "struct":
 					XparseStruct struct = XparseStruct.parse((Element) node);
 					output.setStruct(struct);
-					break;
-				case "sql":
+				}
+				else if ("sql".equals(((Element) node).getTagName()))
+				{
 					XparseSql sql = XparseSql.parse((Element) node);
 					// input.addSql(sql);
 					output.addOrderTag(sql);
-					break;
-				case "method":
+				}
+				else if ("method".equals(((Element) node).getTagName()))
+				{
 					XparseMethod method = XparseMethod.parse((Element) node);
 					output.addOrderTag(method);
 					// throw new XparseSyntaxException("unimplements");
-					break;
-				case "session":
+				}
+				if ("session".equals(((Element) node).getTagName()))
+				{
 					XparseSession session = XparseSession.parse((Element) node);
 					output.addOrderTag(session);
-					break;
-				case "global":
+				}
+				if ("global".equals(((Element) node).getTagName()))
+				{
 					XparseGlobal global = XparseGlobal.parse((Element) node);
 					output.addOrderTag(global);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'output' : '"
 									+ ((Element) node).getTagName() + "'");
@@ -85,7 +89,7 @@ public class XparseOutput extends XparseBase
 		StringBuilder builder = new StringBuilder();
 		builder.append("<output>");
 		builder.append(this.struct.createString());
-		for(int i = 0 ; i < this.orderTags.size(); ++i)
+		for (int i = 0; i < this.orderTags.size(); ++i)
 		{
 			XparseBase base = this.orderTags.get(i);
 			builder.append(base.createString());

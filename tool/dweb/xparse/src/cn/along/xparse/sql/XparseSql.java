@@ -50,34 +50,40 @@ public class XparseSql extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("select".equals(((Element) node).getTagName()))
 				{
-				case "select":
 					sql.setType("select");
 					sql.setSql(((Element) node).getTextContent());
-					break;
-				case "insert":
+				}
+				else if ("insert".equals(((Element) node).getTagName()))
+				{
 					sql.setType("insert");
 					sql.setSql(((Element) node).getTextContent());
-					break;
-				case "delete":
+				}
+				else if ("delete".equals(((Element) node).getTagName()))
+				{
 					sql.setType("delete");
 					sql.setSql(((Element) node).getTextContent());
-					break;
-				case "update":
+				}
+				else if ("update".equals(((Element) node).getTagName()))
+				{
 					sql.setType("update");
 					sql.setSql(((Element) node).getTextContent());
-					break;
-				case "proc":
+				}
+				else if ("proc".equals(((Element) node).getTagName()))
+				{
 					sql.setType("proc");
 					sql.setSql(((Element) node).getTextContent());
-					break;
-				case "param":
+
+				}
+				else if ("param".equals(((Element) node).getTagName()))
+				{
 					XparseParameter parameter = XparseParameter
 							.parse((Element) node);
 					sql.addParameter(parameter);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException("Unkown sql style:'"
 							+ ((Element) node).getTagName() + "'");
 				}
@@ -125,24 +131,22 @@ public class XparseSql extends XparseBase
 	private void createSqlLoadFunctionInnert(StringBuilder builder,
 			XparseInput input) throws XgenException
 	{
-		switch (this.type)
+		if ("select".equals(this.type))
 		{
-		case "select":
 			this.createSelectSqlLoadFunction(builder, input);
-			break;
-		case "insert":
-			// this.createInsertSqlLoadFunction(builder);
-			// break;
-		case "delete":
-			// this.createDeleteSqlLoadFunction(builder);
-			// break;
-		case "update":
+		}
+		else if ("insert".equals(this.type) || "delete".equals(this.type)
+				|| "update".equals(this.type))
+		{
 			this.createUpdateSqlLoadFunction(builder, input);
-			break;
-		case "proc":
+		}
+		else if ("proc".equals(this.type))
+		{
 			// this.createProcSqlLoadFunction(builder);
 			throw new XgenUnSupportException();
-		default:
+		}
+		else
+		{
 			throw new XgenUnSupportException();
 		}
 	}

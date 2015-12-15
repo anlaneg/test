@@ -21,27 +21,58 @@ public class XparseStructTest
 		{
 			e = LoadFile.load_file(tagName);
 		}
-		catch (ParserConfigurationException | SAXException | IOException e1)
+		catch (ParserConfigurationException e1)
+		{
+			e1.printStackTrace();
+		}
+		catch( IOException e1)
+		{
+			e1.printStackTrace();
+		}
+		catch(SAXException e1)
 		{
 			e1.printStackTrace();
 		}
 
 		for (int i = 0; i < e.length; ++i)
 		{
-			try
-			{
-				Class<?> c = Class.forName(class_name);
-				Method method = c.getMethod("parse", Element.class);
-				XparseBase out = (XparseBase) method.invoke(null, e[i]);
-				// System.out.println(out.createString());
-				testBase.test(out);
-			}
-			catch (ClassNotFoundException | NoSuchMethodException
-					| SecurityException | IllegalAccessException
-					| IllegalArgumentException | InvocationTargetException e1)
-			{
-				e1.printStackTrace();
-			}
+				Class<?> c;
+				try
+				{
+					c = Class.forName(class_name);
+					Method method = c.getMethod("parse", Element.class);
+					XparseBase out = (XparseBase) method.invoke(null, e[i]);
+					// System.out.println(out.createString());
+					testBase.test(out);
+				}
+				catch (ClassNotFoundException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				catch (NoSuchMethodException e1)
+				{
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				catch (SecurityException e1)
+				{
+					e1.printStackTrace();
+				}
+				catch (IllegalAccessException e1)
+				{
+					e1.printStackTrace();
+				}
+				catch (IllegalArgumentException e1)
+				{
+					e1.printStackTrace();
+				}
+				catch (InvocationTargetException e1)
+				{
+					e1.printStackTrace();
+				}
+				
+		
 		}
 
 	}
@@ -71,9 +102,28 @@ public class XparseStructTest
 					String out = (String) method.invoke(null, base);
 					System.out.println(out);
 				}
-				catch (ClassNotFoundException | NoSuchMethodException
-						| SecurityException | IllegalAccessException
-						| IllegalArgumentException | InvocationTargetException e)
+				catch (ClassNotFoundException  e)
+				{
+					e.printStackTrace();
+				}
+				catch (NoSuchMethodException e)
+				{
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				catch (SecurityException e)
+				{
+					e.printStackTrace();
+				}
+				catch (IllegalAccessException e)
+				{
+					e.printStackTrace();
+				}
+				catch (IllegalArgumentException e)
+				{
+					e.printStackTrace();
+				}
+				catch (InvocationTargetException e)
 				{
 					e.printStackTrace();
 				}
@@ -131,8 +181,7 @@ public class XparseStructTest
 				"cn.along.xgen.struct.XGenStruct");
 		XparseStructTest
 				.testParse("input", "cn.along.xparse.input.XparseInput");
-		XparseStructTest.testGen("input",
-				"cn.along.xparse.input.XparseInput",
+		XparseStructTest.testGen("input", "cn.along.xparse.input.XparseInput",
 				"cn.along.xgen.input.XGenInputFill");
 		XparseStructTest
 				.testParse("state", "cn.along.xparse.state.XparseState");

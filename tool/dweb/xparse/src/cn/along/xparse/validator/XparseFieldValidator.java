@@ -44,19 +44,20 @@ public class XparseFieldValidator extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("param".equals(((Element) node).getTagName()))
 				{
-				case "param":
 					XparseParameter param = XparseParameter
 							.parse((Element) node);
 					field.addParameter(param);
-					break;
-				case "message":
+				}
+				else if ("message".equals(((Element) node).getTagName()))
+				{
 					String message = ((Element) node).getTextContent();
 					Assert.test(!"".equals(message));
 					field.setMessage(message);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'field-validator' : '"
 									+ ((Element) node).getTagName() + "'");

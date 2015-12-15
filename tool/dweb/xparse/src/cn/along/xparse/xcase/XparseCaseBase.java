@@ -68,13 +68,13 @@ public class XparseCaseBase extends XparseBase
 		String has_break = xmlNode.getAttribute("break");
 		if (has_break != null && !"".equals(has_break))
 		{
-			switch ((has_break = (has_break.trim().toLowerCase())))
+			has_break = (has_break.trim().toLowerCase());
+			if ("true".equals(has_break) || "false".equals(has_break))
 			{
-			case "true":
-			case "false":
 				xcaseBase.setBreak(has_break);
-				break;
-			default:
+			}
+			else
+			{
 				throw new XparseSyntaxException(
 						"break attribute only 'true/false'");
 			}
@@ -86,13 +86,13 @@ public class XparseCaseBase extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("output".equals(((Element) node).getTagName()))
 				{
-				case "output":
 					XparseOutput output = XparseOutput.parse((Element) node);
 					xcaseBase.setOutput(output);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException("Unkown tag in 'case' :"
 							+ ((Element) node).getTagName());
 				}
@@ -130,6 +130,7 @@ public class XparseCaseBase extends XparseBase
 		{
 			msg = "forward";
 		}
-		return msg + "=\"" + this.target + "\" break=\"" + this.has_break +"\"";
+		return msg + "=\"" + this.target + "\" break=\"" + this.has_break
+				+ "\"";
 	}
 }
