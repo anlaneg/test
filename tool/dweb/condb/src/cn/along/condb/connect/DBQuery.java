@@ -170,8 +170,19 @@ public class DBQuery
 
 			return ps;
 		}
-		catch (SQLException | IllegalAccessException
-				| InvocationTargetException | NoSuchMethodException e)
+		catch (SQLException e)
+		{
+			throw new DBException(e.getMessage());
+		}
+		catch (IllegalAccessException e)
+		{
+			throw new DBException(e.getMessage());
+		}
+		catch (InvocationTargetException e)
+		{
+			throw new DBException(e.getMessage());
+		}
+		catch(NoSuchMethodException e)
 		{
 			throw new DBException(e.getMessage());
 		}

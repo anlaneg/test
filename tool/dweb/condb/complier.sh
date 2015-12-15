@@ -70,7 +70,9 @@ function run()
 {
     class_path=`get_class_path`
     echo "java -classpath $class_path test.along.condb.DatasourceManageTest"
+    cd bin
     java -classpath $class_path test.along.condb.DatasourceManageTest
+
 }
 
 complier

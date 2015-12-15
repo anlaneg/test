@@ -47,7 +47,11 @@ public class SimpleDBAccess
 			SimpleDBAccess.database = new SimpleDBAccess();
 			return SimpleDBAccess.database;
 		}
-		catch (IOException | IniFileReaderException e)
+		catch (IOException e)
+		{
+			e.printStackTrace();
+		}
+		catch (IniFileReaderException e)
 		{
 			e.printStackTrace();
 		}

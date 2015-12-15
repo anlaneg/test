@@ -82,8 +82,17 @@ public class DBUpdate
 						PropertyUtils.getProperty(in, paramName.get(i)));
 			}
 		}
-		catch (IllegalAccessException | InvocationTargetException
-				| NoSuchMethodException e)
+		catch(InvocationTargetException e)
+		{
+			e.printStackTrace();
+			throw new DBException(e.getMessage());
+		}
+		catch (NoSuchMethodException e)
+		{
+			e.printStackTrace();
+			throw new DBException(e.getMessage());
+		}
+		catch (IllegalAccessException  e)
 		{
 			e.printStackTrace();
 			throw new DBException(e.getMessage());
