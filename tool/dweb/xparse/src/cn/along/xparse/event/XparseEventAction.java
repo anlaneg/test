@@ -25,43 +25,37 @@ import cn.along.xparse.validator.XparseValidator;
  * @author samsung
  *
  */
-public class XparseEventAction extends XparseBase
-{
+public class XparseEventAction extends XparseBase {
 	private String class_name;
 	private String trigger;
 	private Vector<XparseParameter> parameters;
-	
-	private XparseEventAction()
-	{
+
+	private XparseEventAction() {
 		this.parameters = new Vector<XparseParameter>();
 	}
-	
+
 	public static XparseEventAction parse(Element xmlNode)
-			throws XparseSyntaxException
-	{
+			throws XparseSyntaxException {
 		XparseEventAction eventAction = new XparseEventAction();
-		
+
 		String className = xmlNode.getAttribute("class-name");
-		String trigger  = xmlNode.getAttribute("trigger");
+		String trigger = xmlNode.getAttribute("trigger");
 		Assert.test(className != null && !"".equals(className));
 		Assert.test(trigger != null && !"".equals(trigger));
-		
+
 		eventAction.setClassName(className);
 		eventAction.setTrigger(trigger);
-		
+
 		NodeList nodes = xmlNode.getChildNodes();
-		for (int i = 0; i < nodes.getLength(); ++i)
-		{
+		for (int i = 0; i < nodes.getLength(); ++i) {
 			Node node = nodes.item(i);
-			if (node.getNodeType() == Node.ELEMENT_NODE)
-			{
-				switch (((Element) node).getTagName())
-				{
-				case "param":
-					XparseParameter param = XparseParameter.parse((Element) node);
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				if ("param".equals(((Element) node).getTagName())) {
+					XparseParameter param = XparseParameter
+							.parse((Element) node);
 					eventAction.addParameter(param);
-					break;
-				default:
+				} else {
+
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'event-action' : '"
 									+ ((Element) node).getTagName() + "'");
@@ -72,28 +66,24 @@ public class XparseEventAction extends XparseBase
 		return eventAction;
 	}
 
-	private void addParameter(XparseParameter param)
-	{
+	private void addParameter(XparseParameter param) {
 		this.parameters.add(param);
 	}
 
-	private void setTrigger(String trigger2)
-	{
+	private void setTrigger(String trigger2) {
 		this.trigger = trigger2;
 	}
 
-	private void setClassName(String className)
-	{
+	private void setClassName(String className) {
 		this.class_name = className;
 	}
 
-	public String createString()
-	{
+	public String createString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<action-event ");
-		builder.append("class-name=\""+ this.class_name + "\" trigger=\"" + this.trigger + "\">");
-		for(int i = 0 ; i < this.parameters.size() ; ++i)
-		{
+		builder.append("class-name=\"" + this.class_name + "\" trigger=\""
+				+ this.trigger + "\">");
+		for (int i = 0; i < this.parameters.size(); ++i) {
 			XparseParameter param = this.parameters.get(i);
 			builder.append(param.createString());
 		}

@@ -42,18 +42,17 @@ public class XparseEvent extends XparseBase
 			Node node = nodes.item(i);
 			if (node.getNodeType() == Node.ELEMENT_NODE)
 			{
-				switch (((Element) node).getTagName())
+				if ("event-action".equals(((Element) node).getTagName() ))
 				{
-				case "event-action":
 					XparseEventAction eventAction = XparseEventAction
 							.parse((Element) node);
 					event.addEventAction(eventAction);
-					break;
-				default:
+				}
+				else
+				{
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'event' : '"
 									+ ((Element) node).getTagName() + "'");
-
 				}
 			}
 		}

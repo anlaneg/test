@@ -34,111 +34,86 @@ import cn.along.xparse.validator.XparseValidator;
  * @author samsung
  * 
  */
-public class XparseInput extends XparseBase
-{
+public class XparseInput extends XparseBase {
 	private String style;
 	private Vector<XparseStruct> structs;
 	private Vector<XparseBase> orderTags;
 
-	private XparseInput()
-	{
+	private XparseInput() {
 		this.structs = new Vector<XparseStruct>();
 		this.orderTags = new Vector<XparseBase>();
 	}
 
 	public static XparseInput parse(Element xmlNode)
-			throws XparseSyntaxException
-	{
+			throws XparseSyntaxException {
 		XparseInput input = new XparseInput();
 		input.setStyle(DefaultValue.get(xmlNode.getAttribute("style"), "single"));
 
 		NodeList nodes = xmlNode.getChildNodes();
-		for (int i = 0; i < nodes.getLength(); ++i)
-		{
+		for (int i = 0; i < nodes.getLength(); ++i) {
 			Node node = nodes.item(i);
-			if (node.getNodeType() == Node.ELEMENT_NODE)
-			{
-				switch (((Element) node).getTagName())
-				{
-				case "struct":
+			if (node.getNodeType() == Node.ELEMENT_NODE) {
+				if ("struct".equals(((Element) node).getTagName())) {
 					XparseStruct struct = XparseStruct.parse((Element) node);
 					input.addStruct(struct);
-					break;
-				case "sql":
+				} else if ("sql".equals(((Element) node).getTagName())) {
 					XparseSql sql = XparseSql.parse((Element) node);
 					// input.addSql(sql);
 					input.addOrderTag(sql);
-					break;
-				case "method":
+				} else if ("method".equals(((Element) node).getTagName())) {
 					XparseMethod method = XparseMethod.parse((Element) node);
 					input.addOrderTag(method);
 					// throw new XparseSyntaxException("unimplements");
-					break;
-				case "validators":
+				} else if ("validators".equals(((Element) node).getTagName())) {
 					XparseValidator validator = XparseValidator
 							.parse((Element) node);
 					input.addOrderTag(validator);
-					break;
-				case "session":
+				} else if ("session".equals(((Element) node).getTagName())) {
 					XparseSession session = XparseSession.parse((Element) node);
 					input.addOrderTag(session);
-					break;
-				case "global":
+				} else if ("global".equals(((Element) node).getTagName())) {
 					XparseGlobal global = XparseGlobal.parse((Element) node);
 					input.addOrderTag(global);
-					break;
-				default:
+				} else {
 					throw new XparseSyntaxException(
 							"Unkown tag name in 'input' : '"
 									+ ((Element) node).getTagName() + "'");
-
 				}
 			}
 		}
 		return input;
 	}
 
-	private void addOrderTag(XparseBase base)
-	{
+	private void addOrderTag(XparseBase base) {
 		this.orderTags.add(base);
 	}
 
-	private void addStruct(XparseStruct struct)
-	{
+	private void addStruct(XparseStruct struct) {
 		this.structs.add(struct);
 	}
 
-	public void setStyle(String style) throws XparseSyntaxException
-	{
+	public void setStyle(String style) throws XparseSyntaxException {
 		Assert.test(style != null, "Input sturct style need {single,array}");
-		switch (style)
-		{
-		case "single":
-		case "array":
+		if ("single".equals(style) || "array".equals(style)) {
 			this.style = style;
-			break;
-		default:
+		} else {
 			throw new XparseSyntaxException("Unkown input struct style:'"
 					+ style + "'");
 		}
 	}
-	
-	public String getStyle()
-	{
+
+	public String getStyle() {
 		return this.style;
 	}
 
-	public String createString()
-	{
+	public String createString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("<input style=\"" + this.style + "\">");
-		for (int i = 0; i < this.structs.size(); ++i)
-		{
+		for (int i = 0; i < this.structs.size(); ++i) {
 			XparseStruct struct = this.structs.get(i);
 			builder.append(struct.createString());
 		}
-		for (int i = 0; i < this.orderTags.size(); ++i)
-		{
+		for (int i = 0; i < this.orderTags.size(); ++i) {
 			XparseBase base = this.orderTags.get(i);
 			builder.append(base.createString());
 		}
@@ -146,25 +121,21 @@ public class XparseInput extends XparseBase
 		return builder.toString();
 	}
 
-	public void inputStructForEach(Object obj, IInputStructIterator iterator)
-	{
+	public void inputStructForEach(Object obj, IInputStructIterator iterator) {
 		int size = this.structs.size();
-		for (int i = 0; i < size; ++i)
-		{
+		for (int i = 0; i < size; ++i) {
 			IteratorHelper helper = new IteratorHelper(i == 0, (i + 1) == size,
 					i, size);
 			iterator.iterator(this, this.structs.elementAt(i), helper, obj);
 		}
 	}
 
-	public void inputFillerForEach(Object obj, IInputFillerIterator iterator)
-	{
+	public void inputFillerForEach(Object obj, IInputFillerIterator iterator) {
 		int size = this.orderTags.size();
-		for (int i = 0; i < this.orderTags.size(); ++i)
-		{
+		for (int i = 0; i < this.orderTags.size(); ++i) {
 			IteratorHelper helper = new IteratorHelper(i == 0, (i + 1) == size,
 					i, size);
-			iterator.iterator(this, this.orderTags.elementAt(i),helper, obj);
+			iterator.iterator(this, this.orderTags.elementAt(i), helper, obj);
 		}
 	}
 
