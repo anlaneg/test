@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.XgenException;
 import cn.along.xgen.common.XgenUnSupportException;
 import cn.along.xparse.XparseBase;
@@ -41,7 +42,7 @@ public class XparseSql extends XparseBase
 		XparseSql sql = new XparseSql();
 		String name = xmlNode.getAttribute("name");
 		Assert.test(name != null && !"".equals(name),
-		        "<sql> tag must have name attribute");
+				"<sql> tag must have name attribute");
 		sql.setName(name);
 
 		NodeList nodes = xmlNode.getChildNodes();
@@ -79,13 +80,13 @@ public class XparseSql extends XparseBase
 				else if ("param".equals(((Element) node).getTagName()))
 				{
 					XparseParameter parameter = XparseParameter
-					        .parse((Element) node);
+							.parse((Element) node);
 					sql.addParameter(parameter);
 				}
 				else
 				{
 					throw new XparseSyntaxException("Unkown sql style:'"
-					        + ((Element) node).getTagName() + "'");
+							+ ((Element) node).getTagName() + "'");
 				}
 			}
 		}
@@ -118,7 +119,7 @@ public class XparseSql extends XparseBase
 		StringBuilder builder = new StringBuilder();
 		builder.append("<sql name=\"" + this.name + "\">");
 		builder.append("<" + this.type + ">" + this.sql + "</" + this.type
-		        + ">");
+				+ ">");
 		for (int i = 0; i < this.params.size(); ++i)
 		{
 			XparseParameter param = this.params.get(i);
@@ -129,14 +130,14 @@ public class XparseSql extends XparseBase
 	}
 
 	private void createSqlLoadFunctionInnert(StringBuilder builder,
-	        XparseInput input) throws XgenException
+			XparseInput input) throws XgenException
 	{
 		if ("select".equals(this.type))
 		{
 			this.createSelectSqlLoadFunction(builder, input);
 		}
 		else if ("insert".equals(this.type) || "delete".equals(this.type)
-		        || "update".equals(this.type))
+				|| "update".equals(this.type))
 		{
 			this.createUpdateSqlLoadFunction(builder, input);
 		}
@@ -152,7 +153,7 @@ public class XparseSql extends XparseBase
 	}
 
 	private void createUpdateSqlLoadFunction(StringBuilder builder,
-	        XparseInput input) throws XgenException
+			XparseInput input) throws XgenException
 	{
 		if (input.getStyle() == "array")
 		{
@@ -171,16 +172,16 @@ public class XparseSql extends XparseBase
 					String name = xparameter.getName();
 					String value = xparameter.getValue();
 					builder.append("\tparam.put(\"" + name + "\"" + ", \""
-					        + value + "\")\n");
+							+ value + "\")\n");
 				}
 			}
 			builder.append("\tSimpleDBAccess.update(sql, this.$0, this.$0,"
-			        + ((this.params.size() > 0) ? "param" : "null") + ");\n");
+					+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
 		}
 	}
 
 	private void createSelectSqlLoadFunction(StringBuilder builder,
-	        XparseInput input) throws XgenException
+			XparseInput input) throws XgenException
 	{
 		if (input.getStyle() == "array")
 		{
@@ -199,11 +200,11 @@ public class XparseSql extends XparseBase
 					String name = xparameter.getName();
 					String value = xparameter.getValue();
 					builder.append("\tparam.put(\"" + name + "\"" + ", \""
-					        + value + "\")\n");
+							+ value + "\")\n");
 				}
 			}
 			builder.append("\tSimpleDBAccess.loadOne(sql, this.$0, this.$0,"
-			        + ((this.params.size() > 0) ? "param" : "null") + ");\n");
+					+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
 		}
 	}
 
@@ -226,10 +227,116 @@ public class XparseSql extends XparseBase
 	}
 
 	public String createSqlParameter(String prefix, XparseInput input)
-	        throws XgenException
+			throws XgenException
 	{
 		// StringBuilder builder = new StringBuilder();
 		throw new XgenUnSupportException();
 		// return "";
+	}
+
+	private String genInsertFillFunction(XparseInput input,
+			IteratorHelper helper)
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("private void ");
+		builder.append(this.get_insert_fill_function_name());
+		builder.append("()\n{\n");
+		builder.append("String sql=\"" + this.sql + "\";\n");
+		if (this.params.size() > 0)
+		{
+			builder.append("HashMap<String,Object> param = new HashMap<String,Object>()\n");
+			for (int i = 0; i < this.params.size(); ++i)
+			{
+				XparseParameter xparameter = this.params.elementAt(i);
+				// String type = xparameter.getType();
+				String name = xparameter.getName();
+				String value = xparameter.getValue();
+				builder.append("param.put(\"" + name + "\"" + ", \"" + value
+						+ "\")\n");
+			}
+		}
+		builder.append("SimpleDBAccess.update(sql, this.$0, this.$0,"
+				+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
+		builder.append("}\n");
+		return builder.toString();
+
+	}
+
+	private String genSelectFillFunction(XparseInput input,
+			IteratorHelper helper)
+	{
+		StringBuilder builder = new StringBuilder();
+		builder.append("private void ");
+		builder.append(this.get_select_fill_function_name());
+		builder.append("()\n{\n");
+		builder.append("String sql=\"" + this.sql + "\";\n");
+		if (this.params.size() > 0)
+		{
+			builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
+			for (int i = 0; i < this.params.size(); ++i)
+			{
+				XparseParameter xparameter = this.params.elementAt(i);
+				// String type = xparameter.getType();
+				String name = xparameter.getName();
+				String value = xparameter.getValue();
+				builder.append("\tparam.put(\"" + name + "\"" + ", \"" + value
+						+ "\")\n");
+			}
+		}
+		builder.append("SimpleDBAccess.loadOne(sql, this.$0, this.$0,"
+				+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
+		builder.append("}\n");
+		return builder.toString();
+	}
+
+	@Override
+	public String genFillFunction(XparseInput input, IteratorHelper helper)
+			throws XgenException
+	{
+		if ("select".equals(this.type))
+		{
+			return this.genSelectFillFunction(input, helper);
+		}
+		else if ("insert".equals(this.type))
+		{
+			return this.genInsertFillFunction(input, helper);
+		}
+		return null;
+	}
+
+	private String get_select_fill_function_name()
+	{
+		return "sql_select_" + this.name;
+	}
+
+	private String get_insert_fill_function_name()
+	{
+		return "sql_insert_" + this.name;
+	}
+
+	private String genSelectFillCall(XparseInput input, IteratorHelper helper)
+	{
+		return "this." + this.get_select_fill_function_name() + "();\n";
+	}
+
+	private String genInsertFillCall(XparseInput input, IteratorHelper helper)
+	{
+		return "this." + this.get_insert_fill_function_name() + "();\n";
+	}
+
+	@Override
+	public String genFillCall(XparseInput input, IteratorHelper helper)
+			throws XgenException
+	{
+		if ("select".equals(this.type))
+		{
+			return this.genSelectFillCall(input, helper);
+		}
+		else if ("insert".equals(this.type))
+		{
+			return this.genInsertFillCall(input, helper);
+		}
+		return null;
+
 	}
 }

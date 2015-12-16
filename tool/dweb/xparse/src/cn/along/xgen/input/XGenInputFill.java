@@ -14,6 +14,28 @@ import cn.along.xparse.sql.XparseSql;
 import cn.along.xparse.struct.XparseStruct;
 import cn.along.xparse.validator.XparseValidator;
 
+/**
+ * 针对每一个结构体进行填充类生成
+ * 
+ * 填充类格式
+ * public class XXFill{
+ * 		private StructXX $0;
+ * 		private StructXX $1;
+ * 		public XXFill(StructXX $0,StructXX $1){
+ * 			this.$0 = $0;
+ * 			this.$1 = $1;
+ * 		}
+ * 		public void xx1() throws XXException{
+ * 			
+ * 		}
+ * 		public void fill(){
+ * 			this.xx1();
+ * 			this.xx2();
+ * 		} 
+ * }
+ * @author samsung
+ *
+ */
 public class XGenInputFill
 {
 	public static String gen(XparseInput input)
