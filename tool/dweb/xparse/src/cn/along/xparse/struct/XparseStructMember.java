@@ -40,22 +40,22 @@ public class XparseStructMember extends XparseBase
 	}
 
 	public static XparseStructMember parse(Element xmlNode, XparseStruct struct)
-			throws XparseSyntaxException
+	        throws XparseSyntaxException
 	{
 		XparseStructMember member = new XparseStructMember();
 
 		if (!xmlNode.getTagName().equals("member"))
 		{
 			throw new XparseSyntaxException("Expect Tag 'member' but '"
-					+ xmlNode.getTagName() + "'");
+			        + xmlNode.getTagName() + "'");
 		}
 
 		member.setName(xmlNode.getAttribute("name"));
 		member.setType(xmlNode.getAttribute("type"),
-				DefaultValue.get(xmlNode.getAttribute("length"), "1"),
-				DefaultValue.get(xmlNode.getAttribute("dynamic-size"), "false"));
+		        DefaultValue.get(xmlNode.getAttribute("length"), "1"),
+		        DefaultValue.get(xmlNode.getAttribute("dynamic-size"), "false"));
 		member.setPassType(DefaultValue.get(xmlNode.getAttribute("pass-type"),
-				"in"));
+		        "in"));
 		member.setComment(DefaultValue.get(xmlNode.getAttribute("comment"), ""));
 		member.setDefault(DefaultValue.get(xmlNode.getAttribute("default"), ""));
 
@@ -83,7 +83,7 @@ public class XparseStructMember extends XparseBase
 	private void setPassType(String attribute) throws XparseSyntaxException
 	{
 		if ("in".equals(attribute) || "out".equals(attribute)
-				|| "inout".equals(attribute))
+		        || "inout".equals(attribute))
 		{
 			this.passType = attribute;
 		}
@@ -94,7 +94,7 @@ public class XparseStructMember extends XparseBase
 	}
 
 	private void setType(String type, String length, String dynamic_size)
-			throws XparseSyntaxException
+	        throws XparseSyntaxException
 	{
 		this.setMemberType(type);
 		this.setMemberLength(length);
@@ -112,10 +112,10 @@ public class XparseStructMember extends XparseBase
 		}
 
 		if ("byte".equals(type2) || "char".equals(type2)
-				|| "short".equals(type2) || "int".equals(type2)
-				|| "long".equals(type2) || "float".equals(type2)
-				|| "double".equals(type2) || "boolean".equals(type2)
-				|| "String".equals(type2))
+		        || "short".equals(type2) || "int".equals(type2)
+		        || "long".equals(type2) || "float".equals(type2)
+		        || "double".equals(type2) || "boolean".equals(type2)
+		        || "String".equals(type2))
 		{
 			this.type = type2;
 		}
@@ -125,9 +125,13 @@ public class XparseStructMember extends XparseBase
 			{
 				type2 = type2.substring("class:".length()).trim();
 				this.is_class = true;
+				this.type = type2;
 
 			}
-			throw new XparseSyntaxException("Unkown Type :'" + type2 + "'");
+			else
+			{
+				throw new XparseSyntaxException("Unkown Type :'" + type2 + "'");
+			}
 		}
 
 	}
@@ -145,13 +149,13 @@ public class XparseStructMember extends XparseBase
 			catch (NumberFormatException e)
 			{
 				throw new XparseSyntaxException("Unkown Array Size : '"
-						+ lens[i] + "' (idx=" + i + ",text='" + length2 + "')");
+				        + lens[i] + "' (idx=" + i + ",text='" + length2 + "')");
 			}
 		}
 	}
 
 	private void setMemberIsDynamicSize(String dynamic_size)
-			throws XparseSyntaxException
+	        throws XparseSyntaxException
 	{
 		if ("true".equals(dynamic_size))
 		{
@@ -164,7 +168,7 @@ public class XparseStructMember extends XparseBase
 		else
 		{
 			throw new XparseSyntaxException("Unkown Dynamic Size : '"
-					+ dynamic_size + "'");
+			        + dynamic_size + "'");
 		}
 	}
 
@@ -178,7 +182,7 @@ public class XparseStructMember extends XparseBase
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("type=\"" + this.type + (this.is_array ? "[]" : "")
-				+ "\" length=\"");
+		        + "\" length=\"");
 		for (int i = 0; i < this.length.length; ++i)
 		{
 			builder.append(this.length[i]);
@@ -196,9 +200,9 @@ public class XparseStructMember extends XparseBase
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("<member name=\"" + this.name + "\" "
-				+ this.typeString() + " pass-type=\"" + this.passType
-				+ "\" comment=\"" + this.comment + "\" default=\"" + this.def
-				+ "\" />");
+		        + this.typeString() + " pass-type=\"" + this.passType
+		        + "\" comment=\"" + this.comment + "\" default=\"" + this.def
+		        + "\" />");
 		return builder.toString();
 	}
 
@@ -248,13 +252,13 @@ public class XparseStructMember extends XparseBase
 		builder.append("}");
 
 		if ("byte".equals(this.type) || "char".equals(this.type)
-				|| "short".equals(this.type) || "int".equals(this.type)
-				|| "long".equals(this.type) || "float".equals(this.type)
-				|| "double".equals(this.type) || "boolean".equals(this.type)
-				|| "String".equals(this.type))
+		        || "short".equals(this.type) || "int".equals(this.type)
+		        || "long".equals(this.type) || "float".equals(this.type)
+		        || "double".equals(this.type) || "boolean".equals(this.type)
+		        || "String".equals(this.type))
 		{
 			return "new XRuntimeDefaultValue(" + builder.toString()
-					+ ", new String[]{" + this.def + "})." + fun_name;
+			        + ", new String[]{" + this.def + "})." + fun_name;
 		}
 		else
 		{

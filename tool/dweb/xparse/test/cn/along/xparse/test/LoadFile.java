@@ -16,11 +16,13 @@ import cn.along.xparse.common.Assert;
 
 public class LoadFile
 {
-	public static String parent_path = "/home/samsung/project/jworkspace/xparse/res";
+	public static String parent_path = "./res";
 
 	public static Element[] load_file(final String name)
 			throws ParserConfigurationException, SAXException, IOException
 	{
+		//File f = new File(".");
+		System.out.println(new File(".").getAbsolutePath());
 		File f = new File(parent_path);
 		Assert.test(f.isDirectory());
 		String[] files_name = f.list(new FilenameFilter()

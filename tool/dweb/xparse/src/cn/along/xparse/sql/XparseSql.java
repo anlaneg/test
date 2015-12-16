@@ -41,7 +41,7 @@ public class XparseSql extends XparseBase
 		XparseSql sql = new XparseSql();
 		String name = xmlNode.getAttribute("name");
 		Assert.test(name != null && !"".equals(name),
-				"<sql> tag must have name attribute");
+		        "<sql> tag must have name attribute");
 		sql.setName(name);
 
 		NodeList nodes = xmlNode.getChildNodes();
@@ -79,13 +79,13 @@ public class XparseSql extends XparseBase
 				else if ("param".equals(((Element) node).getTagName()))
 				{
 					XparseParameter parameter = XparseParameter
-							.parse((Element) node);
+					        .parse((Element) node);
 					sql.addParameter(parameter);
 				}
 				else
 				{
 					throw new XparseSyntaxException("Unkown sql style:'"
-							+ ((Element) node).getTagName() + "'");
+					        + ((Element) node).getTagName() + "'");
 				}
 			}
 		}
@@ -118,7 +118,7 @@ public class XparseSql extends XparseBase
 		StringBuilder builder = new StringBuilder();
 		builder.append("<sql name=\"" + this.name + "\">");
 		builder.append("<" + this.type + ">" + this.sql + "</" + this.type
-				+ ">");
+		        + ">");
 		for (int i = 0; i < this.params.size(); ++i)
 		{
 			XparseParameter param = this.params.get(i);
@@ -129,14 +129,14 @@ public class XparseSql extends XparseBase
 	}
 
 	private void createSqlLoadFunctionInnert(StringBuilder builder,
-			XparseInput input) throws XgenException
+	        XparseInput input) throws XgenException
 	{
 		if ("select".equals(this.type))
 		{
 			this.createSelectSqlLoadFunction(builder, input);
 		}
 		else if ("insert".equals(this.type) || "delete".equals(this.type)
-				|| "update".equals(this.type))
+		        || "update".equals(this.type))
 		{
 			this.createUpdateSqlLoadFunction(builder, input);
 		}
@@ -152,7 +152,7 @@ public class XparseSql extends XparseBase
 	}
 
 	private void createUpdateSqlLoadFunction(StringBuilder builder,
-			XparseInput input) throws XgenException
+	        XparseInput input) throws XgenException
 	{
 		if (input.getStyle() == "array")
 		{
@@ -171,16 +171,16 @@ public class XparseSql extends XparseBase
 					String name = xparameter.getName();
 					String value = xparameter.getValue();
 					builder.append("\tparam.put(\"" + name + "\"" + ", \""
-							+ value + "\")\n");
+					        + value + "\")\n");
 				}
 			}
 			builder.append("\tSimpleDBAccess.update(sql, this.$0, this.$0,"
-					+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
+			        + ((this.params.size() > 0) ? "param" : "null") + ");\n");
 		}
 	}
 
 	private void createSelectSqlLoadFunction(StringBuilder builder,
-			XparseInput input) throws XgenException
+	        XparseInput input) throws XgenException
 	{
 		if (input.getStyle() == "array")
 		{
@@ -199,11 +199,11 @@ public class XparseSql extends XparseBase
 					String name = xparameter.getName();
 					String value = xparameter.getValue();
 					builder.append("\tparam.put(\"" + name + "\"" + ", \""
-							+ value + "\")\n");
+					        + value + "\")\n");
 				}
 			}
 			builder.append("\tSimpleDBAccess.loadOne(sql, this.$0, this.$0,"
-					+ ((this.params.size() > 0) ? "param" : "null") + ");\n");
+			        + ((this.params.size() > 0) ? "param" : "null") + ");\n");
 		}
 	}
 
@@ -226,10 +226,10 @@ public class XparseSql extends XparseBase
 	}
 
 	public String createSqlParameter(String prefix, XparseInput input)
-			throws XgenException
+	        throws XgenException
 	{
 		// StringBuilder builder = new StringBuilder();
 		throw new XgenUnSupportException();
-
+		// return "";
 	}
 }

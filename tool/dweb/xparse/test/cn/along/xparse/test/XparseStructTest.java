@@ -36,9 +36,10 @@ public class XparseStructTest
 
 		for (int i = 0; i < e.length; ++i)
 		{
-				Class<?> c;
+				
 				try
 				{
+					Class<?> c;
 					c = Class.forName(class_name);
 					Method method = c.getMethod("parse", Element.class);
 					XparseBase out = (XparseBase) method.invoke(null, e[i]);

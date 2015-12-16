@@ -52,12 +52,12 @@ public class XparseOutput extends XparseBase
 					output.addOrderTag(method);
 					// throw new XparseSyntaxException("unimplements");
 				}
-				if ("session".equals(((Element) node).getTagName()))
+				else if ("session".equals(((Element) node).getTagName()))
 				{
 					XparseSession session = XparseSession.parse((Element) node);
 					output.addOrderTag(session);
 				}
-				if ("global".equals(((Element) node).getTagName()))
+				else if ("global".equals(((Element) node).getTagName()))
 				{
 					XparseGlobal global = XparseGlobal.parse((Element) node);
 					output.addOrderTag(global);
