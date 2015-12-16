@@ -1,12 +1,12 @@
 
 <struct name="A" type="B">
-	<member name="abc" type="byte" />
-	<member name="v1"  type="short" />
-	<member name="v2"  type="int" />
-	<member name="v3"  type="long" />
-	<member name="v4"  type="float" />
-	<member name="v5"  type="double" />
-	<member name="v6"  type="boolean" />
-	<member name="v7"  type="class:cn.along.Test" />
-	<member name="v8"  type="byte[]" length="2,3" pass-type="in" comment="" default=""/>	
+    <member name="abc" type="byte" />
+    <member name="v1"  type="short" />
+    <member name="v2"  type="int" />
+    <member name="v3"  type="long" />
+    <member name="v4"  type="float" />
+    <member name="v5"  type="double" />
+    <member name="v6"  type="boolean" />
+    <member name="v7"  type="class:cn.along.Test" />
+    <member name="v8"  type="byte[]" length="2,3" pass-type="in" comment="" default=""/>    
 </struct>
