@@ -1,0 +1,15 @@
+<input>
+	<struct name="login" type="Logins">
+		<member name="username" type="String" />
+		<member name="password" type="String" />
+	</struct>
+	<sql name="select">
+		<select>select * from login where username = @username@</select>
+		<param name="username" type="String">$0.username</param>
+	</sql>
+	<sql name="login_insert">
+		<insert>insert login(username,password) values(@name@,@password@)</insert>
+		<param name="username" type="String">$0.name</param>
+		<param name="password" type="String">$0.password</param>
+	</sql>
+</input>
