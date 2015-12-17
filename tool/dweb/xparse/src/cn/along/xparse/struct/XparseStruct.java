@@ -78,7 +78,7 @@ public class XparseStruct extends XparseBase
 	public String createString()
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("<struct name=\"" + this.name + " type=\"" + this.type
+		builder.append("<struct name=\"" + this.name + "\" type=\"" + this.type
 				+ "\">");
 		for (int i = 0; i < this.members.size(); ++i)
 		{

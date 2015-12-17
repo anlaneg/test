@@ -183,7 +183,7 @@ public class XparseStructTest
 		XparseStructTest
 				.testParse("input", "cn.along.xparse.input.XparseInput");
 		XparseStructTest.testGen("input", "cn.along.xparse.input.XparseInput",
-				"cn.along.xgen.input.XGenInputFill");
+				"cn.along.xgen.input.XGenInputFill2");
 		XparseStructTest
 				.testParse("state", "cn.along.xparse.state.XparseState");
 

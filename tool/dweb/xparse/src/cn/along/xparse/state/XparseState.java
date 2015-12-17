@@ -110,7 +110,7 @@ public class XparseState extends XparseBase
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("<state version=\"" + this.version + "\" packet=\""
-				+ this.packet + "\" name=\"" + this.name + ">");
+				+ this.packet + "\" name=\"" + this.name + "\">");
 		builder.append(this.input.createString());
 		builder.append(this.xswitch.createString());
 		builder.append("</state>");

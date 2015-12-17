@@ -5,6 +5,7 @@ import cn.along.xgen.common.IInputStructIterator;
 import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.StringUtil;
 import cn.along.xgen.common.XgenException;
+import cn.along.xgen.struct.XGenStruct;
 import cn.along.xparse.XparseBase;
 import cn.along.xparse.global.XparseGlobal;
 import cn.along.xparse.input.XparseInput;
@@ -30,7 +31,21 @@ public class XGenInputFill2
 {
 	public static String gen(XparseInput input)
 	{
-		return XGenInputFill2.gen(input, "TestDemo");
+		StringBuilder builder = new StringBuilder();
+		input.inputStructForEach(builder, new IInputStructIterator(){
+
+			@Override
+            public void iterator(XparseInput input, XparseStruct struct,
+                    IteratorHelper helper, Object arg)
+            {
+				StringBuilder builder = (StringBuilder)arg;
+	            String ret=XGenStruct.gen(struct);
+	            builder.append(ret);
+	            
+            }}); 
+		String ret=XGenInputFill2.gen(input, "TestDemo");
+		builder.append(ret);
+		return builder.toString();
 	}
 
 	public static String gen(XparseInput input, String fill_name)
