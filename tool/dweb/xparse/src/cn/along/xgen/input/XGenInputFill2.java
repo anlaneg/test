@@ -1,5 +1,6 @@
 package cn.along.xgen.input;
 
+import cn.along.condb.exception.DBException;
 import cn.along.xgen.common.IInputFillerIterator;
 import cn.along.xgen.common.IInputStructIterator;
 import cn.along.xgen.common.IteratorHelper;
@@ -7,13 +8,8 @@ import cn.along.xgen.common.StringUtil;
 import cn.along.xgen.common.XgenException;
 import cn.along.xgen.struct.XGenStruct;
 import cn.along.xparse.XparseBase;
-import cn.along.xparse.global.XparseGlobal;
 import cn.along.xparse.input.XparseInput;
-import cn.along.xparse.method.XparseMethod;
-import cn.along.xparse.session.XparseSession;
-import cn.along.xparse.sql.XparseSql;
 import cn.along.xparse.struct.XparseStruct;
-import cn.along.xparse.validator.XparseValidator;
 
 /**
  * 针对每一个结构体进行填充类生成
@@ -32,18 +28,20 @@ public class XGenInputFill2
 	public static String gen(XparseInput input)
 	{
 		StringBuilder builder = new StringBuilder();
-		input.inputStructForEach(builder, new IInputStructIterator(){
+		input.inputStructForEach(builder, new IInputStructIterator()
+		{
 
 			@Override
-            public void iterator(XparseInput input, XparseStruct struct,
-                    IteratorHelper helper, Object arg)
-            {
-				StringBuilder builder = (StringBuilder)arg;
-	            String ret=XGenStruct.gen(struct);
-	            builder.append(ret);
-	            
-            }}); 
-		String ret=XGenInputFill2.gen(input, "TestDemo");
+			public void iterator(XparseInput input, XparseStruct struct,
+					IteratorHelper helper, Object arg)
+			{
+				StringBuilder builder = (StringBuilder) arg;
+				String ret = XGenStruct.gen(struct);
+				builder.append(ret);
+
+			}
+		});
+		String ret = XGenInputFill2.gen(input, "TestDemo");
 		builder.append(ret);
 		return builder.toString();
 	}
@@ -89,7 +87,7 @@ public class XGenInputFill2
 			}
 		});
 
-		builder.append("\tpublic void filler()\n");
+		builder.append("\tpublic void filler() throws DBException\n");
 		builder.append("\t{\n");
 		input.inputFillerForEach(builder, new IInputFillerIterator()
 		{
@@ -185,6 +183,10 @@ public class XGenInputFill2
 	private static String genClassHeader(String fill_name)
 	{
 		StringBuilder builder = new StringBuilder();
+		builder.append("import java.util.HashMap;\n");
+		builder.append("\n");
+		builder.append("import cn.along.condb.api.SimpleDBAccess;\n");
+		builder.append("import cn.along.condb.exception.DBException;\n");
 		builder.append("public class " + StringUtil.initialUpper(fill_name)
 				+ "\n");
 		return builder.toString();

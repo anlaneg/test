@@ -23,14 +23,14 @@ public class XGenStruct
 	{
 		StringBuilder builder = new StringBuilder();
 		builder.append("public class "
-				+ StringUtil.initialUpper(struct.getName()) + "\n");
+				+ StringUtil.initialUpper(struct.getType()) + "\n");
 		return builder.toString();
 	}
 
 	private static String genClassContructor(XparseStruct struct)
 	{
 		StringBuilder builder = new StringBuilder();
-		builder.append("\tpublic " + StringUtil.initialUpper(struct.getName())
+		builder.append("\tpublic " + StringUtil.initialUpper(struct.getType())
 				+ "()\n");
 		builder.append("\t{\n");
 		builder.append("\t\t//set member default value\n");

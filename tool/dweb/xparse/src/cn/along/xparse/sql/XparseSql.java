@@ -6,6 +6,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import cn.along.condb.exception.DBException;
 import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.XgenException;
 import cn.along.xgen.common.XgenUnSupportException;
@@ -195,7 +196,7 @@ public class XparseSql extends XparseBase
             builder.append("\tString sql=\"" + this.sql + "\";\n");
             if (this.params.size() > 0)
             {
-                builder.append("\tHashMap<String,Object> param = new HashMap<String,Object>()\n");
+                builder.append("\tHashMap<String,Object> param = new HashMap<String,Object>();\n");
                 for (int i = 0; i < this.params.size(); ++i)
                 {
                     XparseParameter xparameter = this.params.elementAt(i);
@@ -243,11 +244,11 @@ public class XparseSql extends XparseBase
         StringBuilder builder = new StringBuilder();
         builder.append("private void ");
         builder.append(this.get_update_fill_function_name());
-        builder.append("()\n{\n");
+        builder.append("() throws DBException\n{\n");
         builder.append("String sql=\"" + this.sql + "\";\n");
         if (this.params.size() > 0)
         {
-            builder.append("HashMap<String,Object> param = new HashMap<String,Object>()\n");
+            builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
             for (int i = 0; i < this.params.size(); ++i)
             {
                 XparseParameter xparameter = this.params.elementAt(i);
@@ -255,10 +256,10 @@ public class XparseSql extends XparseBase
                 String name = xparameter.getName();
                 String value = xparameter.getValue();
                 builder.append("param.put(\"" + name + "\"" + ", \"" + value
-                        + "\")\n");
+                        + "\");\n");
             }
         }
-        builder.append("SimpleDBAccess.update(sql, this.$0, this.$0,"
+        builder.append("SimpleDBAccess.update(sql, this.$0,"
                 + ((this.params.size() > 0) ? "param" : "null") + ");\n");
         builder.append("}\n");
         return builder.toString();
@@ -271,7 +272,7 @@ public class XparseSql extends XparseBase
         StringBuilder builder = new StringBuilder();
         builder.append("private void ");
         builder.append(this.get_select_fill_function_name());
-        builder.append("()\n{\n");
+        builder.append("() throws DBException\n{\n");
         builder.append("String sql=\"" + this.sql + "\";\n");
         //if sql have param and no <param> tag give,use $0
         if (this.params.size() > 0)
@@ -284,7 +285,7 @@ public class XparseSql extends XparseBase
                 String name = xparameter.getName();
                 String value = xparameter.getValue();
                 builder.append("\tparam.put(\"" + name + "\"" + ", \"" + value
-                        + "\")\n");
+                        + "\");\n");
             }
         }
         builder.append("SimpleDBAccess.loadOne(sql, this.$0, this.$0,"

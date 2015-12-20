@@ -4,12 +4,11 @@
 		<member name="password" type="String" />
 	</struct>
 	<sql name="select">
-		<select>select * from login where username = @username@</select>
-		<param name="username" type="String">$0.username</param>
+		<select>select * from login where username = @username@ and 1=@dummy@</select>
+		<param name="dummy" type="String">1</param>
 	</sql>
 	<sql name="login_insert">
-		<insert>insert login(username,password) values(@name@,@password@)</insert>
-		<param name="username" type="String">$0.name</param>
-		<param name="password" type="String">$0.password</param>
+		<insert>insert login(username,password) values(@username@,@password@)</insert>
+		<param name="password" type="String">default-password</param>
 	</sql>
 </input>
