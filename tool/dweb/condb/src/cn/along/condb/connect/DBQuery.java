@@ -126,7 +126,7 @@ public class DBQuery
 	}
 
 	private <T> PreparedStatement createPreparedStatement(String sql,
-			Map<String, String> param1, T param2) throws DBException
+			Map<String, Object> param, T src) throws DBException
 	{
 		try
 		{
@@ -137,52 +137,33 @@ public class DBQuery
 			ps = this.conn.prepareStatement(sql);
 
 			// set parameter
-			if (paramName != null && (param1 != null || param2 != null))
+			if (paramName != null && (param != null || src != null))
 			{
-				if (param1 != null)
+				for (int i = 0; i < paramName.size(); ++i)
 				{
-					for (int i = 0; i < paramName.size(); ++i)
+					String key = paramName.get(i);
+					Object value = null;
+					
+					//parameter first
+					if (param != null && (value = param.get(key)) != null)
 					{
-						System.err.println("set sql param[" + (i + 1)
-								+ "]: (name:" + paramName.get(i) + ",value:"
-								+ param1.get(paramName.get(i)) + ")");
-						ps.setString(i + 1, param1.get(paramName.get(i)));
+						System.err.println("set paramater sql param[" + (i + 1)
+								+ "]: (name:" + key + ",value:" + value + ")");
+						ps.setObject(i + 1, param.get(paramName.get(i)));
+						continue;
 					}
-				}
-				else
-				{
-					for (int i = 0; i < paramName.size(); ++i)
-					{
-						System.err.println("set sql param["
-								+ (i + 1)
-								+ "]: (name:"
-								+ paramName.get(i)
-								+ ",value:"
-								+ PropertyUtils.getProperty(param2,
-										paramName.get(i)) + ")");
-						ps.setObject(
-								i + 1,
-								PropertyUtils.getProperty(param2,
-										paramName.get(i)));
-					}
+
+					value = PropertyUtils.getProperty(src, key);
+					System.err.println("set property sql param[" + (i + 1) + "]: (name:"
+							+ key + ",value:" + value + ")");
+					ps.setObject(i + 1, value);
+
 				}
 			}
 
 			return ps;
 		}
-		catch (SQLException e)
-		{
-			throw new DBException(e.getMessage());
-		}
-		catch (IllegalAccessException e)
-		{
-			throw new DBException(e.getMessage());
-		}
-		catch (InvocationTargetException e)
-		{
-			throw new DBException(e.getMessage());
-		}
-		catch(NoSuchMethodException e)
+		catch (Exception e)
 		{
 			throw new DBException(e.getMessage());
 		}
@@ -194,7 +175,7 @@ public class DBQuery
 		return this.query(c, ps, false, null);
 	}
 
-	public <T> List<T> query(Class<T> c, String sql, Map<String, String> param)
+	public <T> List<T> query(Class<T> c, String sql, Map<String, Object> param)
 			throws DBException
 	{
 		PreparedStatement ps = this.createPreparedStatement(sql, param, null);
@@ -210,10 +191,10 @@ public class DBQuery
 		return this.query(c, ps, false, null);
 	}
 
-	public <T1, T2> void queryOne(String sql, T1 result, T2 param)
-			throws DBException
+	public <T1, T2> void queryOne(String sql, T1 result, T2 src,
+			Map<String, Object> param) throws DBException
 	{
-		PreparedStatement ps = this.createPreparedStatement(sql, null, param);
+		PreparedStatement ps = this.createPreparedStatement(sql, param, src);
 		@SuppressWarnings("unchecked")
 		Class<T1> c = (Class<T1>) result.getClass();
 		this.query(c, ps, true, result);

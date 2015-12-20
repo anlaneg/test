@@ -11,7 +11,7 @@ import cn.along.condb.inner.IDBConnect;
 public class DatasourceManageTest
 {
 	public static <T> ArrayList<T> testLoadDataSource(Class<T> cl, String sql,
-			Map<String, String> param) throws Exception
+			Map<String, Object> param) throws Exception
 	{
 		System.out.println(System.currentTimeMillis());
 		IDBConnect conn = SimpleDBAccess.getInstance().getConnect();
@@ -52,14 +52,14 @@ public class DatasourceManageTest
 		DatasourceManageTest.printLogin(logins);
 
 		// 1.test load login by parameter
-		HashMap<String, String> param = new HashMap<String, String>();
+		HashMap<String, Object> param = new HashMap<String, Object>();
 		param.put("username", "along");
 		logins = testLoadDataSource(Login.class,
 				"select * from login where username = @username@ ", param);
 		DatasourceManageTest.printLogin(logins);
 
 		// 2.test deletpe not exists data
-		HashMap<String, String> insert = new HashMap<String, String>();
+		HashMap<String, Object> insert = new HashMap<String, Object>();
 		insert.put("username", genRandomString(12));
 		insert.put("password", genRandomString(24));
 		int ret = testUpdateDataSource(
@@ -79,7 +79,7 @@ public class DatasourceManageTest
 
 		// 5.test delete exists date
 		ret = SimpleDBAccess.update(
-				"delete from login where username=@username@", insert);
+				"delete from login where username=@username@", insert,null);
 		System.out.println("delete result " + ret);
 
 		// 6.query delete data
@@ -91,7 +91,7 @@ public class DatasourceManageTest
 		//7.entity lookup
 		Login login = new Login();
 		login.setUsername("along");
-		SimpleDBAccess.loadOne("select * from login where username = @username@ ", login, login);
+		SimpleDBAccess.loadOne("select * from login where username = @username@ ", login, login,null);
 		
 		//8. entity queryOne
 		login.setUsername("along");

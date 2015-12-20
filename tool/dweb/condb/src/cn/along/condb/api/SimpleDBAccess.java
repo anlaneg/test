@@ -74,7 +74,7 @@ public class SimpleDBAccess
 	}
 
 	public static <T> ArrayList<T> query(Class<T> cl, String sql,
-			Map<String, String> param) throws DBException
+			Map<String, Object> param) throws DBException
 	{
 		IDBConnect conn = SimpleDBAccess.getInstance().getConnect();
 
@@ -83,12 +83,12 @@ public class SimpleDBAccess
 		return result;
 	}
 
-	public static int update(String sql, Map<String, String> param)
+	public static <T> int update(String sql,T src, Map<String, Object> param)
 			throws DBException
 	{
 		IDBConnect conn = SimpleDBAccess.getInstance().getConnect();
 
-		int ret = conn.update(sql, param);
+		int ret = conn.update(sql, src,param);
 		SimpleDBAccess.getInstance().putConnect(conn);
 		return ret;
 	}
@@ -102,11 +102,11 @@ public class SimpleDBAccess
 		return result;
 	}
 
-	public static <T1, T2> void loadOne(String sql, T1 result, T2 param)
+	public static <T1, T2> void loadOne(String sql, T1 result,T2 src, Map<String,Object> param)
 			throws DBException
 	{
 		IDBConnect conn = SimpleDBAccess.getInstance().getConnect();
-		conn.queryOne(sql, result, param);
+		conn.queryOne(sql, result, src,param);
 		SimpleDBAccess.getInstance().putConnect(conn);
 	}
 

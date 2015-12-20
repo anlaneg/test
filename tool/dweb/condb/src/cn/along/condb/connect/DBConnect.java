@@ -39,7 +39,7 @@ public class DBConnect implements IDBConnect
 	}
 
 	@Override
-	public <T> List<T> query(Class<T> c, String sql, Map<String, String> param) throws DBException
+	public <T> List<T> query(Class<T> c, String sql, Map<String, Object> param) throws DBException
 	{
 		return new DBQuery(this.conn).query(c, sql, param);
 	}
@@ -51,15 +51,15 @@ public class DBConnect implements IDBConnect
 	}
 
 	@Override
-	public int update(String sql, Map<String, String> param) throws DBException
+	public <T> int update(String sql,T src, Map<String, Object> param) throws DBException
 	{
-		return new DBUpdate(this.conn).update(sql, param);
+		return new DBUpdate(this.conn).update(sql, src,param);
 	}
 
 	@Override
 	public int update(String sql) throws DBException
 	{
-		return new DBUpdate(this.conn).update(sql);
+		return new DBUpdate(this.conn).update(sql,null,null);
 	}
 
 	@Override
@@ -83,7 +83,7 @@ public class DBConnect implements IDBConnect
 	@Override
 	public <T> int update(String sql, T in) throws DBException
 	{
-		return new DBUpdate(this.conn).update(sql,in);
+		return new DBUpdate(this.conn).update(sql,in,null);
 	}
 
 	@Override
@@ -93,10 +93,10 @@ public class DBConnect implements IDBConnect
 	}
 
 	@Override
-	public <T1, T2> void queryOne(String sql, T1 result, T2 param)
+	public <T1, T2> void queryOne(String sql, T1 result, T2 src,Map<String,Object> param)
 			throws DBException
 	{
-		new DBQuery(this.conn).queryOne(sql,result,param);
+		new DBQuery(this.conn).queryOne(sql,result,src,param);
 	}
 
 }
