@@ -66,12 +66,19 @@ function complier()
     do_complier_java "test" "bin" "$class_path"
 }
 
-function run()
+function run_test()
 {
     class_path=`get_class_path`
     echo "java -classpath $class_path cn.along.xparse.test.XparseStructTest"
     java -classpath $class_path cn.along.xparse.test.XparseStructTest
 
+}
+
+function run()
+{
+    class_path=`get_class_path`
+    echo "java -classpath $class_path cn.along.xparse.Xparse -d . -o ./bin/ -d /usr/bin/"
+    java -classpath $class_path cn.along.xparse.Xparse -d . -d ../xparse -O ./bin/ 
 }
 
 complier
