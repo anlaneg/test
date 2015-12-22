@@ -6,6 +6,6 @@ import cn.along.xparse.input.XparseInput;
 public interface IInputFillerIterator
 {
 	public void iterator(XparseInput input, XparseBase xbase,
-			IteratorHelper helper, Object arg);
+			IteratorHelper helper, Object[] arg);
 
 }

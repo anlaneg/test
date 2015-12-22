@@ -5,5 +5,5 @@ import cn.along.xparse.struct.XparseStruct;
 
 public interface IInputStructIterator
 {
-	public void iterator(XparseInput input, XparseStruct struct,IteratorHelper helper, Object arg);
+	public void iterator(XparseInput input, XparseStruct struct,IteratorHelper helper, Object[] arg);
 }

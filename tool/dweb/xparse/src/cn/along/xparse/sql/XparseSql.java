@@ -8,7 +8,7 @@ import org.w3c.dom.NodeList;
 
 import cn.along.condb.exception.DBException;
 import cn.along.xgen.common.IteratorHelper;
-import cn.along.xgen.common.XgenException;
+import cn.along.xgen.common.XGenException;
 import cn.along.xgen.common.XgenUnSupportException;
 import cn.along.xparse.XparseBase;
 import cn.along.xparse.common.Assert;
@@ -134,7 +134,7 @@ public class XparseSql extends XparseBase
     }
 
     private void createSqlLoadFunctionInnert(StringBuilder builder,
-            XparseInput input) throws XgenException
+            XparseInput input) throws XGenException
     {
         if ("select".equals(this.type))
         {
@@ -157,7 +157,7 @@ public class XparseSql extends XparseBase
     }
 
     private void createUpdateSqlLoadFunction(StringBuilder builder,
-            XparseInput input) throws XgenException
+            XparseInput input) throws XGenException
     {
         if (input.getStyle() == "array")
         {
@@ -185,7 +185,7 @@ public class XparseSql extends XparseBase
     }
 
     private void createSelectSqlLoadFunction(StringBuilder builder,
-            XparseInput input) throws XgenException
+            XparseInput input) throws XGenException
     {
         if (input.getStyle() == "array")
         {
@@ -216,9 +216,9 @@ public class XparseSql extends XparseBase
      * 通过sql语句的执行结果来填充结构体
      * 
      * @return
-     * @throws XgenException
+     * @throws XGenException
      */
-    public String createSqlLoadFunction(XparseInput input) throws XgenException
+    public String createSqlLoadFunction(XparseInput input) throws XGenException
     {
         StringBuilder builder = new StringBuilder();
 
@@ -231,7 +231,7 @@ public class XparseSql extends XparseBase
     }
 
     public String createSqlParameter(String prefix, XparseInput input)
-            throws XgenException
+            throws XGenException
     {
         // StringBuilder builder = new StringBuilder();
         throw new XgenUnSupportException();
@@ -296,7 +296,7 @@ public class XparseSql extends XparseBase
 
     @Override
     public String genFillFunction(XparseInput input, IteratorHelper helper)
-            throws XgenException
+            throws XGenException
     {
         if ("select".equals(this.type))
         {
@@ -331,7 +331,7 @@ public class XparseSql extends XparseBase
 
     @Override
     public String genFillCall(XparseInput input, IteratorHelper helper)
-            throws XgenException
+            throws XGenException
     {
         if ("select".equals(this.type))
         {

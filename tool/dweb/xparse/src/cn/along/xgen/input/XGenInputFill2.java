@@ -5,7 +5,7 @@ import cn.along.xgen.common.IInputFillerIterator;
 import cn.along.xgen.common.IInputStructIterator;
 import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.StringUtil;
-import cn.along.xgen.common.XgenException;
+import cn.along.xgen.common.XGenException;
 import cn.along.xgen.struct.XGenStruct;
 import cn.along.xparse.XparseBase;
 import cn.along.xparse.input.XparseInput;
@@ -79,7 +79,7 @@ public class XGenInputFill2
 						builder.append(result);
 					}
 				}
-				catch (XgenException e)
+				catch (XGenException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -104,7 +104,7 @@ public class XGenInputFill2
 						builder.append(result);
 					}
 				}
-				catch (XgenException e)
+				catch (XGenException e)
 				{
 					e.printStackTrace();
 				}

@@ -6,7 +6,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import cn.along.xgen.XGenConfig;
 import cn.along.xgen.common.IStructMemberIterator;
+import cn.along.xgen.common.StringUtil;
 import cn.along.xparse.XparseBase;
 import cn.along.xparse.common.Assert;
 import cn.along.xparse.common.XparseSyntaxException;
@@ -107,4 +109,109 @@ public class XparseStruct extends XparseBase
 			iterator.iterator(this, member, obj);
 		}
 	}
+
+    @Override
+    public String gen(XGenConfig config)
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append(this.genClassHeader());
+        builder.append("{\n");
+        builder.append(this.genMemberVariable());
+        builder.append(this.genClassContructor());
+        builder.append(this.genMemberMethod());
+        builder.append("}\n");
+        
+        config.out_file_name = StringUtil.initialUpper(this.getType());
+        return builder.toString();
+    }
+
+    private String genClassHeader()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("public class "
+                + StringUtil.initialUpper(this.getType()) + "\n");
+        return builder.toString();
+    }
+
+    private String genClassContructor()
+    {
+        StringBuilder builder = new StringBuilder();
+        builder.append("\tpublic " + StringUtil.initialUpper(this.getType())
+                + "()\n");
+        builder.append("\t{\n");
+        builder.append("\t\t//set member default value\n");
+        this.structMemberForEach(builder, new IStructMemberIterator()
+        {
+
+            @Override
+            public void iterator(XparseStruct struct,
+                    XparseStructMember member, Object arg)
+            {
+                StringBuilder builder = (StringBuilder) arg;
+                //builder.append("\t\t//set " + member.getVariableName() + " default value\n");
+                builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + ";\n");
+            }
+        });     
+        builder.append("\t}\n\n");
+        return builder.toString();
+    }
+
+    private String genMemberVariable()
+    {
+        StringBuilder builder = new StringBuilder();
+        this.structMemberForEach(builder, new IStructMemberIterator()
+        {
+
+            @Override
+            public void iterator(XparseStruct struct,
+                    XparseStructMember member, Object arg)
+            {
+                StringBuilder builder = (StringBuilder) arg;
+                builder.append("\t// " + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("\tprivate " + member.getType() + " "
+                        + member.getVariableName() + ";\n\n");
+            }
+        });
+
+        return builder.toString();
+    }
+
+    private String genMemberMethod()
+    {
+        StringBuilder builder = new StringBuilder();
+        this.structMemberForEach(builder, new IStructMemberIterator()
+        {
+
+            @Override
+            public void iterator(XparseStruct struct,
+                    XparseStructMember member, Object arg)
+            {
+                StringBuilder builder = (StringBuilder) arg;
+                builder.append("\t//set " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("\tpublic void set"
+                        + StringUtil.initialUpper(member.getVariableName())
+                        + "(" + member.getType() + " "
+                        + member.getVariableName() + ")\n");
+                builder.append("\t{\n");
+                builder.append("\t\tthis." + member.getVariableName() + "="
+                        + member.getVariableName() + ";\n");
+                builder.append("\t}\n\n");
+
+                builder.append("\t//get " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("\tpublic " + member.getType() + " get"
+                        + StringUtil.initialUpper(member.getVariableName())
+                        + "()\n");
+                builder.append("\t{\n");
+                builder.append("\t\treturn this." + member.getVariableName()
+                        + ";\n");
+                builder.append("\t}\n\n");
+
+            }
+        });
+
+        return builder.toString();
+    }
+
+	
+	
 }

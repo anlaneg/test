@@ -1,7 +1,7 @@
 package cn.along.xgen.common;
 
 @SuppressWarnings("serial")
-public class XgenUnSupportException extends XgenException
+public class XgenUnSupportException extends XGenException
 {
 
 	public XgenUnSupportException()

@@ -4,7 +4,7 @@ import cn.along.xgen.common.IInputFillerIterator;
 import cn.along.xgen.common.IInputStructIterator;
 import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.StringUtil;
-import cn.along.xgen.common.XgenException;
+import cn.along.xgen.common.XGenException;
 import cn.along.xparse.XparseBase;
 import cn.along.xparse.global.XparseGlobal;
 import cn.along.xparse.input.XparseInput;
@@ -224,7 +224,7 @@ public class XGenInputFill
 		{
 			builder.append(xbase.createSqlParameter("abc",input));
 		}
-		catch (XgenException e)
+		catch (XGenException e)
 		{
 			e.printStackTrace();
 		}

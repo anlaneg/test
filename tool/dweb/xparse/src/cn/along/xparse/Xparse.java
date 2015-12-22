@@ -8,13 +8,10 @@ import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
 
-import cn.along.xgen.input.XGenInputFill2;
-import cn.along.xparse.common.XparseSyntaxException;
+import cn.along.xgen.XGenConfig;
 import cn.along.xparse.input.XparseInput;
 
 @SuppressWarnings("serial")
@@ -60,6 +57,12 @@ public class Xparse
 {
     private Set<String> files;
     private String output_dir;
+
+    
+    public String get_output_dir()
+    {
+        return output_dir;
+    }
 
     public Xparse()
     {
@@ -266,8 +269,8 @@ public class Xparse
 			if(xml.getName().startsWith("input"))
 			{
 				XparseInput base = XparseInput.parse(document.getDocumentElement());
-				System.out.println(XGenInputFill2.gen(base));
-				
+				base.gen(new XGenConfig(this));
+				//System.out.println(XGenInputFill2.gen(base));
 			}
 			else
 			{
