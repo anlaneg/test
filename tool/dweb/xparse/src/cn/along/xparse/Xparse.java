@@ -6,6 +6,17 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
+import org.w3c.dom.Document;
+import org.xml.sax.SAXException;
+
+import cn.along.xgen.input.XGenInputFill2;
+import cn.along.xparse.common.XparseSyntaxException;
+import cn.along.xparse.input.XparseInput;
+
 @SuppressWarnings("serial")
 class XparseCommandLineError extends Exception
 {
@@ -241,6 +252,34 @@ public class Xparse
         parse.complie();
     }
 
+    private void complie_file(String xml_path)
+    {
+		try
+		{
+			Document document = null;
+			DocumentBuilderFactory builderFactory = DocumentBuilderFactory
+					.newInstance();
+			DocumentBuilder builder = builderFactory.newDocumentBuilder();
+			File xml = new File(xml_path);
+			document = builder.parse(xml);
+			//temp code
+			if(xml.getName().startsWith("input"))
+			{
+				XparseInput base = XparseInput.parse(document.getDocumentElement());
+				System.out.println(XGenInputFill2.gen(base));
+				
+			}
+			else
+			{
+				System.err.println(String.format("'%s' file will be ignored.",xml_path));
+			}
+		}
+		catch(Exception e)
+		{
+			System.err.println(String.format("'%s' file complie fail,will be ignored.",xml_path));
+		}
+    }
+    
     private void complie()
     {
         Iterator<String> iter = this.files.iterator();
@@ -248,6 +287,7 @@ public class Xparse
         {
             String xml_path=iter.next();
             System.out.println(String.format("....process file %s",xml_path));
+            this.complie_file(xml_path);
         }
     }
 }
