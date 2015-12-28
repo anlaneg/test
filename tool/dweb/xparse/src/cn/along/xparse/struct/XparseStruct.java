@@ -128,6 +128,8 @@ public class XparseStruct extends XparseBase
     private String genClassHeader()
     {
         StringBuilder builder = new StringBuilder();
+        builder.append("import cn.along.xrt.XrtDefaultValue;\n");
+        builder.append("\n");
         builder.append("public class "
                 + StringUtil.initialUpper(this.getType()) + "\n");
         return builder.toString();
@@ -149,7 +151,7 @@ public class XparseStruct extends XparseBase
             {
                 StringBuilder builder = (StringBuilder) arg;
                 //builder.append("\t\t//set " + member.getVariableName() + " default value\n");
-                builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + ";\n");
+                builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + "\n");
             }
         });     
         builder.append("\t}\n\n");

@@ -1,3 +1,5 @@
+import cn.along.xrt.XrtDefaultValue;
+
 public class Logins
 {
 	// 
@@ -6,11 +8,25 @@ public class Logins
 	// 
 	private String password;
 
+	// 
+	private int dummy;
+
+	// 
+	private B[][] dummy2;
+
 	public Logins()
 	{
 		//set member default value
-		//this.username=new XRuntimeDefaultValue(new int[]{1}, new String[]{}).getString();
-		//this.password=new XRuntimeDefaultValue(new int[]{1}, new String[]{}).getString();
+		this.username=XrtDefaultValue.getStringValue("");
+		this.password=XrtDefaultValue.getStringValue("");
+		this.dummy=XrtDefaultValue.getIntValue("");
+		this.dummy2=new B[][] {
+{
+new B(),
+new B()},{
+new B(),
+new B()}};
+
 	}
 
 	//set username:
@@ -35,6 +51,30 @@ public class Logins
 	public String getPassword()
 	{
 		return this.password;
+	}
+
+	//set dummy:
+	public void setDummy(int dummy)
+	{
+		this.dummy=dummy;
+	}
+
+	//get dummy:
+	public int getDummy()
+	{
+		return this.dummy;
+	}
+
+	//set dummy2:
+	public void setDummy2(B[][] dummy2)
+	{
+		this.dummy2=dummy2;
+	}
+
+	//get dummy2:
+	public B[][] getDummy2()
+	{
+		return this.dummy2;
 	}
 
 }

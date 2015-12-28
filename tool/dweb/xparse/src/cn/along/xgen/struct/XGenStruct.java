@@ -43,7 +43,7 @@ public class XGenStruct
 			{
 				StringBuilder builder = (StringBuilder) arg;
 				//builder.append("\t\t//set " + member.getVariableName() + " default value\n");
-				builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + ";\n");
+				builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + "\n");
 			}
 		});		
 		builder.append("\t}\n\n");

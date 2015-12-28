@@ -1,7 +1,8 @@
 <input>
-	<struct name="login" type="Logins">
+	<struct name="login" type="Logins_2">
 		<member name="username" type="String" />
 		<member name="password" type="String" />
+		<member name="dummy" type="String" />
 	</struct>
 	<sql name="select">
 		<select>select * from login where username = @username@ and 1=@dummy@</select>

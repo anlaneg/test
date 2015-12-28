@@ -7,8 +7,8 @@
         <member name="v4" type="float" />
         <member name="v5" type="double" />
         <member name="v6" type="boolean" />
-        <member name="v8" type="byte[]" length="2,3" pass-type="in"
-            comment="" default="" />
+        <member name="v8" type="String[]" length="4,4" pass-type="in"
+            comment="" default="split,32,42,6,7,4,2,11,17,19,23,29,31,37,41,47" />
     </struct>
     <sql name="select_all">
         <select>select * from login</select>

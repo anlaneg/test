@@ -269,7 +269,9 @@ public class Xparse
 			if(xml.getName().startsWith("input"))
 			{
 				XparseInput base = XparseInput.parse(document.getDocumentElement());
-				base.gen(new XGenConfig(this));
+				XGenConfig genConfig = new XGenConfig(this);
+				genConfig.state_name = "Example";
+				base.gen(genConfig);
 				//System.out.println(XGenInputFill2.gen(base));
 			}
 			else
@@ -279,7 +281,8 @@ public class Xparse
 		}
 		catch(Exception e)
 		{
-			System.err.println(String.format("'%s' file complie fail,will be ignored.",xml_path));
+			System.err.println(String.format("'%s' file complie fail,will be ignored.cause %s",xml_path,e.getMessage()));
+			e.printStackTrace();
 		}
     }
     

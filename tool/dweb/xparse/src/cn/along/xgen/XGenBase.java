@@ -13,12 +13,12 @@ public class XGenBase
     
     public void write_file(String dir,String filename,String context) throws IOException
     {
-        File f = new File(dir,filename);
+        File f = new File(dir,filename+".java");
         if(!f.createNewFile())
         {
-            throw new IOException(String.format("file:':%s' exists",f.getCanonicalPath()));
+            //throw new IOException(String.format("file:':%s' exists",f.getCanonicalPath()));
         }
-        
+        System.out.println(String.format("Write file '%s'",f.getCanonicalPath()));
         FileOutputStream fos = new FileOutputStream(f);
         fos.write(context.getBytes());
         fos.close();

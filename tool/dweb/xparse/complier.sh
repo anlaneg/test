@@ -77,8 +77,8 @@ function run_test()
 function run()
 {
     class_path=`get_class_path`
-    echo "java -classpath $class_path cn.along.xparse.Xparse -d . -o ./bin/ -d /usr/bin/"
-    java -classpath $class_path cn.along.xparse.Xparse -d . -d ../xparse -O ./bin/ 
+    echo "java -classpath $class_path cn.along.xparse.Xparse -d . -o ./gen/ -d /usr/bin/"
+    java -classpath $class_path cn.along.xparse.Xparse -d . -d ../xparse -O ./gen/ 
 }
 
 complier
