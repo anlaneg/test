@@ -6,7 +6,6 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import cn.along.condb.exception.DBException;
 import cn.along.xgen.common.IteratorHelper;
 import cn.along.xgen.common.XGenException;
 import cn.along.xgen.common.XgenUnSupportException;
@@ -133,111 +132,11 @@ public class XparseSql extends XparseBase
         return builder.toString();
     }
 
-    private void createSqlLoadFunctionInnert(StringBuilder builder,
-            XparseInput input) throws XGenException
+    private String genProcFillFunction(XparseInput input, IteratorHelper helper)
     {
-        if ("select".equals(this.type))
-        {
-            this.createSelectSqlLoadFunction(builder, input);
-        }
-        else if ("insert".equals(this.type) || "delete".equals(this.type)
-                || "update".equals(this.type))
-        {
-            this.createUpdateSqlLoadFunction(builder, input);
-        }
-        else if ("proc".equals(this.type))
-        {
-            // this.createProcSqlLoadFunction(builder);
-            throw new XgenUnSupportException();
-        }
-        else
-        {
-            throw new XgenUnSupportException();
-        }
-    }
-
-    private void createUpdateSqlLoadFunction(StringBuilder builder,
-            XparseInput input) throws XGenException
-    {
-        if (input.getStyle() == "array")
-        {
-            throw new XgenUnSupportException();
-        }
-        else
-        {
-            builder.append("String sql=\"" + this.sql + "\";\n");
-            if (this.params.size() > 0)
-            {
-                builder.append("HashMap<String,Object> param = new HashMap<String,Object>()\n");
-                for (int i = 0; i < this.params.size(); ++i)
-                {
-                    XparseParameter xparameter = this.params.elementAt(i);
-                    // String type = xparameter.getType();
-                    String name = xparameter.getName();
-                    String value = xparameter.getValue();
-                    builder.append("param.put(\"" + name + "\"" + ", \""
-                            + value + "\")\n");
-                }
-            }
-            builder.append("SimpleDBAccess.update(sql, this.$0, this.$0,"
-                    + ((this.params.size() > 0) ? "param" : "null") + ");\n");
-        }
-    }
-
-    private void createSelectSqlLoadFunction(StringBuilder builder,
-            XparseInput input) throws XGenException
-    {
-        if (input.getStyle() == "array")
-        {
-            throw new XgenUnSupportException();
-        }
-        else
-        {
-            builder.append("String sql=\"" + this.sql + "\";\n");
-            if (this.params.size() > 0)
-            {
-                builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
-                for (int i = 0; i < this.params.size(); ++i)
-                {
-                    XparseParameter xparameter = this.params.elementAt(i);
-                    // String type = xparameter.getType();
-                    String name = xparameter.getName();
-                    String value = xparameter.getValue();
-                    builder.append("param.put(\"" + name + "\"" + ", \""
-                            + value + "\")\n");
-                }
-            }
-            builder.append("SimpleDBAccess.loadOne(sql, this.$0, this.$0,"
-                    + ((this.params.size() > 0) ? "param" : "null") + ");\n");
-        }
-    }
-
-    /**
-     * 通过sql语句的执行结果来填充结构体
-     * 
-     * @return
-     * @throws XGenException
-     */
-    public String createSqlLoadFunction(XparseInput input) throws XGenException
-    {
-        StringBuilder builder = new StringBuilder();
-
-        // gen function head
-        builder.append("public void sqlload_" + this.name + "()\n");
-        builder.append("{\n");
-        this.createSqlLoadFunctionInnert(builder, input);
-        builder.append("}\n");
-        return builder.toString();
-    }
-
-    public String createSqlParameter(String prefix, XparseInput input)
-            throws XGenException
-    {
-        // StringBuilder builder = new StringBuilder();
         throw new XgenUnSupportException();
-        // return "";
     }
-
+    
     private String genUpdateFillFunction(XparseInput input,
             IteratorHelper helper)
     {
@@ -305,6 +204,10 @@ public class XparseSql extends XparseBase
         else if ("insert".equals(this.type) || "update".equals(this.type) || "delete".equals(this.type))
         {
             return this.genUpdateFillFunction(input, helper);
+        }
+        else if("proc".equals(this.type))
+        {
+            return this.genProcFillFunction(input,helper);
         }
         return null;
     }
