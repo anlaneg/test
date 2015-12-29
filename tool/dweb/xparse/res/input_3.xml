@@ -1,24 +1,24 @@
 <input>
-	<struct name="a" type="Logins">
-		<member name="username" type="String" />
-		<member name="password" type="String" />
-		<member name="dummy" type="int" />
-		<member name="dummy2" type="class:B[]" length="2,2" />
-	</struct>
-	<sql name="get_logins">
-		<select>select * from login</select>
-	</sql>
+    <struct name="a" type="Logins">
+        <member name="username" type="String" />
+        <member name="password" type="String" />
+        <member name="dummy" type="int" />
+        <member name="dummy2" type="class:B[]" length="2,2" />
+    </struct>
+    <sql name="get_logins">
+        <select>select * from login</select>
+    </sql>
 
-	<sql name="filter_logins">
-		<select>select * from login where username=@username@ and
-			password=@password@</select>
-	</sql>
+    <sql name="filter_logins">
+        <select>select * from login where username=@username@ and
+            password=@password@</select>
+    </sql>
 
-	<sql name="add_login">
-		<insert>insert login(name,password) values(@name@,@password@)</insert>
-	</sql>
+    <sql name="add_login">
+        <insert>insert login(name,password) values(@name@,@password@)</insert>
+    </sql>
 
-	<sql name="delete_login">
-		<delete>delete from login where username=@username@</delete>
-	</sql>
+    <sql name="delete_login">
+        <delete>delete from login where username=@username@</delete>
+    </sql>
 </input>

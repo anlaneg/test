@@ -1,15 +1,24 @@
 <input>
-	<struct name="login" type="Logins_2">
-		<member name="username" type="String" />
-		<member name="password" type="String" />
-		<member name="dummy" type="String" />
-	</struct>
-	<sql name="select">
-		<select>select * from login where username = @username@ and 1=@dummy@</select>
-		<param name="dummy" type="String">1</param>
-	</sql>
-	<sql name="login_insert">
-		<insert>insert login(username,password) values(@username@,@password@)</insert>
-		<param name="password" type="String">default-password</param>
-	</sql>
+    <struct name="login" type="just_test">
+        <member name="var1" type="byte" default="1" />
+        <member name="var2" type="char" default="a" />
+        <member name="var3" type="short" default="1" />
+        <member name="var4" type="int" default="1" />
+        <member name="var5" type="long" default="1" />
+        <member name="var6" type="String" default="var1" />
+        <member name="var7" type="byte[]" length="2,2" default="2,3,4,5" />
+        <member name="var8" type="char[]" length="3" default="2,3,4,5" />
+        <member name="var9" type="int[]" length="4" default="split:2:3:4:5:6" />
+        <member name="var10" type="long[]" length="4,3" default="split:2:3:4:5:6" />
+        <member name="var11" type="String[]" length="4" default="split:2:3:4:5:6" />
+        <member name="var12" type="class:B" />
+    </struct>
+    <sql name="select">
+        <select>select * from login where username = @username@ and 1=@dummy@</select>
+        <param name="dummy" type="String">1</param>
+    </sql>
+    <sql name="login_insert">
+        <insert>insert login(username,password) values(@username@,@password@)</insert>
+        <param name="password" type="String">default-password</param>
+    </sql>
 </input>
