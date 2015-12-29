@@ -19,6 +19,15 @@ public class StringUtil
         }
         return builder.toString();
     }
+    
+    private static String makeIndent(int count)
+    {
+        if(count == 0)
+        {
+            return "";
+        }
+        return StringUtil.times(" ",count-1);
+    }
 
     public static String[] parseArray(String strArray)
     {
@@ -27,9 +36,50 @@ public class StringUtil
         {
             split_char = strArray.charAt(StringUtil.split_keyword.length())
                     + "";
-            strArray = strArray.substring(StringUtil.split_keyword.length()+1);
+            strArray = strArray
+                    .substring(StringUtil.split_keyword.length() + 1);
         }
 
         return strArray.split(split_char);
+    }
+
+    public static String codeFormat(String code)
+    {
+        String[] lines = code.split("\n");
+        StringBuilder builder = new StringBuilder();
+
+        int indent = 0;
+        final int indent_size = 4;
+        for (int i = 0; i < lines.length; ++i)
+        {
+            //System.err.println("[" + i + "]=" + lines[i]);
+            
+      
+            if (lines[i].equals("{"))
+            {
+                builder.append(StringUtil.makeIndent(indent));
+                builder.append("{\n");
+                indent += indent_size;
+                continue;
+            }
+
+            if (lines[i].equals("}") || lines[i].equals("};") || lines[i].equals("},"))
+            {
+                indent -= indent_size;
+                builder.append(StringUtil.makeIndent(indent));
+                builder.append(lines[i]);
+                builder.append("\n");
+                continue;
+            }
+            
+            builder.append(StringUtil.makeIndent(indent));
+            builder.append(lines[i]);
+            builder.append("\n");
+        }
+
+        //return builder.toString();
+        String ret = builder.toString();
+        //System.err.println(ret);
+        return ret;
     }
 }

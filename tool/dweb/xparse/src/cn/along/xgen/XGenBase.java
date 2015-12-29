@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import cn.along.xgen.common.StringUtil;
+
 public class XGenBase
 {
     public String gen(XGenConfig config)
@@ -20,7 +22,7 @@ public class XGenBase
         }
         System.out.println(String.format("Write file '%s'",f.getCanonicalPath()));
         FileOutputStream fos = new FileOutputStream(f);
-        fos.write(context.getBytes());
+        fos.write(StringUtil.codeFormat(context).getBytes());
         fos.close();
     }
 }

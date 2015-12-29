@@ -252,8 +252,8 @@ public class XparseInput extends XparseBase
                     }
                 });
 
-        builder.append("\tpublic void filler() throws DBException\n");
-        builder.append("\t{\n");
+        builder.append("public void filler() throws DBException\n");
+        builder.append("{\n");
         this.inputFillerForEach(new Object[] { builder },
                 new IInputFillerIterator()
                 {
@@ -270,7 +270,7 @@ public class XparseInput extends XparseBase
                     }
 
                 });
-        builder.append("\t}\n");
+        builder.append("}\n");
         return builder.toString();
     }
 
@@ -287,7 +287,7 @@ public class XparseInput extends XparseBase
                             Object[] arg)
                     {
                         StringBuilder builder = (StringBuilder) arg[0];
-                        builder.append("\tprivate "
+                        builder.append("private "
                                 + StringUtil.initialUpper(struct.getType())
                                 + " $" + helper.getElementIndex() + ";\n");
 
@@ -303,7 +303,7 @@ public class XparseInput extends XparseBase
     private String genClassContructor(String fill_name)
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("\tpublic " + StringUtil.initialUpper(fill_name) + "(");
+        builder.append("public " + StringUtil.initialUpper(fill_name) + "(");
         this.inputStructForEach(new Object[] { builder },
                 new IInputStructIterator()
                 {
@@ -324,7 +324,7 @@ public class XparseInput extends XparseBase
 
                 });
         builder.append(")\n");
-        builder.append("\t{\n");
+        builder.append("{\n");
         this.inputStructForEach(new Object[] { builder },
                 new IInputStructIterator()
                 {
@@ -334,13 +334,13 @@ public class XparseInput extends XparseBase
                             Object[] arg)
                     {
                         StringBuilder builder = (StringBuilder) arg[0];
-                        builder.append("\t\tthis.$" + helper.getElementIndex()
+                        builder.append("this.$" + helper.getElementIndex()
                                 + "=$" + helper.getElementIndex() + ";\n");
                     }
 
                 });
 
-        builder.append("\t}\n");
+        builder.append("}\n");
 
         return builder.toString();
     }

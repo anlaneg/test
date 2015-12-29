@@ -255,9 +255,9 @@ public class XparseStructMember extends XparseBase
 
         for (int i = 0; i < this.length[idx]; ++i)
         {
-            builder.append("{\n");
+            builder.append("\n{\n");
             id = this.output_default(builder, def, idx + 1, id, elementOutput);
-            builder.append("}");
+            builder.append("\n}");
             if (i != this.length[idx] - 1)
             {
                 builder.append(",");
@@ -271,7 +271,7 @@ public class XparseStructMember extends XparseBase
         if (this.is_array)
         {
             StringBuilder builder = new StringBuilder();
-            builder.append(String.format("new %s%s {\n", this.type,
+            builder.append(String.format("new %s%s \n{\n", this.type,
                     StringUtil.times("[]", this.length.length - 1)));
             this.output_default(builder, StringUtil.parseArray(this.def), 0, 0,
                     new IElementOutput()
@@ -290,7 +290,7 @@ public class XparseStructMember extends XparseBase
                                     + "Value(\"" + value + "\")";
                         }
                     });
-            builder.append("};\n");
+            builder.append("\n};\n");
             return builder.toString();
         }
         else
@@ -306,7 +306,7 @@ public class XparseStructMember extends XparseBase
         if (this.is_array)
         {
             StringBuilder builder = new StringBuilder();
-            builder.append(String.format("new %s%s {\n", this.type,
+            builder.append(String.format("new %s%s \n{\n", this.type,
                     StringUtil.times("[]", this.length.length - 1)));
             this.output_default(builder, StringUtil.parseArray(this.def), 0, 0,
                     new IElementOutput()
@@ -327,12 +327,12 @@ public class XparseStructMember extends XparseBase
                             return "new " + type + "(" + value + ")";
                         }
                     });
-            builder.append("};\n");
+            builder.append("\n};\n");
             return builder.toString();
         }
         else
         {
-            return "new " + this.type + "()";
+            return "new " + this.type + "();";
         }
     }
 

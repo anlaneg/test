@@ -165,21 +165,21 @@ public class XparseSql extends XparseBase
         }
         else
         {
-            builder.append("\tString sql=\"" + this.sql + "\";\n");
+            builder.append("String sql=\"" + this.sql + "\";\n");
             if (this.params.size() > 0)
             {
-                builder.append("\tHashMap<String,Object> param = new HashMap<String,Object>()\n");
+                builder.append("HashMap<String,Object> param = new HashMap<String,Object>()\n");
                 for (int i = 0; i < this.params.size(); ++i)
                 {
                     XparseParameter xparameter = this.params.elementAt(i);
                     // String type = xparameter.getType();
                     String name = xparameter.getName();
                     String value = xparameter.getValue();
-                    builder.append("\tparam.put(\"" + name + "\"" + ", \""
+                    builder.append("param.put(\"" + name + "\"" + ", \""
                             + value + "\")\n");
                 }
             }
-            builder.append("\tSimpleDBAccess.update(sql, this.$0, this.$0,"
+            builder.append("SimpleDBAccess.update(sql, this.$0, this.$0,"
                     + ((this.params.size() > 0) ? "param" : "null") + ");\n");
         }
     }
@@ -193,21 +193,21 @@ public class XparseSql extends XparseBase
         }
         else
         {
-            builder.append("\tString sql=\"" + this.sql + "\";\n");
+            builder.append("String sql=\"" + this.sql + "\";\n");
             if (this.params.size() > 0)
             {
-                builder.append("\tHashMap<String,Object> param = new HashMap<String,Object>();\n");
+                builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
                 for (int i = 0; i < this.params.size(); ++i)
                 {
                     XparseParameter xparameter = this.params.elementAt(i);
                     // String type = xparameter.getType();
                     String name = xparameter.getName();
                     String value = xparameter.getValue();
-                    builder.append("\tparam.put(\"" + name + "\"" + ", \""
+                    builder.append("param.put(\"" + name + "\"" + ", \""
                             + value + "\")\n");
                 }
             }
-            builder.append("\tSimpleDBAccess.loadOne(sql, this.$0, this.$0,"
+            builder.append("SimpleDBAccess.loadOne(sql, this.$0, this.$0,"
                     + ((this.params.size() > 0) ? "param" : "null") + ");\n");
         }
     }
@@ -284,7 +284,7 @@ public class XparseSql extends XparseBase
                 // String type = xparameter.getType();
                 String name = xparameter.getName();
                 String value = xparameter.getValue();
-                builder.append("\tparam.put(\"" + name + "\"" + ", \"" + value
+                builder.append("param.put(\"" + name + "\"" + ", \"" + value
                         + "\");\n");
             }
         }

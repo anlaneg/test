@@ -138,10 +138,10 @@ public class XparseStruct extends XparseBase
     private String genClassContructor()
     {
         StringBuilder builder = new StringBuilder();
-        builder.append("\tpublic " + StringUtil.initialUpper(this.getType())
+        builder.append("public " + StringUtil.initialUpper(this.getType())
                 + "()\n");
-        builder.append("\t{\n");
-        builder.append("\t\t//set member default value\n");
+        builder.append("{\n");
+        builder.append("//set member default value\n");
         this.structMemberForEach(builder, new IStructMemberIterator()
         {
 
@@ -150,11 +150,11 @@ public class XparseStruct extends XparseBase
                     XparseStructMember member, Object arg)
             {
                 StringBuilder builder = (StringBuilder) arg;
-                //builder.append("\t\t//set " + member.getVariableName() + " default value\n");
-                builder.append("\t\tthis." + member.getVariableName() + "=" + member.getContructor() + "\n");
+                //builder.append("//set " + member.getVariableName() + " default value\n");
+                builder.append("this." + member.getVariableName() + "=" + member.getContructor() + "\n");
             }
         });     
-        builder.append("\t}\n\n");
+        builder.append("}\n\n");
         return builder.toString();
     }
 
@@ -169,8 +169,8 @@ public class XparseStruct extends XparseBase
                     XparseStructMember member, Object arg)
             {
                 StringBuilder builder = (StringBuilder) arg;
-                builder.append("\t// " + member.getComment().replaceAll("\n", " ") + "\n");
-                builder.append("\tprivate " + member.getType() + " "
+                builder.append("// " + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("private " + member.getType() + " "
                         + member.getVariableName() + ";\n\n");
             }
         });
@@ -189,24 +189,24 @@ public class XparseStruct extends XparseBase
                     XparseStructMember member, Object arg)
             {
                 StringBuilder builder = (StringBuilder) arg;
-                builder.append("\t//set " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
-                builder.append("\tpublic void set"
+                builder.append("//set " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("public void set"
                         + StringUtil.initialUpper(member.getVariableName())
                         + "(" + member.getType() + " "
                         + member.getVariableName() + ")\n");
-                builder.append("\t{\n");
-                builder.append("\t\tthis." + member.getVariableName() + "="
+                builder.append("{\n");
+                builder.append("this." + member.getVariableName() + "="
                         + member.getVariableName() + ";\n");
-                builder.append("\t}\n\n");
+                builder.append("}\n\n");
 
-                builder.append("\t//get " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
-                builder.append("\tpublic " + member.getType() + " get"
+                builder.append("//get " + member.getVariableName() + ":" + member.getComment().replaceAll("\n", " ") + "\n");
+                builder.append("public " + member.getType() + " get"
                         + StringUtil.initialUpper(member.getVariableName())
                         + "()\n");
-                builder.append("\t{\n");
-                builder.append("\t\treturn this." + member.getVariableName()
+                builder.append("{\n");
+                builder.append("return this." + member.getVariableName()
                         + ";\n");
-                builder.append("\t}\n\n");
+                builder.append("}\n\n");
 
             }
         });
