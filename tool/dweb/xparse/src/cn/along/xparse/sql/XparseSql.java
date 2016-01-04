@@ -16,12 +16,12 @@ import cn.along.xparse.input.XparseInput;
 import cn.along.xparse.parameter.XparseParameter;
 
 /**
- * <!-- 1. sql语句是否需要包含多条sql (不需要) 
- *       2. 是否应实现两类标签来表示input,output (不需要) 
- *       3. 结果集如何map * ?(强制规定格式) 
- *   --> 
- *       <sql name=""> <select/insert/delete/update/proc></select>
- *      <param type="string" >$INPUT.user_name</param> </sql>
+ * <!-- 1. sql语句是否需要包含多条sql (不需要)
+ * 2. 是否应实现两类标签来表示input,output (不需要)
+ * 3. 结果集如何map * ?(强制规定格式)
+ * -->
+ * <sql name=""> <select/insert/delete/update/proc></select>
+ * <param type="string" >$INPUT.user_name</param> </sql>
  * 
  * @author samsung
  *
@@ -134,9 +134,30 @@ public class XparseSql extends XparseBase
 
     private String genProcFillFunction(XparseInput input, IteratorHelper helper)
     {
-        throw new XgenUnSupportException();
+        StringBuilder builder = new StringBuilder();
+        builder.append("private void ");
+        builder.append(this.get_proc_fill_function_name());
+        builder.append("() throws DBException\n{\n");
+        builder.append("String sql=\"{ call " + this.sql + "}\";\n");
+        if (this.params.size() > 0)
+        {
+            builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
+            for (int i = 0; i < this.params.size(); ++i)
+            {
+                XparseParameter xparameter = this.params.elementAt(i);
+                // String type = xparameter.getType();
+                String name = xparameter.getName();
+                String value = xparameter.getValue();
+                builder.append("param.put(\"" + name + "\"" + ", \"" + value
+                        + "\");\n");
+            }
+        }
+        builder.append("SimpleDBAccess.proc(sql, this.$0,"
+                + ((this.params.size() > 0) ? "param" : "null") + ");\n");
+        builder.append("}\n");
+        return builder.toString();
     }
-    
+
     private String genUpdateFillFunction(XparseInput input,
             IteratorHelper helper)
     {
@@ -173,7 +194,7 @@ public class XparseSql extends XparseBase
         builder.append(this.get_select_fill_function_name());
         builder.append("() throws DBException\n{\n");
         builder.append("String sql=\"" + this.sql + "\";\n");
-        //if sql have param and no <param> tag give,use $0
+        // if sql have param and no <param> tag give,use $0
         if (this.params.size() > 0)
         {
             builder.append("HashMap<String,Object> param = new HashMap<String,Object>();\n");
@@ -201,15 +222,16 @@ public class XparseSql extends XparseBase
         {
             return this.genSelectFillFunction(input, helper);
         }
-        else if ("insert".equals(this.type) || "update".equals(this.type) || "delete".equals(this.type))
+        else if ("insert".equals(this.type) || "update".equals(this.type)
+                || "delete".equals(this.type))
         {
             return this.genUpdateFillFunction(input, helper);
         }
-        else if("proc".equals(this.type))
+        else if ("proc".equals(this.type))
         {
-            return this.genProcFillFunction(input,helper);
+            return this.genProcFillFunction(input, helper);
         }
-        return null;
+        throw new XgenUnSupportException();
     }
 
     private String get_select_fill_function_name()
@@ -222,6 +244,11 @@ public class XparseSql extends XparseBase
         return "sql_" + this.type + "_" + this.name;
     }
 
+    private String get_proc_fill_function_name()
+    {
+        return "sql_proc_" + this.name;
+    }
+
     private String genSelectFillCall(XparseInput input, IteratorHelper helper)
     {
         return "this." + this.get_select_fill_function_name() + "();\n";
@@ -232,6 +259,11 @@ public class XparseSql extends XparseBase
         return "this." + this.get_update_fill_function_name() + "();\n";
     }
 
+    private String genProcFillCall(XparseInput input, IteratorHelper helper)
+    {
+        return "this." + this.get_proc_fill_function_name() + "();\n";
+    }
+
     @Override
     public String genFillCall(XparseInput input, IteratorHelper helper)
             throws XGenException
@@ -240,11 +272,15 @@ public class XparseSql extends XparseBase
         {
             return this.genSelectFillCall(input, helper);
         }
-        else if ("insert".equals(this.type) || "update".equals(this.type) || "delete".equals(this.type))
+        else if ("insert".equals(this.type) || "update".equals(this.type)
+                || "delete".equals(this.type))
         {
             return this.genUpdateFillCall(input, helper);
         }
-        return null;
-
+        else if ("proc".equals(this.type))
+        {
+            return this.genProcFillCall(input, helper);
+        }
+        throw new XgenUnSupportException();
     }
 }

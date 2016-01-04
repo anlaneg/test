@@ -118,4 +118,11 @@ public class SimpleDBAccess
 		return ret;
 	}
 
+    public static <T> void proc(String sql, T object, Map<String, Object> param) throws DBException
+    {   
+        IDBConnect conn = SimpleDBAccess.getInstance().getConnect();
+        conn.callProc(sql,object,param);
+        SimpleDBAccess.getInstance().putConnect(conn);
+    }
+
 }

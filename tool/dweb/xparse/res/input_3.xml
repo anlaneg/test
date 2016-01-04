@@ -10,8 +10,7 @@
     </sql>
 
     <sql name="filter_logins">
-        <select>select * from login where username=@username@ and
-            password=@password@</select>
+        <select>select * from login where username=@username@ and password=@password@</select>
     </sql>
 
     <sql name="add_login">
@@ -20,5 +19,11 @@
 
     <sql name="delete_login">
         <delete>delete from login where username=@username@</delete>
+    </sql>
+    
+    <sql name="call_procs">
+        <proc>select_all_login(@username@)</proc>
+        <param name="username" type="String">along</param>
+        <!-- current no support OUT param -->
     </sql>
 </input>

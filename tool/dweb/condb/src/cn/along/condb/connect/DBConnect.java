@@ -99,4 +99,12 @@ public class DBConnect implements IDBConnect
 		new DBQuery(this.conn).queryOne(sql,result,src,param);
 	}
 
+    @Override
+    public <T> void callProc(String sql, T object, Map<String, Object> param)
+            throws DBException
+    {
+        // TODO Auto-generated method stub
+        new DBProc(this.conn).callProc(sql,object,param);
+    }
+
 }

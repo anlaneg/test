@@ -109,7 +109,6 @@ public class XparseStructTest
 				}
 				catch (NoSuchMethodException e)
 				{
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				catch (SecurityException e)

@@ -215,7 +215,17 @@ public class XparseInput extends XparseBase
         }
         String ret = this.gen_inner(config);
         builder.append(ret);
+
+        try
+        {
+            this.write_file(config.get_output_dir(), config.state_name, ret);
+        }
+        catch (IOException e)
+        {
+            throw new XGenException("write file fail:" + e.getMessage());
+        }
         return builder.toString();
+        //return null;
     }
 
     private String gen_inner(XGenConfig config)

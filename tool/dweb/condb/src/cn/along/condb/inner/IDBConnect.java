@@ -23,6 +23,8 @@ public interface IDBConnect
 	public <T> int update(String sql,T src, Map<String, Object> param) throws DBException;
 
 	public <T> int update(String sql, T in) throws DBException;
+	
+	public <T> void callProc(String sql, T object, Map<String, Object> param) throws DBException;
 
 	public int update(String sql) throws DBException;
 
