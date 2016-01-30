@@ -77,12 +77,27 @@ def transaction_test(session1,session2):
         
 
 def main():
-    session1=get_session()
-    session2=get_session()
+    #session1=get_session()
+    #session2=get_session()
     
-    transaction_test(session1,session2)
-    session1.close()
-    session2.close()
+    #transaction_test(session1,session2)
+    #session1.close()
+    #session2.close()
+
+    session1=get_session()
+    #直接用sql查询
+    #result = session1.execute("select * from user");
+    #直接用sql查询,并传参
+    #result = session1.execute("select * from user where user_id = :user_id",{'user_id':1})
+    #采用neutron中常见方式(返回的为User对象)
+    #result = session1.query(User).all()
+    #result = session1.query(User).first()
+    
+    #采用常见的filter
+    #result=session1.query(User).filter(User.user_id == 1).all()
+    #result=session1.query(User).filter(User.user_id >= 1, User.user_name != 'a').all()
+    for r in result if isinstance(result,list) else [result]:
+        print(r)
 #def main():
 #    u = User()
 #    #给映射类添加以下必要的属性,因为上面创建表指定这个字段不能为空,且唯一

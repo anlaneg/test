@@ -42,9 +42,10 @@ session = Session()
 def main():
     u = User()
     #给映射类添加以下必要的属性,因为上面创建表指定这个字段不能为空,且唯一
-    u.user_name='tan9le测试'
+    u.user_name='tan9le测试1'
     #按照上面创建表的相关代码，这个字段允许为空
     u.password='123456'
+    u.user_id = 1
     #在session中添加内容
     session.add(u)
     #保存数据
