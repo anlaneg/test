@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<root>
+    <title>当前欠缺的点</title>
+    <list level="++++">vm与虚拟网络对接的接口周边技术</list>
+    <list level="++++">neutron如何使用ovs的功能，ovs如何实现</list>
+    <list level="+++"> 防火墙，负载均衡，vpn与虚拟网络的集成</list>
+    <list level="+++">tcp协议栈及其优化</list>
+    <list level="++">分布式系统，分布式存储细节(ceph)</list>
+    <list level="++">SPDK 方案，DPDK方案</list>
+    <list level="+">分布式数据库系统</list>
+</root>
