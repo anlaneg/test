@@ -8,4 +8,5 @@
     <list level="++">分布式系统，分布式存储细节(ceph)</list>
     <list level="++">SPDK 方案，DPDK方案</list>
     <list level="+">分布式数据库系统</list>
+    <list level="+">no-sql分布式数据库系统</list>
 </root>
