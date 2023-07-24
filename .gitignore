@@ -2,4 +2,7 @@
 release.conf*
 tool/mms/*
 *.class
-
+.cproject
+.project
+go/gui/fyne/canvas
+go/gui/fyne/main
