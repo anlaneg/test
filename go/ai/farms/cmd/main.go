@@ -18,19 +18,20 @@ const (
 
 func main() {
 
-	game := &frame.Game{}
+	//game := &frame.Game{}
 
-	agent1 := &agent.BuildProtectRainMaigcAgent{}
+	agent1 := &agent.GreedOnlyRainMaigcAgent{}
 	agent1.Init()
 	agent1.SetName("robot1")
-	agent2 := &agent.BuildProtectOnlyAgent{}
+	//agent2 := &agent.GreedOnlyRainMaigcAgent{}
+	agent2 := &agent.BuildOneAgent{}
 	agent2.Init()
 	agent2.SetName("robot2")
 	
 	player1 := frame.NewPlayer(agent1)
 	player2 := frame.NewPlayer(agent2)
 
-	game.Init(player1, player2)
+	game := frame.Init(player1, player2)
 	fmt.Println(game.GetDuration())
 	for i := 0; i <= game.GetDuration(); i = i + 1 {
 		fmt.Printf("[%03d]%s: %f\n", i, player1.GetPlayerName(), player1.GetPlayerEarn())

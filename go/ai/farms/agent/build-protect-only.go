@@ -7,9 +7,9 @@ import (
 
 /*这个agent只建造自已的保护区*/
 type BuildProtectOnlyAgent struct {
-	name string
+	frame.Agent
 	index int
-	frame.AgentMethod
+	//frame.AgentMethod
 }
 
 func (protect *BuildProtectOnlyAgent) Init() {
@@ -31,12 +31,4 @@ func (protect *BuildProtectOnlyAgent) GetRequest() *frame.Request {
 
 func (protect *BuildProtectOnlyAgent) GetMagic() interface{} {
 	return nil
-}
-
-func (protect *BuildProtectOnlyAgent) GetName() string {
-	return protect.name
-}
-
-func (protect *BuildProtectOnlyAgent) SetName(n string) {
-	protect.name = n
 }

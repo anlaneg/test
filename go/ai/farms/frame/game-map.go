@@ -104,6 +104,14 @@ func (gameMap *GameMap) isRiver(row int, column int) bool {
 	return gameMap.v[row][column].IsRiver()
 }
 
+func (gameMap *GameMap) GetPlaceType(row int, column int) PlaceType {
+		if !gameMap.checkIndex(row, column) {
+		panic("!gameMap.checkIndex(row, column)")
+	}
+
+	return gameMap.v[row][column].name
+}
+
 func (gameMap *GameMap) _setItemName(player int, row int, column int, placeType PlaceType) {
 	if !gameMap.checkIndex(row, column) {
 		panic("!gameMap.checkIndex(row, column)")

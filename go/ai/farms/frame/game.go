@@ -14,6 +14,11 @@ type Game struct {
 	players                 [2]*Player
 }
 
+var (
+	//定义全局变量game
+	game_global = &Game{}
+)
+
 /*func (game *Game) GetItemName(row int, column int) (*ItemName, int) {
 	item0 := game.agent[0].agentMap.v[row][column]
 	item1 := game.agent[1].agentMap.v[row][column]
@@ -67,7 +72,9 @@ func (game *Game) GetDuration() int{
 
 func (game *Game) Init(player1 *Player, player2 *Player) {
 	player1.id = PlayerID_1
+	player1.ai.setPlayerID(player1.id)
 	player2.id = PlayerID_2
+	player2.ai.setPlayerID(player2.id)
 
 	game.duration = 120
 	game.workerSpeed = 12
@@ -83,9 +90,14 @@ func (game *Game) Init(player1 *Player, player2 *Player) {
 
 	for row := 0; row < GAMEMAP_MAX_ROWS; row = row + 1 {
 		for column := 0; column < GAMEMAP_MAX_COLUMNS; column = column + 1 {
-			game.gameMap.v[row][column] = &ItemName{name: "none", playerIndex: -1}
+			game.gameMap.v[row][column] = &ItemName{name: PlaceType_none, playerIndex: -1}
 		}
 	}
+}
+
+func Init(player1 *Player, player2 *Player) *Game {
+	game_global.Init(player1,player2)
+	return game_global
 }
 
 func Power(base float64, cnt int) float64 {

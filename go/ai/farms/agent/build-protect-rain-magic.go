@@ -7,9 +7,10 @@ import (
 
 /*这个agent只建造自已的保护区，同时在cd时间内总对自已的保护区下雨*/
 type BuildProtectRainMaigcAgent struct {
-	name string
+	//name string
+	frame.Agent
 	index int
-	frame.AgentMethod
+	//frame.AgentMethod
 }
 
 func (protect *BuildProtectRainMaigcAgent) Init() {
@@ -31,12 +32,4 @@ func (protect *BuildProtectRainMaigcAgent) GetRequest() *frame.Request {
 func (protect *BuildProtectRainMaigcAgent) GetMagic() interface{} {
 	/*rain for protect area*/
 	return &frame.Rain{Column:1}
-}
-
-func (protect *BuildProtectRainMaigcAgent) GetName() string {
-	return protect.name
-}
-
-func (protect *BuildProtectRainMaigcAgent) SetName(n string) {
-	protect.name = n
 }
