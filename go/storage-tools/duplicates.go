@@ -1,12 +1,12 @@
 package main
 
 import (
+	"crypto/md5"
 	"flag"
 	"fmt"
-	"os"
-	"path/filepath"
-	"crypto/md5"
 	"io"
+	"os"
+	//"path/filepath"
 )
 
 const (
@@ -131,34 +131,56 @@ func (opt *DupOpt) validator() bool {
 	return true
 }
 
-func doFileMD5(path string) (string,error){
+func doFileMD5(path string) (string, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return "",err
+		return "", err
 	}
 	defer f.Close()
 
 	h := md5.New()
 	if _, err := io.Copy(h, f); err != nil {
-		return "",err
+		return "", err
 	}
 
-	return fmt.Sprintf("%x",h.Sum(nil)), nil
+	return fmt.Sprintf("%x", h.Sum(nil)), nil
 }
 
-func doPartFileMD5(path string,info os.FileInfo) (string,error){
+func doMD5(path string, offset int64, length int64) (string, error) {
 	f, err := os.Open(path)
 	if err != nil {
-		return "",err
+		return "", err
 	}
 	defer f.Close()
 
+	secReader := io.NewSectionReader(f, offset, length)
 	h := md5.New()
-	if _, err := io.Copy(h, f); err != nil {
-		return "",err
+	if _, err := io.Copy(h, secReader); err != nil {
+		return "", err
 	}
 
-	return fmt.Sprintf("%x",h.Sum(nil)), nil
+	return fmt.Sprintf("%x", h.Sum(nil)), nil
+}
+
+func doPartFileMD5(path string, info os.FileInfo) (string, error) {
+	fileSize := info.Size()
+	const M int64 = 1 * 1024 * 1024
+	if fileSize < 1*M {
+		//1M
+		return doFileMD5(path)
+	} else if fileSize < 10*M {
+		//bigger than 1M
+		return doMD5(path, 0, 1*M)
+	} else if fileSize < 100*M {
+		//bigger than 10M
+		return doMD5(path, 5*M, 1*M)
+	} else if fileSize < 1*1024*M {
+		// bigger than 100M
+		return doMD5(path, 50*M, 1*M)
+	} else {
+		// bigger than 1G
+		return doMD5(path, 100*M, 1*M)
+	}
 }
 
 func main() {
@@ -167,60 +189,19 @@ func main() {
 		os.Exit(1)
 	}
 
-	type FileInfoCollect struct {
-		size int64
-		name string
-		md5  string
+	result, totalFiles, err := duplicates(optGlobal)
+	if err != nil {
+		fmt.Printf("error:%s", err.Error())
+		os.Exit(1)
 	}
 
-	filesInfo := make(map[string]interface{}, 0)
-	for id, path := range optGlobal.src_path {
-		path , _ = filepath.Abs(path)
-		fmt.Printf("target %d=%s\n", id, path)
-		err := filepath.Walk(path, func(path string, info os.FileInfo, err error) error {
-			name := info.Name()
-			if "." == name || ".." == name {
-				fmt.Printf("skip dir %s\n", name)
-				return nil
-			}
-
-			mode := info.Mode()
-			if mode.IsRegular() {
-				fileInfoCollect := &FileInfoCollect{
-					name:name,
-					size:info.Size(),
-				}
-				var e error = nil
-				if optGlobal.cmp_part_data {
-					fileInfoCollect.md5,e = doPartFileMD5(path,info)
-				} else if optGlobal.cmp_full_data {
-					fileInfoCollect.md5,e = doFileMD5(path)
-				}
-				if e != nil {
-					fmt.Printf("search file %s,err=%s\n", path, e.Error())
-				} else {
-					//fmt.Printf("search file %s,md5=%s\n", path, string(fileInfoCollect.md5))
-				}
-				filesInfo[path] = fileInfoCollect
-				//fmt.Printf("search file %s,name=%s\n", path, name)
-				return nil
-			}
-
-			return nil
-		})
-		if err != nil {
-			fmt.Println(err.Error())
-		} else {
-			for k,v := range(filesInfo) {
-				info ,ok := v.(*FileInfoCollect)
-				if !ok {
-					fmt.Printf("error type")
-					continue
-				}
-				
-				fmt.Printf("name=%s,size=%d,md5=%s,path=%s\n",info.name,info.size,info.md5,k)
-			}
-			fmt.Printf("total=%d\n",len(filesInfo))
+	for key, v := range result {
+		fmt.Printf("md5=%s:\n", key)
+		for _, info := range v {
+			fmt.Printf("\t*size=%d,path=%s\n", info.size, info.path)
 		}
+		//fmt.Println()
 	}
+
+	fmt.Printf("total=%d\n", totalFiles)
 }
