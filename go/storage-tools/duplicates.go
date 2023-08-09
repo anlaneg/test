@@ -81,18 +81,36 @@ func argmentsParse() {
 			continue 
 		}
 		
-		stat, err := os.Stat(path)
+		stat, err := os.Lstat(path)
 		if err != nil {
 			fmt.Printf("os.Stat error %s\n", err.Error())
 			continue
 		}
 
 		mode := stat.Mode()
-		if !mode.IsDir() && !mode.IsRegular() {
+		if mode.Type() & os.ModeSymlink != 0 {
+			path , err = os.Readlink(path)
+			if err != nil {
+				fmt.Printf("Symlink path %s error\n", path)
+				continue
+			} else {
+				fmt.Printf("replace symlink %s to %s\n", p, path)
+			}
+			
+			stat, err = os.Stat(path)
+			if err != nil {
+				fmt.Printf("os.Stat error %s\n", err.Error())
+				continue
+			}
+			mode = stat.Mode()
+		}
+		
+		if !mode.IsDir() && !mode.IsRegular(){
 			fmt.Printf("path %s error\n", path)
 			continue
 		}
 		
+		//fmt.Printf("%s mode:%s, is symlink %d\n",path, mode.String(), mode.Type() & os.ModeSymlink)
 		set[path] = 1
 	}
 
