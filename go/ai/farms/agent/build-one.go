@@ -8,7 +8,6 @@ import (
 /*这种agnet保在保护区建一个frame*/
 type BuildOneAgent struct {
 	frame.Agent
-	//frame.AgentMethod
 }
 
 func (one *BuildOneAgent) GetRequest() *frame.Request {
@@ -24,9 +23,6 @@ func (one *BuildOneAgent) GetRequest() *frame.Request {
 		return &frame.Request{Name:frame.PlaceType_garden,Row:row,Column:column}
 	}
 	return nil
-}
-
-func (one *BuildOneAgent) Init() {
 }
 
 func (one *BuildOneAgent) GetMagic() interface{} {

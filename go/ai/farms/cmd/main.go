@@ -23,8 +23,8 @@ func main() {
 	agent1 := &agent.GreedOnlyRainMaigcAgent{}
 	agent1.Init()
 	agent1.SetName("robot1")
-	//agent2 := &agent.GreedOnlyRainMaigcAgent{}
-	agent2 := &agent.BuildOneAgent{}
+	agent2 := &agent.GreedOnlyRainMaigcAgent{}
+	//agent2 := &agent.BuildOneAgent{}
 	agent2.Init()
 	agent2.SetName("robot2")
 	

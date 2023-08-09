@@ -7,14 +7,7 @@ import (
 
 /*这个agent会建造自已的保护区和任何空着的公共区，同时在cd时间内总对自已的保护区下雨*/
 type GreedOnlyRainMaigcAgent struct {
-	//name string
-	//index int
 	frame.Agent
-	//frame.AgentMethod
-}
-
-func (protect *GreedOnlyRainMaigcAgent) Init() {
-	//protect.index = 0
 }
 
 func (protect *GreedOnlyRainMaigcAgent) GetRequest() *frame.Request {

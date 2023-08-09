@@ -7,10 +7,8 @@ import (
 
 /*这个agent只建造自已的保护区，同时在cd时间内总对自已的保护区下雨*/
 type BuildProtectRainMaigcAgent struct {
-	//name string
 	frame.Agent
 	index int
-	//frame.AgentMethod
 }
 
 func (protect *BuildProtectRainMaigcAgent) Init() {

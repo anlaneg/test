@@ -9,7 +9,6 @@ import (
 type BuildProtectOnlyAgent struct {
 	frame.Agent
 	index int
-	//frame.AgentMethod
 }
 
 func (protect *BuildProtectOnlyAgent) Init() {
