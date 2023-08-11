@@ -1,10 +1,10 @@
 package main
 
 import (
-	"crypto/md5"
+	//"crypto/md5"
 	"flag"
 	"fmt"
-	"io"
+	//"io"
 	"os"
 	"path/filepath"
 )
@@ -150,40 +150,28 @@ func (opt *DupOpt) validator() bool {
 	return true
 }
 
-func doFileMD5(path string) (string, error) {
-	f, err := os.Open(path)
-	if err != nil {
-		return "", err
-	}
-	defer f.Close()
-
-	h := md5.New()
-	if _, err := io.Copy(h, f); err != nil {
-		return "", err
-	}
-
-	return fmt.Sprintf("%x", h.Sum(nil)), nil
-}
-
 func main() {
 	argmentsParse()
 	if !optGlobal.validator() {
 		os.Exit(1)
 	}
 
-	result, totalFiles, err := duplicates(optGlobal)
+	var totalFiles int = 0
+	result, err := duplicatesFirst(optGlobal, &totalFiles)
 	if err != nil {
 		fmt.Printf("error:%s", err.Error())
 		os.Exit(1)
 	}
 
-	for key, v := range result {
-		fmt.Printf("md5=%s:\n", key)
-		for _, info := range v {
-			fmt.Printf("\t*size=%d,path=%s\n", info.size, info.path)
+	if optGlobal.cmp_full_data && len(result) > 0 {
+		result, err = duplicatesLast(result)
+		if err != nil {
+			fmt.Printf("error:%s", err.Error())
+			os.Exit(1)
 		}
-		//fmt.Println()
 	}
+	
+	duplicatesFprint(os.Stdout, result)
 
-	fmt.Printf("total=%d\n", totalFiles)
+	fmt.Printf("duplicates=%d,total=%d\n", len(result), totalFiles)
 }

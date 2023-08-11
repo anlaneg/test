@@ -4,9 +4,16 @@ import (
 	//"crypto/md5"
 	//"flag"
 	"fmt"
-	//"io"
+	"io"
 	"os"
 	"path/filepath"
+	"strings"
+	"sort"
+	"strconv"
+)
+
+const (
+	split_string = "-"
 )
 
 type FileInfo struct {
@@ -89,15 +96,10 @@ func collectFileInfo(opt *DupOpt) (map[string]*FileInfo, error) {
 	return result, len(filesInfo), nil
 }*/
 
-func duplicates(opt *DupOpt) (map[string][]*FileInfo, int, error) {
-	filesInfo, err := collectFileInfo(opt)
-	if err != nil {
-		return nil, 0, err
-	}
-
+func duplicates(fileInfos map[string]*FileInfo) (map[string][]*FileInfo, error) {
 	result := make(map[string][]*FileInfo, 0)
-	for _, info := range filesInfo {
-		result_key := fmt.Sprintf("%s-%d", info.md5, info.size)
+	for _, info := range fileInfos {
+		result_key := fmt.Sprintf("%s%s%d", info.md5, split_string, info.size)
 		if _, dup := result[result_key]; !dup {
 			result[result_key] = []*FileInfo{info}
 		} else {
@@ -111,5 +113,106 @@ func duplicates(opt *DupOpt) (map[string][]*FileInfo, int, error) {
 		}
 	}
 
-	return result, len(filesInfo), nil
+	return result, nil
+}
+
+func duplicatesFirst(opt *DupOpt, total *int) (map[string][]*FileInfo, error) {
+	filesInfos, err := collectFileInfo(opt)
+	if err != nil {
+		*total = 0
+		return nil, err
+	}
+
+	*total = len(filesInfos)
+	return duplicates(filesInfos)
+}
+
+func collectFileInfoFromMap(mid map[string][]*FileInfo) (map[string]*FileInfo, error) {
+	result := make(map[string]*FileInfo, 0)
+	for _, array := range mid {
+		for _, info := range array {
+			var err error
+			info.md5, err = doWholeFileMD5(info)
+			if err != nil {
+				return nil, err
+			}
+			result[info.path] = info
+		}
+	}
+
+	return result, nil
+}
+
+func duplicatesLast(mid map[string][]*FileInfo) (map[string][]*FileInfo, error) {
+	filesInfos, err := collectFileInfoFromMap(mid)
+	if err != nil {
+		return nil, err
+	}
+
+	return duplicates(filesInfos)
+}
+
+type DupMD5Keys struct {
+	md5Keys []string
+}
+
+func newDupMD5Keys() *DupMD5Keys {
+	return &DupMD5Keys{md5Keys: make([]string, 0)}
+}
+
+func (keys *DupMD5Keys) append(key string) {
+	keys.md5Keys = append(keys.md5Keys, key)
+}
+
+// Len is part of sort.Interface.
+func (keys *DupMD5Keys) Len() int {
+	return len(keys.md5Keys)
+}
+
+// Swap is part of sort.Interface.
+func (keys *DupMD5Keys) Swap(i, j int) {
+	keys.md5Keys[i], keys.md5Keys[j] = keys.md5Keys[j], keys.md5Keys[i]
+}
+
+// Less is part of sort.Interface.
+func (keys *DupMD5Keys) Less(i, j int) bool {
+	key_i, key_j := keys.md5Keys[i], keys.md5Keys[j]
+	split_i, split_j := strings.Split(key_i,split_string), strings.Split(key_j,split_string)
+	
+	var size_i, size_j int64
+	if len(split_i) < 2 {
+		size_i = 0
+	} else {
+		size_i, _ = strconv.ParseInt(split_i[1], 10, 64)
+	}
+	
+	if len(split_j) < 2 {
+		size_j = 0
+	} else {
+		size_j, _ = strconv.ParseInt(split_j[1], 10, 64)
+	}
+	
+	return size_i < size_j
+}
+
+func duplicatesFprint(w io.Writer, result map[string][]*FileInfo) error {
+	//collect key
+	keys := newDupMD5Keys()
+	for key, _ := range result {
+		keys.append(key)
+	}
+
+	//sort by md5 key
+	sort.Sort(keys)
+	
+	//print
+	for _, key := range keys.md5Keys {
+		fmt.Fprintf(w, "md5=%s:\n", key)
+		v := result[key]
+		for _, info := range v {
+			fmt.Fprintf(w, "\t*size=%d,path=%s\n", info.size, info.path)
+		}
+	}
+	
+	return nil
 }
